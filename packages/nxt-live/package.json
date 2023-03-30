@@ -1,0 +1,44 @@
+{
+  "name": "@resolid/nxt-live",
+  "version": "1.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "dependencies": {
+    "prism-react-renderer": "^1.3.5",
+    "react-simple-code-editor": "^0.13.1",
+    "sucrase": "^3.31.0"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/resolid/nxt",
+    "directory": "packages/nxt-live"
+  },
+  "license": "MIT"
+}
