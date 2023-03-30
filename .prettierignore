@@ -1,0 +1,5 @@
+**/dist
+**/build
+.vscode
+.idea
+pnpm-lock.yaml
