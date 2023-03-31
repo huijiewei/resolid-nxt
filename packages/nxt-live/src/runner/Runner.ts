@@ -1,7 +1,7 @@
 import { Component, type ReactElement } from 'react';
 
-import type { RunnerOptions, Scope } from '../util/running';
-import { generateElement } from '../util/running';
+import type { RunnerOptions, Scope } from '../utils/running';
+import { generateElement } from '../utils/running';
 
 export type RunnerProps = RunnerOptions & {
   onRendered?: (error?: Error) => void;
