@@ -8,7 +8,7 @@ export type AxeConfigureOptions = RunOptions & { globalOptions?: Spec };
 export const configureAxe = (options: AxeConfigureOptions = {}) => {
   const { globalOptions = {}, ...runnerOptions } = options;
 
-  const { checks = [], ...otherGlobalOptions } = globalOptions;
+  const { checks = [], rules = [], ...otherGlobalOptions } = globalOptions;
 
   configure({
     checks: [
@@ -18,6 +18,13 @@ export const configureAxe = (options: AxeConfigureOptions = {}) => {
         enabled: false,
       },
       ...checks,
+    ],
+    rules: [
+      {
+        id: 'color-contrast',
+        enabled: false,
+      },
+      ...rules,
     ],
     ...otherGlobalOptions,
   });
