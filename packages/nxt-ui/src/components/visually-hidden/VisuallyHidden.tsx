@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
-import { cx } from '@resolid/nxt-utils';
+import { __DEV__, cx } from '@resolid/nxt-utils';
 
 export const VisuallyHidden = (props: ComponentPropsWithoutRef<'span'>) => {
   const { children, className, ...rest } = props;
@@ -11,4 +11,6 @@ export const VisuallyHidden = (props: ComponentPropsWithoutRef<'span'>) => {
   );
 };
 
-VisuallyHidden.displayName = 'VisuallyHidden';
+if (__DEV__) {
+  VisuallyHidden.displayName = 'VisuallyHidden';
+}
