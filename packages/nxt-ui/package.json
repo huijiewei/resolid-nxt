@@ -24,6 +24,10 @@
     "./hooks": {
       "import": "./dist/hooks.js",
       "require": "./dist/hooks.cjs"
+    },
+    "./tailwind": {
+      "import": "./dist/tailwind.js",
+      "require": "./dist/tailwind.cjs"
     }
   },
   "typesVersions": {
@@ -33,6 +37,9 @@
       ],
       "hooks": [
         "./dist/hooks.d.ts"
+      ],
+      "tailwind": [
+        "./dist/tailwind.d.ts"
       ]
     }
   },
@@ -42,11 +49,13 @@
   "devDependencies": {
     "@resolid/nxt-tests": "workspace:*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.1"
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",
+    "tailwindcss": ">=3"
   },
   "repository": {
     "type": "git",
