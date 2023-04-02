@@ -75,7 +75,7 @@ export const prepareManifest = (
         assets.addSrc(key);
       }
 
-      if (key.match(new RegExp(`entry-client\\.(${['ts', 'tsx'].join('|')})$`))) {
+      if (key == 'index.html') {
         return null;
       }
 
@@ -83,9 +83,7 @@ export const prepareManifest = (
     })
     .filter(Boolean) as [string, { type: string; href: string }[]][];
 
-  const clientEntry = Object.keys(ssrManifest).find((key) =>
-    key.match(new RegExp(`entry-client\\.(${['ts', 'tsx'].join('|')})$`))
-  );
+  const clientEntry = Object.keys(ssrManifest).find((key) => key == 'index.html');
 
   const clientEntryAssets = collectAssets();
 

@@ -6,7 +6,6 @@ export const processHelmet = (startHtml: string, helmet: HelmetServerState | und
   }
 
   const heads = [
-    '<head>',
     helmet.title.toString(),
     helmet.priority.toString(),
     helmet.meta.toString(),
@@ -14,5 +13,5 @@ export const processHelmet = (startHtml: string, helmet: HelmetServerState | und
     helmet.script.toString(),
   ];
 
-  return startHtml.replace('<head>', heads.join(''));
+  return startHtml.replace('<!-- helmet -->', heads.join(''));
 };
