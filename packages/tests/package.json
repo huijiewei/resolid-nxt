@@ -14,6 +14,7 @@
     "pretty-format": "^29.5.0"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.7"
+    "@types/lodash-es": "^4.17.7",
+    "react": "^18.2.0"
   }
 }

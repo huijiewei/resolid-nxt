@@ -1,12 +1,11 @@
 {
-  "name": "@resolid/nxt-website",
+  "name": "website",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "serve": "node ./dist/server.mjs",
-    "test": "vitest run"
+    "serve": "node ./dist/server.mjs"
   },
   "dependencies": {
     "@resolid/nxt-live": "workspace:*",

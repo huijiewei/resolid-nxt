@@ -1,5 +1,5 @@
 {
-  "name": "@resolid/nxt-monorepo",
+  "name": "resolid-nxt",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,7 +7,16 @@
     "prepare": "husky install",
     "lint": "eslint --cache --ext .js,.jsx,.cjs,.mjs,.ts,.tsx .",
     "format": "prettier --write .",
-    "test": "pnpm test -r --filter=./packages/*"
+    "build:live": "pnpm run --filter @resolid/nxt-live... build",
+    "build:run": "pnpm run --filter @resolid/nxt-run... build",
+    "build:ui": "pnpm run --filter @resolid/nxt-ui... build",
+    "build:adapters": "pnpm run --filter @resolid/nxt-run-* build",
+    "build": "(pnpm run build:live & pnpm run build:ui & pnpm run build:run) && pnpm run build:adapters",
+    "website:dev": "pnpm run --filter website dev",
+    "website:build": "pnpm run --filter website build",
+    "website:serve": "pnpm run --filter website serve",
+    "website:deploy": "pnpm run build && pnpm run website:build",
+    "test": "pnpm test -r"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
