@@ -1,0 +1,42 @@
+{
+  "name": "@resolid/nxt-run-node",
+  "version": "1.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@resolid/nxt-run": "workspace:*",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "polka": "1.0.0-next.22",
+    "rollup": "^3.20.2",
+    "sirv": "^2.0.2"
+  },
+  "peerDependencies": {
+    "polka": ">=1",
+    "sirv": ">=2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/resolid/nxt",
+    "directory": "packages/adapters/nxt-run-node"
+  },
+  "homepage": "https://nxt.resolid.tech/run",
+  "license": "MIT"
+}
