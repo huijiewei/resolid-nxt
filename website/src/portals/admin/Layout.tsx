@@ -1,8 +1,12 @@
 import { Link, Outlet } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Component = () => {
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Admin</title>
+      </Helmet>
       <h3>Admin Layout</h3>
       <ul>
         <li>
@@ -13,7 +17,7 @@ const Component = () => {
         </li>
       </ul>
       <Outlet />
-    </div>
+    </>
   );
 };
 

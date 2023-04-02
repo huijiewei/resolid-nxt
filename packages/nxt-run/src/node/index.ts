@@ -1,4 +1,4 @@
-import type { IncomingMessage, ServerResponse, IncomingHttpHeaders, OutgoingHttpHeaders } from 'node:http';
+import type { IncomingHttpHeaders, IncomingMessage, OutgoingHttpHeaders, ServerResponse } from 'node:http';
 import { Readable } from 'node:stream';
 import { once } from 'node:events';
 import { splitCookiesString } from 'set-cookie-parser';

@@ -1,6 +1,6 @@
 import { useMediaQuery } from './index';
 import { MatchMediaMock, testRenderHook } from '@resolid/nxt-tests';
-import { describe, test, expect, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, test } from 'vitest';
 
 describe('useMediaQuery', () => {
   let matchMedia: MatchMediaMock;

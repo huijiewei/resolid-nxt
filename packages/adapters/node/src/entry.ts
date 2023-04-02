@@ -26,7 +26,7 @@ const assets = sirv(join(__dirname, '/public'), {
 });
 
 const render = async (req: IncomingMessage, res: ServerResponse) => {
-  const indexHtml = readFileSync(join(__dirname, 'public', 'index.html'), 'utf-8');
+  const indexHtml = readFileSync(join(__dirname, 'public', 'template.html'), 'utf-8');
   const [startHtml, endHtml] = indexHtml.split('<!-- app -->');
 
   try {

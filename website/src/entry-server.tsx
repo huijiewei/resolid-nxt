@@ -1,6 +1,6 @@
 import { PassThrough, Readable } from 'node:stream';
-import { RunServer, type RunContextValue } from '@resolid/nxt-run';
-import { createHandler } from '@resolid/nxt-run/server';
+import { type RunContextValue, RunServer } from '@resolid/nxt-run';
+import { createHandler, processHelmet } from '@resolid/nxt-run/server';
 import { renderToPipeableStream } from 'react-dom/server';
 import isbot from 'isbot';
 
@@ -32,7 +32,7 @@ export default createHandler(
             })
           );
 
-          body.write(renderOptions.startHtml);
+          body.write(processHelmet(renderOptions.startHtml, runContext.helmetContext?.helmet));
           pipe(body);
           body.write(renderOptions.endHtml);
         },

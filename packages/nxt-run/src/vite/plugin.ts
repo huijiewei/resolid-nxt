@@ -5,7 +5,7 @@ import { chunkSplitPlugin } from './plugins/split-chunk';
 import viteInspect from 'vite-plugin-inspect';
 import { join } from 'node:path';
 import { findAny } from './utils/file';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { prepareManifest } from './utils/manifest';
 import { dev } from './serve/dev';
 import { reactRefresh } from './plugins/react-refresh';
@@ -174,6 +174,12 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
             join(serverOutPath, 'route-manifest.json'),
             readFileSync(join(clientOutPath, 'route-manifest.json'), 'utf-8')
           );
+
+          const indexHtml = join(clientOutPath, 'index.html');
+
+          writeFileSync(join(clientOutPath, 'template.html'), readFileSync(indexHtml, 'utf-8'));
+
+          unlinkSync(indexHtml);
 
           finalise = async () => {
             await adapter.build(viteConfig.root, outPath, viteConfig.ssr.external, viteConfig.build.commonjsOptions);

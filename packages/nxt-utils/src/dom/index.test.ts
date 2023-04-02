@@ -2,6 +2,7 @@
 
 import { cx } from './index';
 import { describe, expect, test } from 'vitest';
+
 describe('utils/dom', () => {
   test('undefined', () => {
     expect(cx()).toBe('');

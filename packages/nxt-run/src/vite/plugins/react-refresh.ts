@@ -1,5 +1,5 @@
 import { type Plugin } from 'vite';
-import { join, dirname } from 'node:path';
+import { dirname, join } from 'node:path';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
