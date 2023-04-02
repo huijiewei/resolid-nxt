@@ -8,6 +8,7 @@
     "serve": "node ./dist/server.mjs"
   },
   "dependencies": {
+    "@mdx-js/react": "^2.3.0",
     "@resolid/nxt-live": "workspace:*",
     "@resolid/nxt-run": "workspace:*",
     "@resolid/nxt-run-node": "workspace:*",
@@ -22,9 +23,13 @@
     "sirv": "^2.0.2"
   },
   "devDependencies": {
+    "@mdx-js/rollup": "^2.3.0",
     "@resolid/nxt-tests": "workspace:*",
+    "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
+    "rehype-slug": "^5.1.0",
+    "remark-gfm": "^3.0.1",
     "tailwindcss": "^3.3.1"
   }
 }

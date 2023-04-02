@@ -4,6 +4,9 @@ import nxtRun from '@resolid/nxt-run/vite';
 import nxtRunNode from '@resolid/nxt-run-node';
 import { fileURLToPath, URL } from 'url';
 import { type UserConfig } from 'vite';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
+import mdx from '@mdx-js/rollup';
 
 export default defineConfig(({ command }) => {
   const isBuild = command == 'build';
@@ -11,6 +14,11 @@ export default defineConfig(({ command }) => {
   const config: UserConfig = {
     plugins: [
       !isBuild && tsconfigPaths(),
+      mdx({
+        providerImportSource: '@mdx-js/react',
+        rehypePlugins: [rehypeSlug],
+        remarkPlugins: [remarkGfm],
+      }),
       nxtRun({
         adapter: nxtRunNode(),
         manualChunks(id) {
