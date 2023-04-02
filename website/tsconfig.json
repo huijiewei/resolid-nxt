@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.base.json",
+  "include": ["src"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "paths": {
+      "~/*": ["./src/*"],
+      "@resolid/nxt-ui": ["../packages/nxt-ui/src"],
+      "@resolid/nxt-live": ["../packages/nxt-live/src"],
+      "@resolid/nxt-utils": ["../packages/nxt-utils/src"]
+    },
+    "types": ["node", "vite/client"]
+  }
+}
