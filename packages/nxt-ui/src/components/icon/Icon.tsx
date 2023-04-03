@@ -1,7 +1,16 @@
 import type { SVGAttributes } from 'react';
-import { cx, isNumber } from '@resolid/nxt-utils';
+import { __DEV__, isString } from '@resolid/nxt-utils';
+import type { Size } from '../../utils/types';
 
-export type IconProps = SVGAttributes<SVGElement> & { size?: number | string };
+export type IconProps = SVGAttributes<SVGElement> & { size?: number | Size };
+
+const iconSizes = {
+  xs: 16,
+  sm: 20,
+  md: 24,
+  lg: 28,
+  xl: 32,
+};
 
 export const Icon = (props: IconProps) => {
   const {
@@ -12,20 +21,24 @@ export const Icon = (props: IconProps) => {
     strokeLinecap = 'round',
     strokeLinejoin = 'round',
     children,
-    className = '',
-    size = '1em',
+    size = 'md',
+    width,
+    height,
     ...rest
   } = props;
+
+  const sizeValue = isString(size) ? iconSizes[size] : size;
 
   return (
     <svg
       fill={fill}
+      width={width ?? sizeValue}
+      height={height ?? sizeValue}
       viewBox={viewBox}
       stroke={stroke}
       strokeWidth={strokeWidth}
       strokeLinecap={strokeLinecap}
       strokeLinejoin={strokeLinejoin}
-      className={cx(isNumber(size) ? `h-${size} w-${size}` : `h-[${size}] w-[${size}]`, className)}
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
@@ -33,3 +46,7 @@ export const Icon = (props: IconProps) => {
     </svg>
   );
 };
+
+if (__DEV__) {
+  Icon.displayName = 'VisuallyHidden';
+}

@@ -43,16 +43,17 @@ export const Component = () => {
               </ul>
             </div>
             <div className={'flex flex-row items-center gap-4'}>
-              <button className={'text-gray-600 hover:text-blue-500'}>
-                <System className={'h-5 w-5'} />
+              <button title={'Change Theme'} className={'text-gray-600 hover:text-blue-500'}>
+                <System size={'sm'} />
               </button>
               <a
                 className={'text-gray-600 hover:text-blue-500'}
                 rel="noreferrer"
                 target="_blank"
                 href="https://github.com/resolid/nxt"
+                title={'Go to Resolid Nxt on Github'}
               >
-                <Github className={'h-5 w-5'} />
+                <Github size={'sm'} />
               </a>
             </div>
           </div>

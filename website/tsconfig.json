@@ -6,7 +6,9 @@
     "jsx": "react-jsx",
     "paths": {
       "~/*": ["./src/*"],
-      "@resolid/nxt-ui": ["../packages/nxt-ui/src"],
+      "@resolid/nxt-ui": ["../packages/nxt-ui/src/components"],
+      "@resolid/nxt-ui/hooks": ["../packages/nxt-ui/src/hooks"],
+      "@resolid/nxt-ui/tailwind": ["../packages/nxt-ui/src/tailwind"],
       "@resolid/nxt-live": ["../packages/nxt-live/src"],
       "@resolid/nxt-utils": ["../packages/nxt-utils/src"]
     },
