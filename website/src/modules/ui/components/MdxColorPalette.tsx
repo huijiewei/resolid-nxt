@@ -1,24 +1,24 @@
 import { isString } from '@resolid/nxt-utils';
-import { theme } from '@resolid/nxt-ui/tailwind';
+
+// noinspection ES6PreferShortImport
+import { colors } from '../../../../../packages/nxt-ui/src/tailwind/tokens/colors';
 
 type Color = { name: string; value: Record<string, string> | string };
 
 export const MdxColorPalette = () => {
-  const themeColors = theme.colors;
-
-  const colors: Color[] = Object.keys(themeColors)
+  const themeColors: Color[] = Object.keys(colors)
     .filter((key) => !['inherit', 'current', 'transparent'].includes(key))
     .map((key) => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      const color = themeColors[key];
+      const color = colors[key];
 
       return { name: key, value: color };
     });
 
   return (
     <div className={'flex flex-col gap-5'}>
-      {colors.map((color) => (
+      {themeColors.map((color) => (
         <div key={color.name} className={'flex flex-row gap-3'}>
           {isString(color.value) ? (
             <div className={'flex flex-row gap-3'}>
