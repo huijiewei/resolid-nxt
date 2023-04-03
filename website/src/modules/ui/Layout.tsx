@@ -22,7 +22,7 @@ export default function Layout() {
           <AsideMenu menus={menus} />
         </nav>
       </aside>
-      <div className={'pl-60'}>
+      <div className={'ps-60'}>
         <main className={'mx-auto h-full p-4'}>
           <MDXProvider components={mdxComponents}>
             <TocLayout module={'ui'} path={'/'}>

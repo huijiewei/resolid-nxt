@@ -14,7 +14,8 @@ const MenuItem = (props: { menu: Menu; depth: number }) => {
         <NavLink
           className={({ isActive }) => {
             return cx(
-              `block py-1 pl-${props.depth * 2}`,
+              'block py-1',
+              props.depth == 2 && 'ps-4',
               isActive ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-100 active:bg-gray-200'
             );
           }}
@@ -23,9 +24,7 @@ const MenuItem = (props: { menu: Menu; depth: number }) => {
           {props.menu.label}
         </NavLink>
       ) : (
-        <h5 className={props.depth > 1 ? `mb-1 font-normal text-gray-400 pl-${props.depth * 2}` : 'mb-2'}>
-          {props.menu.label}
-        </h5>
+        <h5 className={props.depth > 1 ? 'mb-1 ps-4 font-normal text-gray-400' : 'mb-2'}>{props.menu.label}</h5>
       )}
       {props.menu.children && (
         <ul className={'space-y-1'}>

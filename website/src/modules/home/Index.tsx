@@ -1,3 +1,3 @@
 export const Component = () => {
-  return <div className={'p-3'}>Home Index</div>;
+  return <div className={'p-4'}>Home Index</div>;
 };
