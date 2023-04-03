@@ -83,8 +83,8 @@ const TocSections = ({ toc }: { toc: TocItem[] }) => {
               '-ml-px block border-l py-1',
               item.depth == 2 ? 'ps-4' : 'ps-8',
               item.slug == currentSection
-                ? 'border-l-blue-300 text-blue-500'
-                : 'border-l-transparent text-gray-500 hover:border-l-gray-300 hover:text-gray-700'
+                ? 'border-l-blue-300 text-blue-600'
+                : 'border-l-transparent text-gray-600 hover:border-l-gray-300 hover:text-gray-700'
             )}
             href={'#' + item.slug}
           >
