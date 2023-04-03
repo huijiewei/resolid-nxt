@@ -19,15 +19,16 @@ export const Component = () => {
             <div className={cx('p-0')}>
               <ul className="flex font-medium">
                 {[
-                  { name: 'Home', href: '/', end: true },
-                  { name: 'Run', href: '/run' },
-                  { name: 'UI', href: '/ui' },
-                  { name: 'Forum', href: '/forum' },
-                  { name: 'Blog', href: '/blog' },
-                  { name: 'About', href: '/about' },
+                  { name: 'Home', href: '', end: true },
+                  { name: 'Run', href: 'run' },
+                  { name: 'UI', href: 'ui' },
+                  { name: 'Forum', href: 'forum' },
+                  { name: 'Blog', href: 'blog' },
+                  { name: 'About', href: 'about' },
                 ].map((link) => (
                   <li key={link.name}>
                     <NavLink
+                      end={link.end}
                       to={link.href}
                       className={({ isActive }) => {
                         return cx(

@@ -3,11 +3,14 @@ import { Readable } from 'node:stream';
 import { once } from 'node:events';
 import { splitCookiesString } from 'set-cookie-parser';
 
-export const createRequest = (req: IncomingMessage) => {
-  // noinspection HttpUrlsUsage
+export const getUrl = (req: IncomingMessage) => {
   const origin = req.headers.origin || `http://${req.headers.host}`;
-  const url = new URL(req.url ?? '', origin);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return new URL((req as any).originalUrl || req.url || '/', origin);
+};
+
+export const createRequest = (url: URL, req: IncomingMessage) => {
   const body =
     req.method === 'GET' || req.method === 'HEAD'
       ? undefined

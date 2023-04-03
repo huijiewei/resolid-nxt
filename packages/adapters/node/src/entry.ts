@@ -3,7 +3,7 @@ import polka from 'polka';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { type IncomingMessage, type ServerResponse } from 'http';
-import { createHeaders, createRequest, setResponse } from '@resolid/nxt-run/node';
+import { createHeaders, createRequest, setResponse, getUrl } from '@resolid/nxt-run/node';
 import { readFileSync } from 'fs';
 
 // @ts-expect-error Cannot find module
@@ -29,9 +29,11 @@ const render = async (req: IncomingMessage, res: ServerResponse) => {
   const indexHtml = readFileSync(join(__dirname, 'public', 'template.html'), 'utf-8');
   const [startHtml, endHtml] = indexHtml.split('<!-- app -->');
 
+  const url = getUrl(req);
+
   try {
     const response = await handleRequest(
-      createRequest(req),
+      createRequest(url, req),
       res.statusCode,
       createHeaders(res.getHeaders()),
       {

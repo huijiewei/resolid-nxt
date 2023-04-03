@@ -1,21 +1,25 @@
 import type { ViteDevServer } from 'vite';
-import { createHeaders, createRequest, setResponse } from '../../node';
+import { createHeaders, createRequest, getUrl, setResponse } from '../../node';
 import { readFileSync } from 'node:fs';
 
 export const dev = (viteServer: ViteDevServer) => {
   return () => {
     viteServer.middlewares.use(async (req, res) => {
-      console.log(req.method, new URL(req.url ?? '', viteServer.resolvedUrls?.local[0]).href);
+      const url = getUrl(req);
 
-      const html = readFileSync('./index.html', 'utf-8');
-      const transformedHtml = await viteServer.transformIndexHtml(req.url ?? '', html, req.originalUrl);
-      const [startHtml, endHtml] = transformedHtml.split('<!-- app -->');
+      console.log(req.method, url.href);
+
+      const indexHtml = await viteServer.transformIndexHtml(
+        req.originalUrl ?? '/',
+        readFileSync('./index.html', 'utf-8')
+      );
+      const [startHtml, endHtml] = indexHtml.split('<!-- app -->');
 
       try {
         const handleRequest = (await viteServer.ssrLoadModule('~nxt-run/entry-server')).default;
 
         const response = await handleRequest(
-          createRequest(req),
+          createRequest(url, req),
           res.statusCode,
           createHeaders(res.getHeaders()),
           {
