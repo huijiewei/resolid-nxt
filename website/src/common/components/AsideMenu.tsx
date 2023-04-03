@@ -7,29 +7,29 @@ export type Menu = {
   children?: Menu[];
 };
 
-const MenuItem = (props: { menu: Menu; depth: number }) => {
+const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
   return (
     <li>
-      {props.menu.path ? (
+      {menu.path ? (
         <NavLink
           className={({ isActive }) => {
             return cx(
               'block py-1',
-              props.depth == 2 && 'ps-4',
+              depth == 2 && 'ps-4',
               isActive ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-100 active:bg-gray-200'
             );
           }}
-          to={props.menu.path}
+          to={menu.path}
         >
-          {props.menu.label}
+          {menu.label}
         </NavLink>
       ) : (
-        <h5 className={props.depth > 1 ? 'mb-1 ps-4 font-normal text-gray-400' : 'mb-2'}>{props.menu.label}</h5>
+        <h5 className={depth > 1 ? 'mb-1 ps-4 font-normal text-gray-400' : 'mb-2'}>{menu.label}</h5>
       )}
-      {props.menu.children && (
+      {menu.children && (
         <ul className={'space-y-1'}>
-          {props.menu.children.map((child) => (
-            <MenuItem depth={props.depth + 1} menu={child} key={child.label} />
+          {menu.children.map((child) => (
+            <MenuItem depth={depth + 1} menu={child} key={child.label} />
           ))}
         </ul>
       )}
@@ -37,10 +37,10 @@ const MenuItem = (props: { menu: Menu; depth: number }) => {
   );
 };
 
-export const AsideMenu = (props: { menus: Menu[] }) => {
+export const AsideMenu = ({ menus }: { menus: Menu[] }) => {
   return (
     <ul className={'space-y-3 p-4'}>
-      {props.menus.map((menu) => (
+      {menus.map((menu) => (
         <MenuItem menu={menu} depth={1} key={menu.label} />
       ))}
     </ul>

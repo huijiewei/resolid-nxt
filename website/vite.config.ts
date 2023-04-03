@@ -7,6 +7,7 @@ import { type UserConfig } from 'vite';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import mdx from '@mdx-js/rollup';
+import rehypeHeadings from './scripts/rehype-headings';
 
 export default defineConfig(({ command }) => {
   const isBuild = command == 'build';
@@ -16,7 +17,7 @@ export default defineConfig(({ command }) => {
       !isBuild && tsconfigPaths(),
       mdx({
         providerImportSource: '@mdx-js/react',
-        rehypePlugins: [rehypeSlug],
+        rehypePlugins: [rehypeSlug, rehypeHeadings],
         remarkPlugins: [remarkGfm],
       }),
       nxtRun({

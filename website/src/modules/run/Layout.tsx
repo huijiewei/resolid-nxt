@@ -19,9 +19,9 @@ export default function Layout() {
           <MDXProvider components={mdxComponents}>
             <TocLayout
               getMdxPath={(pathname: string) => {
-                const path = pathname.replace('/ui/', '');
+                const path = pathname.replace('/run/', '');
 
-                return path.includes('components/') ? `ui/content/${path}` : `ui/content/documents/${path}`;
+                return `run/content/${path}`;
               }}
             >
               <Suspense>
