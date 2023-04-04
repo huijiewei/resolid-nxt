@@ -2,7 +2,7 @@
 
 module.exports = {
   presets: [require('@resolid/nxt-ui/tailwind')],
-  content: ['./src/**/*.{js,ts,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,tsx}'],
   theme: {},
   plugins: [require('@tailwindcss/typography')],
 };
