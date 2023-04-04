@@ -80,11 +80,11 @@ const TocSections = ({ toc }: { toc: TocItem[] }) => {
         <li key={item.slug}>
           <a
             className={cx(
-              '-ml-px block border-l py-1',
+              '-ml-px block border-s py-1',
               item.depth == 2 ? 'ps-4' : 'ps-8',
               item.slug == currentSection
-                ? 'border-l-blue-300 text-blue-600'
-                : 'border-l-transparent text-gray-600 hover:border-l-gray-300 hover:text-gray-700'
+                ? 'border-blue-300 text-blue-600'
+                : 'text-gray-600 hover:border-gray-300 hover:text-gray-700'
             )}
             href={'#' + item.slug}
           >
@@ -131,7 +131,7 @@ export const TableOfContents = ({ getMdxPath }: { getMdxPath: GetMdxPath }) => {
   }, [pathname, getMdxPath]);
 
   return (
-    <ul className={'sticky top-20 space-y-1 border-l border-gray-200'}>
+    <ul className={'sticky top-20 space-y-1 border-s'}>
       <TocSections toc={toc} />
     </ul>
   );

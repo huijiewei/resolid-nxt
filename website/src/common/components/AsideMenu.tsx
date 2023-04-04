@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { cx } from '@resolid/nxt-utils';
+import { useAsideLayoutDispatch } from '~/common/components/AsideLayout';
 
 export type Menu = {
   label: string;
@@ -8,6 +9,8 @@ export type Menu = {
 };
 
 const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
+  const setOpen = useAsideLayoutDispatch();
+
   return (
     <li>
       {menu.path ? (
@@ -19,6 +22,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
               isActive ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-100 active:bg-gray-200'
             );
           }}
+          onClick={() => setOpen(false)}
           to={menu.path}
         >
           {menu.label}
