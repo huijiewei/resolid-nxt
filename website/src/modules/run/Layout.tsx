@@ -6,6 +6,7 @@ import { TocLayout } from '~/common/mdx/TocLayout';
 import { mdxComponents } from './mdxComponents';
 import { Helmet } from 'react-helmet-async';
 import { Aside } from '~/common/components/Aside';
+import { AsideLayout, AsideLayoutMain } from '~/common/components/AsideLayout';
 
 export default function Layout() {
   return (
@@ -13,9 +14,9 @@ export default function Layout() {
       <Helmet>
         <title>UI</title>
       </Helmet>
-      <Aside menus={menus} />
-      <div className={'ps-60'}>
-        <main className={'mx-auto h-full p-4'}>
+      <AsideLayout>
+        <Aside menus={menus} />
+        <AsideLayoutMain>
           <MDXProvider components={mdxComponents}>
             <TocLayout
               getMdxPath={(pathname: string) => {
@@ -29,8 +30,8 @@ export default function Layout() {
               </Suspense>
             </TocLayout>
           </MDXProvider>
-        </main>
-      </div>
+        </AsideLayoutMain>
+      </AsideLayout>
     </>
   );
 }

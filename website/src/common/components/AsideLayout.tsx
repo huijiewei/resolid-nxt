@@ -1,4 +1,4 @@
-import { type SetStateAction, type Dispatch, useState, type ReactNode } from 'react';
+import { type SetStateAction, type Dispatch, useState, type PropsWithChildren } from 'react';
 import { createContext } from '@resolid/nxt-ui';
 import { Menu } from '~/common/icons/Menu';
 
@@ -31,7 +31,7 @@ const AsideBar = () => {
   );
 };
 
-export const AsideLayout = ({ children }: { children: ReactNode }) => {
+export const AsideLayout = ({ children }: PropsWithChildren) => {
   const [opened, setOpened] = useState(false);
 
   return (
@@ -41,5 +41,13 @@ export const AsideLayout = ({ children }: { children: ReactNode }) => {
         {children}
       </AsideLayoutStateProvider>
     </AsideLayoutDispatchProvider>
+  );
+};
+
+export const AsideLayoutMain = ({ children }: PropsWithChildren) => {
+  return (
+    <div className={'tablet:ps-60'}>
+      <main className={'tablet:pt-4 mx-auto h-full p-4 pt-16'}>{children}</main>
+    </div>
   );
 };
