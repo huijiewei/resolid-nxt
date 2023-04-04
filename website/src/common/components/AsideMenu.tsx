@@ -28,7 +28,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
           {menu.label}
         </NavLink>
       ) : (
-        <h5 className={depth > 1 ? 'mb-1 ps-4 font-normal text-gray-400' : 'mb-2'}>{menu.label}</h5>
+        <h5 className={depth > 1 ? 'mb-1 ps-4 font-normal text-gray-400' : 'mb-2 font-medium'}>{menu.label}</h5>
       )}
       {menu.children && (
         <ul className={'space-y-1'}>

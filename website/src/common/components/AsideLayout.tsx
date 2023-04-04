@@ -46,7 +46,7 @@ export const AsideLayout = ({ children }: PropsWithChildren) => {
 
 export const AsideLayoutMain = ({ children }: PropsWithChildren) => {
   return (
-    <div className={'tablet:ps-60'}>
+    <div className={'tablet:ps-56'}>
       <main className={'tablet:pt-4 mx-auto h-full p-4 pt-16'}>{children}</main>
     </div>
   );
