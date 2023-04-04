@@ -3,7 +3,7 @@ import polka from 'polka';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { type IncomingMessage, type ServerResponse } from 'http';
-import { createHeaders, createRequest, setResponse, getUrl } from '@resolid/nxt-run/node';
+import { createHeaders, createRequest, getUrl, setResponse } from '@resolid/nxt-run/node';
 import { readFileSync } from 'fs';
 
 // @ts-expect-error Cannot find module

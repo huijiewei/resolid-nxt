@@ -21,10 +21,6 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./hooks": {
-      "import": "./dist/hooks.js",
-      "require": "./dist/hooks.cjs"
-    },
     "./tailwind": {
       "import": "./dist/tailwind.js",
       "require": "./dist/tailwind.cjs"
@@ -34,9 +30,6 @@
     "*": {
       "*": [
         "./dist/index.d.ts"
-      ],
-      "hooks": [
-        "./dist/hooks.d.ts"
       ],
       "tailwind": [
         "./dist/tailwind.d.ts"
