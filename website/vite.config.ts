@@ -22,6 +22,9 @@ export default defineConfig(({ command }) => {
       }),
       nxtRun({
         adapter: nxtRunNode(),
+        reactOptions: {
+          include: /\.(mdx|js|jsx|ts|tsx)$/,
+        },
         manualChunks(id) {
           if (
             id.includes('/node_modules/react/') ||

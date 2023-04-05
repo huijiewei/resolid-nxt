@@ -1,12 +1,6 @@
 import type { ManualChunksFunction } from './plugins/split-chunk';
 import type { RollupCommonJSOptions } from 'vite';
-
-type ReactViteOptions = {
-  jsxImportSource?: string;
-  tsDecorators?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  plugins?: [string, Record<string, any>][];
-};
+import type { Options } from '@vitejs/plugin-react';
 
 export type NxtRunAdapter = {
   name: string;
@@ -18,7 +12,7 @@ export type NxtRunAdapter = {
   ) => Promise<void>;
 };
 
-export type NxtRunVitePluginOptions = {
+export type NxtRunViteOptions = {
   adapter: NxtRunAdapter;
   rootEntry?: string;
   clientEntry?: string;
@@ -28,6 +22,6 @@ export type NxtRunVitePluginOptions = {
   inspect?: boolean;
 
   manualChunks?: ManualChunksFunction;
-};
 
-export type NxtRunViteOptions = NxtRunVitePluginOptions & ReactViteOptions;
+  reactOptions?: Options;
+};

@@ -1,6 +1,6 @@
 import { build, type Plugin, type ResolvedConfig, type UserConfig } from 'vite';
 import type { NxtRunViteOptions } from './types';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { chunkSplitPlugin } from './plugins/split-chunk';
 import viteInspect from 'vite-plugin-inspect';
 import { join } from 'node:path';
@@ -21,7 +21,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
     routesEntry: _routesEntry,
     inspect = true,
     manualChunks,
-    ...reactViteOptions
+    reactOptions,
   } = options;
 
   let root: string, rootEntry: string, clientEntry: string, serverEntry: string, routesEntry: string;
@@ -33,7 +33,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
   const routeComponents = new Set<string>();
 
   const viteReactPlugin = react({
-    ...reactViteOptions,
+    ...reactOptions,
   });
 
   return [
