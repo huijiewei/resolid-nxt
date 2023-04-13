@@ -1,5 +1,5 @@
-import { createContext, useContext } from 'react';
 import type { Language, PrismTheme } from 'prism-react-renderer';
+import { createContext, useContext } from 'react';
 import type { UseRunnerReturn } from '../runner/useRunner';
 
 export type LiveContextProps = UseRunnerReturn & {

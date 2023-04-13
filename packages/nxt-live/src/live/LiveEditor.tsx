@@ -1,5 +1,5 @@
-import { useLiveContext } from './LiveContext';
 import { CodeEditor, type CodeEditorProps } from '../code/CodeEditor';
+import { useLiveContext } from './LiveContext';
 
 export type LiveEditorProps = Omit<CodeEditorProps, 'code' | 'language' | 'theme' | 'onChange'>;
 

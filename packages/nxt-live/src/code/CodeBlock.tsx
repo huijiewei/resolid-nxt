@@ -1,6 +1,6 @@
-import { type ComponentPropsWithoutRef, type CSSProperties, Fragment } from 'react';
 import type { Language, PrismTheme } from 'prism-react-renderer';
 import Highlight, { Prism as defaultPrism } from 'prism-react-renderer';
+import { Fragment, type CSSProperties, type ComponentPropsWithoutRef } from 'react';
 
 export type CodeBlockProps = Omit<ComponentPropsWithoutRef<'pre'>, 'children'> & {
   children?: string;

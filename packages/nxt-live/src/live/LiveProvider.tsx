@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 
-import { LiveContext } from './LiveContext';
 import type { Language, PrismTheme } from 'prism-react-renderer';
 import { useRunner, type UseRunnerProps } from '../runner/useRunner';
+import { LiveContext } from './LiveContext';
 
 export type LiveProviderProps = Omit<UseRunnerProps, 'code'> & {
   code?: string;

@@ -1,8 +1,8 @@
-import { type ComponentPropsWithoutRef, useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState, type ComponentPropsWithoutRef } from 'react';
 import Editor from 'react-simple-code-editor';
 
-import { CodeBlock } from './CodeBlock';
 import type { Language, PrismTheme } from 'prism-react-renderer';
+import { CodeBlock } from './CodeBlock';
 
 type EditorProps = ComponentPropsWithoutRef<typeof Editor>;
 

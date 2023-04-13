@@ -1,7 +1,7 @@
-import { createElement, type ReactElement, useEffect, useRef, useState } from 'react';
+import { createElement, useEffect, useRef, useState, type ReactElement } from 'react';
 
-import { Runner } from './Runner';
 import type { RunnerOptions } from '../utils/running';
+import { Runner } from './Runner';
 
 export type UseRunnerProps = RunnerOptions & {
   disableCache?: boolean;
