@@ -1,17 +1,17 @@
 import { isString } from '@resolid/nxt-utils';
 
 // noinspection ES6PreferShortImport
-import { colors } from '../../../../../packages/nxt-ui/src/tailwind/tokens/colors';
+import { colorsPalette } from '../../../../../packages/nxt-tailwind/src/tokens/colors-palette';
 
 type Color = { name: string; value: Record<string, string> | string };
 
 export const MdxColorPalette = () => {
-  const themeColors: Color[] = Object.keys(colors)
+  const themeColors: Color[] = Object.keys(colorsPalette)
     .filter((key) => !['inherit', 'current', 'transparent'].includes(key))
     .map((key) => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      const color = colors[key];
+      const color = colorsPalette[key];
 
       return { name: key, value: color };
     });
