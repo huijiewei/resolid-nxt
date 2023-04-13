@@ -1,14 +1,12 @@
 import { cx } from '@resolid/nxt-utils';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useTocContext } from '~/common/mdx/TocContext';
 
-type TocItem = {
+export type TocItem = {
   depth: number;
   text: string;
   slug: string;
 };
-
-export type GetMdxPath = (pathname: string) => string;
 
 const getHeadingsFromToc = (tableOfContents: TocItem[]) => {
   return tableOfContents.map(({ slug }) => {
@@ -96,43 +94,12 @@ const TocSections = ({ toc }: { toc: TocItem[] }) => {
   );
 };
 
-export const TableOfContents = ({ getMdxPath }: { getMdxPath: GetMdxPath }) => {
-  const { pathname } = useLocation();
-
-  const [toc, setToc] = useState<TocItem[]>([]);
-
-  useEffect(() => {
-    const paths = getMdxPath(pathname).split('/');
-
-    (async () => {
-      try {
-        const { getHeadings } =
-          paths.length == 5
-            ? await import(`../../modules/${paths[0]}/${paths[1]}/${paths[2]}/${paths[3]}/${paths[4]}.mdx`)
-            : paths.length == 4
-            ? await import(`../../modules/${paths[0]}/${paths[1]}/${paths[2]}/${paths[3]}.mdx`)
-            : paths.length == 3
-            ? await import(`../../modules/${paths[0]}/${paths[1]}/${paths[2]}.mdx`)
-            : paths.length == 2
-            ? await import(`../../modules/${paths[0]}/${paths[1]}.mdx`)
-            : await import(`../../modules/${paths[0]}.mdx`);
-
-        const headings = (getHeadings() as TocItem[]).filter((h) => h.depth > 1 && h.depth <= 3);
-
-        setToc(headings);
-      } catch (ex) {
-        setToc([]);
-      }
-    })();
-
-    return () => {
-      setToc([]);
-    };
-  }, [pathname, getMdxPath]);
+export const TocSection = () => {
+  const toc = useTocContext();
 
   return (
     <ul className={'sticky top-20 space-y-1 border-s'}>
-      <TocSections toc={toc} />
+      <TocSections toc={toc.filter((item) => item.depth > 1 && item.depth <= 3)} />
     </ul>
   );
 };

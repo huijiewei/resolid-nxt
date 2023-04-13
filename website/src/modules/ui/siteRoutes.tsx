@@ -1,15 +1,9 @@
-import type { ComponentType } from 'react';
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { getPathname } from '~/common/utils/path';
+import { components, documents } from '~/modules/ui/mdxDocuments';
 import NotFound from '~/portals/site/NotFound';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const documents = import.meta.glob<boolean, string, { default: ComponentType<any> }>('./content/documents/*.mdx');
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const components = import.meta.glob<boolean, string, { default: ComponentType<any> }>('./content/components/*.mdx');
 
 const getBasename = (path: string) => {
   return getPathname(path).split('/').pop()?.split('.')[0];
