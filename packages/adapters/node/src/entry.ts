@@ -1,10 +1,10 @@
-import sirv from 'sirv';
-import polka from 'polka';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
-import { type IncomingMessage, type ServerResponse } from 'http';
 import { createHeaders, createRequest, getUrl, setResponse } from '@resolid/nxt-run/node';
 import { readFileSync } from 'fs';
+import { type IncomingMessage, type ServerResponse } from 'http';
+import { dirname, join } from 'path';
+import polka from 'polka';
+import sirv from 'sirv';
+import { fileURLToPath } from 'url';
 
 // @ts-expect-error Cannot find module
 import manifest from './route-manifest.json';
@@ -38,7 +38,6 @@ const render = async (req: IncomingMessage, res: ServerResponse) => {
       createHeaders(res.getHeaders()),
       {
         manifest: manifest,
-        helmetContext: {},
       },
       {
         startHtml,
