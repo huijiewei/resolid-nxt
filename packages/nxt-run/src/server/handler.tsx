@@ -1,5 +1,6 @@
-import { type RunContextValue } from '../components/RunContext';
+import { type FilledContext } from 'react-helmet-async';
 import { createStaticHandler } from 'react-router-dom/server';
+import { type EntryContext } from './context';
 
 // @ts-expect-error Cannot find module
 import Root from '~nxt-run/root';
@@ -13,7 +14,7 @@ export type HandleFn = (
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  runContext: RunContextValue,
+  entryContext: EntryContext,
   renderOptions: RenderOptions
 ) => Promise<Response> | Response;
 
@@ -22,7 +23,7 @@ export const createHandler = (handle: HandleFn) => {
     request: Request,
     responseStatusCode: number,
     responseHeaders: Headers,
-    runContext: RunContextValue,
+    entryContext: EntryContext,
     renderOptions: RenderOptions
   ) => {
     const { query, dataRoutes } = createStaticHandler(
@@ -38,12 +39,10 @@ export const createHandler = (handle: HandleFn) => {
       }
     );
 
-    const context = {
-      ...runContext,
-      routes: dataRoutes,
-      staticHandlerContext: await query(request),
-    };
+    entryContext.helmetContext = {} as FilledContext;
+    entryContext.routes = dataRoutes;
+    entryContext.staticHandlerContext = await query(request);
 
-    return handle(request, responseStatusCode, responseHeaders, context, renderOptions);
+    return handle(request, responseStatusCode, responseHeaders, entryContext, renderOptions);
   };
 };

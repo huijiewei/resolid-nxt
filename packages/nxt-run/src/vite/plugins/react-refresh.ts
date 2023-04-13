@@ -1,7 +1,7 @@
-import { type Plugin } from 'vite';
-import { dirname, join } from 'node:path';
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
+import { dirname, join } from 'node:path';
+import { type Plugin } from 'vite';
 
 export const reactRefresh = () => {
   const runtimePublicPath = '/@react-refresh';
@@ -18,7 +18,7 @@ export default exports
 `;
 
   return {
-    name: 'vite-plugin-nxt-run-refresh',
+    name: 'nxt-run-react-refresh',
     apply: 'serve',
     enforce: 'pre',
     resolveId: (id) => {

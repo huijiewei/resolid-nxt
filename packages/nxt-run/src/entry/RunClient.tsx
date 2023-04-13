@@ -1,8 +1,7 @@
-import { createBrowserRouter, matchRoutes, RouterProvider } from 'react-router-dom';
-import { hydrateRoot } from 'react-dom/client';
 import { StrictMode } from 'react';
-import { RunContext } from '../components/RunContext';
+import { hydrateRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
+import { createBrowserRouter, matchRoutes, RouterProvider } from 'react-router-dom';
 
 // @ts-expect-error Cannot find module
 import Root from '~nxt-run/root';
@@ -29,11 +28,9 @@ const RunClient = () => {
   );
 
   return (
-    <RunContext.Provider value={{ routes: [], staticHandlerContext: null }}>
-      <HelmetProvider>
-        <RouterProvider router={router} fallbackElement={null} />
-      </HelmetProvider>
-    </RunContext.Provider>
+    <HelmetProvider>
+      <RouterProvider router={router} fallbackElement={null} />
+    </HelmetProvider>
   );
 };
 

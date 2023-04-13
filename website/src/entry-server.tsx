@@ -1,8 +1,8 @@
-import { PassThrough, Readable } from 'node:stream';
-import { type RunContextValue, RunServer } from '@resolid/nxt-run';
+import { RunServer, type EntryContext } from '@resolid/nxt-run';
 import { createHandler, processHelmet } from '@resolid/nxt-run/server';
-import { renderToPipeableStream } from 'react-dom/server';
 import isbot from 'isbot';
+import { PassThrough, Readable } from 'node:stream';
+import { renderToPipeableStream } from 'react-dom/server';
 
 const ABORT_DELAY = 5000;
 
@@ -11,7 +11,7 @@ export default createHandler(
     request: Request,
     responseStatusCode: number,
     responseHeaders: Headers,
-    runContext: RunContextValue,
+    entryContext: EntryContext,
     renderOptions
   ) => {
     const ready = isbot(request.headers.get('user-agent')) ? 'onAllReady' : 'onShellReady';
@@ -19,7 +19,7 @@ export default createHandler(
     return new Promise((resolve, reject) => {
       let didError = false;
 
-      const { pipe, abort } = renderToPipeableStream(<RunServer context={runContext} />, {
+      const { pipe, abort } = renderToPipeableStream(<RunServer context={entryContext} />, {
         [ready]() {
           const body = new PassThrough();
 
@@ -32,7 +32,7 @@ export default createHandler(
             })
           );
 
-          body.write(processHelmet(renderOptions.startHtml, runContext.helmetContext?.helmet));
+          body.write(processHelmet(renderOptions.startHtml, entryContext));
           pipe(body);
           body.write(renderOptions.endHtml);
         },

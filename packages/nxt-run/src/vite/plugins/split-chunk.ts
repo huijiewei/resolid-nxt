@@ -1,5 +1,5 @@
-import type { Plugin, UserConfig } from 'vite';
 import type { GetModuleInfo, OutputOptions } from 'rollup';
+import type { Plugin, UserConfig } from 'vite';
 
 export type ManualChunksFunction = (id: string) => string | void | undefined | null;
 type ChunkOptions = { cache?: SplitChunkCache; manualChunks?: ManualChunksFunction };
@@ -83,7 +83,7 @@ export const chunkSplitPlugin = ({ manualChunks }: { manualChunks?: ManualChunks
 
   // noinspection TypeScriptValidateTypes,JSUnusedGlobalSymbols
   return {
-    name: 'vite-plugin-split-chunk',
+    name: 'split-chunk',
     async config(userConfig) {
       let outputs = userConfig?.build?.rollupOptions?.output;
 

@@ -1,6 +1,6 @@
-import type { ManualChunksFunction } from './plugins/split-chunk';
-import type { RollupCommonJSOptions } from 'vite';
 import type { Options } from '@vitejs/plugin-react';
+import type { RollupCommonJSOptions } from 'vite';
+import type { ManualChunksFunction } from './plugins/split-chunk';
 
 export type NxtRunAdapter = {
   name: string;

@@ -1,6 +1,6 @@
+import { once } from 'node:events';
 import type { IncomingHttpHeaders, IncomingMessage, OutgoingHttpHeaders, ServerResponse } from 'node:http';
 import { Readable } from 'node:stream';
-import { once } from 'node:events';
 import { splitCookiesString } from 'set-cookie-parser';
 
 export const getUrl = (req: IncomingMessage) => {

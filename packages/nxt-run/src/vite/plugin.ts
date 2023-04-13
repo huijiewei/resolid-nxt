@@ -1,14 +1,15 @@
-import { build, type Plugin, type ResolvedConfig, type UserConfig } from 'vite';
-import type { NxtRunViteOptions } from './types';
 import react from '@vitejs/plugin-react';
-import { chunkSplitPlugin } from './plugins/split-chunk';
-import viteInspect from 'vite-plugin-inspect';
-import { join } from 'node:path';
-import { findAny } from './utils/file';
 import { readFileSync, unlinkSync, writeFileSync } from 'node:fs';
-import { prepareManifest } from './utils/manifest';
-import { dev } from './serve/dev';
+import { join } from 'node:path';
+import { build, type Plugin, type ResolvedConfig, type UserConfig } from 'vite';
+import viteInspect from 'vite-plugin-inspect';
 import { reactRefresh } from './plugins/react-refresh';
+import { chunkSplitPlugin } from './plugins/split-chunk';
+import { dev } from './serve/dev';
+import type { NxtRunViteOptions } from './types';
+import { findAny } from './utils/file';
+import { prepareManifest } from './utils/manifest';
+import { transformRouteComponent } from './utils/transform';
 
 let secondaryBuildStarted = false;
 
@@ -38,7 +39,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
 
   return [
     {
-      name: 'vite-plugin-nxt-run-config',
+      name: 'nxt-run-config',
       enforce: 'pre',
       config(userConfig, { command }) {
         root = userConfig.root || process.cwd();
@@ -89,12 +90,27 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
         viteConfig = config;
       },
     } as Plugin,
-
+    {
+      name: 'nxt-run-route-component',
+      enforce: 'pre',
+      apply: 'build',
+      transform(code, id, transformOptions) {
+        return transformRouteComponent(
+          code,
+          id,
+          transformOptions?.ssr ?? false,
+          root,
+          rootEntry,
+          serverEntry,
+          (componentId) => routeComponents.add(componentId)
+        );
+      },
+    } as Plugin,
     inspect && viteInspect({ build: true, outputDir: join('.resolid', 'inspect') }),
     reactRefresh(),
     viteReactPlugin,
     {
-      name: 'vite-plugin-nxt-run-server',
+      name: 'nxt-run-server',
       apply: 'serve',
       config() {
         return {
@@ -106,7 +122,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
       },
     } as Plugin,
     {
-      name: 'vite-plugin-nxt-run-build',
+      name: 'nxt-run-build',
       config(userConfig) {
         if (isBuild) {
           const ssr = userConfig.build?.ssr;

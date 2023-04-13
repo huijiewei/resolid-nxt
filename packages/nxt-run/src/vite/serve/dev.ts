@@ -1,6 +1,6 @@
+import { readFileSync } from 'node:fs';
 import type { ViteDevServer } from 'vite';
 import { createHeaders, createRequest, getUrl, setResponse } from '../../node';
-import { readFileSync } from 'node:fs';
 
 export const dev = (viteServer: ViteDevServer) => {
   return () => {
@@ -24,7 +24,6 @@ export const dev = (viteServer: ViteDevServer) => {
           createHeaders(res.getHeaders()),
           {
             manifest: {},
-            helmetContext: {},
           },
           { startHtml, endHtml }
         );
