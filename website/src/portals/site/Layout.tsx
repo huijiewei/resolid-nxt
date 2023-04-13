@@ -42,7 +42,7 @@ const Header = () => {
     <header className={'fixed inset-x-0 z-20 w-full border-b bg-white/75 backdrop-blur'}>
       <nav className={'desktop:max-w-7xl mx-auto flex h-16 items-center justify-between px-4'}>
         <div className={'tablet:hidden flex flex-1'}>
-          <button className={'p-2'} onClick={() => setOpened((prev) => !prev)}>
+          <button title={'Menu'} className={'p-2'} onClick={() => setOpened((prev) => !prev)}>
             {opened ? <Close size={'sm'} /> : <Menu size={'sm'} />}
           </button>
         </div>
