@@ -1,8 +1,8 @@
-import { getPathname } from '~/common/utils/path';
 import type { ComponentType } from 'react';
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
+import { getPathname } from '~/common/utils/path';
 
 import NotFound from '~/portals/site/NotFound';
 

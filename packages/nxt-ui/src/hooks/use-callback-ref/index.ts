@@ -1,4 +1,4 @@
-import { type DependencyList, useCallback, useRef } from 'react';
+import { useCallback, useRef, type DependencyList } from 'react';
 import { useIsomorphicLayoutEffect } from '../use-isomorphic-layout-effect';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

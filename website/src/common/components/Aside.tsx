@@ -1,7 +1,7 @@
-import { AsideMenu, type Menu } from './AsideMenu';
 import { cx } from '@resolid/nxt-utils';
 import { useAsideLayoutDispatch, useAsideLayoutState } from '~/common/components/AsideLayout';
 import { Close } from '~/common/icons/Close';
+import { AsideMenu, type Menu } from './AsideMenu';
 
 export const Aside = (props: { menus: Menu[] }) => {
   const opened = useAsideLayoutState();

@@ -1,5 +1,5 @@
-import { Link, Outlet } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { Link, Outlet } from 'react-router-dom';
 
 const Component = () => {
   return (

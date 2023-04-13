@@ -1,11 +1,11 @@
-import { Link, NavLink, Outlet } from 'react-router-dom';
-import { type MouseEventHandler, Suspense, useState } from 'react';
-import ResolidBanner from '~/assets/images/resolid-banner.svg';
 import { cx } from '@resolid/nxt-utils';
-import { System } from '~/common/icons/System';
+import { Suspense, useState, type MouseEventHandler } from 'react';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import ResolidBanner from '~/assets/images/resolid-banner.svg';
+import { Close } from '~/common/icons/Close';
 import { Github } from '~/common/icons/Github';
 import { Menu } from '~/common/icons/Menu';
-import { Close } from '~/common/icons/Close';
+import { System } from '~/common/icons/System';
 
 const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> }) => {
   return (

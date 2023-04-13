@@ -1,6 +1,6 @@
 import { cx } from '@resolid/nxt-utils';
-import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 type TocItem = {
   depth: number;

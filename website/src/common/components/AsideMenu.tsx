@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import { cx } from '@resolid/nxt-utils';
+import { NavLink } from 'react-router-dom';
 import { useAsideLayoutDispatch } from '~/common/components/AsideLayout';
 
 export type Menu = {

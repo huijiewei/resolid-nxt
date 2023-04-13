@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { type GetMdxPath, TableOfContents } from './TableOfContents';
+import { TableOfContents, type GetMdxPath } from './TableOfContents';
 
 export const TocLayout = ({ getMdxPath, children }: PropsWithChildren<{ getMdxPath: GetMdxPath }>) => {
   return (

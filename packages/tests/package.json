@@ -1,6 +1,7 @@
 {
   "name": "@resolid/nxt-tests",
   "private": true,
+  "type": "module",
   "main": "./src/index.ts",
   "dependencies": {
     "@testing-library/dom": "^9.2.0",

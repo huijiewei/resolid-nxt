@@ -1,2 +1,2 @@
-export * from './visually-hidden/VisuallyHidden';
 export * from './icon/Icon';
+export * from './visually-hidden/VisuallyHidden';

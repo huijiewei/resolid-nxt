@@ -1,6 +1,6 @@
-import { Outlet, ScrollRestoration } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Suspense } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 
 export default function Root() {
   return (

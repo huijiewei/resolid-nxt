@@ -1,5 +1,5 @@
-import type { RouteObject } from 'react-router-dom';
 import { lazy } from 'react';
+import type { RouteObject } from 'react-router-dom';
 
 const routes: RouteObject[] = [
   {

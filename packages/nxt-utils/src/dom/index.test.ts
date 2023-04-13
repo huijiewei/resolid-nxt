@@ -1,7 +1,7 @@
 // noinspection PointlessBooleanExpressionJS,ConstantConditionalExpressionJS
 
-import { cx } from './index';
 import { describe, expect, test } from 'vitest';
+import { cx } from './index';
 
 describe('utils/dom', () => {
   test('undefined', () => {

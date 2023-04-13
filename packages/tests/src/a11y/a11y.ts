@@ -1,8 +1,8 @@
-import { expect } from 'vitest';
-import { axe, type AxeConfigureOptions } from './axe';
 import type { RenderOptions } from '@testing-library/react';
 import { render } from '@testing-library/react';
 import { isValidElement, type ReactElement } from 'react';
+import { expect } from 'vitest';
+import { axe, type AxeConfigureOptions } from './axe';
 
 export const testA11y = async (
   ui: ReactElement | HTMLElement,

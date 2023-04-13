@@ -1,12 +1,12 @@
-import { menus } from './menus';
 import { MDXProvider } from '@mdx-js/react';
-import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import { TocLayout } from '~/common/mdx/TocLayout';
-import { mdxComponents } from './mdxComponents';
 import { Helmet } from 'react-helmet-async';
+import { Outlet } from 'react-router-dom';
 import { Aside } from '~/common/components/Aside';
 import { AsideLayout, AsideLayoutMain } from '~/common/components/AsideLayout';
+import { TocLayout } from '~/common/mdx/TocLayout';
+import { mdxComponents } from './mdxComponents';
+import { menus } from './menus';
 
 export default function Layout() {
   return (
