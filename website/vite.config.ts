@@ -1,12 +1,12 @@
-import { defineConfig } from 'vitest/config';
-import tsconfigPaths from 'vite-tsconfig-paths';
-import nxtRun from '@resolid/nxt-run/vite';
+import mdx from '@mdx-js/rollup';
 import nxtRunNode from '@resolid/nxt-run-node';
-import { fileURLToPath, URL } from 'url';
-import { type UserConfig } from 'vite';
+import nxtRun from '@resolid/nxt-run/vite';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
-import mdx from '@mdx-js/rollup';
+import { fileURLToPath, URL } from 'url';
+import { type UserConfig } from 'vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from 'vitest/config';
 import rehypeHeadings from './scripts/rehype-headings';
 
 export default defineConfig(({ command }) => {
@@ -15,11 +15,14 @@ export default defineConfig(({ command }) => {
   const config: UserConfig = {
     plugins: [
       !isBuild && tsconfigPaths(),
-      mdx({
-        providerImportSource: '@mdx-js/react',
-        rehypePlugins: [rehypeSlug, rehypeHeadings],
-        remarkPlugins: [remarkGfm],
-      }),
+      {
+        ...mdx({
+          providerImportSource: '@mdx-js/react',
+          rehypePlugins: [rehypeSlug, rehypeHeadings],
+          remarkPlugins: [remarkGfm],
+        }),
+        enforce: 'pre',
+      },
       nxtRun({
         adapter: nxtRunNode(),
         reactOptions: {

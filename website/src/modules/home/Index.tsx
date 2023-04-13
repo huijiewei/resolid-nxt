@@ -1,3 +1,9 @@
+import { DefaultLayout } from '~/common/components/DefaultLayout';
+
 export const Component = () => {
-  return <div className={'p-4'}>Home Index</div>;
+  return (
+    <DefaultLayout>
+      <div>Home Index</div>
+    </DefaultLayout>
+  );
 };
