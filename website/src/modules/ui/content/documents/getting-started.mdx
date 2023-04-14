@@ -4,6 +4,46 @@ Follow the steps below to quickly get started using the component library.
 
 ## Install
 
+Install Resolid NXT-UI base package by running either of the following:
+
 ```shell
-npm i @resolid/nxt-ui
+## NPM
+npm install @resolid/nxt-ui
+## PNPM
+pnpm add @resolid/nxt-ui
+## Yarn
+yarn add @resolid/nxt-ui
 ```
+
+Install Resolid NXT-UI Tailwind CSS preset as a dev dependency by running either of the following:
+
+```shell
+## NPM
+npm install -D @resolid/nxt-tailwind
+## PNPM
+pnpm add -D @resolid/nxt-tailwind
+## Yarn
+yarn add -D @resolid/nxt-tailwind
+```
+
+## Adding the Tailwind CSS preset
+
+Make sure that you have [Tailwind CSS](https://tailwindcss.com/docs/guides/solidjs) installed, then inside the `tailwind.config.cjs` file:
+
+1. Add Resolid NXT-UI in the `content` array, in order to get the classes applied to the components.
+2. Require the preset for Tailwind CSS.
+
+```javascript
+module.exports = {
+  presets: [require('@resolid/nxt-tailwind')()],
+  content: [
+    './node_modules/@resolid/nxt-ui/dist/**/*.{js,cjs,mjs}',
+    './src/**/*.{html,js,jsx,ts,tsx,mdx}'
+  ],
+  theme: {},
+};
+```
+
+## Using the components
+
+Import the components you need and start building your application.

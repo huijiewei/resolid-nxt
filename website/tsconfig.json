@@ -7,7 +7,7 @@
     "paths": {
       "~/*": ["./src/*"],
       "@resolid/nxt-ui": ["../packages/nxt-ui/src"],
-      "@resolid/nxt-live": ["../packages/nxt-live/src"],
+      "@resolid/nxt-prism": ["../packages/nxt-prism/src"],
       "@resolid/nxt-utils": ["../packages/nxt-utils/src"]
     },
     "types": ["node", "vite/client"]

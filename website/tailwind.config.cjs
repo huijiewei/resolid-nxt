@@ -9,5 +9,5 @@ module.exports = {
     './node_modules/@resolid/nxt-ui/src/**/*.{ts,tsx}',
   ],
   theme: {},
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [],
 };

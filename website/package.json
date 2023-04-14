@@ -11,7 +11,7 @@
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
     "@prisma/client": "^4.12.0",
-    "@resolid/nxt-live": "workspace:*",
+    "@resolid/nxt-prism": "workspace:*",
     "@resolid/nxt-run": "workspace:*",
     "@resolid/nxt-run-node": "workspace:*",
     "@resolid/nxt-ui": "workspace:*",
@@ -28,7 +28,6 @@
     "@mdx-js/rollup": "^2.3.0",
     "@resolid/nxt-tests": "workspace:*",
     "@resolid/nxt-tailwind": "workspace:*",
-    "@tailwindcss/typography": "^0.5.9",
     "acorn": "^8.8.2",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
