@@ -4,13 +4,13 @@ export const colorsSemanticLight = {
   fg: {
     default: colorsPalette.black,
     emphasized: colorsPalette.white,
-    muted: colorsPalette.gray[800],
-    subtle: colorsPalette.gray[700],
+    muted: colorsPalette.gray[600],
+    subtle: colorsPalette.gray[500],
 
-    primary: colorsPalette.blue[800],
-    success: colorsPalette.green[800],
-    warning: colorsPalette.yellow[800],
-    danger: colorsPalette.red[800],
+    primary: colorsPalette.blue[500],
+    success: colorsPalette.green[500],
+    warning: colorsPalette.yellow[500],
+    danger: colorsPalette.red[500],
   },
   bg: {
     default: colorsPalette.white,
@@ -22,9 +22,9 @@ export const colorsSemanticLight = {
       hovered: colorsPalette.blue[100],
       pressed: colorsPalette.blue[200],
       emphasis: {
-        DEFAULT: colorsPalette.blue[600],
-        hovered: colorsPalette.blue[700],
-        pressed: colorsPalette.blue[800],
+        DEFAULT: colorsPalette.blue[500],
+        hovered: colorsPalette.blue[600],
+        pressed: colorsPalette.blue[700],
       },
     },
 
@@ -33,9 +33,9 @@ export const colorsSemanticLight = {
       hovered: colorsPalette.gray[100],
       pressed: colorsPalette.gray[200],
       emphasis: {
-        DEFAULT: colorsPalette.gray[600],
-        hovered: colorsPalette.gray[700],
-        pressed: colorsPalette.gray[800],
+        DEFAULT: colorsPalette.gray[500],
+        hovered: colorsPalette.gray[600],
+        pressed: colorsPalette.gray[700],
       },
     },
 
@@ -44,9 +44,9 @@ export const colorsSemanticLight = {
       hovered: colorsPalette.green[100],
       pressed: colorsPalette.green[200],
       emphasis: {
-        DEFAULT: colorsPalette.green[600],
-        hovered: colorsPalette.green[700],
-        pressed: colorsPalette.green[800],
+        DEFAULT: colorsPalette.green[500],
+        hovered: colorsPalette.green[600],
+        pressed: colorsPalette.green[700],
       },
     },
 
@@ -55,9 +55,9 @@ export const colorsSemanticLight = {
       hovered: colorsPalette.yellow[100],
       pressed: colorsPalette.yellow[200],
       emphasis: {
-        DEFAULT: colorsPalette.yellow[600],
-        hovered: colorsPalette.yellow[700],
-        pressed: colorsPalette.yellow[800],
+        DEFAULT: colorsPalette.yellow[500],
+        hovered: colorsPalette.yellow[600],
+        pressed: colorsPalette.yellow[700],
       },
     },
 
@@ -66,9 +66,9 @@ export const colorsSemanticLight = {
       hovered: colorsPalette.red[100],
       pressed: colorsPalette.red[200],
       emphasis: {
-        DEFAULT: colorsPalette.red[600],
-        hovered: colorsPalette.red[700],
-        pressed: colorsPalette.red[800],
+        DEFAULT: colorsPalette.red[500],
+        hovered: colorsPalette.red[600],
+        pressed: colorsPalette.red[700],
       },
     },
   },
