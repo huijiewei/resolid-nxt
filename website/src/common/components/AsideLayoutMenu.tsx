@@ -19,7 +19,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
             return cx(
               'block py-1',
               depth == 2 && 'ps-4',
-              isActive ? 'bg-blue-50 text-blue-600' : 'hover:bg-gray-100 active:bg-gray-200'
+              isActive ? 'bg-bg-accent' : 'hover:bg-bg-subtle active:bg-bg-muted'
             );
           }}
           onClick={() => setOpen(false)}
@@ -28,7 +28,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
           {menu.label}
         </NavLink>
       ) : (
-        <h5 className={depth > 1 ? 'mb-1 ps-4 font-normal text-gray-400' : 'mb-2 font-medium'}>{menu.label}</h5>
+        <h5 className={depth > 1 ? 'mb-1 ps-4 font-normal' : 'mb-2 font-medium'}>{menu.label}</h5>
       )}
       {menu.children && (
         <ul className={'space-y-1'}>

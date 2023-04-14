@@ -11,7 +11,7 @@ export const AsideLayoutSide = (props: { menus: Menu[] }) => {
     <aside
       className={cx(
         'scrollbar scrollbar-thin overflow-y-auto overflow-x-hidden overscroll-contain',
-        'fixed bottom-0 top-16 w-56 border-e bg-white',
+        'fixed bottom-0 top-16 w-56 border-e bg-bg-default tablet:bg-inherit',
         'tablet:z-0 z-10',
         'tablet:translate-x-0 transition-transform duration-200',
         opened ? 'translate-x-0' : '-translate-x-full'

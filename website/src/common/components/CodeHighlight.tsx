@@ -1,4 +1,5 @@
-import { Highlight, Prism, nightOwlLight, type Language } from '@resolid/nxt-prism';
+import { Highlight, Prism, nightOwl, nightOwlLight, type Language } from '@resolid/nxt-prism';
+import { useColorModeState } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import type { ComponentProps } from 'react';
 
@@ -9,9 +10,14 @@ export type CodeHighlightProps = Omit<ComponentProps<'pre'>, 'children' | 'style
 
 export const CodeHighlight = (props: CodeHighlightProps) => {
   const { className: preClassName, code, language, ...rest } = props;
-
+  const { darkMode } = useColorModeState();
   return (
-    <Highlight code={code?.replace(/\n$/, '')} theme={nightOwlLight} language={language} Prism={Prism}>
+    <Highlight
+      code={code?.replace(/\n$/, '')}
+      theme={darkMode ? nightOwl : nightOwlLight}
+      language={language}
+      Prism={Prism}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         return (
           <pre
