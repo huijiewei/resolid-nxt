@@ -30,7 +30,7 @@ export const createHandler = (handle: HandleFn) => {
       [
         {
           path: '/',
-          element: <Root />,
+          Component: Root,
           children: routes,
         },
       ],

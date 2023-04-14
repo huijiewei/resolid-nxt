@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { build, type Plugin, type ResolvedConfig, type UserConfig } from 'vite';
+import { build, mergeConfig, type Plugin, type ResolvedConfig, type UserConfig } from 'vite';
 import viteInspect from 'vite-plugin-inspect';
 import { reactRefresh } from './plugins/react-refresh';
 import { chunkSplitPlugin } from './plugins/split-chunk';
@@ -41,7 +41,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
     {
       name: 'nxt-run-config',
       enforce: 'pre',
-      config(userConfig, { command }) {
+      async config(userConfig, { command }) {
         root = userConfig.root || process.cwd();
         isBuild = command == 'build';
 
@@ -84,6 +84,12 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
           config.build.ssr = !secondaryBuildStarted;
         }
 
+        const adapterConfig = await adapter?.config?.(userConfig);
+
+        if (adapterConfig) {
+          return mergeConfig(config, adapterConfig);
+        }
+
         return config;
       },
       configResolved(config) {
@@ -106,7 +112,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
         );
       },
     } as Plugin,
-    inspect && viteInspect({ build: true, outputDir: join('.resolid', 'inspect') }),
+    inspect && viteInspect({ outputDir: join('.resolid', 'inspect') }),
     reactRefresh(),
     viteReactPlugin,
     {
@@ -198,7 +204,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
           unlinkSync(indexHtml);
 
           finalise = async () => {
-            await adapter.build(viteConfig.root, outPath, viteConfig.ssr.external, viteConfig.build.commonjsOptions);
+            await adapter.buildEnd(viteConfig.root, outPath, viteConfig.ssr.external, viteConfig.build.commonjsOptions);
           };
         },
       },

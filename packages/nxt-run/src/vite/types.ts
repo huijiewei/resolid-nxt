@@ -1,15 +1,16 @@
 import type { Options } from '@vitejs/plugin-react';
-import type { RollupCommonJSOptions } from 'vite';
+import type { RollupCommonJSOptions, UserConfig } from 'vite';
 import type { ManualChunksFunction } from './plugins/split-chunk';
 
 export type NxtRunAdapter = {
   name: string;
-  build: (
+  config?: (config: UserConfig) => Promise<UserConfig> | UserConfig | undefined;
+  buildEnd: (
     root: string,
     outPath: string,
     ssrExternal: string[] | undefined,
     commonjsOptions: RollupCommonJSOptions | undefined
-  ) => Promise<void>;
+  ) => Promise<void> | void;
 };
 
 export type NxtRunViteOptions = {
