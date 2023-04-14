@@ -22,7 +22,7 @@ const routes: RouteObject[] = [
   ...Object.keys(documents).map((key) => {
     return { path: getBasename(key), Component: lazy(documents[key]) };
   }),
-  { path: '*', element: <NotFound /> },
+  { path: '*', element: <NotFound className={'desktop:ps-56'} /> },
 ];
 
 export default routes;

@@ -1,8 +1,9 @@
 {
   "name": "@resolid/nxt-tailwind",
   "version": "1.0.0",
-  "sideEffects": false,
+  "description": "Resolid Nxt-UI preset for TailwindCSS.",
   "type": "module",
+  "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },

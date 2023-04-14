@@ -1,6 +1,7 @@
 {
   "name": "@resolid/nxt-live",
   "version": "1.0.0",
+  "description": "Brings you the ability to render React components with editable source code and live preview.",
   "type": "module",
   "sideEffects": false,
   "publishConfig": {

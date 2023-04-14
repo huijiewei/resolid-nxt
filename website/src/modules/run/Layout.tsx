@@ -3,8 +3,8 @@ import { useIsomorphicLayoutEffect } from '@resolid/nxt-ui';
 import { Suspense, useState, type PropsWithChildren } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Aside } from '~/common/components/Aside';
 import { AsideLayout, AsideLayoutMain } from '~/common/components/AsideLayout';
+import { AsideLayoutSide } from '~/common/components/AsideLayoutSide';
 import { TocContextProvider } from '~/common/mdx/TocContext';
 import { TocLayout } from '~/common/mdx/TocLayout';
 import { type TocItem } from '~/common/mdx/TocSection';
@@ -40,7 +40,7 @@ export default function Layout() {
         <title>UI</title>
       </Helmet>
       <AsideLayout>
-        <Aside menus={menus} />
+        <AsideLayoutSide menus={menus} />
         <AsideLayoutMain>
           <MDXProvider components={mdxComponents}>
             <TocProvider>

@@ -1,6 +1,6 @@
 # @resolid/nxt-live
 
-@resolid/nxt-live brings you the ability to render React components with editable source code and live preview.
+Brings you the ability to render React components with editable source code and live preview.
 
 ## Acknowledgment
 

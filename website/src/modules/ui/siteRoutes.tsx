@@ -17,7 +17,7 @@ const routes: RouteObject[] = [
   ...Object.keys(components).map((key) => {
     return { path: 'components/' + getBasename(key), Component: lazy(components[key]) };
   }),
-  { path: '*', element: <NotFound /> },
+  { path: '*', element: <NotFound className={'desktop:ps-56'} /> },
 ];
 
 export default routes;

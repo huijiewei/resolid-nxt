@@ -1,6 +1,7 @@
 {
   "name": "@resolid/nxt-ui",
   "version": "1.0.0",
+  "description": "Ready to use UI components built with TailwindCSS.",
   "type": "module",
   "sideEffects": false,
   "publishConfig": {

@@ -1,6 +1,6 @@
-# @resolid/tailwind
+# @resolid/nxt-tailwind
 
-Resolid UI preset for TailwindCSS.
+Resolid Nxt-UI preset for TailwindCSS.
 
 ## Acknowledgment
 

@@ -41,7 +41,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
   );
 };
 
-export const AsideMenu = ({ menus }: { menus: Menu[] }) => {
+export const AsideLayoutMenu = ({ menus }: { menus: Menu[] }) => {
   return (
     <ul className={'space-y-3 p-4'}>
       {menus.map((menu) => (

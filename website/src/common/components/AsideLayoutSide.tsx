@@ -1,9 +1,9 @@
 import { cx } from '@resolid/nxt-utils';
 import { useAsideLayoutDispatch, useAsideLayoutState } from '~/common/components/AsideLayout';
 import { Close } from '~/common/icons/Close';
-import { AsideMenu, type Menu } from './AsideMenu';
+import { AsideLayoutMenu, type Menu } from './AsideLayoutMenu';
 
-export const Aside = (props: { menus: Menu[] }) => {
+export const AsideLayoutSide = (props: { menus: Menu[] }) => {
   const opened = useAsideLayoutState();
   const setOpened = useAsideLayoutDispatch();
 
@@ -21,7 +21,7 @@ export const Aside = (props: { menus: Menu[] }) => {
         <button onClick={() => setOpened(false)} className={'tablet:hidden fixed end-3 top-3 p-2'}>
           <Close size={'xs'} />
         </button>
-        <AsideMenu menus={props.menus} />
+        <AsideLayoutMenu menus={props.menus} />
       </nav>
     </aside>
   );

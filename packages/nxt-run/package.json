@@ -1,6 +1,7 @@
 {
   "name": "@resolid/nxt-run",
   "version": "1.0.0",
+  "description": "Get your app up and running with React",
   "type": "module",
   "sideEffects": false,
   "publishConfig": {
