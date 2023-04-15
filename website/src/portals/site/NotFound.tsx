@@ -1,3 +1,4 @@
+import { Button } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import { Helmet } from 'react-helmet-async';
 import { DefaultLayout } from '~/common/components/DefaultLayout';
@@ -24,12 +25,7 @@ export default function NotFound({ className }: { className?: string }) {
               to another URL. If you think this is an error contact support.
             </p>
             <div className={'mt-6'}>
-              <button
-                type="button"
-                className={'rounded bg-blue-500 px-3 py-1 text-white hover:bg-blue-600 active:bg-blue-700'}
-              >
-                Take me back
-              </button>
+              <Button>Take me back</Button>
             </div>
           </div>
         </div>

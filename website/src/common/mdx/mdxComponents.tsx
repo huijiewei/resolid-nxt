@@ -23,7 +23,7 @@ export const mdxComponents = (module: string) => {
       const { id, className, children, ...rest } = props;
 
       return (
-        <h2 id={id} className={cx('group mb-3 mt-6 scroll-mt-24 text-xl font-bold', className)} {...rest}>
+        <h2 id={id} className={cx('group mb-3 mt-6 scroll-mt-20 text-xl font-bold', className)} {...rest}>
           {children}
           <a
             tabIndex={-1}
@@ -40,7 +40,7 @@ export const mdxComponents = (module: string) => {
       const { id, className, children, ...rest } = props;
 
       return (
-        <h3 id={id} className={cx('group mb-3 mt-6 scroll-mt-24 text-lg font-medium', className)} {...rest}>
+        <h3 id={id} className={cx('group mb-3 mt-6 scroll-mt-20 text-lg font-medium', className)} {...rest}>
           {children}
           <a
             tabIndex={-1}
