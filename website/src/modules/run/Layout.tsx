@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AsideLayout, AsideLayoutMain } from '~/common/components/AsideLayout';
 import { AsideLayoutSide } from '~/common/components/AsideLayoutSide';
+import { LazyLoader } from '~/common/components/LazyLoader';
 import { TocContextProvider } from '~/common/mdx/TocContext';
 import { TocLayout } from '~/common/mdx/TocLayout';
 import { type TocItem } from '~/common/mdx/TocSection';
@@ -45,7 +46,7 @@ export default function Layout() {
           <MDXProvider components={mdxComponents}>
             <TocProvider>
               <TocLayout>
-                <Suspense>
+                <Suspense fallback={<LazyLoader />}>
                   <Outlet />
                 </Suspense>
               </TocLayout>

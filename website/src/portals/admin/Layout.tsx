@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, Outlet } from 'react-router-dom';
+import { LazyLoader } from '~/common/components/LazyLoader';
 
 const Component = () => {
   return (
@@ -16,7 +18,9 @@ const Component = () => {
           <Link to={'/admin/about'}>Admin About</Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<LazyLoader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

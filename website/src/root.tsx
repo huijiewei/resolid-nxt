@@ -2,6 +2,7 @@ import { ColorModeScript, NxtProvider } from '@resolid/nxt-ui';
 import { Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
+import { LazyLoader } from '~/common/components/LazyLoader';
 
 export default function Root() {
   return (
@@ -14,7 +15,7 @@ export default function Root() {
         <meta name="theme-color" content="#4586be" />
       </Helmet>
       <NxtProvider>
-        <Suspense>
+        <Suspense fallback={<LazyLoader />}>
           <Outlet />
         </Suspense>
       </NxtProvider>

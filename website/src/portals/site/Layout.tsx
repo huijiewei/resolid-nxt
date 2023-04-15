@@ -2,6 +2,7 @@ import { cx } from '@resolid/nxt-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { Banner } from '~/common/components/Banner';
+import { LazyLoader } from '~/common/components/LazyLoader';
 import { ThemeSwitcher } from '~/common/components/ThemeSwitcher';
 import { Close } from '~/common/icons/Close';
 import { Github } from '~/common/icons/Github';
@@ -83,7 +84,7 @@ const Layout = () => {
     <>
       <Header />
       <div className={'desktop:max-w-7xl mx-auto pt-16'}>
-        <Suspense>
+        <Suspense fallback={<LazyLoader />}>
           <Outlet />
         </Suspense>
       </div>
