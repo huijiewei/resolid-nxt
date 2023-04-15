@@ -104,7 +104,13 @@ export const mdxComponents = (module: string) => {
       return <>{props.children}</>;
     },
     a: (props: ComponentProps<'a'>) => {
-      return <a target="_blank" rel="noreferrer" {...props} />;
+      const { children, ...rest } = props;
+
+      return (
+        <a target="_blank" rel="noreferrer" {...rest}>
+          {children}
+        </a>
+      );
     },
   };
 };

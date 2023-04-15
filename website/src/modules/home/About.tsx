@@ -1,7 +1,7 @@
 import { DefaultLayout } from '~/common/components/DefaultLayout';
 
-const About = () => {
+const Component = () => {
   return <DefaultLayout>About</DefaultLayout>;
 };
 
-export default About;
+export default Component;

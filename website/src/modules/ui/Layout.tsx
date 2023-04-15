@@ -22,9 +22,7 @@ const TocProvider = (props: PropsWithChildren) => {
 
     const docPath = path.includes('components/') ? `./content/${path}.mdx` : `./content/documents/${path}.mdx`;
 
-    (async () => {
-      setToc((await headings[docPath]?.()) ?? []);
-    })();
+    headings[docPath]?.().then((toc) => setToc(toc));
 
     return () => {
       setToc([]);

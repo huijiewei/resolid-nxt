@@ -19,7 +19,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
             return cx(
               'block py-1',
               depth == 2 && 'ps-4',
-              isActive ? 'bg-bg-accent' : 'hover:bg-bg-subtle active:bg-bg-muted'
+              isActive ? 'bg-bg-primary' : 'hover:bg-bg-subtle active:bg-bg-muted'
             );
           }}
           onClick={() => setOpen(false)}
