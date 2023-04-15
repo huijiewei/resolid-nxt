@@ -7,10 +7,26 @@ export const colorsSemanticLight = {
     muted: colorsPalette.gray[600],
     subtle: colorsPalette.gray[500],
 
-    primary: colorsPalette.blue[500],
-    success: colorsPalette.green[500],
-    warning: colorsPalette.yellow[500],
-    danger: colorsPalette.red[500],
+    primary: {
+      DEFAULT: colorsPalette.blue[500],
+      hovered: colorsPalette.blue[600],
+      pressed: colorsPalette.blue[700],
+    },
+    success: {
+      DEFAULT: colorsPalette.green[500],
+      hovered: colorsPalette.green[600],
+      pressed: colorsPalette.green[700],
+    },
+    warning: {
+      DEFAULT: colorsPalette.yellow[500],
+      hovered: colorsPalette.yellow[600],
+      pressed: colorsPalette.yellow[700],
+    },
+    danger: {
+      DEFAULT: colorsPalette.red[500],
+      hovered: colorsPalette.red[600],
+      pressed: colorsPalette.red[700],
+    },
   },
   bg: {
     default: colorsPalette.white,
@@ -77,6 +93,7 @@ export const colorsSemanticLight = {
   },
   link: {
     DEFAULT: colorsPalette.blue[500],
-    pressed: colorsPalette.blue[600],
+    hovered: colorsPalette.blue[600],
+    pressed: colorsPalette.blue[700],
   },
 };
