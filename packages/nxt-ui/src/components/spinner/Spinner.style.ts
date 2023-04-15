@@ -17,10 +17,6 @@ export const spinnerVariants = cva(['inline-block animate-spin rounded-full'], {
       danger: 'border-t-fg-danger border-r-fg-danger border-b-bg-danger border-l-bg-danger',
     },
   },
-  defaultVariants: {
-    size: 'md',
-    color: 'primary',
-  },
 });
 
 export type SpinnerVariants = VariantProps<typeof spinnerVariants>;

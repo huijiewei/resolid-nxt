@@ -1,4 +1,4 @@
-import { cx } from '@resolid/nxt-utils';
+import { __DEV__, cx } from '@resolid/nxt-utils';
 import { polymorphicComponent } from '../../primitives';
 import { VisuallyHidden } from '../visually-hidden/VisuallyHidden';
 import type { SpinnerVariants } from './Spinner.style';
@@ -13,7 +13,7 @@ export type SpinnerProps = SpinnerVariants & {
 };
 
 export const Spinner = polymorphicComponent<'span', SpinnerProps>((props, ref) => {
-  const { as: Component = 'span', label = 'Loading', className, size, color, ...rest } = props;
+  const { as: Component = 'span', label = 'Loading', className, size = 'md', color = 'primary', ...rest } = props;
 
   return (
     <Component ref={ref} className={cx(spinnerVariants({ color, size }), className)} {...rest}>
@@ -21,3 +21,7 @@ export const Spinner = polymorphicComponent<'span', SpinnerProps>((props, ref) =
     </Component>
   );
 });
+
+if (__DEV__) {
+  Spinner.displayName = 'Spinner';
+}

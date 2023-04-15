@@ -10,92 +10,88 @@ export const alertVariants = cva(['relative flex items-center gap-2 overflow-hid
       danger: '',
     },
     variant: {
-      solid: 'text-fg-emphasized',
-      outline: 'bg-bg-default',
-      light: '',
+      solid: 'text-fg-emphasized border-transparent',
+      outline: 'bg-bg-default border-current',
+      light: 'border-transparent',
     },
   },
   compoundVariants: [
     {
       variant: 'solid',
       color: 'primary',
-      class: 'bg-bg-primary-emphasis border-bg-primary-emphasis',
+      class: 'bg-bg-primary-emphasis',
     },
     {
       variant: 'solid',
       color: 'neutral',
-      class: 'bg-bg-neutral-emphasis border-bg-neutral-emphasis',
+      class: 'bg-bg-neutral-emphasis',
     },
     {
       variant: 'solid',
       color: 'success',
-      class: 'bg-bg-success-emphasis border-bg-success-emphasis',
+      class: 'bg-bg-success-emphasis',
     },
     {
       variant: 'solid',
       color: 'warning',
-      class: 'bg-bg-warning-emphasis border-bg-warning-emphasis',
+      class: 'bg-bg-warning-emphasis',
     },
     {
       variant: 'solid',
       color: 'danger',
-      class: 'bg-bg-danger-emphasis border-bg-danger-emphasis',
+      class: 'bg-bg-danger-emphasis',
     },
     {
       variant: 'outline',
       color: 'primary',
-      class: 'border-bg-primary-emphasis text-fg-primary',
+      class: 'text-fg-primary',
     },
     {
       variant: 'outline',
       color: 'neutral',
-      class: 'border-bg-neutral-emphasis text-fg-neutral',
+      class: 'text-fg-neutral',
     },
     {
       variant: 'outline',
       color: 'success',
-      class: 'border-bg-success-emphasis text-fg-success',
+      class: 'text-fg-success',
     },
     {
       variant: 'outline',
       color: 'warning',
-      class: 'border-bg-warning-emphasis text-fg-warning',
+      class: 'text-fg-warning',
     },
     {
       variant: 'outline',
       color: 'danger',
-      class: 'border-bg-danger-emphasis text-fg-danger',
+      class: 'text-fg-danger',
     },
     {
       variant: 'light',
       color: 'primary',
-      class: 'bg-bg-primary border-bg-primary text-fg-primary',
+      class: 'bg-bg-primary text-fg-primary',
     },
     {
       variant: 'light',
       color: 'neutral',
-      class: 'bg-bg-neutral border-bg-neutral text-fg-neutral',
+      class: 'bg-bg-neutral text-fg-neutral',
     },
     {
       variant: 'light',
       color: 'success',
-      class: 'bg-bg-success border-bg-success text-fg-success',
+      class: 'bg-bg-success text-fg-success',
     },
     {
       variant: 'light',
       color: 'warning',
-      class: 'bg-bg-warning border-bg-warning text-fg-warning',
+      class: 'bg-bg-warning text-fg-warning',
     },
     {
       variant: 'light',
       color: 'danger',
-      class: 'bg-bg-danger border-bg-danger text-fg-danger',
+      class: 'bg-bg-danger text-fg-danger',
     },
   ],
-  defaultVariants: {
-    color: 'primary',
-    variant: 'light',
-  },
 });
 
 export type AlertVariants = VariantProps<typeof alertVariants>;
