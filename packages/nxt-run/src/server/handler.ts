@@ -1,6 +1,6 @@
 import { type FilledContext } from 'react-helmet-async';
 import { createStaticHandler } from 'react-router-dom/server';
-import { type EntryContext } from './context';
+import { components$, type EntryContext } from './context';
 
 // @ts-expect-error Cannot find module
 import Root from '~nxt-run/root';
@@ -42,6 +42,8 @@ export const createHandler = (handle: HandleFn) => {
     entryContext.helmetContext = {} as FilledContext;
     entryContext.routes = dataRoutes;
     entryContext.staticHandlerContext = await query(request);
+
+    components$.clearComponents();
 
     return handle(request, responseStatusCode, responseHeaders, entryContext, renderOptions);
   };

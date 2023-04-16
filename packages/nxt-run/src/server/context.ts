@@ -20,6 +20,9 @@ export const components$ = {
   getComponents() {
     return componentsContext;
   },
+  clearComponents() {
+    componentsContext.clear();
+  },
   addComponent(componentId: string): void {
     componentsContext.add(componentId);
   },
