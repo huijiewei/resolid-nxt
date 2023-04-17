@@ -34,7 +34,7 @@ const RunClient = () => {
   );
 };
 
-export const hydrate = async (root: HTMLElement) => {
+export const bootstrap = async (root: HTMLElement) => {
   const lazyMatches = matchRoutes(routes, window.location)?.filter((m) => m.route.lazy);
 
   if (lazyMatches && lazyMatches?.length > 0) {
