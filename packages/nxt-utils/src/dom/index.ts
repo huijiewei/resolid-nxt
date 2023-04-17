@@ -1,10 +1,14 @@
+import type { Booleanish } from '../types';
+
 export const isBrowser = (): boolean => {
   return typeof window !== 'undefined';
 };
 
-type Argument = string | boolean | null | undefined;
+export const dataAttr = (condition: boolean | null | undefined) => (condition ? '' : undefined) as Booleanish;
 
-export const cx = (...args: Argument[]): string => {
+export const ariaAttr = (condition: boolean | null | undefined) => (condition ? true : undefined);
+
+export const cx = (...args: (string | boolean | null | undefined)[]): string => {
   let str = '',
     i = 0,
     arg: unknown;

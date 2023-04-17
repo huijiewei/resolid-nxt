@@ -4,11 +4,9 @@ import type { PrimitiveProps } from '../../primitives';
 import { createContext } from '../../primitives';
 import type { ButtonVariants } from './Button.style';
 
-export type ButtonBaseProps = ButtonVariants & {
-  disabled?: boolean;
-};
+export type ButtonBaseProps = ButtonVariants;
 
-export type ButtonGroupProps = ButtonBaseProps & {
+export type ButtonGroupProps = Omit<ButtonBaseProps, 'active'> & {
   vertical?: boolean;
 };
 

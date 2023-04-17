@@ -1,4 +1,4 @@
-import { cx } from '@resolid/nxt-utils';
+import { cx, dataAttr } from '@resolid/nxt-utils';
 import type { ElementType } from 'react';
 import { useCallback, useState } from 'react';
 import { useMergedRefs } from '../../hooks';
@@ -10,7 +10,6 @@ import { ButtonSpinner } from './ButtonSpinner';
 
 export type ButtonProps = ButtonBaseProps & {
   type?: 'submit' | 'reset' | 'button';
-  active?: boolean;
   loading?: boolean;
   loadingText?: string;
   fullWidth?: boolean;
@@ -61,9 +60,14 @@ export const Button = polymorphicComponent<'button', ButtonProps>((props, ref) =
 
   return (
     <Component
-      className={cx(buttonVariants({ size, variant, color }), fullWidth ? 'w-full' : 'w-auto', className)}
+      className={cx(
+        buttonVariants({ size, variant, color, disabled: disabled || loading, active }),
+        fullWidth ? 'w-full' : 'w-auto',
+        className
+      )}
       disabled={disabled || loading}
       type={type || defaultType}
+      data-active={dataAttr(active)}
       ref={refs}
       {...rest}
     >
