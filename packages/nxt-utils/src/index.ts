@@ -1,4 +1,5 @@
 export * from './array';
+export * from './boolean';
 export * from './dom';
 export * from './env';
 export * from './function';

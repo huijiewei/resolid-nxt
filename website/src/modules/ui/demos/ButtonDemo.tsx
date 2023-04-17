@@ -30,6 +30,21 @@ export const Usage = () => {
           options: ['primary', 'neutral', 'success', 'warning', 'danger'],
           defaultValue: 'primary',
         },
+        {
+          propName: 'disabled',
+          control: 'switch',
+          defaultValue: false,
+        },
+        {
+          propName: 'active',
+          control: 'switch',
+          defaultValue: false,
+        },
+        {
+          propName: 'fullWidth',
+          control: 'switch',
+          defaultValue: false,
+        },
       ]}
       preview={(props) => <Button {...props}>Button</Button>}
       snippet={`<Button {...props}>Button</Button>`}
@@ -162,6 +177,33 @@ export const WithIcon = () => {
   <Button className={'aspect-square !px-0'} variant={'subtle'} color={'success'}>
     <Check size={'xs'} />
   </Button>
+</div>`}
+    />
+  );
+};
+
+export const LoadingState = () => {
+  return (
+    <DemoExample
+      preview={() => (
+        <div className={'flex flex-row gap-3'}>
+          <Button disabled>Disabled</Button>
+          <Button loading>Loading</Button>
+          <Button loading loadingText={'Loading'}>
+            Loading
+          </Button>
+          <Button active>Active</Button>
+          <Button fullWidth>Full Width</Button>
+        </div>
+      )}
+      snippet={`<div className={'flex flex-row gap-3'}>
+  <Button disabled>Disabled</Button>
+  <Button loading>Loading</Button>
+  <Button loading loadingText={'Loading'}>
+    Loading
+  </Button>
+  <Button active>Active</Button>
+  <Button fullWidth>Full Width</Button>
 </div>`}
     />
   );

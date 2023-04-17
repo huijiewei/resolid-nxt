@@ -1,3 +1,4 @@
+import { cx, isBoolean } from '@resolid/nxt-utils';
 import { useState } from 'react';
 import { CodeHighlight } from '~/common/components/CodeHighlight';
 import { Check } from '~/common/icons/Check';
@@ -24,9 +25,20 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
 
   const codePropsReplace = () => {
     const propsReplace = Object.keys(state)
-      .map((p) => {
-        return `${p}="${state[p]}"`;
+      .map((propName) => {
+        const propValue = state[propName];
+
+        if (propValue == componentProps.find((p) => p.propName == propName)?.defaultValue) {
+          return null;
+        }
+
+        if (isBoolean(propValue)) {
+          return propName;
+        }
+
+        return `${propName}="${propValue}"`;
       })
+      .filter(Boolean)
       .join(' ');
 
     return propsReplace.length > 0 ? ` ${propsReplace}` : propsReplace;
@@ -35,7 +47,7 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
   return (
     <div className={'flex min-h-[20em] flex-col laptop:flex-row w-full rounded border'}>
       <div className={'flex flex-1 flex-col p-5'}>
-        <div className={'m-auto flex-grow flex items-center'}>{preview(state)}</div>
+        <div className={'flex-grow flex items-center justify-center'}>{preview(state)}</div>
         <CodeHighlight
           className={'rounded mt-6 p-3 border overflow-x-auto scrollbar scrollbar-thin'}
           language={'jsx'}
@@ -57,7 +69,10 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
             return (
               <div
                 key={prop.propName}
-                className={'flex flex-row laptop:flex-col justify-between laptop:items-start items-center gap-1.5'}
+                className={cx(
+                  'flex justify-between items-center gap-1.5',
+                  prop.control == 'switch' ? 'flex-row' : 'flex-row laptop:flex-col laptop:items-start'
+                )}
               >
                 <label className={'capitalize'}>{prop.propName}</label>
                 {prop.control == 'select' && (
@@ -94,6 +109,16 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
                       </button>
                     ))}
                   </div>
+                )}
+
+                {prop.control == 'switch' && (
+                  <input
+                    type="checkbox"
+                    checked={propValue}
+                    onChange={(e) => {
+                      setState((prev) => ({ ...prev, [prop.propName]: e.target.checked }));
+                    }}
+                  />
                 )}
               </div>
             );
