@@ -5,7 +5,6 @@ export const buttonVariants = cva(
     'inline-flex items-center justify-center',
     'select-none appearance-none outline-none',
     'whitespace-nowrap border transition-colors',
-    'rounded',
     'focus-visible:ring',
   ],
   {
