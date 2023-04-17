@@ -1,8 +1,9 @@
-import { Button, type ButtonProps } from '@resolid/nxt-ui';
+import { Button, ButtonGroup, type ButtonProps } from '@resolid/nxt-ui';
 import { Check } from '~/common/icons/Check';
 import { Github } from '~/common/icons/Github';
 import { Menu } from '~/common/icons/Menu';
 import { Moon } from '~/common/icons/Moon';
+import { Plus } from '~/common/icons/Plus';
 import { Sun } from '~/common/icons/Sun';
 import { System } from '~/common/icons/System';
 import { DemoExample } from '~/modules/ui/components/DemoExample';
@@ -204,6 +205,127 @@ export const LoadingState = () => {
   </Button>
   <Button active>Active</Button>
   <Button fullWidth>Full Width</Button>
+</div>`}
+    />
+  );
+};
+
+export const Grouping = () => {
+  return (
+    <DemoExample
+      preview={() => (
+        <div className={'flex flex-row items-center gap-3'}>
+          <ButtonGroup>
+            <Button>Save</Button>
+            <Button className={'aspect-square !px-0'}>
+              <Plus size={'xs'} />
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup disabled>
+            <Button>Save</Button>
+            <Button className={'aspect-square !px-0'}>
+              <Plus size={'xs'} />
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup>
+            <Button>Save</Button>
+            <Button variant="outline" className={'aspect-square !px-0'}>
+              <Plus size={'xs'} />
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup>
+            <Button>Save</Button>
+            <Button color={'neutral'} className={'aspect-square !px-0'}>
+              <Plus size={'xs'} />
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup variant="outline">
+            <Button>Save</Button>
+            <Button className={'aspect-square !px-0'}>
+              <Plus size={'xs'} />
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup variant="light">
+            <Button>Save</Button>
+            <Button className={'aspect-square !px-0'}>
+              <Plus size={'xs'} />
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup vertical>
+            <Button>Save</Button>
+            <Button color={'success'} className={'aspect-square !px-0'}>
+              <Plus size={'xs'} />
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup vertical variant="outline">
+            <Button>Save</Button>
+            <Button className={'aspect-square !px-0'}>
+              <Plus size={'xs'} />
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup vertical variant="light">
+            <Button>Save</Button>
+            <Button className={'aspect-square !px-0'}>
+              <Plus size={'xs'} />
+            </Button>
+          </ButtonGroup>
+        </div>
+      )}
+      snippet={`<div className={'flex flex-row items-center gap-3'}>
+  <ButtonGroup>
+    <Button>Save</Button>
+    <Button className={'aspect-square !px-0'}>
+      <Plus size={'xs'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup disabled>
+    <Button>Save</Button>
+    <Button className={'aspect-square !px-0'}>
+      <Plus size={'xs'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup>
+    <Button>Save</Button>
+    <Button variant="outline" className={'aspect-square !px-0'}>
+      <Plus size={'xs'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup>
+    <Button>Save</Button>
+    <Button color={'neutral'} className={'aspect-square !px-0'}>
+      <Plus size={'xs'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup variant="outline">
+    <Button>保存</Button>
+    <Button className={'aspect-square !px-0'}>
+      <Plus size={'xs'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup variant="light">
+    <Button>Save</Button>
+    <Button className={'aspect-square !px-0'}>
+      <Plus size={'xs'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup vertical>
+    <Button>Save</Button>
+    <Button color={'success'} className={'aspect-square !px-0'}>
+      <Plus size={'xs'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup vertical variant="outline">
+    <Button>Save</Button>
+    <Button className={'aspect-square !px-0'}>
+      <Plus size={'xs'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup vertical variant="light">
+    <Button>Save</Button>
+    <Button className={'aspect-square !px-0'}>
+      <Plus size={'xs'} />
+    </Button>
+  </ButtonGroup>
 </div>`}
     />
   );
