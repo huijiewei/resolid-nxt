@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
-    "@prisma/client": "^4.12.0",
+    "@prisma/client": "^4.13.0",
     "@resolid/nxt-prism": "workspace:*",
     "@resolid/nxt-run": "workspace:*",
     "@resolid/nxt-run-node": "workspace:*",
@@ -33,7 +33,7 @@
     "estree-util-is-identifier-name": "^2.1.0",
     "fast-glob": "^3.2.12",
     "postcss": "^8.4.22",
-    "prisma": "^4.12.0",
+    "prisma": "^4.13.0",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "tailwindcss": "^3.3.1",
