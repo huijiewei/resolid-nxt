@@ -213,6 +213,13 @@ export const buttonVariants = cva(
         class: 'bg-bg-neutral-hovered',
       },
       {
+        variant: 'outline',
+        color: 'neutral',
+        disabled: false,
+        active: false,
+        class: 'hover:bg-bg-neutral active:bg-bg-neutral-hovered',
+      },
+      {
         variant: 'light',
         color: 'primary',
         active: false,
