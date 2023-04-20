@@ -10,7 +10,7 @@ export type ManifestEntry = {
 export type EntryContext = {
   manifest?: Record<string, ManifestEntry[]>;
   routes: RouteObject[];
-  staticHandlerContext: StaticHandlerContext | Response | null;
+  staticHandlerContext: StaticHandlerContext;
   helmetContext?: FilledContext;
 };
 

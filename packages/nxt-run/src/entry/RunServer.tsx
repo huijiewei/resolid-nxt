@@ -9,24 +9,13 @@ export type RunServerProps = {
   context: EntryContext;
 };
 
-// noinspection JSUnusedGlobalSymbols
-export const RunServer = (props: RunServerProps) => {
-  const context = props.context.staticHandlerContext;
-
-  if (context == null) {
-    throw new Error('staticHandlerContext is null');
-  }
-
-  if (context instanceof Response) {
-    throw context;
-  }
-
-  const router = createStaticRouter(props.context.routes, context);
+export const RunServer = ({ context }: RunServerProps) => {
+  const router = createStaticRouter(context.routes, context.staticHandlerContext);
 
   return (
     <StrictMode>
-      <HelmetProvider context={props.context.helmetContext}>
-        <StaticRouterProvider router={router} context={context} />
+      <HelmetProvider context={context.helmetContext}>
+        <StaticRouterProvider router={router} context={context.staticHandlerContext} />
       </HelmetProvider>
     </StrictMode>
   );

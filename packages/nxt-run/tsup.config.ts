@@ -28,6 +28,13 @@ export default defineConfig([
   {
     ...baseConfig,
     entry: {
+      browser: 'src/browser/index.ts',
+    },
+    target: 'esnext',
+  },
+  {
+    ...baseConfig,
+    entry: {
       server: 'src/server/index.ts',
     },
     platform: 'node',

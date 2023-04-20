@@ -3,6 +3,7 @@ import { readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { build, mergeConfig, type Plugin, type ResolvedConfig, type UserConfig } from 'vite';
 import viteInspect from 'vite-plugin-inspect';
+import transformServer from './babel/transformServer';
 import { reactRefresh } from './plugins/react-refresh';
 import { chunkSplitPlugin } from './plugins/split-chunk';
 import { dev } from './serve/dev';
@@ -35,6 +36,20 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
 
   const viteReactPlugin = react({
     ...reactOptions,
+    babel(_, { ssr }) {
+      return {
+        plugins: [
+          [
+            transformServer,
+            {
+              ssr,
+              root,
+              minify: isBuild,
+            },
+          ],
+        ],
+      };
+    },
   });
 
   return [
