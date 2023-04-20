@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export const alertVariants = cva(['relative flex items-center gap-2 overflow-hidden rounded border p-3'], {
+export const alertStyles = cva(['relative flex items-center gap-2 overflow-hidden rounded border p-3'], {
   variants: {
     color: {
       primary: '',
@@ -94,4 +94,4 @@ export const alertVariants = cva(['relative flex items-center gap-2 overflow-hid
   ],
 });
 
-export type AlertVariants = VariantProps<typeof alertVariants>;
+export type AlertStyles = VariantProps<typeof alertStyles>;

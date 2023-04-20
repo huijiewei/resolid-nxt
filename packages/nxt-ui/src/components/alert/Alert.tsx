@@ -1,10 +1,14 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import type { PrimitiveProps } from '../../primitives';
 import { createContext } from '../../primitives';
-import { alertVariants, type AlertVariants } from './Alert.styles';
+import { alertStyles, type AlertStyles } from './Alert.styles';
 
 type AlertContextValue = {
-  variant: AlertVariants['variant'];
+  /**
+   * Variant
+   * @default 'light'
+   */
+  variant?: NonNullable<AlertStyles['variant']>;
 };
 
 const [AlertProvider, useAlert] = createContext<AlertContextValue>({
@@ -12,14 +16,28 @@ const [AlertProvider, useAlert] = createContext<AlertContextValue>({
   name: 'AlertContext',
 });
 
-export type AlertProps = AlertVariants;
+export type AlertProps = AlertContextValue & {
+  /**
+   * Color
+   * @default 'primary'
+   */
+  color?: NonNullable<AlertStyles['color']>;
+};
 
 export const Alert = (props: PrimitiveProps<'div', AlertProps>) => {
   const { className, children, color = 'primary', variant = 'light', ...rest } = props;
 
   return (
     <AlertProvider value={{ variant }}>
-      <div role={'alert'} className={cx(alertVariants({ color, variant }), className)} {...rest}>
+      <div
+        role={'alert'}
+        className={cx(
+          'relative flex items-center gap-2 overflow-hidden rounded border p-3',
+          alertStyles({ variant, color }),
+          className
+        )}
+        {...rest}
+      >
         {children}
       </div>
     </AlertProvider>

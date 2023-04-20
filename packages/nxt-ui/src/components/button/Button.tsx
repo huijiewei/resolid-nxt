@@ -1,19 +1,52 @@
-import { cx, dataAttr } from '@resolid/nxt-utils';
+import { __DEV__, cx, dataAttr } from '@resolid/nxt-utils';
 import type { ElementType } from 'react';
 import { useCallback, useState } from 'react';
 import { useMergedRefs } from '../../hooks';
 import { polymorphicComponent } from '../../primitives';
-import { buttonVariants, type ButtonVariants } from './Button.style';
+import { buttonStyles } from './Button.style';
 import type { ButtonBaseProps } from './ButtonGroup';
 import { useButtonGroup } from './ButtonGroup';
 import { ButtonSpinner } from './ButtonSpinner';
 
 export type ButtonProps = ButtonBaseProps & {
+  /**
+   * Html Type
+   * @default 'button'
+   */
   type?: 'submit' | 'reset' | 'button';
+
+  /**
+   * Active
+   * @default false
+   */
+  active?: boolean;
+
+  /**
+   * Loading
+   * @default false
+   */
   loading?: boolean;
+
+  /**
+   * Loading text
+   */
   loadingText?: string;
+
+  /**
+   * Full Width
+   * @default false
+   */
   fullWidth?: boolean;
+
+  /**
+   * Spinner
+   */
   spinner?: JSX.Element;
+
+  /**
+   * Spinner Placement
+   * @default 'start'
+   */
   spinnerPlacement?: 'start' | 'end';
 };
 
@@ -61,7 +94,7 @@ export const Button = polymorphicComponent<'button', ButtonProps>((props, ref) =
   return (
     <Component
       className={cx(
-        buttonVariants({ size, variant, color, disabled: disabled || loading, active }),
+        buttonStyles({ size, variant, color, disabled: disabled || loading, active }),
         fullWidth ? 'w-full' : 'w-auto',
         group
           ? group.vertical
@@ -77,7 +110,7 @@ export const Button = polymorphicComponent<'button', ButtonProps>((props, ref) =
       {...rest}
     >
       {loading && spinnerPlacement === 'start' && (
-        <ButtonSpinner size={size as NonNullable<ButtonVariants['size']>} label={loadingText} placement="start">
+        <ButtonSpinner size={size} label={loadingText} placement="start">
           {spinner}
         </ButtonSpinner>
       )}
@@ -85,10 +118,14 @@ export const Button = polymorphicComponent<'button', ButtonProps>((props, ref) =
       {loading ? loadingText || <span className={'opacity-0'}>{children}</span> : children}
 
       {loading && spinnerPlacement === 'end' && (
-        <ButtonSpinner size={size as NonNullable<ButtonVariants['size']>} label={loadingText} placement="end">
+        <ButtonSpinner size={size} label={loadingText} placement="end">
           {spinner}
         </ButtonSpinner>
       )}
     </Component>
   );
 });
+
+if (__DEV__) {
+  Button.displayName = 'Button';
+}

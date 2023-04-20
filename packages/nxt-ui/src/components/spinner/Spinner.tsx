@@ -1,10 +1,21 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import { polymorphicComponent } from '../../primitives';
 import { VisuallyHidden } from '../visually-hidden/VisuallyHidden';
-import type { SpinnerVariants } from './Spinner.style';
-import { spinnerVariants } from './Spinner.style';
+import type { SpinnerStyles } from './Spinner.style';
+import { spinnerStyles } from './Spinner.style';
 
-export type SpinnerProps = SpinnerVariants & {
+export type SpinnerProps = {
+  /**
+   * Size
+   * @default 'md'
+   */
+  size?: NonNullable<SpinnerStyles['size']>;
+
+  /**
+   * Color
+   * @default 'primary'
+   */
+  color?: NonNullable<SpinnerStyles['color']>;
   /**
    * Label
    * @default 'Loading…'
@@ -16,7 +27,7 @@ export const Spinner = polymorphicComponent<'span', SpinnerProps>((props, ref) =
   const { as: Component = 'span', label = 'Loading', className, size = 'md', color = 'primary', ...rest } = props;
 
   return (
-    <Component ref={ref} className={cx(spinnerVariants({ color, size }), className)} {...rest}>
+    <Component ref={ref} className={cx(spinnerStyles({ color, size }), className)} {...rest}>
       {label && <VisuallyHidden>{label}</VisuallyHidden>}
     </Component>
   );

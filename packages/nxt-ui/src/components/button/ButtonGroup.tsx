@@ -1,12 +1,36 @@
-import { cx } from '@resolid/nxt-utils';
+import { __DEV__, cx } from '@resolid/nxt-utils';
 import { useMemo } from 'react';
 import type { PrimitiveProps } from '../../primitives';
 import { createContext } from '../../primitives';
-import type { ButtonVariants } from './Button.style';
+import type { ButtonStyles } from './Button.style';
 
-export type ButtonBaseProps = ButtonVariants;
+export type ButtonBaseProps = {
+  /**
+   * Size
+   * @default 'md'
+   */
+  size?: NonNullable<ButtonStyles['size']>;
 
-export type ButtonGroupProps = Omit<ButtonBaseProps, 'active'> & {
+  /**
+   * Color
+   * @default 'primary'
+   */
+  color?: NonNullable<ButtonStyles['color']>;
+
+  /**
+   * Variant
+   * @default 'solid'
+   */
+  variant?: NonNullable<ButtonStyles['variant']>;
+
+  /**
+   * Disabled
+   * @default false
+   */
+  disabled?: boolean;
+};
+
+export type ButtonGroupProps = ButtonBaseProps & {
   vertical?: boolean;
 };
 
@@ -31,3 +55,7 @@ export const ButtonGroup = (props: PrimitiveProps<'div', ButtonGroupProps>) => {
     </div>
   );
 };
+
+if (__DEV__) {
+  ButtonGroup.displayName = 'ButtonGroup';
+}

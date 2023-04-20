@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export const buttonVariants = cva(
+export const buttonStyles = cva(
   [
     'inline-flex items-center justify-center',
     'select-none appearance-none outline-none',
@@ -503,4 +503,4 @@ export const buttonVariants = cva(
   }
 );
 
-export type ButtonVariants = VariantProps<typeof buttonVariants>;
+export type ButtonStyles = VariantProps<typeof buttonStyles>;

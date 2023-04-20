@@ -1,8 +1,7 @@
 import { __DEV__, isString } from '@resolid/nxt-utils';
 import type { SVGAttributes } from 'react';
-import type { Size } from '../../utils/types';
 
-export type IconProps = SVGAttributes<SVGElement> & { size?: number | Size };
+export type IconProps = SVGAttributes<SVGElement> & { size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl' };
 
 const iconSizes = {
   xs: 16,

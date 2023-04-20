@@ -1,15 +1,15 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import type { PrimitiveProps } from '../../primitives';
 import { Spinner } from '../spinner/Spinner';
-import type { ButtonVariants } from './Button.style';
+import type { ButtonStyles } from './Button.style';
 
 export type ButtonSpinnerProps = {
-  size: NonNullable<ButtonVariants['size']>;
+  size: NonNullable<ButtonStyles['size']>;
   label?: string;
   placement?: 'start' | 'end';
 };
 
-const SpinnerSizes: Record<string, ButtonVariants['size']> = {
+const SpinnerSizes: Record<string, ButtonSpinnerProps['size']> = {
   xs: 'xs',
   sm: 'sm',
   md: 'sm',
