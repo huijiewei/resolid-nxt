@@ -1,6 +1,7 @@
 export * from './alert/Alert';
 export * from './button/Button';
 export * from './button/ButtonGroup';
+export * from './divider/Divider';
 export * from './icon/Icon';
 export * from './provider/ColorModeScript';
 export * from './provider/NxtProvider';
