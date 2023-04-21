@@ -15,45 +15,16 @@ type MaybeNested<K extends keyof any = string, V = string> = {
   [key: string]: V | MaybeNested<K, V>;
 };
 
-type Colors = MaybeNested;
-
-const SCHEME = Symbol('color-scheme');
-
-const dark: SchemerFn<'dark'> = (colors) => {
-  return {
-    [SCHEME]: 'dark',
-    ...colors,
-  };
-};
-
-const light: SchemerFn<'light'> = (colors) => {
-  return {
-    [SCHEME]: 'light',
-    ...colors,
-  };
-};
-
-type ColorsWithScheme<T> = Colors & {
-  [SCHEME]?: T;
-};
-
-type SchemerFn<T> = (colors: Colors) => ColorsWithScheme<T>;
-
 type DefaultThemeType = 'light' | 'dark';
-type ConfigObject = Record<string, ColorsWithScheme<'light' | 'dark'>>;
-type ConfigFunction = ({ light, dark }: { light: SchemerFn<'light'>; dark: SchemerFn<'dark'> }) => ConfigObject;
+type ConfigObject = Record<string, MaybeNested>;
 
 export type Preset = (config: {
-  themes?: ConfigObject | ConfigFunction;
+  themes?: ConfigObject;
   defaultTheme?: DefaultThemeType;
   cssVarPrefix?: string;
 }) => Partial<Config>;
 
-const resolveConfig = (
-  config: ConfigObject | ConfigFunction = {},
-  defaultTheme: DefaultThemeType,
-  cssVarPrefix: string
-) => {
+const resolveConfig = (config: ConfigObject, defaultTheme: DefaultThemeType, cssVarPrefix: string) => {
   const resolved: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     utilities: Record<string, Record<string, any>>;
@@ -63,25 +34,21 @@ const resolveConfig = (
     colors: {},
   };
 
-  const configObject = typeof config === 'function' ? config({ dark, light }) : config;
-
-  Object.keys(configObject).forEach((themeName) => {
+  Object.keys(config).forEach((themeName) => {
     let cssSelector = `.${themeName}, [data-theme="${themeName}"]`;
 
     if (themeName === defaultTheme) {
       cssSelector = `:root, ${cssSelector}`;
     }
 
-    const colors = configObject[themeName];
+    resolved.utilities[cssSelector] = {};
 
-    resolved.utilities[cssSelector] = colors[SCHEME] ? { 'color-scheme': colors[SCHEME] } : {};
-
-    const flatColors = flattenColorPalette(colors);
+    const flatColors = flattenColorPalette(config[themeName]);
 
     Object.keys(flatColors).forEach((colorName) => {
       const colorValue = flatColors[colorName];
 
-      if ((colorName as never) === SCHEME || !colorValue) {
+      if (!colorValue) {
         return;
       }
 
