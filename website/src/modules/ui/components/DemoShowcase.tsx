@@ -120,6 +120,28 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
                     }}
                   />
                 )}
+
+                {prop.control == 'input' && (
+                  <input
+                    className={'px-2 h-8 border rounded laptop:w-full w-auto'}
+                    type="text"
+                    value={propValue}
+                    onChange={(e) => {
+                      setState((prev) => ({ ...prev, [prop.propName]: e.target.value }));
+                    }}
+                  />
+                )}
+
+                {prop.control == 'number' && (
+                  <input
+                    className={'px-2 h-8 border rounded laptop:w-full w-auto'}
+                    type="number"
+                    value={propValue}
+                    onChange={(e) => {
+                      setState((prev) => ({ ...prev, [prop.propName]: e.target.value }));
+                    }}
+                  />
+                )}
               </div>
             );
           })}

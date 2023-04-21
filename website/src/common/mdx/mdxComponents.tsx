@@ -107,7 +107,12 @@ export const mdxComponents = (module: string) => {
       const { children, ...rest } = props;
 
       return (
-        <a target="_blank" rel="noreferrer" {...rest}>
+        <a
+          className={'text-link hover:text-link-hovered active:text-link-pressed'}
+          target="_blank"
+          rel="noreferrer"
+          {...rest}
+        >
           {children}
         </a>
       );
