@@ -176,8 +176,8 @@ importers:
         specifier: ^4.3.1
         version: 4.3.1(@types/node@18.15.13)
       vite-plugin-inspect:
-        specifier: ^0.7.23
-        version: 0.7.23(rollup@3.20.7)(vite@4.3.1)
+        specifier: ^0.7.24
+        version: 0.7.24(rollup@3.20.7)(vite@4.3.1)
 
   packages/nxt-tailwind:
     devDependencies:
@@ -6486,8 +6486,8 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-inspect@0.7.23(rollup@3.20.7)(vite@4.3.1):
-    resolution: {integrity: sha512-VodzewpE9ufA8aPQhzTihbiMKAJ1aFoXNe+BB/3L52HB4Hf7I2WEOc1Yu4BC45rvw2VFuVnlXYlXL7JVQuseUw==}
+  /vite-plugin-inspect@0.7.24(rollup@3.20.7)(vite@4.3.1):
+    resolution: {integrity: sha512-XyrhTxYF+5X8CH0PFmYJhs8WGJMOa2UxwUftTaT0FiMm24VfUp+UsAh7xDZI3doPOiB5GxKEizDGxdU98Ay+Vg==}
     engines: {node: '>=14'}
     peerDependencies:
       vite: ^3.1.0 || ^4.0.0
