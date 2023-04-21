@@ -1,6 +1,7 @@
 import mdx from '@mdx-js/rollup';
 import nxtRunNode from '@resolid/nxt-run-node';
 import nxtRun from '@resolid/nxt-run/vite';
+import { resolve } from 'path';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { fileURLToPath, URL } from 'url';
@@ -8,6 +9,7 @@ import { type UserConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 import rehypeHeadings from './scripts/rehype-headings';
+import remarkTypedoc from './scripts/remark-typedoc';
 
 export default defineConfig(({ command }) => {
   const isBuild = command == 'build';
@@ -19,7 +21,7 @@ export default defineConfig(({ command }) => {
         ...mdx({
           providerImportSource: '@mdx-js/react',
           rehypePlugins: [rehypeSlug, rehypeHeadings],
-          remarkPlugins: [remarkGfm],
+          remarkPlugins: [remarkGfm, [remarkTypedoc, { sourceRootPath: resolve(__dirname, '../packages/nxt-ui/src') }]],
         }),
         enforce: 'pre',
       },
@@ -37,19 +39,6 @@ export default defineConfig(({ command }) => {
             id.includes('/node_modules/prop-types/')
           ) {
             return 'react';
-          }
-
-          if (
-            id.includes('/packages/nxt-live/') ||
-            id.includes('/node_modules/@resolid/nxt-live/') ||
-            id.includes('/node_modules/sucrase/') ||
-            id.includes('/node_modules/prismjs/') ||
-            id.includes('/node_modules/prism-react-renderer/') ||
-            id.includes('/node_modules/ts-interface-checker/') ||
-            id.includes('/node_modules/react-simple-code-editor/') ||
-            id.includes('/node_modules/lines-and-columns/')
-          ) {
-            return 'react-live';
           }
 
           if (id.includes('/node_modules/@resolid/') && !id.includes('/node_modules/@resolid/nxt-run/')) {

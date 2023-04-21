@@ -57,7 +57,7 @@ const rehypeHeadings = () => {
       data: {
         estree: {
           body: [],
-          ...parse(`export const headings = ${JSON.stringify(headings)};`, {
+          ...parse(`export const MDXHeadings = ${JSON.stringify(headings)};`, {
             sourceType: 'module',
             ecmaVersion: 'latest',
           }),

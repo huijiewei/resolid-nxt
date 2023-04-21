@@ -38,7 +38,7 @@ export const Component = () => {
   return (
     <DefaultLayout>
       <div>Home Index</div>
-      <div className={'my-3'}>{actionData?.count || data.count}</div>
+      <div className={'my-3'}>{actionData?.count ?? data.count}</div>
       <div className={'flex flex-row gap-3 my-3'}>
         <Button
           size={'sm'}

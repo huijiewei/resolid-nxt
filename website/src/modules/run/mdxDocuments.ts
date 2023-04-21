@@ -5,5 +5,5 @@ import type { TocItem } from '~/common/mdx/TocSection';
 export const documents = import.meta.glob<boolean, string, { default: ComponentType<any> }>('./content/**/*.mdx');
 
 export const headings = import.meta.glob<boolean, string, TocItem[]>('./content/**/*.mdx', {
-  import: 'headings',
+  import: 'MDXHeadings',
 });

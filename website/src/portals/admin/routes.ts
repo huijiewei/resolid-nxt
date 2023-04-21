@@ -7,7 +7,10 @@ const routes: RouteObject[] = [
     Component: lazy(() => import('./Layout')),
     children: [
       { index: true, Component: lazy(() => import('./Home')) },
-      { path: '*', lazy: () => import('./NotFound') },
+      {
+        path: '*',
+        Component: lazy(() => import('./NotFound')),
+      },
     ],
   },
 ];

@@ -12,5 +12,9 @@ export const components = import.meta.glob<boolean, string, { default: Component
 );
 
 export const headings = import.meta.glob<boolean, string, TocItem[]>('./content/**/*.mdx', {
-  import: 'headings',
+  import: 'MDXHeadings',
+});
+
+export const props = import.meta.glob<boolean, string, TocItem[]>('./content/**/*.mdx', {
+  import: 'MDXProps',
 });

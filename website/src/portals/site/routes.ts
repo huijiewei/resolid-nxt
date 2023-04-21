@@ -1,8 +1,6 @@
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
 
-import NotFound from './NotFound';
-
 import runSiteRoutes from '~/modules/run/siteRoutes';
 import uiSiteRoutes from '~/modules/ui/siteRoutes';
 
@@ -20,7 +18,7 @@ const routes: RouteObject[] = [
       { path: 'ui', Component: lazy(() => import('~/modules/ui/Layout')), children: uiSiteRoutes },
       {
         path: '*',
-        Component: NotFound,
+        Component: lazy(() => import('./NotFound')),
       },
     ],
   },

@@ -31,6 +31,10 @@ export type ButtonBaseProps = {
 };
 
 export type ButtonGroupProps = ButtonBaseProps & {
+  /**
+   * Vertical
+   * @default false
+   */
   vertical?: boolean;
 };
 
