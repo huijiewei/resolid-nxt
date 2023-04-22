@@ -1,6 +1,7 @@
-import { cx } from '@resolid/nxt-utils';
+import { cx, isAbsoluteUrl, isString } from '@resolid/nxt-utils';
 import type { ComponentProps } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { ExternalLink } from '~/common/icons/ExternalLink';
 import { MdxCode } from '~/common/mdx/MdxPreCode';
 
 export const mdxComponents = (module: string) => {
@@ -104,16 +105,22 @@ export const mdxComponents = (module: string) => {
       return <>{props.children}</>;
     },
     a: (props: ComponentProps<'a'>) => {
-      const { children, ...rest } = props;
+      const { children, href = '', ...rest } = props;
+
+      const external = isAbsoluteUrl(href) && ['http', 'https'].includes(href.slice(0, href.indexOf(':')));
 
       return (
         <a
-          className={'text-link hover:text-link-hovered active:text-link-pressed'}
-          target="_blank"
-          rel="noreferrer"
+          className={
+            'text-link inline-flex items-center hover:text-link-hovered hover:underline active:text-link-pressed'
+          }
+          href={href}
+          title={isString(children) ? children : ''}
+          {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
           {...rest}
         >
           {children}
+          {external && <ExternalLink size={'0.93em'} className={'ml-0.5'} />}
         </a>
       );
     },
