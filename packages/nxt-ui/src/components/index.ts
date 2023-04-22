@@ -3,6 +3,7 @@ export * from './button/Button';
 export * from './button/ButtonGroup';
 export * from './divider/Divider';
 export * from './icon/Icon';
+export * from './image/Image';
 export * from './provider/ColorModeScript';
 export * from './provider/NxtProvider';
 export * from './spinner/Spinner';
