@@ -1,7 +1,9 @@
 import { __DEV__, isString } from '@resolid/nxt-utils';
 import type { SVGAttributes } from 'react';
 
-export type IconProps = SVGAttributes<SVGElement> & { size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl' };
+type IconSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
+export type IconProps = SVGAttributes<SVGElement> & { size?: number | string | IconSizes };
 
 const iconSizes = {
   xs: 16,
@@ -26,7 +28,8 @@ export const Icon = (props: IconProps) => {
     ...rest
   } = props;
 
-  const sizeValue = isString(size) ? iconSizes[size] : size;
+  const sizeValue =
+    isString(size) && ['xs', 'sm', 'md', 'lg', 'xl'].includes(size) ? iconSizes[size as IconSizes] : size;
 
   return (
     <svg
