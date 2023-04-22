@@ -48,6 +48,8 @@ const getComponentProps = (sourceRootPath: string, componentName: string) => {
                 typeText = typeText.replace(' | undefined', '');
               }
 
+              typeText = typeText.replace('React.', '').replace(/ReactElement<.*>/g, 'ReactElement');
+
               const typeDescription = prop
                 .getDeclarations()[0]
                 .getLeadingCommentRanges()[0]
