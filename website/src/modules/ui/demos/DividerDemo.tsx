@@ -153,7 +153,7 @@ export const TextLabel = () => {
             Divider
           </Divider>
           <Divider size={2} color={'danger'} variant="dashed">
-            <a href={'#text-label'} className={'text-blue-500 hover:underline'}>
+            <a href={'#text-label'} className={'text-link hover:text-link-hovered hover:underline'}>
               Link Divider
             </a>
           </Divider>
@@ -172,7 +172,7 @@ export const TextLabel = () => {
     Divider
   </Divider>
   <Divider size={2} color={'danger'} variant="dashed">
-    <a href={'#TextLabel'} className={'text-blue-500 hover:underline'}>
+    <a href={'#text-label'} className={'text-link hover:text-link-hovered hover:underline'}>
       Link Divider
     </a>
   </Divider>
