@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AsideLayout, AsideLayoutMain } from '~/common/components/AsideLayout';
 import { AsideLayoutSide } from '~/common/components/AsideLayoutSide';
+import { BaseLayout } from '~/common/components/BaseLayout';
 import { LazyLoader } from '~/common/components/LazyLoader';
 import { TocContextProvider } from '~/common/mdx/TocContext';
 import { TocLayout } from '~/common/mdx/TocLayout';
@@ -36,7 +37,7 @@ const TocProvider = (props: PropsWithChildren) => {
 
 export default function Layout() {
   return (
-    <>
+    <BaseLayout>
       <Helmet>
         <title>UI</title>
       </Helmet>
@@ -54,6 +55,6 @@ export default function Layout() {
           </MDXProvider>
         </AsideLayoutMain>
       </AsideLayout>
-    </>
+    </BaseLayout>
   );
 }

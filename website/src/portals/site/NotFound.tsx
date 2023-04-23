@@ -1,15 +1,24 @@
 import { Button } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
+import type { PropsWithChildren } from 'react';
+import { Fragment } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { DefaultLayout } from '~/common/components/DefaultLayout';
 
-export default function NotFound({ className }: { className?: string }) {
+export default function NotFound({
+  layout,
+  className,
+}: {
+  layout?: ({ children, className }: PropsWithChildren<{ className?: string }>) => JSX.Element;
+  className?: string;
+}) {
+  const Layout = layout ?? Fragment;
+
   return (
-    <>
+    <Layout>
       <Helmet>
         <title>Not Found</title>
       </Helmet>
-      <DefaultLayout className={cx('mx-auto h-full max-w-3xl', className)}>
+      <div className={cx('mx-auto h-full max-w-3xl p-4', className)}>
         <div className={'relative mt-16 w-full'}>
           <svg
             className={'fill-fg-default/5 absolute inset-0'}
@@ -29,7 +38,7 @@ export default function NotFound({ className }: { className?: string }) {
             </div>
           </div>
         </div>
-      </DefaultLayout>
-    </>
+      </div>
+    </Layout>
   );
 }

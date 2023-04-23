@@ -9,7 +9,7 @@ export const buttonStyles = cva(
   ],
   {
     variants: {
-      size: { xs: 'h-6 px-2 text-sm', sm: 'h-7 px-3', md: 'h-8 px-4', lg: 'h-9 px-5', xl: 'h-10 px-6 text-lg' },
+      size: { xs: 'h-6 px-2 text-sm', sm: 'h-7 px-3', md: 'h-8 px-4', lg: 'h-9 px-4', xl: 'h-10 px-4 text-lg' },
       variant: {
         solid: 'text-fg-emphasized border-transparent',
         outline: 'bg-bg-default border-current',

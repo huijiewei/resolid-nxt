@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { getPathname } from '~/common/utils/path';
 import { documents } from '~/modules/run/mdxDocuments';
 
-import NotFound from '~/portals/site/NotFound';
+const NotFound = lazy(() => import('~/portals/site/NotFound'));
 
 const getBasename = (path: string) => {
   const paths = getPathname(path).split('/');

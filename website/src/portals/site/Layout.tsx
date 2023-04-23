@@ -79,17 +79,15 @@ const Header = () => {
   );
 };
 
-const Layout = () => {
+export default function SiteLayout() {
   return (
     <>
       <Header />
-      <div className={'desktop:max-w-7xl mx-auto pt-16'}>
+      <div className={'pt-16'}>
         <Suspense fallback={<LazyLoader />}>
           <Outlet />
         </Suspense>
       </div>
     </>
   );
-};
-
-export default Layout;
+}

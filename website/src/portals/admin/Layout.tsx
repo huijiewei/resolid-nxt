@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, Outlet } from 'react-router-dom';
 import { LazyLoader } from '~/common/components/LazyLoader';
 
-const Component = () => {
+export default function AdminLayout() {
   return (
     <>
       <Helmet>
@@ -23,6 +23,4 @@ const Component = () => {
       </Suspense>
     </>
   );
-};
-
-export default Component;
+}

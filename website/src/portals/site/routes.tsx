@@ -1,8 +1,11 @@
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
+import { DefaultLayout } from '~/common/components/DefaultLayout';
 
 import runSiteRoutes from '~/modules/run/siteRoutes';
 import uiSiteRoutes from '~/modules/ui/siteRoutes';
+
+const NotFound = lazy(() => import('~/portals/site/NotFound'));
 
 const routes: RouteObject[] = [
   {
@@ -11,14 +14,14 @@ const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        lazy: () => import('~/modules/home/Index'),
+        Component: lazy(() => import('~/modules/home/Index')),
       },
       { path: 'about', Component: lazy(() => import('~/modules/home/About')) },
       { path: 'run', Component: lazy(() => import('~/modules/run/Layout')), children: runSiteRoutes },
       { path: 'ui', Component: lazy(() => import('~/modules/ui/Layout')), children: uiSiteRoutes },
       {
         path: '*',
-        Component: lazy(() => import('./NotFound')),
+        element: <NotFound layout={DefaultLayout} />,
       },
     ],
   },

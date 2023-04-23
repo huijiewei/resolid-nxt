@@ -1,65 +1,44 @@
-import { useActionData, useLoaderData } from '@resolid/nxt-run';
-import { server$ } from '@resolid/nxt-run/server';
 import { Button } from '@resolid/nxt-ui';
-import { useSubmit, type ShouldRevalidateFunction } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { DefaultLayout } from '~/common/components/DefaultLayout';
+import { ArrowRight } from '~/common/icons/ArrowRight';
+import { Github } from '~/common/icons/Github';
 
-let count = 0;
-
-export const loader = server$(() => {
-  return { count };
-});
-
-export const action = server$(async ({ request }) => {
-  const formData = await request.formData();
-
-  const actionMethod = formData.get('method');
-
-  if (actionMethod == 'increment') {
-    count++;
-  }
-
-  if (actionMethod == 'decrement') {
-    count--;
-  }
-
-  return { count };
-});
-
-export const shouldRevalidate: ShouldRevalidateFunction = ({ actionResult }) => {
-  return actionResult == undefined;
-};
-
-export const Component = () => {
-  const data = useLoaderData<typeof loader>();
-  const actionData = useActionData<typeof action>();
-  const submit = useSubmit();
-
+export default function HomeIndex() {
   return (
     <DefaultLayout>
-      <div>Home Index</div>
-      <div className={'my-3'}>{actionData?.count ?? data.count}</div>
-      <div className={'flex flex-row gap-3 my-3'}>
-        <Button
-          size={'sm'}
-          variant={'outline'}
-          onClick={() => {
-            submit({ method: 'increment' }, { method: 'post' });
-          }}
+      <main className={'flex min-h-[calc(100vh-17em)] flex-col items-center justify-center'}>
+        <p
+          className={
+            'bg-gradient-to-r from-red-400 via-yellow-400 to-blue-400 bg-clip-text text-[5em] font-bold leading-normal text-transparent'
+          }
         >
-          Increment
-        </Button>
-        <Button
-          size={'sm'}
-          variant={'outline'}
-          color={'neutral'}
-          onClick={() => {
-            submit({ method: 'decrement' }, { method: 'post' });
-          }}
-        >
-          Decrement
-        </Button>
-      </div>
+          Resolid Nxt
+        </p>
+        <p className={'mt-10 text-lg'}>
+          React SSR framework that combines the power of React-Router and TailwindCSS to give you a seamless web
+          development experience.
+        </p>
+
+        <p className={'mt-10 flex flex-row gap-9'}>
+          <Button size={'xl'} as={Link} to={'/run'}>
+            Get Started
+            <ArrowRight className={'ml-2'} size={'xs'} />
+          </Button>
+          <Button
+            size={'xl'}
+            color={'neutral'}
+            variant={'outline'}
+            as={'a'}
+            target={'_blank'}
+            rel="noopener noreferrer"
+            href="https://github.com/resolid/nxt"
+          >
+            <Github size={'xs'} className={'mr-2'} />
+            GitHub
+          </Button>
+        </p>
+      </main>
     </DefaultLayout>
   );
-};
+}

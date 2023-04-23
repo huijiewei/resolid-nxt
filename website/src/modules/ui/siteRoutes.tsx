@@ -3,7 +3,8 @@ import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { getPathname } from '~/common/utils/path';
 import { components, documents } from '~/modules/ui/mdxDocuments';
-import NotFound from '~/portals/site/NotFound';
+
+const NotFound = lazy(() => import('~/portals/site/NotFound'));
 
 const getBasename = (path: string) => {
   return getPathname(path).split('/').pop()?.split('.')[0];
