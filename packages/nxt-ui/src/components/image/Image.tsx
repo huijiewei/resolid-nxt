@@ -2,7 +2,7 @@ import { __DEV__, omit } from '@resolid/nxt-utils';
 import type { ReactElement } from 'react';
 import { isValidElement } from 'react';
 import { primitiveComponent } from '../../primitives';
-import { shouldShowFallback, useImage, type UseImageProps } from './useImage';
+import { shouldShowFallback, useImage, type FallbackStrategy, type UseImageProps } from './useImage';
 
 export type ImageProps = UseImageProps & {
   /**
@@ -16,7 +16,7 @@ export type ImageProps = UseImageProps & {
    *
    * @default "beforeOrError"
    */
-  fallbackStrategy?: 'onError' | 'beforeOrError';
+  fallbackStrategy?: FallbackStrategy;
 };
 
 export const Image = primitiveComponent<'img', ImageProps>((props, ref) => {

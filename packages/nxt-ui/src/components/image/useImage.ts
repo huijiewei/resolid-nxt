@@ -120,6 +120,8 @@ export const useImage = (props: UseImageProps) => {
   return status;
 };
 
-export const shouldShowFallback = (status: Status, fallbackStrategy: 'onError' | 'beforeOrError') =>
+export type FallbackStrategy = 'onError' | 'beforeOrError';
+
+export const shouldShowFallback = (status: Status, fallbackStrategy: FallbackStrategy) =>
   (status !== 'loaded' && fallbackStrategy === 'beforeOrError') ||
   (status === 'failed' && fallbackStrategy === 'onError');

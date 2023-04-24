@@ -1,11 +1,7 @@
 import { name as isIdentifierName } from 'estree-util-is-identifier-name';
 import fg from 'fast-glob';
-import { Project } from 'ts-morph';
+import { withCustomConfig, type ComponentDoc, type PropItem } from 'react-docgen-typescript';
 import { visit } from 'unist-util-visit';
-
-const internalProject = new Project({
-  tsConfigFilePath: 'tsconfig.json',
-});
 
 type RemarkTypedocOptions = {
   sourceRootPath: string;
@@ -21,74 +17,77 @@ type ComponentProps = {
   required: boolean;
 };
 
+const tsParser = withCustomConfig('tsconfig.json', {
+  savePropValueAsString: false,
+  skipChildrenPropWithoutDoc: false,
+  shouldExtractLiteralValuesFromEnum: true,
+  shouldExtractValuesFromUnion: true,
+  shouldRemoveUndefinedFromOptional: true,
+  propFilter: (prop: PropItem) => {
+    if (['as', 'ref', 'style', 'className'].includes(prop.name)) {
+      return false;
+    }
+
+    if (prop.description.includes('@ignore')) {
+      return false;
+    }
+
+    if (prop.declarations && prop.declarations.length > 0) {
+      return prop.declarations.find((declaration) => !declaration.fileName.includes('node_modules')) != undefined;
+    }
+
+    return true;
+  },
+});
+
 const getComponentProps = (sourceRootPath: string, componentName: string) => {
   const files = fg.sync(`${sourceRootPath}/**/${componentName}.tsx`);
 
   const typeExports: ComponentProps[] = [];
 
-  const project = internalProject;
-
   files.forEach((file) => {
-    const sourceFile = project.getSourceFile(file);
+    const componentDoc = tsParser.parse(file).find((item: ComponentDoc) => {
+      return item.displayName == componentName;
+    });
 
-    if (sourceFile) {
-      sourceFile.getTypeAliases().forEach((declaration) => {
-        if (declaration.getName() == `${componentName}Props`) {
-          declaration
-            .getType()
-            .getProperties()
-            .forEach((prop) => {
-              let typeText = prop.isOptional()
-                ? prop.getTypeAtLocation(declaration).getNonNullableType().getText()
-                : prop.getTypeAtLocation(declaration).getText();
+    if (componentDoc) {
+      Object.entries(componentDoc.props).forEach(([key, value]) => {
+        let typeText = '';
 
-              if (typeText.startsWith('NonNullable<')) {
-                typeText = typeText.slice(12, -1);
-                typeText = typeText.replace(' | null', '');
-                typeText = typeText.replace(' | undefined', '');
-              }
-
-              typeText = typeText.replace('React.', '').replace(/ReactElement<.*>/g, 'ReactElement');
-
-              const typeDescription = prop
-                .getDeclarations()[0]
-                .getLeadingCommentRanges()[0]
-                .getText()
-                .replace(/\r\n/g, '\n')
-                .split('\n')
-                .map((line) => {
-                  let str = line.trim();
-
-                  if (str.length == 0) {
-                    return undefined;
-                  }
-
-                  if (str == '/**' || str == '*/') {
-                    return undefined;
-                  }
-
-                  if (str[0] == '*') {
-                    str = str.slice(1).trim();
-                  }
-
-                  return str.length > 0 && !str.startsWith('@default') ? str : undefined;
-                })
-                .filter(Boolean)
-                .join('\n');
-
-              const defaultValue = prop.getJsDocTags().find((tag) => {
-                return tag.getName() == 'default';
-              });
-
-              typeExports.push({
-                name: prop.getName(),
-                type: typeText,
-                description: typeDescription,
-                defaultValue: defaultValue?.getText()[0].text ?? '',
-                required: !prop.isOptional(),
-              });
-            });
+        if (value.type.name == 'enum') {
+          if (!value.type.raw) {
+            typeText = value.type.name;
+          } else if (
+            value.type.raw.includes(' | ') ||
+            ['string', 'number', 'boolean', 'ReactNode'].includes(value.type.raw)
+          ) {
+            typeText = value.type.raw;
+          } else {
+            typeText = value.type.value.map((item: { value: string }) => item.value).join(' | ');
+          }
         }
+
+        if (!value.required) {
+          typeText = typeText.replace(' | undefined', '');
+        }
+
+        if (typeText.startsWith('NonNullable<')) {
+          typeText = typeText.slice(12, -1);
+          typeText = typeText.replace(' | null', '');
+          typeText = typeText.replace(' | undefined', '');
+        }
+
+        typeText = typeText.replace('React.', '').replace(/ReactElement<.*>/g, 'ReactElement');
+
+        const typeExport = {
+          name: key,
+          type: typeText,
+          required: value.required,
+          description: value.description,
+          defaultValue: value.defaultValue?.value ?? '',
+        };
+
+        typeExports.push(typeExport);
       });
     }
   });
