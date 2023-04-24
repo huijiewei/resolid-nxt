@@ -11,4 +11,5 @@ export * from './image/Image';
 export * from './provider/ColorModeScript';
 export * from './provider/NxtProvider';
 export * from './spinner/Spinner';
+export * from './switch/Switch';
 export * from './visually-hidden/VisuallyHidden';
