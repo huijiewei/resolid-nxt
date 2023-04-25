@@ -18,11 +18,11 @@ export const buttonStyles = cva(
         link: 'border-transparent underline underline-offset-2',
       },
       color: {
-        primary: 'focus-visible:ring-bg-primary-pressed/70',
-        neutral: 'focus-visible:ring-bg-neutral-pressed/70',
-        success: 'focus-visible:ring-bg-success-pressed/70',
-        warning: 'focus-visible:ring-bg-warning-pressed/70',
-        danger: 'focus-visible:ring-bg-danger-pressed/70',
+        primary: 'focus-visible:ring-bg-primary-emphasis/35',
+        neutral: 'focus-visible:ring-bg-neutral-emphasis/35',
+        success: 'focus-visible:ring-bg-success-emphasis/35',
+        warning: 'focus-visible:ring-bg-warning-emphasis/35',
+        danger: 'focus-visible:ring-bg-danger-emphasis/35',
       },
       disabled: {
         true: 'cursor-not-allowed opacity-50',

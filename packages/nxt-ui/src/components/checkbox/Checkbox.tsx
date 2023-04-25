@@ -58,27 +58,27 @@ const checkboxSizeStyles = {
 
 const checkboxColorStyles = {
   primary: {
-    focus: 'peer-focus-visible:ring-bg-primary-pressed/70',
+    focus: 'peer-focus-visible:ring-bg-primary-emphasis/35',
     checked: 'bg-bg-primary-emphasis',
     border: 'border-bg-primary-emphasis',
   },
   neutral: {
-    focus: 'peer-focus-visible:ring-bg-neutral-pressed/70',
+    focus: 'peer-focus-visible:ring-bg-neutral-emphasis/35',
     checked: 'bg-bg-neutral-emphasis',
     border: 'border-bg-neutral-emphasis',
   },
   success: {
-    focus: 'peer-focus-visible:ring-bg-success-pressed/70',
+    focus: 'peer-focus-visible:ring-bg-success-emphasis/35',
     checked: 'bg-bg-success-emphasis',
     border: 'border-bg-success-emphasis',
   },
   warning: {
-    focus: 'peer-focus-visible:ring-bg-warning-pressed/70',
+    focus: 'peer-focus-visible:ring-bg-warning-emphasis/35',
     checked: 'bg-bg-warning-emphasis',
     border: 'border-bg-warning-emphasis',
   },
   danger: {
-    focus: 'peer-focus-visible:ring-bg-danger-pressed/70',
+    focus: 'peer-focus-visible:ring-bg-danger-emphasis/35',
     checked: 'bg-bg-danger-emphasis',
     border: 'border-bg-danger-emphasis',
   },

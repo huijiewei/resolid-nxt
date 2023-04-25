@@ -1,3 +1,4 @@
+import { Button, Checkbox, NativeSelect } from '@resolid/nxt-ui';
 import { cx, isBoolean } from '@resolid/nxt-utils';
 import { useState } from 'react';
 import { CodeHighlight } from '~/common/components/CodeHighlight';
@@ -67,17 +68,17 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
             const propValue = state[prop.propName] ?? prop.defaultValue;
 
             return (
-              <div
+              <label
                 key={prop.propName}
                 className={cx(
                   'flex justify-between items-center gap-1.5',
                   prop.control == 'switch' ? 'flex-row' : 'flex-row laptop:flex-col laptop:items-start'
                 )}
               >
-                <label className={'capitalize'}>{prop.propName}</label>
+                <div className={'capitalize'}>{prop.propName}</div>
                 {prop.control == 'select' && (
-                  <select
-                    className={'px-2 h-8 border rounded laptop:w-full w-auto'}
+                  <NativeSelect
+                    className={'w-full'}
                     value={(propValue || '') as string}
                     onChange={(e) => {
                       setState((prev) => ({ ...prev, [prop.propName]: e.target.value }));
@@ -88,17 +89,17 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
                         {option}
                       </option>
                     ))}
-                  </select>
+                  </NativeSelect>
                 )}
 
                 {prop.control == 'color' && (
                   <div className={'inline-flex gap-1 justify-between w-auto laptop:w-full'}>
                     {prop.options?.map((option) => (
-                      <button
+                      <Button
                         key={`${prop.propName}-${option}`}
                         title={option}
-                        style={{ backgroundColor: `rgb(var(--re-bg-${option}-emphasis)` }}
-                        className={'w-8 h-8 flex items-center justify-center rounded'}
+                        color={option}
+                        className={'aspect-square !px-0'}
                         onClick={() => {
                           setState((prev) => ({ ...prev, [prop.propName]: option }));
                         }}
@@ -106,17 +107,16 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
                         {propValue == option && (
                           <Check strokeWidth={'3'} className={'text-white dark:text-black'} size={'xs'} />
                         )}
-                      </button>
+                      </Button>
                     ))}
                   </div>
                 )}
 
                 {prop.control == 'switch' && (
-                  <input
-                    type="checkbox"
+                  <Checkbox
                     checked={propValue}
-                    onChange={(e) => {
-                      setState((prev) => ({ ...prev, [prop.propName]: e.target.checked }));
+                    onChange={(value) => {
+                      setState((prev) => ({ ...prev, [prop.propName]: value }));
                     }}
                   />
                 )}
@@ -142,7 +142,7 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
                     }}
                   />
                 )}
-              </div>
+              </label>
             );
           })}
         </div>
