@@ -67,5 +67,11 @@ function ignoreResolidExport(moduleExport) {
   return IGNORE_RESOLID_EXPORTS.includes(moduleExport);
 }
 
+function __hmr_import(module) {
+  return import(/* @vite-ignore */ module);
+}
+
+exports.__hmr_import = __hmr_import;
+
 exports.registerExportsForReactRefresh = registerExportsForReactRefresh;
 exports.validateRefreshBoundaryAndEnqueueUpdate = validateRefreshBoundaryAndEnqueueUpdate;
