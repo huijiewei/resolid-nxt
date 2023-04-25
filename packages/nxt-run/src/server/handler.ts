@@ -1,5 +1,5 @@
 import { type FilledContext } from 'react-helmet-async';
-import { matchRoutes } from 'react-router-dom';
+import { matchRoutes, redirect } from 'react-router-dom';
 import { createStaticHandler } from 'react-router-dom/server';
 import { getHandler, handleData$ } from './bling';
 import { components$, type EntryContext } from './context';
@@ -61,12 +61,35 @@ export const createHandler = (handle: HandleFn) => {
       throw context;
     }
 
+    const responseContext: { status: number; to?: string } = {
+      status: context.statusCode,
+    };
+
+    for (const match of context.matches) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if (typeof (match.route as any)?.element?.props?.to == 'string') {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        responseContext.to = match.pathname + (match.route as any).element.props.to;
+
+        break;
+      }
+
+      if (match.route.path == '*') {
+        responseContext.status = 404;
+        break;
+      }
+    }
+
+    if (responseContext.to) {
+      return redirect(responseContext.to, 301);
+    }
+
     entryContext.helmetContext = {} as FilledContext;
     entryContext.routes = staticHandler.dataRoutes;
     entryContext.staticHandlerContext = context;
 
     components$.clearComponents();
 
-    return handle(request, context.statusCode, responseHeaders, entryContext, renderOptions);
+    return handle(request, responseContext.status, responseHeaders, entryContext, renderOptions);
   };
 };

@@ -18,7 +18,7 @@ const getBasename = (path: string) => {
 };
 
 const routes: RouteObject[] = [
-  { index: true, element: <Navigate to={'introduction'} /> },
+  { index: true, element: <Navigate replace={true} to={'introduction'} /> },
   ...Object.keys(documents).map((key) => {
     return { path: getBasename(key), Component: lazy(documents[key]) };
   }),
