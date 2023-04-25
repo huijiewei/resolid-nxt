@@ -5,6 +5,8 @@ export * from './breadcrumb/BreadcrumbLink';
 export * from './breadcrumb/BreadcrumbSeparator';
 export * from './button/Button';
 export * from './button/ButtonGroup';
+export * from './checkbox/Checkbox';
+export * from './checkbox/CheckboxGroup';
 export * from './divider/Divider';
 export * from './icon/Icon';
 export * from './image/Image';
