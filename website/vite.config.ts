@@ -58,6 +58,9 @@ export default defineConfig(({ command }) => {
     build: {
       minify: true,
     },
+    optimizeDeps: {
+      include: ['@mdx-js/react'],
+    },
     test: {
       environment: 'jsdom',
       setupFiles: '../packages/tests/src/setup.ts',

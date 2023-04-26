@@ -26,11 +26,11 @@
   },
   "dependencies": {
     "@resolid/nxt-utils": "workspace:*",
-    "class-variance-authority": "^0.5.2"
+    "class-variance-authority": "^0.5.3"
   },
   "devDependencies": {
-    "@resolid/nxt-tests": "workspace:*",
     "@resolid/nxt-tailwind": "workspace:*",
+    "@resolid/nxt-tests": "workspace:*",
     "@vitejs/plugin-react": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
