@@ -78,7 +78,7 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
                 <div className={'capitalize'}>{prop.propName}</div>
                 {prop.control == 'select' && (
                   <NativeSelect
-                    className={'w-full'}
+                    className={'laptop:w-full'}
                     value={(propValue || '') as string}
                     onChange={(e) => {
                       setState((prev) => ({ ...prev, [prop.propName]: e.target.value }));

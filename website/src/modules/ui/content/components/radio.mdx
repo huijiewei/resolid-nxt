@@ -1,0 +1,52 @@
+# Radio
+
+Radios are used when only one choice may be selected in a series of options.
+
+## Import
+
+```javascript
+import { Radio, RadioGroup } from '@resolid/nxt-ui';
+```
+
+## Usage
+
+<Demo file={'RadioDemo.tsx'} height={280} demo={'Usage'} />
+
+## Colors
+
+Change the color of the radio by passing the `color` prop. Radio supports `primary`, `success`, `warning`, `danger`, and `neutral` colors.
+
+<Demo file={'RadioDemo.tsx'} height={447} demo={'Colors'} />
+
+## Sizes
+
+Radio has 5 sizes you can use. Pass the `size` prop and use either `xs`, `sm`, `md`, `lg` or `xl`.
+
+<Demo file={'RadioDemo.tsx'} height={415} demo={'Sizes'} />
+
+## Group
+
+<Demo file={'RadioDemo.tsx'} height={561} demo={'Group'} />
+
+## Note about name prop
+
+We recommend passing the `name` prop to the `RadioGroup` component, instead of passing it to each `Radio` component. By default, the `name` prop of the RadioGroup takes precedence.
+
+```jsx
+// Do this ✅
+<RadioGroup name="form-name">
+  <Radio>Radio 1</Radio>
+  <Radio>Radio 2</Radio>
+</RadioGroup>
+
+// Don't do this ❌
+<RadioGroup >
+  <Radio name="form-name">Radio 1</Radio>
+  <Radio name="form-name">Radio 2</Radio>
+</RadioGroup>
+```
+
+## Props
+
+<PropsTable title component={'Radio'} />
+<PropsTable title component={'RadioGroup'} />
