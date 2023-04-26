@@ -43,7 +43,7 @@ export const NativeSelect = primitiveComponent<'select', NativeSelectProps>((pro
       <select
         disabled={disabled}
         className={cx(
-          'focus:ring-2 focus:ring-bg-primary-emphasis focus:border-transparent w-full appearance-none rounded border border-bg-muted bg-bg-default outline-none transition-colors',
+          'focus:ring-1 focus:ring-bg-primary-emphasis focus:border-bg-primary-emphasis w-full appearance-none rounded border border-bg-muted bg-bg-default outline-none transition-colors',
           sizeStyle.select
         )}
         ref={ref}
