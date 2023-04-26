@@ -12,6 +12,8 @@ export * from './icon/Icon';
 export * from './image/Image';
 export * from './provider/ColorModeScript';
 export * from './provider/NxtProvider';
+export * from './radio/Radio';
+export * from './radio/RadioGroup';
 export * from './select/NativeSelect';
 export * from './spinner/Spinner';
 export * from './switch/Switch';
