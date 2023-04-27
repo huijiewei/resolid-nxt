@@ -66,15 +66,15 @@ const tooltipColorStyles = {
   },
   success: {
     content: 'border-bg-success-emphasis-hovered bg-bg-success-emphasis-hovered',
-    arrow: '',
+    arrow: 'fill-bg-success-emphasis-hovered stroke-bg-success-emphasis-hovered',
   },
   warning: {
     content: 'border-bg-warning-emphasis-hovered bg-bg-warning-emphasis-hovered',
-    arrow: '',
+    arrow: 'fill-bg-warning-emphasis-hovered stroke-bg-warning-emphasis-hovered',
   },
   danger: {
     content: 'border-bg-danger-emphasis-hovered bg-bg-danger-emphasis-hovered',
-    arrow: '',
+    arrow: 'fill-bg-danger-emphasis-hovered stroke-bg-danger-emphasis-hovered',
   },
 };
 
@@ -131,8 +131,9 @@ export const Tooltip = (props: PrimitiveProps<'div', TooltipProps>) => {
   return (
     <FloatingArrowProvider value={arrowContextValue}>
       {cloneElement(children, getReferenceProps({ ref: referenceRefs, ...children.props }))}
-      <Portal>
-        {isMounted && (
+
+      {isMounted && (
+        <Portal>
           <div
             className={cx(
               'absolute z-50 inline-block rounded border py-1 px-2 text-sm shadow text-fg-emphasized',
@@ -153,8 +154,8 @@ export const Tooltip = (props: PrimitiveProps<'div', TooltipProps>) => {
             {content}
             <FloatingArrowComponent width={10} height={5} />
           </div>
-        )}
-      </Portal>
+        </Portal>
+      )}
     </FloatingArrowProvider>
   );
 };

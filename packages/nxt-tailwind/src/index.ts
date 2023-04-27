@@ -92,7 +92,7 @@ const preset: Preset = (config = {}) => {
       fontWeight: fontWidth,
     },
     plugins: [
-      plugin(({ addBase, addUtilities, theme }) => {
+      plugin(({ addBase, addUtilities, addVariant, theme }) => {
         addBase({
           body: {
             color: `rgb(var(--${cssVarPrefix}-fg-default))`,
@@ -102,6 +102,7 @@ const preset: Preset = (config = {}) => {
           },
         });
         addUtilities(resolved.utilities);
+        addVariant('active', '&[data-active]');
       }),
       scrollbar(cssVarPrefix),
     ],
