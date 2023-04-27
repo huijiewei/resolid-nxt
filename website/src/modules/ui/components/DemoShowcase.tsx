@@ -12,6 +12,7 @@ export type DemoShowcaseProps<ComponentProps> = {
     labels?: string[];
     defaultValue?: ComponentProps[Extract<keyof ComponentProps, string>];
   }[];
+  defaultProps?: Partial<ComponentProps>;
   preview: (props: ComponentProps) => JSX.Element;
   snippet: string;
 };
@@ -21,8 +22,9 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
   preview,
   snippet,
   componentProps,
+  defaultProps = {},
 }: DemoShowcaseProps<T>) => {
-  const [state, setState] = useState<T>({} as T);
+  const [state, setState] = useState<T>(defaultProps as T);
 
   const codePropsReplace = () => {
     const propsReplace = Object.keys(state)

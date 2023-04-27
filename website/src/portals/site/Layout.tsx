@@ -1,3 +1,4 @@
+import { Tooltip } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -63,15 +64,16 @@ const Header = () => {
           </div>
           <div className={'flex flex-row items-center gap-1'}>
             <ThemeSwitcher />
-            <a
-              className={'p-2 hover:text-link'}
-              rel="noreferrer"
-              target="_blank"
-              href="https://github.com/resolid/nxt"
-              title={'Go to Resolid Nxt on Github'}
-            >
-              <Github size={'sm'} />
-            </a>
+            <Tooltip placement={'bottom'} content={'Go to Resolid Nxt on Github'}>
+              <a
+                className={'p-2 hover:text-link'}
+                rel="noreferrer"
+                target="_blank"
+                href="https://github.com/resolid/nxt"
+              >
+                <Github size={'sm'} />
+              </a>
+            </Tooltip>
           </div>
         </div>
       </nav>
