@@ -8,7 +8,7 @@ export type UseDisclosureProps = {
 };
 
 export function useDisclosure(options: UseDisclosureProps = {}) {
-  const { opened, defaultOpened, onOpen, onClose } = options;
+  const { opened, defaultOpened = false, onOpen, onClose } = options;
 
   const [openedState, setOpenedState] = useControllableState({
     value: opened,
