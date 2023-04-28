@@ -1,0 +1,41 @@
+# DropdownMenu
+
+An accessible dropdown menu for the common dropdown menu button design pattern. Menu uses roving tabIndex for focus management.
+
+## Import
+
+Resolid NxtUI exports 8 dropdown-menu-related components:
+
+- DropdownMenu: The wrapper component provides context, state, and focus management.
+- DropdownMenuTrigger: The trigger for the menu list. Must be a direct child of `Menu`.
+- DropdownMenuContent: The wrapper for the menu items. Must be a direct child of `Menu`.
+- DropdownMenuArrow: An optional arrow element to render alongside the menu content. Must be a direct child of a `MenuContent`.
+- DropdownMenuItem: The trigger that handles menu selection. Must be a direct child of a `MenuContent`.
+- DropdownMenuGroup: A wrapper to group related menu items.
+- DropdownMenuGroupLabel: Used to render the label of a group. It won't be focusable using arrow keys.
+- DropdownMenuDivider: A visual separator for menu items and groups.
+
+```javascript
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuArrow,
+  DropdownMenuGroup,
+  DropdownMenuGroupLabel,
+  DropdownMenuItem,
+  DropdownMenuDivider,
+} from '@resolid/nxt-ui';
+```
+
+## Basic
+
+<Demo file={'DropdownMenuDemo.tsx'} demo={'Basic'} height={623} />
+
+## Multiple level
+
+<Demo file={'DropdownMenuDemo.tsx'} demo={'MultipleLevel'} height={723} />
+
+## Props
+
+<PropsTable component={'DropdownMenu'} />
