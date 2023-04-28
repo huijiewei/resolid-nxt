@@ -103,6 +103,7 @@ const preset: Preset = (config = {}) => {
         });
         addUtilities(resolved.utilities);
         addVariant('active', '&[data-active]');
+        addVariant('opened', '&[data-opened]');
       }),
       scrollbar(cssVarPrefix),
     ],
