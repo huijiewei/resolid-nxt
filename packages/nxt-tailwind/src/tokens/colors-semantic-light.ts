@@ -32,6 +32,7 @@ export const colorsSemanticLight = {
     default: colorsPalette.white,
     muted: colorsPalette.gray[200],
     subtle: colorsPalette.gray[100],
+    subtlest: colorsPalette.gray[50],
 
     primary: {
       DEFAULT: colorsPalette.blue[50],

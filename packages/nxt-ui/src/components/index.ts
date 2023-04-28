@@ -8,6 +8,7 @@ export * from './button/ButtonGroup';
 export * from './checkbox/Checkbox';
 export * from './checkbox/CheckboxGroup';
 export * from './divider/Divider';
+export * from './dropdown-menu/DropdownMenu';
 export * from './icon/Icon';
 export * from './image/Image';
 export * from './portal/Portal';
