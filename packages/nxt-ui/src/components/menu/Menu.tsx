@@ -20,10 +20,12 @@ import {
   useRole,
 } from '@floating-ui/react';
 import { __DEV__ } from '@resolid/nxt-utils';
-import { useCallback, useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
-import { useAllowHover } from '../../hooks';
+import { useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
+import { useAllowHover, useDisclosure } from '../../hooks';
 import { FloatingArrowProvider, type FloatingArrowContext } from '../floating/FloatingArrowContext';
-import { MenuDispatchProvider, MenuFloatingProvider, MenuReferenceProvider } from './MenuContext';
+import { FloatingDispatchProvider } from '../floating/FloatingDispatchContext';
+import { FloatingReferenceProvider } from '../floating/FloatingReferenceContext';
+import { MenuFloatingProvider } from './MenuContext';
 
 export type MenuProps = {
   /**
@@ -85,7 +87,7 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
     closeOnEsc = true,
     closeOnBlur = true,
     closeOnSelect = true,
-    opened = false,
+    opened,
     placement = 'bottom-start',
     onClose,
   } = props;
@@ -97,7 +99,7 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
 
   const allowHover = useAllowHover();
 
-  const [openedState, setOpenedState] = useState(opened);
+  const { opened: openedState, open, close } = useDisclosure({ opened, onClose });
 
   const arrowRef = useRef<SVGSVGElement>(null);
 
@@ -113,11 +115,7 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
     ],
     open: openedState,
     onOpenChange: (opened) => {
-      setOpenedState(opened);
-
-      if (!opened) {
-        onClose && onClose();
-      }
+      opened ? open() : close();
     },
     nodeId,
     placement: nested ? 'right-start' : placement,
@@ -178,16 +176,10 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
     [context]
   );
 
-  const handleClose = useCallback(() => {
-    setOpenedState(false);
-
-    onClose && onClose();
-  }, [onClose]);
-
   useEffect(() => {
     const handleClick = () => {
       if (closeOnSelect) {
-        handleClose();
+        close();
       }
     };
 
@@ -196,17 +188,17 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
     return () => {
       tree?.events.off('click', handleClick);
     };
-  }, [tree, handleClose, closeOnSelect]);
+  }, [tree, closeOnSelect, close]);
 
   return (
     <FloatingArrowProvider value={arrowContext}>
-      <MenuReferenceProvider value={referenceContext}>
+      <FloatingReferenceProvider value={referenceContext}>
         <MenuFloatingProvider value={floatingContext}>
-          <MenuDispatchProvider value={{ close: handleClose }}>
+          <FloatingDispatchProvider value={{ close }}>
             <FloatingNode id={nodeId}>{children}</FloatingNode>
-          </MenuDispatchProvider>
+          </FloatingDispatchProvider>
         </MenuFloatingProvider>
-      </MenuReferenceProvider>
+      </FloatingReferenceProvider>
     </FloatingArrowProvider>
   );
 };

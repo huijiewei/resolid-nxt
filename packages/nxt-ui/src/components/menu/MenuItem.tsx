@@ -1,5 +1,5 @@
 import { useListItem } from '@floating-ui/react';
-import { __DEV__, ariaAttr, cx, dataAttr } from '@resolid/nxt-utils';
+import { __DEV__, cx } from '@resolid/nxt-utils';
 import { useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import { useMenuSelect } from './MenuContext';
@@ -22,8 +22,7 @@ export const MenuItem = primitiveComponent<'button', DropdownMenuItemProps>((pro
     <button
       ref={refs}
       role={'menuitem'}
-      data-disabled={dataAttr(disabled)}
-      aria-disabled={ariaAttr(disabled)}
+      type={'button'}
       disabled={disabled}
       className={cx(
         'flex w-full cursor-default items-center rounded py-1 px-2 outline-none transition-colors',

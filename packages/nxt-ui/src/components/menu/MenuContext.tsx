@@ -1,35 +1,17 @@
-import type { FloatingContext, FloatingTreeType, ReferenceElement } from '@floating-ui/react';
+import type { FloatingTreeType, ReferenceElement } from '@floating-ui/react';
 import type { Dict } from '@resolid/nxt-utils';
 import { type HTMLProps, type MutableRefObject } from 'react';
 import { createContext } from '../../primitives';
+import type { FloatingFloatingContext } from '../floating/FloatingFloatingContext';
 
-type MenuReferenceContext = {
-  opened: boolean;
-  setReference: (node: HTMLElement) => void;
-  getReferenceProps: (userProps?: HTMLProps<Element> | undefined) => Dict<unknown>;
-};
-
-const [MenuReferenceProvider, useMenuReference] = createContext<MenuReferenceContext>({
-  strict: true,
-  name: 'MenuReferenceContext',
-});
-
-export { MenuReferenceProvider, useMenuReference };
 export { MenuFloatingProvider, useMenuFloating };
-export { MenuDispatchProvider, useMenuDispatch };
 export { MenuSelectProvider, useMenuSelect };
 
-type MenuFloatingContext = MenuSelectContext & {
-  nested: boolean;
-
-  x: number | null;
-  y: number | null;
-
-  context: FloatingContext;
-  setFloating: (node: HTMLElement) => void;
-  getFloatingProps: (userProps?: HTMLProps<HTMLElement> | undefined) => Dict<unknown>;
-  elementsRef: MutableRefObject<(HTMLElement | null)[]>;
-};
+type MenuFloatingContext = MenuSelectContext &
+  FloatingFloatingContext & {
+    nested: boolean;
+    elementsRef: MutableRefObject<(HTMLElement | null)[]>;
+  };
 
 const [MenuFloatingProvider, useMenuFloating] = createContext<MenuFloatingContext>({
   strict: true,
@@ -45,13 +27,4 @@ type MenuSelectContext = {
 const [MenuSelectProvider, useMenuSelect] = createContext<MenuSelectContext>({
   strict: true,
   name: 'MenuSelectContext',
-});
-
-type MenuDispatchContext = {
-  close: () => void;
-};
-
-const [MenuDispatchProvider, useMenuDispatch] = createContext<MenuDispatchContext>({
-  strict: true,
-  name: 'MenuDispatchContext',
 });

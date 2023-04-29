@@ -2,13 +2,15 @@ import { useListItem } from '@floating-ui/react';
 import { __DEV__, ariaAttr, cx, dataAttr } from '@resolid/nxt-utils';
 import { useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
-import { useMenuDispatch, useMenuReference, useMenuSelect } from './MenuContext';
+import { useFloatingDispatch } from '../floating/FloatingDispatchContext';
+import { useFloatingReference } from '../floating/FloatingReferenceContext';
+import { useMenuSelect } from './MenuContext';
 
 export const MenuItemTrigger = primitiveComponent<'button'>((props, ref) => {
   const { children, className, disabled, ...rest } = props;
 
-  const { setReference, getReferenceProps, opened } = useMenuReference();
-  const { close } = useMenuDispatch();
+  const { setReference, getReferenceProps, opened } = useFloatingReference();
+  const { close } = useFloatingDispatch();
 
   const { getItemProps, activeIndex } = useMenuSelect();
   const { ref: itemRef, index } = useListItem();
