@@ -69,6 +69,7 @@ const Header = () => {
                 className={'p-2 hover:text-link'}
                 rel="noreferrer"
                 target="_blank"
+                aria-label={'Go to Resolid Nxt on Github'}
                 href="https://github.com/resolid/nxt"
               >
                 <Github size={'sm'} />
