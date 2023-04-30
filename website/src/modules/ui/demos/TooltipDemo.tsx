@@ -117,7 +117,7 @@ export const Placement = () => {
               <span
                 style={{ gridArea: placement == 'auto' ? 'center' : placement }}
                 className={
-                  'flex h-12 w-12 text-center leading-none text-sm cursor-default items-center justify-center rounded bg-bg-muted'
+                  'flex h-12 w-12 text-center leading-tight text-sm cursor-default items-center justify-center rounded bg-bg-subtle'
                 }
               >
                 {name}
@@ -156,7 +156,7 @@ export const Placement = () => {
       <span
         style={{ gridArea: placement == 'auto' ? 'center' : placement }}
         className={
-          'flex h-12 w-12 text-center leading-none text-sm cursor-default items-center justify-center rounded bg-bg-muted'
+          'flex h-12 w-12 text-center leading-tight text-sm cursor-default items-center justify-center rounded bg-bg-muted'
         }
       >
         {name}
