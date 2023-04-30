@@ -8,30 +8,44 @@ import {
   useColorModeState,
 } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
+import { useEffect, useState } from 'react';
 import { Moon } from '~/common/icons/Moon';
 import { Sun } from '~/common/icons/Sun';
 import { System } from '~/common/icons/System';
+
+const colorModeDetails = {
+  dark: {
+    label: 'Dark',
+    icon: <Moon size={'sm'} />,
+  },
+  light: {
+    label: 'Light',
+    icon: <Sun size={'sm'} />,
+  },
+  system: {
+    label: 'System',
+    icon: <System size={'sm'} />,
+  },
+};
 
 export const ThemeSwitcher = () => {
   const { colorMode } = useColorModeState();
   const { setColorMode } = useColorModeDispatch();
 
-  const colorModeTitle = {
-    dark: 'Dark',
-    light: 'Light',
-    system: 'System',
-  };
+  const [colorModeState, setColorModeState] = useState(colorModeDetails['system']);
+
+  useEffect(() => {
+    setColorModeState(colorModeDetails[colorMode]);
+  }, [colorMode]);
 
   return (
     <DropdownMenu placement={'bottom'}>
       <DropdownMenuTrigger>
         <button
-          aria-label={colorModeTitle[colorMode]}
-          className={'block select-none p-1 transition-colors hover:text-link'}
+          aria-label={colorModeState.label}
+          className={'block select-none p-2 transition-colors hover:text-link rounded'}
         >
-          {colorMode == 'system' && <System size={'sm'} />}
-          {colorMode == 'light' && <Sun size={'sm'} />}
-          {colorMode == 'dark' && <Moon size={'sm'} />}
+          {colorModeState.icon}
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className={'z-50'}>
