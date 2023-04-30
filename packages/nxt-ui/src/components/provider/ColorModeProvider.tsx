@@ -5,18 +5,18 @@ import { createContext } from '../../primitives';
 
 export type ColorMode = 'system' | 'light' | 'dark';
 
-type ColorModeStateValue = { darkMode: boolean; colorMode: ColorMode };
+type ColorModeStateContext = { darkMode: boolean; colorMode: ColorMode };
 
-const [ColorModeStateProvider, useColorModeState] = createContext<ColorModeStateValue>({
+const [ColorModeStateProvider, useColorModeState] = createContext<ColorModeStateContext>({
   name: 'ColorModeStateContext',
   strict: true,
 });
 
-type ColorModeDispatch = {
+type ColorModeDispatchContext = {
   setColorMode: Dispatch<SetStateAction<ColorMode>>;
 };
 
-const [ColorModeDispatchProvider, useColorModeDispatch] = createContext<ColorModeDispatch>({
+const [ColorModeDispatchProvider, useColorModeDispatch] = createContext<ColorModeDispatchContext>({
   name: 'ColorModeDispatchContext',
   strict: true,
 });
@@ -34,7 +34,7 @@ export const ColorModeProvider = ({ children }: PropsWithChildren) => {
   const [darkMode, setDarkMode] = useState<boolean>(darkOS);
 
   useEffect(() => {
-    const isDark = colorMode == 'dark' || darkOS;
+    const isDark = colorMode == 'dark' || (colorMode == 'system' && darkOS);
 
     setDarkMode(isDark);
 
