@@ -85,11 +85,11 @@ export const Focus = () => {
                   <form className={'flex flex-col gap-3'}>
                     <div className={'flex gap-5 items-center justify-between'}>
                       <label htmlFor={'firstName'}>First name</label>
-                      <input id={'firstName'} value={'John'} className={'border rounded px-3 py-1.5'} />
+                      <input id={'firstName'} defaultValue={'John'} className={'border rounded px-3 py-1.5'} />
                     </div>
                     <div className={'flex gap-5 items-center justify-between'}>
                       <label htmlFor={'lastName'}>Last name</label>
-                      <input id={'lastName'} value={'Smith'} className={'border rounded px-3 py-1.5'} />
+                      <input id={'lastName'} defaultValue={'Smith'} className={'border rounded px-3 py-1.5'} />
                     </div>
                   </form>
                 </PopoverBody>
@@ -117,11 +117,11 @@ export const Focus = () => {
           <form className={'flex flex-col gap-3'}>
             <div className={'flex gap-5 items-center justify-between'}>
               <label htmlFor={'firstName'}>First name</label>
-              <input id={'firstName'} value={'John'} className={'border rounded px-3 py-1.5'} />
+              <input id={'firstName'} defaultValue={'John'} className={'border rounded px-3 py-1.5'} />
             </div>
             <div className={'flex gap-5 items-center justify-between'}>
               <label htmlFor={'lastName'}>Last name</label>
-              <input id={'lastName'} value={'Smith'} className={'border rounded px-3 py-1.5'} />
+              <input id={'lastName'} defaultValue={'Smith'} className={'border rounded px-3 py-1.5'} />
             </div>
           </form>
         </PopoverBody>

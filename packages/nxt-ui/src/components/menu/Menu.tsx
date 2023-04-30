@@ -103,7 +103,7 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
 
   const arrowRef = useRef<SVGSVGElement>(null);
 
-  const { x, y, refs, context } = useFloating({
+  const { floatingStyles, refs, context } = useFloating({
     middleware: [
       offset({ mainAxis: 8, alignmentAxis: nested ? -5 : 0 }),
       flip(),
@@ -154,8 +154,7 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
     () => ({
       nested,
       tree,
-      x,
-      y,
+      floatingStyles,
       context,
       setFloating: refs.setFloating,
       getFloatingProps,
@@ -163,15 +162,14 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
       getItemProps,
       activeIndex,
     }),
-    [nested, tree, x, y, context, refs.setFloating, getFloatingProps, getItemProps, activeIndex]
+    [nested, tree, floatingStyles, context, refs.setFloating, getFloatingProps, getItemProps, activeIndex]
   );
 
   const arrowContext = useMemo<FloatingArrowContext>(
     () => ({
       context,
       setArrow: arrowRef,
-      fillClassName: 'fill-bg-default',
-      strokeClassName: 'stroke-bg-muted',
+      className: 'fill-bg-default [&>path:first-of-type]:stroke-bg-muted',
     }),
     [context]
   );

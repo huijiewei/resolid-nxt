@@ -8,7 +8,7 @@ import { usePopoverAria, usePopoverFloating } from './PopoverContext';
 export const PopoverContent = primitiveComponent<'div'>((props, ref) => {
   const { children, className, ...rest } = props;
 
-  const { x, y, setFloating, context, getFloatingProps, modal, initialFocus } = usePopoverFloating();
+  const { floatingStyles, setFloating, context, getFloatingProps, modal, initialFocus } = usePopoverFloating();
 
   const { labelId, descriptionId } = usePopoverAria();
 
@@ -24,20 +24,13 @@ export const PopoverContent = primitiveComponent<'div'>((props, ref) => {
         <Portal>
           <FloatingFocusManager modal={modal} initialFocus={initialFocus} context={context}>
             <div
-              className={cx(
-                'absolute z-10 outline-none',
-                'transition-opacity duration-300',
-                status == 'open' ? 'opacity-1' : 'opacity-0'
-              )}
+              className={cx('transition-opacity duration-300', status == 'open' ? 'opacity-1' : 'opacity-0')}
+              style={floatingStyles}
+              ref={refs}
               {...getFloatingProps({
                 ...rest,
-                ref: refs,
                 'aria-labelledby': labelId,
                 'aria-describedby': descriptionId,
-                style: {
-                  top: y ? `${y}px` : '',
-                  left: x ? `${x}px` : '',
-                },
               })}
             >
               <div className={cx('relative rounded border border-bg-muted bg-bg-default shadow', className)}>

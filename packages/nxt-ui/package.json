@@ -27,7 +27,7 @@
   "dependencies": {
     "@resolid/nxt-utils": "workspace:*",
     "class-variance-authority": "^0.5.3",
-    "@floating-ui/react": "^0.23.1"
+    "@floating-ui/react": "^0.24.0"
   },
   "devDependencies": {
     "@resolid/nxt-tailwind": "workspace:*",

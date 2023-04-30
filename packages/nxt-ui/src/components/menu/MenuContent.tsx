@@ -8,8 +8,17 @@ import { MenuSelectProvider, useMenuFloating } from './MenuContext';
 export const MenuContent = primitiveComponent<'div'>((props, ref) => {
   const { children, className, ...rest } = props;
 
-  const { nested, tree, x, y, context, setFloating, getFloatingProps, elementsRef, getItemProps, activeIndex } =
-    useMenuFloating();
+  const {
+    nested,
+    tree,
+    floatingStyles,
+    context,
+    setFloating,
+    getFloatingProps,
+    elementsRef,
+    getItemProps,
+    activeIndex,
+  } = useMenuFloating();
 
   const refs = useMergedRefs(setFloating, ref);
 
@@ -24,19 +33,15 @@ export const MenuContent = primitiveComponent<'div'>((props, ref) => {
           <FloatingFocusManager modal={false} initialFocus={nested ? -1 : 0} returnFocus={!nested} context={context}>
             <div
               className={cx(
-                'absolute outline-none',
                 'rounded border border-bg-muted bg-bg-default p-1.5 shadow',
                 'transition-opacity duration-300',
                 status == 'open' ? 'opacity-1' : 'opacity-0',
                 className
               )}
               ref={refs}
+              style={floatingStyles}
               {...getFloatingProps({
                 ...rest,
-                style: {
-                  top: y ? `${y}px` : '',
-                  left: x ? `${x}px` : '',
-                },
               })}
             >
               <MenuSelectProvider value={{ getItemProps, activeIndex, tree }}>

@@ -83,7 +83,7 @@ export const Popover = (props: PopoverProps) => {
 
   const { opened: openedState, open, close } = useDisclosure({ opened, onClose });
 
-  const { x, y, refs, context } = useFloating({
+  const { floatingStyles, refs, context } = useFloating({
     middleware: [
       offset(8),
       placement == 'auto' ? autoPlacement() : flip(),
@@ -130,24 +130,22 @@ export const Popover = (props: PopoverProps) => {
 
   const floatingContext = useMemo(
     () => ({
-      x,
-      y,
       opened: openedState,
       context,
+      floatingStyles,
       setFloating: refs.setFloating,
       getFloatingProps,
       modal,
       initialFocus,
     }),
-    [x, y, openedState, context, refs.setFloating, getFloatingProps, modal, initialFocus]
+    [openedState, context, floatingStyles, refs.setFloating, getFloatingProps, modal, initialFocus]
   );
 
   const arrowContext = useMemo(
     () => ({
       context,
       setArrow: arrowRef,
-      fillClassName: 'fill-bg-default',
-      strokeClassName: 'stroke-bg-muted',
+      className: 'fill-bg-default [&>path:first-of-type]:stroke-bg-muted',
     }),
     [context]
   );

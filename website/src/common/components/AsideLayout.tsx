@@ -20,7 +20,7 @@ const AsideBar = () => {
   return (
     <div
       className={
-        'tablet:hidden fixed flex h-12 w-full items-center justify-between border-b bg-bg-default/75 px-2 backdrop-blur'
+        'tablet:hidden fixed z-10 flex h-12 w-full items-center justify-between border-b bg-bg-default/75 px-2 backdrop-blur'
       }
     >
       <button onClick={() => setOpen(true)} className={'flex items-center gap-1 p-2'}>

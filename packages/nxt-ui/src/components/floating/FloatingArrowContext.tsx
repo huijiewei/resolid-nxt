@@ -5,8 +5,7 @@ import { createContext } from '../../primitives';
 export type FloatingArrowContext = {
   context: FloatingContext;
   setArrow: RefObject<SVGSVGElement>;
-  fillClassName: string;
-  strokeClassName: string;
+  className: string;
 };
 
 const [FloatingArrowProvider, useFloatingArrow] = createContext<FloatingArrowContext>({

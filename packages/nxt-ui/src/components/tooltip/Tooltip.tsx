@@ -55,38 +55,23 @@ export type TooltipProps = {
 const tooltipColorStyles = {
   primary: {
     content: 'border-bg-primary-emphasis-hovered bg-bg-primary-emphasis-hovered',
-    arrow: {
-      fill: 'fill-bg-primary-emphasis-hovered',
-      stroke: 'stroke-bg-primary-emphasis-hovered',
-    },
+    arrow: 'fill-bg-primary-emphasis-hovered [&>path:first-of-type]:stroke-bg-primary-emphasis-hovered',
   },
   neutral: {
     content: 'border-bg-neutral-emphasis-hovered bg-bg-neutral-emphasis-hovered',
-    arrow: {
-      fill: 'fill-bg-neutral-emphasis-hovered',
-      stroke: 'stroke-bg-neutral-emphasis-hovered',
-    },
+    arrow: 'fill-bg-neutral-emphasis-hovered [&>path:first-of-type]:stroke-bg-neutral-emphasis-hovered',
   },
   success: {
     content: 'border-bg-success-emphasis-hovered bg-bg-success-emphasis-hovered',
-    arrow: {
-      fill: 'fill-bg-success-emphasis-hovered',
-      stroke: 'stroke-bg-success-emphasis-hovered',
-    },
+    arrow: 'fill-bg-success-emphasis-hovered [&>path:first-of-type]:stroke-bg-success-emphasis-hovered',
   },
   warning: {
     content: 'border-bg-warning-emphasis-hovered bg-bg-warning-emphasis-hovered',
-    arrow: {
-      fill: 'fill-bg-warning-emphasis-hovered',
-      stroke: 'stroke-bg-warning-emphasis-hovered',
-    },
+    arrow: 'fill-bg-warning-emphasis-hovered [&>path:first-of-type]:stroke-bg-warning-emphasis-hovered',
   },
   danger: {
     content: 'border-bg-danger-emphasis-hovered bg-bg-danger-emphasis-hovered',
-    arrow: {
-      fill: 'fill-bg-danger-emphasis-hovered',
-      stroke: 'stroke-bg-danger-emphasis-hovered',
-    },
+    arrow: 'fill-bg-danger-emphasis-hovered [&>path:first-of-type]:stroke-bg-danger-emphasis-hovered',
   },
 };
 
@@ -97,7 +82,7 @@ export const Tooltip = (props: PrimitiveProps<'div', TooltipProps>) => {
 
   const arrowRef = useRef<SVGSVGElement>(null);
 
-  const { x, y, refs, context } = useFloating({
+  const { floatingStyles, refs, context } = useFloating({
     middleware: [
       offset(8),
       placement == 'auto' ? autoPlacement() : flip(),
@@ -131,35 +116,31 @@ export const Tooltip = (props: PrimitiveProps<'div', TooltipProps>) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const referenceRefs = useMergedRefs((children as any).ref, refs.setReference);
 
-  const arrowContextValue = useMemo<FloatingArrowContext>(
+  const arrowContext = useMemo<FloatingArrowContext>(
     () => ({
       context,
       setArrow: arrowRef,
-      fillClassName: colorStyle.arrow.fill,
-      strokeClassName: colorStyle.arrow.stroke,
+      className: colorStyle.arrow,
     }),
     [colorStyle.arrow, context]
   );
 
   return (
-    <FloatingArrowProvider value={arrowContextValue}>
+    <FloatingArrowProvider value={arrowContext}>
       {cloneElement(children, getReferenceProps({ ref: referenceRefs, ...children.props }))}
 
       {isMounted && (
         <Portal>
           <div
             className={cx(
-              'absolute z-50 inline-block rounded border py-1 px-2 text-sm shadow text-fg-emphasized',
+              'z-50 inline-block rounded border py-1 px-2 text-sm shadow text-fg-emphasized',
               colorStyle.content,
               'transition-opacity duration-300',
               status == 'open' ? 'opacity-1' : 'opacity-0',
               className
             )}
             ref={refs.setFloating}
-            style={{
-              top: y ? `${y}px` : '',
-              left: x ? `${x}px` : '',
-            }}
+            style={floatingStyles}
             {...getFloatingProps({
               ...rest,
             })}
