@@ -13,7 +13,7 @@ import {
   type Placement,
 } from '@floating-ui/react';
 import { __DEV__, runIfFn } from '@resolid/nxt-utils';
-import type { PropsWithChildren, ReactNode, RefObject } from 'react';
+import type { ReactNode, RefObject } from 'react';
 import { useId, useMemo, useRef } from 'react';
 import { useDisclosure } from '../../hooks';
 import { FloatingArrowProvider } from '../floating/FloatingArrowContext';
@@ -64,10 +64,10 @@ export type PopoverProps = {
   /**
    * @ignore
    */
-  children?: ReactNode | ((props: { opened: boolean; close?: () => void }) => ReactNode);
+  children?: ReactNode | ((props: { opened: boolean; close: () => void }) => ReactNode);
 };
 
-export const Popover = (props: PropsWithChildren<PopoverProps>) => {
+export const Popover = (props: PopoverProps) => {
   const {
     children,
     placement = 'auto',
