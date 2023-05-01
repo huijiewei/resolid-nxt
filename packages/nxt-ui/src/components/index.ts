@@ -12,6 +12,7 @@ export * from './divider/Divider';
 export * from './dropdown-menu/DropdownMenu';
 export * from './icon/Icon';
 export * from './image/Image';
+export * from './pagination/Pagination';
 export * from './popover/Popover';
 export * from './popover/PopoverArrow';
 export * from './popover/PopoverBody';
