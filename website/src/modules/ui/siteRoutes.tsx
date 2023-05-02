@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 import { getPathname } from '~/common/utils/path';
 import { components, documents } from '~/modules/ui/mdxDocuments';
 
@@ -11,7 +11,7 @@ const getBasename = (path: string) => {
 };
 
 const routes: RouteObject[] = [
-  { index: true, element: <Navigate replace={true} to={'introduction'} /> },
+  { index: true, loader: () => redirect('introduction') },
   ...Object.keys(documents).map((key) => {
     return { path: getBasename(key), Component: lazy(documents[key]) };
   }),
