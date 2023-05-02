@@ -7,7 +7,7 @@ export const CloseButton = primitiveComponent<'button'>((props, ref) => {
     <button
       ref={ref}
       className={cx(
-        'flex shrink-0 appearance-none items-center justify-center outline-none transition-colors focus-visible:ring',
+        'flex shrink-0 appearance-none items-center justify-center text-fg-muted outline-none transition-colors hover:bg-bg-subtle focus-visible:ring active:bg-bg-muted',
         className
       )}
       {...rest}
