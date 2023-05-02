@@ -31,6 +31,7 @@ export const colorsSemanticDark = {
 
   bg: {
     default: colorsPalette.gray[900],
+    emphasized: colorsPalette.white,
     muted: colorsPalette.gray[600],
     subtle: colorsPalette.gray[700],
     subtlest: colorsPalette.gray[800],

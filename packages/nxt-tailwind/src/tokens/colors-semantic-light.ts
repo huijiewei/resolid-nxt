@@ -30,6 +30,7 @@ export const colorsSemanticLight = {
   },
   bg: {
     default: colorsPalette.white,
+    emphasized: colorsPalette.gray[900],
     muted: colorsPalette.gray[200],
     subtle: colorsPalette.gray[100],
     subtlest: colorsPalette.gray[50],
