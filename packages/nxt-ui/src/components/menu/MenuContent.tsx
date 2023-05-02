@@ -1,5 +1,6 @@
 import { FloatingFocusManager, FloatingList, useTransitionStatus } from '@floating-ui/react';
 import { __DEV__, cx } from '@resolid/nxt-utils';
+import type { CSSProperties } from 'react';
 import { useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import { Portal } from '../portal/Portal';
@@ -11,6 +12,7 @@ export const MenuContent = primitiveComponent<'div'>((props, ref) => {
   const {
     nested,
     tree,
+    duration,
     floatingStyles,
     context,
     setFloating,
@@ -23,7 +25,7 @@ export const MenuContent = primitiveComponent<'div'>((props, ref) => {
   const refs = useMergedRefs(setFloating, ref);
 
   const { isMounted, status } = useTransitionStatus(context, {
-    duration: 300,
+    duration: duration,
   });
 
   return (
@@ -34,12 +36,12 @@ export const MenuContent = primitiveComponent<'div'>((props, ref) => {
             <div
               className={cx(
                 'rounded border border-bg-muted bg-bg-default p-1.5 shadow',
-                'transition-opacity duration-300',
+                'transition-opacity duration-[--duration-var]',
                 status == 'open' ? 'opacity-1' : 'opacity-0',
                 className
               )}
               ref={refs}
-              style={floatingStyles}
+              style={{ ...floatingStyles, '--duration-var': `${duration}ms` } as CSSProperties}
               {...getFloatingProps({
                 ...rest,
               })}

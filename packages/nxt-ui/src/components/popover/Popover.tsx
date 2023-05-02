@@ -20,7 +20,7 @@ import { FloatingAriaProvider } from '../floating/FloatingAriaContext';
 import { FloatingArrowProvider } from '../floating/FloatingArrowContext';
 import { FloatingDispatchProvider } from '../floating/FloatingDispatchContext';
 import { FloatingReferenceProvider } from '../floating/FloatingReferenceContext';
-import { PopoverFloatingProvider } from './PopoverContext';
+import { PopoverFloatingProvider, type PopoverFloatingContext } from './PopoverContext';
 
 export type PopoverProps = {
   /**
@@ -63,6 +63,12 @@ export type PopoverProps = {
   placement?: 'auto' | Placement;
 
   /**
+   * Animation Duration
+   * @default '250'
+   */
+  duration?: number;
+
+  /**
    * @ignore
    */
   children?: ReactNode | ((props: { opened: boolean; close: () => void }) => ReactNode);
@@ -75,6 +81,7 @@ export const Popover = (props: PopoverProps) => {
     closeOnEsc = true,
     closeOnBlur = true,
     modal = true,
+    duration = 250,
     opened,
     onClose,
     initialFocus,
@@ -129,9 +136,10 @@ export const Popover = (props: PopoverProps) => {
     [getReferenceProps, openedState, refs.setReference]
   );
 
-  const floatingContext = useMemo(
+  const floatingContext = useMemo<PopoverFloatingContext>(
     () => ({
       opened: openedState,
+      duration,
       context,
       floatingStyles,
       setFloating: refs.setFloating,
@@ -139,7 +147,7 @@ export const Popover = (props: PopoverProps) => {
       modal,
       initialFocus,
     }),
-    [openedState, context, floatingStyles, refs.setFloating, getFloatingProps, modal, initialFocus]
+    [openedState, duration, context, floatingStyles, refs.setFloating, getFloatingProps, modal, initialFocus]
   );
 
   const arrowContext = useMemo(

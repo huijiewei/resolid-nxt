@@ -34,6 +34,7 @@ export type ModalBaseProps = {
 
 export type ModalContext = ModalBaseProps & {
   status: 'unmounted' | 'initial' | 'open' | 'close';
+  duration: number;
   context: FloatingContext<HTMLElement>;
   setFloating: (node: HTMLElement) => void;
   getFloatingProps: (userProps?: HTMLProps<HTMLElement> | undefined) => Dict<unknown>;

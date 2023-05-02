@@ -7,8 +7,9 @@ import type { FloatingFloatingContext } from '../floating/FloatingFloatingContex
 export { MenuFloatingProvider, useMenuFloating };
 export { MenuSelectProvider, useMenuSelect };
 
-type MenuFloatingContext = MenuSelectContext &
+export type MenuFloatingContext = MenuSelectContext &
   FloatingFloatingContext & {
+    duration: number;
     nested: boolean;
     elementsRef: MutableRefObject<(HTMLElement | null)[]>;
   };

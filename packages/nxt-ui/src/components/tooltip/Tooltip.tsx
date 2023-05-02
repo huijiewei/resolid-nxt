@@ -15,7 +15,7 @@ import {
   type Placement,
 } from '@floating-ui/react';
 import { __DEV__, cx } from '@resolid/nxt-utils';
-import { cloneElement, useMemo, useRef, type ReactNode } from 'react';
+import { cloneElement, useMemo, useRef, type CSSProperties, type ReactNode } from 'react';
 import { useDisclosure, useMergedRefs } from '../../hooks';
 import type { PrimitiveProps } from '../../primitives';
 import type { Color } from '../../utils/types';
@@ -47,6 +47,12 @@ export type TooltipProps = {
   opened?: boolean;
 
   /**
+   * Animation Duration
+   * @default '250'
+   */
+  duration?: number;
+
+  /**
    * @ignore
    */
   children: JSX.Element;
@@ -76,7 +82,16 @@ const tooltipColorStyles = {
 };
 
 export const Tooltip = (props: PrimitiveProps<'div', TooltipProps>) => {
-  const { className, children, content, opened, placement = 'auto', color = 'neutral', ...rest } = props;
+  const {
+    className,
+    children,
+    content,
+    opened,
+    duration = 250,
+    placement = 'auto',
+    color = 'neutral',
+    ...rest
+  } = props;
 
   const { opened: openedState, open, close } = useDisclosure({ opened });
 
@@ -101,7 +116,7 @@ export const Tooltip = (props: PrimitiveProps<'div', TooltipProps>) => {
   });
 
   const { isMounted, status } = useTransitionStatus(context, {
-    duration: 300,
+    duration: duration,
   });
 
   const { getFloatingProps, getReferenceProps } = useInteractions([
@@ -135,12 +150,17 @@ export const Tooltip = (props: PrimitiveProps<'div', TooltipProps>) => {
             className={cx(
               'z-50 inline-block rounded border py-1 px-2 text-sm shadow text-fg-emphasized',
               colorStyle.content,
-              'transition-opacity duration-300',
+              'transition-opacity duration-[--duration-var]',
               status == 'open' ? 'opacity-1' : 'opacity-0',
               className
             )}
             ref={refs.setFloating}
-            style={floatingStyles}
+            style={
+              {
+                ...floatingStyles,
+                '--duration-var': `${duration}ms`,
+              } as CSSProperties
+            }
             {...getFloatingProps({
               ...rest,
             })}

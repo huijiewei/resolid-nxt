@@ -25,7 +25,7 @@ import { useAllowHover, useDisclosure } from '../../hooks';
 import { FloatingArrowProvider, type FloatingArrowContext } from '../floating/FloatingArrowContext';
 import { FloatingDispatchProvider } from '../floating/FloatingDispatchContext';
 import { FloatingReferenceProvider } from '../floating/FloatingReferenceContext';
-import { MenuFloatingProvider } from './MenuContext';
+import { MenuFloatingProvider, type MenuFloatingContext } from './MenuContext';
 
 export type MenuProps = {
   /**
@@ -61,6 +61,12 @@ export type MenuProps = {
    * @default 'bottom-start'
    */
   placement?: Placement;
+
+  /**
+   * Animation Duration
+   * @default '250'
+   */
+  duration?: number;
 };
 
 export const Menu = (props: PropsWithChildren<MenuProps>) => {
@@ -88,6 +94,7 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
     closeOnBlur = true,
     closeOnSelect = true,
     opened,
+    duration = 250,
     placement = 'bottom-start',
     onClose,
   } = props;
@@ -150,9 +157,10 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
     [getReferenceProps, openedState, refs.setReference]
   );
 
-  const floatingContext = useMemo(
+  const floatingContext = useMemo<MenuFloatingContext>(
     () => ({
       nested,
+      duration,
       tree,
       floatingStyles,
       context,
@@ -162,7 +170,7 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
       getItemProps,
       activeIndex,
     }),
-    [nested, tree, floatingStyles, context, refs.setFloating, getFloatingProps, getItemProps, activeIndex]
+    [nested, duration, tree, floatingStyles, context, refs.setFloating, getFloatingProps, getItemProps, activeIndex]
   );
 
   const arrowContext = useMemo<FloatingArrowContext>(

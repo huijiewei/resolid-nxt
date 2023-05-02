@@ -28,6 +28,12 @@ export type ModalProps = ModalBaseProps & {
    * @default true
    */
   closeOnBlur?: boolean;
+
+  /**
+   * Animation Duration
+   * @default '250'
+   */
+  duration?: number;
 };
 
 export const Modal = (props: PropsWithChildren<ModalProps>) => {
@@ -36,6 +42,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
     closeOnEsc = true,
     closeOnBlur = true,
     opened,
+    duration = 250,
     onClose,
     onCloseComplete,
     lockScroll = true,
@@ -72,13 +79,14 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
   ]);
 
   const { isMounted, status } = useTransitionStatus(context, {
-    duration: 300,
+    duration: duration,
   });
 
   const modalContext = useMemo<ModalContext>(
     () => ({
       opened,
       status,
+      duration,
       context,
       setFloating: refs.setFloating,
       getFloatingProps,
@@ -87,7 +95,18 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
       scrollBehavior,
       lockScroll,
     }),
-    [opened, context, refs.setFloating, getFloatingProps, status, initialFocus, finalFocus, scrollBehavior, lockScroll]
+    [
+      opened,
+      status,
+      duration,
+      context,
+      refs.setFloating,
+      getFloatingProps,
+      initialFocus,
+      finalFocus,
+      scrollBehavior,
+      lockScroll,
+    ]
   );
 
   const prevStatus = usePrevious(status);
