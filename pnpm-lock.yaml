@@ -62,11 +62,11 @@ importers:
         specifier: ^5.0.4
         version: 5.0.4
       vite:
-        specifier: ^4.3.3
-        version: 4.3.3(@types/node@18.16.3)
+        specifier: ^4.3.4
+        version: 4.3.4(@types/node@18.16.3)
       vite-tsconfig-paths:
         specifier: ^4.2.0
-        version: 4.2.0(typescript@5.0.4)(vite@4.3.3)
+        version: 4.2.0(typescript@5.0.4)(vite@4.3.4)
       vitest:
         specifier: ^0.29.8
         version: 0.29.8
@@ -80,19 +80,19 @@ importers:
         version: link:../../nxt-run
       '@rollup/plugin-commonjs':
         specifier: ^24.1.0
-        version: 24.1.0(rollup@3.21.2)
+        version: 24.1.0(rollup@3.21.3)
       '@rollup/plugin-json':
         specifier: ^6.0.0
-        version: 6.0.0(rollup@3.21.2)
+        version: 6.0.0(rollup@3.21.3)
       '@rollup/plugin-node-resolve':
         specifier: ^15.0.2
-        version: 15.0.2(rollup@3.21.2)
+        version: 15.0.2(rollup@3.21.3)
       polka:
         specifier: 1.0.0-next.22
         version: 1.0.0-next.22
       rollup:
-        specifier: ^3.21.2
-        version: 3.21.2
+        specifier: ^3.21.3
+        version: 3.21.3
       sirv:
         specifier: ^2.0.3
         version: 2.0.3
@@ -150,7 +150,7 @@ importers:
         version: 2.4.2
       '@vitejs/plugin-react':
         specifier: ^4.0.0
-        version: 4.0.0(vite@4.3.3)
+        version: 4.0.0(vite@4.3.4)
       node-html-parser:
         specifier: ^6.1.5
         version: 6.1.5
@@ -167,17 +167,17 @@ importers:
         specifier: ^6.11.0
         version: 6.11.0(react-dom@18.2.0)(react@18.2.0)
       rollup:
-        specifier: ^3.21.2
-        version: 3.21.2
+        specifier: ^3.21.3
+        version: 3.21.3
       set-cookie-parser:
         specifier: ^2.6.0
         version: 2.6.0
       vite:
-        specifier: ^4.3.3
-        version: 4.3.3(@types/node@18.16.3)
+        specifier: ^4.3.4
+        version: 4.3.4(@types/node@18.16.3)
       vite-plugin-inspect:
         specifier: ^0.7.24
-        version: 0.7.24(rollup@3.21.2)(vite@4.3.3)
+        version: 0.7.24(rollup@3.21.3)(vite@4.3.4)
 
   packages/nxt-tailwind:
     devDependencies:
@@ -208,7 +208,7 @@ importers:
         version: link:../tests
       '@vitejs/plugin-react':
         specifier: ^3.1.0
-        version: 3.1.0(vite@4.3.3)
+        version: 3.1.0(vite@4.3.4)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -305,7 +305,7 @@ importers:
     devDependencies:
       '@mdx-js/rollup':
         specifier: ^2.3.0
-        version: 2.3.0(rollup@3.21.2)
+        version: 2.3.0(rollup@3.21.3)
       '@resolid/nxt-tailwind':
         specifier: workspace:*
         version: link:../packages/nxt-tailwind
@@ -1162,14 +1162,14 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@mdx-js/rollup@2.3.0(rollup@3.21.2):
+  /@mdx-js/rollup@2.3.0(rollup@3.21.3):
     resolution: {integrity: sha512-wLvRfJS/M4UmdqTd+WoaySEE7q4BIejYf1xAHXYvtT1du/1Tl/z2450Gg2+Hu7fh05KwRRiehiTP9Yc/Dtn0fA==}
     peerDependencies:
       rollup: '>=2'
     dependencies:
       '@mdx-js/mdx': 2.3.0
-      '@rollup/pluginutils': 5.0.2(rollup@3.21.2)
-      rollup: 3.21.2
+      '@rollup/pluginutils': 5.0.2(rollup@3.21.3)
+      rollup: 3.21.3
       source-map: 0.7.4
       vfile: 5.3.7
     transitivePeerDependencies:
@@ -1226,7 +1226,7 @@ packages:
     resolution: {integrity: sha512-N13NRw3T2+6Xi9J//3CGLsK2OqC8NMme3d/YX+nh05K9YHWGcv8DycHJrqGScSP4T75o8IN6nqIMhVFU8ohg8w==}
     engines: {node: '>=14'}
 
-  /@rollup/plugin-commonjs@24.1.0(rollup@3.21.2):
+  /@rollup/plugin-commonjs@24.1.0(rollup@3.21.3):
     resolution: {integrity: sha512-eSL45hjhCWI0jCCXcNtLVqM5N1JlBGvlFfY0m6oOYnLCJ6N0qEXoZql4sY2MOUArzhH4SA/qBpTxvvZp2Sc+DQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -1235,16 +1235,16 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.0.2(rollup@3.21.2)
+      '@rollup/pluginutils': 5.0.2(rollup@3.21.3)
       commondir: 1.0.1
       estree-walker: 2.0.2
       glob: 8.1.0
       is-reference: 1.2.1
       magic-string: 0.27.0
-      rollup: 3.21.2
+      rollup: 3.21.3
     dev: true
 
-  /@rollup/plugin-json@6.0.0(rollup@3.21.2):
+  /@rollup/plugin-json@6.0.0(rollup@3.21.3):
     resolution: {integrity: sha512-i/4C5Jrdr1XUarRhVu27EEwjt4GObltD7c+MkCIpO2QIbojw8MUs+CCTqOphQi3Qtg1FLmYt+l+6YeoIf51J7w==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -1253,11 +1253,11 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.0.2(rollup@3.21.2)
-      rollup: 3.21.2
+      '@rollup/pluginutils': 5.0.2(rollup@3.21.3)
+      rollup: 3.21.3
     dev: true
 
-  /@rollup/plugin-node-resolve@15.0.2(rollup@3.21.2):
+  /@rollup/plugin-node-resolve@15.0.2(rollup@3.21.3):
     resolution: {integrity: sha512-Y35fRGUjC3FaurG722uhUuG8YHOJRJQbI6/CkbRkdPotSpDj9NtIN85z1zrcyDcCQIW4qp5mgG72U+gJ0TAFEg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -1266,16 +1266,16 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.0.2(rollup@3.21.2)
+      '@rollup/pluginutils': 5.0.2(rollup@3.21.3)
       '@types/resolve': 1.20.2
       deepmerge: 4.3.1
       is-builtin-module: 3.2.1
       is-module: 1.0.0
       resolve: 1.22.2
-      rollup: 3.21.2
+      rollup: 3.21.3
     dev: true
 
-  /@rollup/pluginutils@5.0.2(rollup@3.21.2):
+  /@rollup/pluginutils@5.0.2(rollup@3.21.3):
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -1287,7 +1287,7 @@ packages:
       '@types/estree': 1.0.1
       estree-walker: 2.0.2
       picomatch: 2.3.1
-      rollup: 3.21.2
+      rollup: 3.21.3
     dev: true
 
   /@sinclair/typebox@0.25.24:
@@ -1686,7 +1686,7 @@ packages:
       eslint-visitor-keys: 3.4.0
     dev: true
 
-  /@vitejs/plugin-react@3.1.0(vite@4.3.3):
+  /@vitejs/plugin-react@3.1.0(vite@4.3.4):
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -1697,12 +1697,12 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6(@babel/core@7.21.5)
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.3.3(@types/node@18.16.3)
+      vite: 4.3.4(@types/node@18.16.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@vitejs/plugin-react@4.0.0(vite@4.3.3):
+  /@vitejs/plugin-react@4.0.0(vite@4.3.4):
     resolution: {integrity: sha512-HX0XzMjL3hhOYm+0s95pb0Z7F8O81G7joUHgfDd/9J/ZZf5k4xX6QAMFkKsHFxaHlf6X7GD7+XuaZ66ULiJuhQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -1712,7 +1712,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.21.0(@babel/core@7.21.5)
       '@babel/plugin-transform-react-jsx-source': 7.19.6(@babel/core@7.21.5)
       react-refresh: 0.14.0
-      vite: 4.3.3(@types/node@18.16.3)
+      vite: 4.3.4(@types/node@18.16.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5713,8 +5713,8 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup@3.21.2:
-    resolution: {integrity: sha512-c4vC+JZ3bbF4Kqq2TtM7zSKtSyMybFOjqmomFax3xpfYaPZDZ4iz8NMIuBRMjnXOcKYozw7bC6vhJjiWD6JpzQ==}
+  /rollup@3.21.3:
+    resolution: {integrity: sha512-VnPfEG51nIv2xPLnZaekkuN06q9ZbnyDcLkaBdJa/W7UddyhOfMP2yOPziYQfeY7k++fZM8FdQIummFN5y14kA==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -6321,7 +6321,7 @@ packages:
       joycon: 3.1.1
       postcss-load-config: 3.1.4(ts-node@10.9.1)
       resolve-from: 5.0.0
-      rollup: 3.21.2
+      rollup: 3.21.3
       source-map: 0.8.0-beta.0
       sucrase: 3.32.0
       tree-kill: 1.2.2
@@ -6566,7 +6566,7 @@ packages:
       mlly: 1.2.0
       pathe: 1.1.0
       picocolors: 1.0.0
-      vite: 4.3.3(@types/node@18.16.3)
+      vite: 4.3.4(@types/node@18.16.3)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -6577,25 +6577,25 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-inspect@0.7.24(rollup@3.21.2)(vite@4.3.3):
+  /vite-plugin-inspect@0.7.24(rollup@3.21.3)(vite@4.3.4):
     resolution: {integrity: sha512-XyrhTxYF+5X8CH0PFmYJhs8WGJMOa2UxwUftTaT0FiMm24VfUp+UsAh7xDZI3doPOiB5GxKEizDGxdU98Ay+Vg==}
     engines: {node: '>=14'}
     peerDependencies:
       vite: ^3.1.0 || ^4.0.0
     dependencies:
       '@antfu/utils': 0.7.2
-      '@rollup/pluginutils': 5.0.2(rollup@3.21.2)
+      '@rollup/pluginutils': 5.0.2(rollup@3.21.3)
       debug: 4.3.4
       fs-extra: 11.1.1
       picocolors: 1.0.0
       sirv: 2.0.3
-      vite: 4.3.3(@types/node@18.16.3)
+      vite: 4.3.4(@types/node@18.16.3)
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /vite-tsconfig-paths@4.2.0(typescript@5.0.4)(vite@4.3.3):
+  /vite-tsconfig-paths@4.2.0(typescript@5.0.4)(vite@4.3.4):
     resolution: {integrity: sha512-jGpus0eUy5qbbMVGiTxCL1iB9ZGN6Bd37VGLJU39kTDD6ZfULTTb1bcc5IeTWqWJKiWV5YihCaibeASPiGi8kw==}
     peerDependencies:
       vite: '*'
@@ -6606,14 +6606,14 @@ packages:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 2.1.1(typescript@5.0.4)
-      vite: 4.3.3(@types/node@18.16.3)
+      vite: 4.3.4(@types/node@18.16.3)
     transitivePeerDependencies:
       - supports-color
       - typescript
     dev: true
 
-  /vite@4.3.3(@types/node@18.16.3):
-    resolution: {integrity: sha512-MwFlLBO4udZXd+VBcezo3u8mC77YQk+ik+fbc0GZWGgzfbPP+8Kf0fldhARqvSYmtIWoAJ5BXPClUbMTlqFxrA==}
+  /vite@4.3.4(@types/node@18.16.3):
+    resolution: {integrity: sha512-f90aqGBoxSFxWph2b39ae2uHAxm5jFBBdnfueNxZAT1FTpM13ccFQExCaKbR2xFW5atowjleRniQ7onjJ22QEg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -6640,7 +6640,7 @@ packages:
       '@types/node': 18.16.3
       esbuild: 0.17.18
       postcss: 8.4.23
-      rollup: 3.21.2
+      rollup: 3.21.3
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
@@ -6697,7 +6697,7 @@ packages:
       tinybench: 2.5.0
       tinypool: 0.4.0
       tinyspy: 1.1.1
-      vite: 4.3.3(@types/node@18.16.3)
+      vite: 4.3.4(@types/node@18.16.3)
       vite-node: 0.29.8(@types/node@18.16.3)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
