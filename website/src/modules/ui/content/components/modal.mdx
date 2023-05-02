@@ -1,0 +1,52 @@
+# Modal
+
+A modal is a dialog that focuses the user's attention exclusively on an information via a window that is overlaid on primary content.
+
+## Import
+
+Resolid NxtUI exports 7 modal-related components:
+
+- `Modal`: The wrapper that provides context for its children.
+- `ModalOverlay`: The dimmed overlay behind the modal dialog.
+- `ModalContent`: The container for the modal dialog's content.
+- `ModalHeader`: The header that labels the modal dialog.
+- `ModalFooter`: The footer that houses the modal actions.
+- `ModalBody`: The wrapper that houses the modal's main content.
+- `ModalCloseButton`: The button that closes the modal.
+
+
+```javascript
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
+} from '@resolid/nxt-ui';
+```
+
+## Basic
+
+<Demo file={'ModalDemo.tsx'} demo={'Basic'} height={483} />
+
+## Unlock Scroll
+
+<Demo file={'ModalDemo.tsx'} demo={'UnlockScroll'} height={483} />
+
+## Scroll Behavior
+
+<Demo file={'ModalDemo.tsx'} demo={'ScrollBehavior'} height={771} />
+
+## Focus
+
+<Demo file={'ModalDemo.tsx'} demo={'Focus'} height={1183} />
+
+## Overlay Styling
+
+<Demo file={'ModalDemo.tsx'} demo={'OverlayStyling'} height={903} />
+
+## Props
+
+<PropsTable component={'Modal'} />

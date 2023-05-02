@@ -1,4 +1,4 @@
-import { Tooltip } from '@resolid/nxt-ui';
+import { Tooltip, noScrollbarsClassName } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
@@ -41,7 +41,9 @@ const Header = () => {
   const [opened, setOpened] = useState(false);
 
   return (
-    <header className={'fixed inset-x-0 z-20 w-full border-b bg-bg-default/75 backdrop-blur'}>
+    <header
+      className={cx('fixed inset-x-0 z-20 w-full border-b bg-bg-default/75 backdrop-blur', noScrollbarsClassName)}
+    >
       <nav className={'desktop:max-w-7xl mx-auto flex h-16 items-center justify-between px-4'}>
         <div className={'tablet:hidden flex flex-1'}>
           <button title={'Menu'} className={'p-2'} onClick={() => setOpened((prev) => !prev)}>
