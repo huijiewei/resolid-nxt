@@ -27,7 +27,8 @@
   "dependencies": {
     "@resolid/nxt-utils": "workspace:*",
     "class-variance-authority": "^0.5.3",
-    "@floating-ui/react": "^0.24.0"
+    "@floating-ui/react": "^0.24.0",
+    "react-remove-scroll-bar": "^2.3.4"
   },
   "devDependencies": {
     "@resolid/nxt-tailwind": "workspace:*",
