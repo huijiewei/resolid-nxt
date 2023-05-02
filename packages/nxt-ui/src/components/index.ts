@@ -9,6 +9,8 @@ export * from './checkbox/Checkbox';
 export * from './checkbox/CheckboxGroup';
 export * from './close-button/CloseButton';
 export * from './divider/Divider';
+export * from './drawer/Drawer';
+export * from './drawer/DrawerContent';
 export * from './dropdown-menu/DropdownMenu';
 export * from './icon/Icon';
 export * from './image/Image';
