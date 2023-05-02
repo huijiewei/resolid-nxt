@@ -16,10 +16,11 @@ import { __DEV__, runIfFn } from '@resolid/nxt-utils';
 import type { ReactNode, RefObject } from 'react';
 import { useId, useMemo, useRef } from 'react';
 import { useDisclosure } from '../../hooks';
+import { FloatingAriaProvider } from '../floating/FloatingAriaContext';
 import { FloatingArrowProvider } from '../floating/FloatingArrowContext';
 import { FloatingDispatchProvider } from '../floating/FloatingDispatchContext';
 import { FloatingReferenceProvider } from '../floating/FloatingReferenceContext';
-import { PopoverAriaProvider, PopoverFloatingProvider } from './PopoverContext';
+import { PopoverFloatingProvider } from './PopoverContext';
 
 export type PopoverProps = {
   /**
@@ -44,7 +45,7 @@ export type PopoverProps = {
   modal?: boolean;
 
   /**
-   * Close when press esc key
+   * Close when the Esc key is pressed
    * @default true
    */
   closeOnEsc?: boolean;
@@ -151,7 +152,7 @@ export const Popover = (props: PopoverProps) => {
   );
 
   return (
-    <PopoverAriaProvider value={ariaContext}>
+    <FloatingAriaProvider value={ariaContext}>
       <FloatingArrowProvider value={arrowContext}>
         <FloatingDispatchProvider value={{ close }}>
           <FloatingReferenceProvider value={referenceContext}>
@@ -161,7 +162,7 @@ export const Popover = (props: PopoverProps) => {
           </FloatingReferenceProvider>
         </FloatingDispatchProvider>
       </FloatingArrowProvider>
-    </PopoverAriaProvider>
+    </FloatingAriaProvider>
   );
 };
 

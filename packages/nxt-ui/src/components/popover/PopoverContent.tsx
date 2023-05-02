@@ -2,15 +2,16 @@ import { FloatingFocusManager, useTransitionStatus } from '@floating-ui/react';
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import { useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { useFloatingAria } from '../floating/FloatingAriaContext';
 import { Portal } from '../portal/Portal';
-import { usePopoverAria, usePopoverFloating } from './PopoverContext';
+import { usePopoverFloating } from './PopoverContext';
 
 export const PopoverContent = primitiveComponent<'div'>((props, ref) => {
   const { children, className, ...rest } = props;
 
   const { floatingStyles, setFloating, context, getFloatingProps, modal, initialFocus } = usePopoverFloating();
 
-  const { labelId, descriptionId } = usePopoverAria();
+  const { labelId, descriptionId } = useFloatingAria();
 
   const refs = useMergedRefs(setFloating, ref);
 
