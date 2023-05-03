@@ -195,7 +195,7 @@ export const Checkbox = primitiveComponent<'input', CheckboxProps>((props, ref) 
         className={cx(
           'inline-flex shrink-0 select-none items-center justify-center rounded border-2 transition-colors',
           'peer-focus-visible:ring',
-          invalid ? 'border-red-300' : state || indeterminate ? colorStyle.border : 'border-bg-muted',
+          invalid ? 'border-border-invalid' : state || indeterminate ? colorStyle.border : 'border-bg-muted',
           state || indeterminate ? `${colorStyle.checked} text-fg-emphasized` : 'bg-bg-default',
           disabled && 'opacity-50',
           sizeStyle.control

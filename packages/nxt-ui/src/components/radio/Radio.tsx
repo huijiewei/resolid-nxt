@@ -157,7 +157,7 @@ export const Radio = primitiveComponent<'input', RadioProps>((props, ref) => {
         className={cx(
           'inline-flex shrink-0 select-none items-center justify-center rounded-full border-2',
           'peer-focus-visible:ring',
-          invalid ? 'border-red-300' : state ? colorStyle.border : 'border-bg-muted',
+          invalid ? 'border-border-invalid' : state ? colorStyle.border : 'border-bg-muted',
           state ? `${colorStyle.checked} text-fg-emphasized` : 'bg-bg-default',
           disabled && 'opacity-50',
           sizeStyle.control,

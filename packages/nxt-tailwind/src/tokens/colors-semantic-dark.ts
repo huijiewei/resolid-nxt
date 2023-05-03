@@ -93,6 +93,8 @@ export const colorsSemanticDark = {
   },
   border: {
     default: colorsPalette.gray[600],
+    hovered: colorsPalette.gray[500],
+    invalid: colorsPalette.red[300],
   },
   link: {
     DEFAULT: colorsPalette.blue[200],

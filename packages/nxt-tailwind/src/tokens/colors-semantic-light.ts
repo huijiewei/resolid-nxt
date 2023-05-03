@@ -92,6 +92,8 @@ export const colorsSemanticLight = {
   },
   border: {
     default: colorsPalette.gray[200],
+    hovered: colorsPalette.gray[300],
+    invalid: colorsPalette.red[500],
   },
   link: {
     DEFAULT: colorsPalette.blue[500],
