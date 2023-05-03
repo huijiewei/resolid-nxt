@@ -1,4 +1,4 @@
-import { Button, Checkbox, Input, NativeSelect } from '@resolid/nxt-ui';
+import { Button, Checkbox, Input, NativeSelect, NumberInput } from '@resolid/nxt-ui';
 import { cx, isBoolean } from '@resolid/nxt-utils';
 import { useState } from 'react';
 import { CodeHighlight } from '~/common/components/CodeHighlight';
@@ -31,12 +31,18 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
       .map((propName) => {
         const propValue = state[propName];
 
-        if (propValue == componentProps.find((p) => p.propName == propName)?.defaultValue) {
+        const prop = componentProps.find((p) => p.propName == propName);
+
+        if (propValue == prop?.defaultValue) {
           return null;
         }
 
         if (isBoolean(propValue)) {
           return propName;
+        }
+
+        if (prop?.control == 'number') {
+          return `${propName}={${propValue}}`;
         }
 
         return `${propName}="${propValue}"`;
@@ -135,9 +141,8 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
                 )}
 
                 {prop.control == 'number' && (
-                  <Input
+                  <NumberInput
                     className={'laptop:w-full w-auto'}
-                    type="number"
                     value={propValue}
                     onChange={(value) => {
                       setState((prev) => ({ ...prev, [prop.propName]: value }));
