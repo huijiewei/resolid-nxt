@@ -21,6 +21,7 @@ export * from './modal/ModalContent';
 export * from './modal/ModalFooter';
 export * from './modal/ModalHeader';
 export * from './modal/ModalOverlay';
+export * from './overlay/Overlay';
 export * from './pagination/Pagination';
 export * from './popover/Popover';
 export * from './popover/PopoverArrow';
