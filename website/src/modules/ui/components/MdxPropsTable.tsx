@@ -36,11 +36,13 @@ export const MdxPropsTable = ({ componentProps, title, component }: MdxPropsTabl
             key={`${prop.name}-${i}`}
           >
             <td className={'tablet:table-cell tablet:p-2 tablet:w-auto font-bold block w-full whitespace-nowrap'}>
-              <span className="mr-3 inline-block w-1/5 bg-bg-subtle p-2 text-sm font-bold tablet:hidden">Name</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
+                Name
+              </span>
               {prop.name}
             </td>
             <td className={'tablet:table-cell tablet:p-2 tablet:w-auto block w-full whitespace-pre-line'}>
-              <span className="mr-3 inline-block w-1/5 bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
                 Description
               </span>
               {prop.description || '-'}
@@ -48,17 +50,23 @@ export const MdxPropsTable = ({ componentProps, title, component }: MdxPropsTabl
             <td
               className={'tablet:table-cell tablet:text-center tablet:w-auto table:p-2 block w-full whitespace-nowrap'}
             >
-              <span className="mr-3 inline-block w-1/5 bg-bg-subtle p-2 text-sm font-bold tablet:hidden">Default</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
+                Default
+              </span>
               {prop.defaultValue || '-'}
             </td>
             <td
               className={'tablet:table-cell tablet:text-center tablet:w-auto tablet:p-2 block w-full whitespace-nowrap'}
             >
-              <span className="mr-3 inline-block w-1/5 bg-bg-subtle p-2 text-sm font-bold tablet:hidden">Required</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
+                Required
+              </span>
               {prop.required ? 'true' : 'false'}
             </td>
             <td className={'tablet:table-cell tablet:p-2 tablet:w-auto block w-full'}>
-              <span className="mr-3 inline-block w-1/5 bg-bg-subtle p-2 text-sm font-bold tablet:hidden">Type</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
+                Type
+              </span>
               {prop.type}
             </td>
           </tr>
