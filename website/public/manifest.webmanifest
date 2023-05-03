@@ -1,10 +1,10 @@
 {
-  "name": "Resolid Run",
-  "short_name": "resolid-run",
+  "name": "Resolid Nxt",
+  "short_name": "resolid-nxt",
   "start_url": "/",
   "theme_color": "#4586be",
   "background_color": "#ffffff",
-  "description": "Get your app up and running with SolidJS!",
+  "description": "Get your app up and running with React!",
   "display": "standalone",
   "icons": [
     { "src": "/icons/icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any maskable" },
