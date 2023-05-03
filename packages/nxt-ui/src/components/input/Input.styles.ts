@@ -7,3 +7,6 @@ export const inputSizeStyles = (prefix?: boolean, suffix?: boolean) => {
     xl: `py-[7px] text-lg ${prefix ? 'pl-2' : 'pl-3'} ${suffix ? 'pr-2' : 'pr-3'}`,
   };
 };
+
+export const inputGroupStyle =
+  'last:rounded-tl-none last:rounded-bl-none first:rounded-tr-none first:rounded-br-none [&:not(:first-child,:last-child)]:rounded-none [&:not(:first-child)]:-ml-px';

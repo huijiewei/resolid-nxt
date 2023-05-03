@@ -2,12 +2,14 @@ import { __DEV__, cx } from '@resolid/nxt-utils';
 import { primitiveComponent } from '../../primitives';
 
 export const CloseButton = primitiveComponent<'button'>((props, ref) => {
-  const { className, children, ...rest } = props;
+  const { className, disabled, children, ...rest } = props;
   return (
     <button
+      disabled={disabled}
       ref={ref}
       className={cx(
-        'flex shrink-0 appearance-none items-center justify-center text-fg-muted outline-none transition-colors hover:bg-bg-subtle focus-visible:ring active:bg-bg-muted',
+        'flex shrink-0 appearance-none items-center justify-center text-fg-muted outline-none transition-colors',
+        !disabled && 'hover:bg-bg-subtle focus-visible:ring active:bg-bg-muted',
         className
       )}
       {...rest}

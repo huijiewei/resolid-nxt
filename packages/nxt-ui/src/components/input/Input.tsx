@@ -4,7 +4,7 @@ import { useCallback, useRef } from 'react';
 import { useControllableState, useFocus, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import { CloseButton } from '../close-button/CloseButton';
-import { inputSizeStyles } from './Input.styles';
+import { inputGroupStyle, inputSizeStyles } from './Input.styles';
 import type { InputGroupContext } from './InputGroupContext';
 import { useInputGroup } from './InputGroupContext';
 
@@ -92,8 +92,10 @@ export type InputProps = Partial<InputGroupContext> & {
 };
 
 export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
+  const group = useInputGroup();
+
   const {
-    size = 'md',
+    size = group?.size ?? 'md',
     invalid = false,
     disabled = false,
     required = false,
@@ -152,10 +154,8 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
 
   const refs = useMergedRefs(inputRef, focusRef, ref);
 
-  const group = useInputGroup();
-
   return (
-    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
     <div
       className={cx(
         'relative isolate inline-flex h-fit items-center rounded border bg-bg-default transition-colors',
@@ -165,14 +165,11 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
         !disabled && focused && 'ring-1 ring-bg-primary-emphasis border-bg-primary-emphasis z-[1]',
         fullWidth && 'w-full',
         inputSizeStyles(!!prefix, !!suffix)[size],
-        group &&
-          'last:rounded-tl-none last:rounded-bl-none first:rounded-tr-none first:rounded-br-none [&:not(:first-child,:last-child)]:rounded-none [&:not(:first-child)]:-ml-px',
+        group && inputGroupStyle,
         className
       )}
+      tabIndex={-1}
       onClick={() => {
-        !focused && inputRef.current?.focus();
-      }}
-      onKeyDown={() => {
         !focused && inputRef.current?.focus();
       }}
     >
@@ -204,6 +201,7 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
         />
         {showClearButton && (
           <CloseButton
+            disabled={disabled}
             onClick={(event) => {
               event.stopPropagation();
               handleClear();
