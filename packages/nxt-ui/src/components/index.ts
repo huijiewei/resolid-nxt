@@ -24,6 +24,7 @@ export * from './modal/ModalContent';
 export * from './modal/ModalFooter';
 export * from './modal/ModalHeader';
 export * from './modal/ModalOverlay';
+export * from './number-input/NumberInput';
 export * from './overlay/Overlay';
 export * from './pagination/Pagination';
 export * from './popover/Popover';
