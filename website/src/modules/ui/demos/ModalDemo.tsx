@@ -1,5 +1,6 @@
 import {
   Button,
+  Input,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -296,18 +297,13 @@ const FocusDemo = () => {
                 <label htmlFor={'demoFormName'} className={'w-28'}>
                   Username <span className={'text-red-500'}>*</span>
                 </label>
-                <input
-                  ref={initialRef}
-                  className={'border rounded px-3 py-1.5'}
-                  placeholder={'Username'}
-                  id={'demoFormName'}
-                />
+                <Input ref={initialRef} placeholder={'Username'} id={'demoFormName'} />
               </div>
               <div className={'flex flex-row items-center'}>
                 <label htmlFor={'demoFormEmail'} className={'w-28'}>
                   Email <span className={'text-red-500'}>*</span>
                 </label>
-                <input className={'border rounded px-3 py-1.5'} placeholder={'Email'} id={'demoFormEmail'} />
+                <Input placeholder={'Email'} id={'demoFormEmail'} />
               </div>
             </ModalBody>
             <ModalFooter className={'flex gap-3 items-center justify-end'}>
@@ -354,18 +350,13 @@ export const Focus = () => {
                 <label htmlFor={'demoFormName'} className={'w-28'}>
                   Username <span className={'text-red-500'}>*</span>
                 </label>
-                <input
-                  ref={initialRef}
-                  className={'border rounded px-3 py-1.5'}
-                  placeholder={'Username'}
-                  id={'demoFormName'}
-                />
+                <Input ref={initialRef} placeholder={'Username'} id={'demoFormName'} />
               </div>
               <div className={'flex flex-row items-center'}>
                 <label htmlFor={'demoFormEmail'} className={'w-28'}>
                   Email <span className={'text-red-500'}>*</span>
                 </label>
-                <input className={'border rounded px-3 py-1.5'} placeholder={'Email'} id={'demoFormEmail'} />
+                <Input placeholder={'Email'} id={'demoFormEmail'} />
               </div>
             </ModalBody>
             <ModalFooter className={'flex gap-3 items-center justify-end'}>
