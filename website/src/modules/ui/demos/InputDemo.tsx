@@ -55,33 +55,6 @@ export const Usage = () => {
   );
 };
 
-export const Event = () => {
-  return (
-    <DemoExample
-      preview={() => (
-        <Input
-          clearable
-          onChange={(value) => {
-            console.log(value);
-          }}
-          onClear={() => {
-            console.log('Input clear');
-          }}
-        />
-      )}
-      snippet={`<Input
-  clearable
-  onChange={(value) => {
-    console.log(value);
-  }}
-  onClear={() => {
-    console.log('Input clear');
-  }}
-/>`}
-    />
-  );
-};
-
 export const PrefixSuffix = () => {
   return (
     <DemoExample
@@ -169,8 +142,8 @@ export const Group = () => {
             <InputAddon>.com</InputAddon>
           </InputGroup>
           <InputGroup>
-            <InputAddon>姓</InputAddon>
-            <InputAddon>名</InputAddon>
+            <InputAddon>FistName</InputAddon>
+            <InputAddon>LastName</InputAddon>
             <Input className={'w-16'} />
             <Input />
           </InputGroup>
@@ -215,8 +188,8 @@ export const Group = () => {
     <InputAddon>.com</InputAddon>
   </InputGroup>
   <InputGroup>
-    <InputAddon>姓</InputAddon>
-    <InputAddon>名</InputAddon>
+    <InputAddon>FirstName</InputAddon>
+    <InputAddon>LastName</InputAddon>
     <Input className={'w-16'} />
     <Input />
   </InputGroup>
@@ -263,7 +236,7 @@ export const Controlled = () => {
     <DemoExample
       preview={() => <ControlledDemo />}
       snippet={`const ControlledDemo = () => {
-  const [value, setValue] = useState<string | number>('');
+  const [value, setValue] = useState('');
 
   return (
     <>
