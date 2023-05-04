@@ -49,7 +49,7 @@ export { useRadioGroup };
 
 type RadioGroupProps = RadioGroupBaseProps & {
   /**
-   * Defaut value
+   * Default value
    */
   defaultValue?: string | number;
 

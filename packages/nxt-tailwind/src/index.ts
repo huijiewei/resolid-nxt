@@ -10,6 +10,8 @@ import { fontWidth } from './tokens/font-width';
 import { screens } from './tokens/screens';
 import { flattenColorPalette, hexToRGB } from './utils';
 
+export * from './types';
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type MaybeNested<K extends keyof any = string, V = string> = {
   [key: string]: V | MaybeNested<K, V>;

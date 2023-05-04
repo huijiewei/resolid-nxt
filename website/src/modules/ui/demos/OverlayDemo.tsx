@@ -122,7 +122,7 @@ export const Blur = () => {
     <DemoExample
       preview={() => (
         <div className={'relative flex h-32 items-center justify-center'}>
-          <Overlay radius blur />
+          <Overlay blur />
           <Button>Blur Overlay</Button>
         </div>
       )}

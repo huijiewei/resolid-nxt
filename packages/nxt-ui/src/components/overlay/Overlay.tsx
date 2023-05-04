@@ -1,6 +1,8 @@
 import { __DEV__, cx, isNumber } from '@resolid/nxt-utils';
 import type { CSSProperties } from 'react';
 import { primitiveComponent } from '../../primitives';
+import type { Radius } from '../../utils/radius';
+import { toRounded } from '../../utils/radius';
 import type { Color } from '../../utils/types';
 
 export type OverlayProps = {
@@ -23,10 +25,10 @@ export type OverlayProps = {
   blur?: boolean | number;
 
   /**
-   * Rounded size
+   * Rounded
    * @default false
    */
-  radius?: boolean | number;
+  radius?: Radius;
 };
 
 const overlayColorStyles = {
@@ -42,9 +44,8 @@ export const Overlay = primitiveComponent<'div', OverlayProps>((props, ref) => {
 
   const opacityValue = opacity > 1 ? opacity / 100 : opacity;
   const blurValue = isNumber(blur) && blur > 0 ? `${blur}px` : undefined;
-  const roundedValue = isNumber(radius) && radius > 0 ? `${radius}px` : undefined;
 
-  const roundedStyle = isNumber(radius) ? radius > 0 && 'rounded-[--rounded-var]' : radius && 'rounded';
+  const rounded = toRounded(radius);
 
   const colorStyle = overlayColorStyles[color];
 
@@ -55,8 +56,10 @@ export const Overlay = primitiveComponent<'div', OverlayProps>((props, ref) => {
   const overlay = (
     <div
       ref={ref}
-      style={{ '--opacity-var': opacityValue, '--rounded-var': roundedValue } as CSSProperties}
-      className={cx(overlayStyle, 'opacity-[--opacity-var]', roundedStyle, colorStyle, className)}
+      style={
+        { '--opacity-var': opacityValue, '--rounded-var': rounded.value, '--blur-var': blurValue } as CSSProperties
+      }
+      className={cx(overlayStyle, 'opacity-[--opacity-var]', rounded.style, colorStyle, className)}
       {...rest}
     />
   );
@@ -64,11 +67,11 @@ export const Overlay = primitiveComponent<'div', OverlayProps>((props, ref) => {
   if (isBlur) {
     return (
       <div
-        style={{ '--blur-var': blurValue, '--rounded-var': roundedValue } as CSSProperties}
+        style={{ '--blur-var': blurValue, '--rounded-var': rounded.value } as CSSProperties}
         className={cx(
           'absolute inset-0 z-10',
           isNumber(blur) ? 'backdrop-blur-[--blur-var]' : 'backdrop-blur-sm',
-          roundedStyle
+          rounded.style
         )}
       >
         {overlay}
