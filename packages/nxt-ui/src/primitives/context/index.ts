@@ -18,7 +18,7 @@ export const createContext = <ContextValueType>(options: CreateContextOptions) =
   const useContext = () => {
     const context = ReactUseContext(Context);
 
-    if (context == undefined && strict) {
+    if (strict && context == undefined) {
       const error = new Error(
         errorMessage ||
           `use${name.replace(

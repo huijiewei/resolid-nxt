@@ -36,11 +36,11 @@ type RadioGroupBaseProps = RadioBaseProps & {
   value?: string | number;
 };
 
-type RadioGroupContextValue = RadioGroupBaseProps & {
+type RadioGroupContext = RadioGroupBaseProps & {
   onChange?: (event: ChangeEvent<HTMLInputElement> | string | number) => void;
 };
 
-const [RadioGroupProvider, useRadioGroup] = createContext<RadioGroupContextValue>({
+const [RadioGroupProvider, useRadioGroup] = createContext<RadioGroupContext | undefined>({
   name: 'RadioGroupContext',
   strict: false,
 });

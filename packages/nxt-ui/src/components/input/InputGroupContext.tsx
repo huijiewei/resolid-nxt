@@ -9,7 +9,7 @@ export type InputGroupContext = {
   size: Size;
 };
 
-const [InputGroupProvider, useInputGroup] = createContext<InputGroupContext>({
+const [InputGroupProvider, useInputGroup] = createContext<InputGroupContext | undefined>({
   strict: false,
   name: 'InputGroupContext',
 });

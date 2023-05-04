@@ -36,7 +36,7 @@ type CheckboxGroupContext = CheckboxGroupBaseProps & {
   onChange?: (event: ChangeEvent<HTMLInputElement> | string | number) => void;
 };
 
-const [CheckboxGroupProvider, useCheckboxGroup] = createContext<CheckboxGroupContext>({
+const [CheckboxGroupProvider, useCheckboxGroup] = createContext<CheckboxGroupContext | undefined>({
   name: 'CheckboxGroupContext',
   strict: false,
 });
