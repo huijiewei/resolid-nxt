@@ -23,7 +23,9 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "@resolid/nxt-utils": "workspace:*"
+  },
   "devDependencies": {
     "tailwindcss": "^3.3.2"
   },

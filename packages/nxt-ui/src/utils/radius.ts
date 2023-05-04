@@ -1,5 +1,6 @@
 import type { BorderRadius } from '@resolid/nxt-tailwind';
 import { isBoolean, isNumber } from '@resolid/nxt-utils';
+import type { Styled } from './types';
 
 export type Radius = boolean | number | BorderRadius;
 
@@ -11,7 +12,7 @@ const radiusStyles = {
   full: 'rounded-full',
 };
 
-export const toRounded = (radius: Radius): { value: string | undefined; style: string | undefined } => {
+export const toRounded = (radius: Radius): Styled => {
   if (isBoolean(radius)) {
     return {
       value: undefined,

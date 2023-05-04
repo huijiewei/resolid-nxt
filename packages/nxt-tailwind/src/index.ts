@@ -1,3 +1,4 @@
+import { hexToRGB } from '@resolid/nxt-utils';
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 import { scrollbar } from './plugins/scrollbar';
@@ -8,7 +9,7 @@ import { fontFamily } from './tokens/font-family';
 import { fontSize } from './tokens/font-size';
 import { fontWidth } from './tokens/font-width';
 import { screens } from './tokens/screens';
-import { flattenColorPalette, hexToRGB } from './utils';
+import { flattenColorPalette } from './utils';
 
 export * from './types';
 

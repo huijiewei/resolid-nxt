@@ -1,5 +1,6 @@
 export * from './array';
 export * from './boolean';
+export * from './color';
 export * from './dom';
 export * from './env';
 export * from './function';
