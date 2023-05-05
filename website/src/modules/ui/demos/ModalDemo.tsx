@@ -1,6 +1,5 @@
 import {
   Button,
-  Input,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -14,6 +13,7 @@ import {
 } from '@resolid/nxt-ui';
 import { useRef, useState } from 'react';
 import { DemoExample } from '~/modules/ui/components/DemoExample';
+import { FormExample } from '~/modules/ui/components/FormExample';
 
 function BasicDemo() {
   const [opened, setOpened] = useState(false);
@@ -47,6 +47,55 @@ export const Basic = () => {
     <>
       <Button onClick={() => setOpened(true)}>Open Modal</Button>
       <Modal opened={opened} onClose={() => setOpened(false)}>
+        <ModalOverlay />
+        <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>Modal Body</ModalBody>
+          <ModalFooter className={'flex items-center justify-center gap-5'}>
+            <Button onClick={() => setOpened(false)}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+}`}
+    />
+  );
+};
+
+function CenteredDemo() {
+  const [opened, setOpened] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpened(true)}>Open Modal</Button>
+      <Modal opened={opened} centered onClose={() => setOpened(false)}>
+        <ModalOverlay />
+        <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>Modal Body</ModalBody>
+          <ModalFooter className={'flex items-center justify-center gap-5'}>
+            <Button onClick={() => setOpened(false)}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+}
+
+export const Centered = () => {
+  return (
+    <DemoExample
+      preview={() => <CenteredDemo />}
+      snippet={`function CenteredDemo() {
+  const [opened, setOpened] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpened(true)}>Open Modal</Button>
+      <Modal opened={opened} centered onClose={() => setOpened(false)}>
         <ModalOverlay />
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>Modal Title</ModalHeader>
@@ -272,7 +321,6 @@ export const ScrollBehavior = () => {
 
 const FocusDemo = () => {
   const [opened, setOpened] = useState(false);
-  const initialRef = useRef(null);
   const finalRef = useRef(null);
 
   return (
@@ -281,9 +329,9 @@ const FocusDemo = () => {
       <Button color={'neutral'} ref={finalRef}>
         Receive focus on close
       </Button>
-      <Modal initialFocus={initialRef} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
+      <Modal initialFocus={1} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
         <ModalOverlay />
-        <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/5'}>
+        <ModalContent className={'w-fit'}>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
           <form
@@ -292,19 +340,8 @@ const FocusDemo = () => {
               console.log('Submit');
             }}
           >
-            <ModalBody className={'flex flex-col gap-3'}>
-              <div className={'flex flex-row items-center'}>
-                <label htmlFor={'demoFormName'} className={'w-28'}>
-                  Username <span className={'text-red-500'}>*</span>
-                </label>
-                <Input ref={initialRef} placeholder={'Username'} id={'demoFormName'} />
-              </div>
-              <div className={'flex flex-row items-center'}>
-                <label htmlFor={'demoFormEmail'} className={'w-28'}>
-                  Email <span className={'text-red-500'}>*</span>
-                </label>
-                <Input placeholder={'Email'} id={'demoFormEmail'} />
-              </div>
+            <ModalBody className={'flex flex-col gap-4'}>
+              <FormExample />
             </ModalBody>
             <ModalFooter className={'flex gap-3 items-center justify-end'}>
               <Button type={'submit'}>Submit</Button>
@@ -325,7 +362,6 @@ export const Focus = () => {
       preview={() => <FocusDemo />}
       snippet={`const FocusDemo = () => {
   const [opened, setOpened] = useState(false);
-  const initialRef = useRef(null);
   const finalRef = useRef(null);
 
   return (
@@ -334,9 +370,9 @@ export const Focus = () => {
       <Button color={'neutral'} ref={finalRef}>
         Receive focus on close
       </Button>
-      <Modal initialFocus={initialRef} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
+      <Modal initialFocus={1} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
         <ModalOverlay />
-        <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/5'}>
+        <ModalContent className={'w-fit'}>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
           <form
@@ -345,19 +381,8 @@ export const Focus = () => {
               console.log('Submit');
             }}
           >
-            <ModalBody className={'flex flex-col gap-3'}>
-              <div className={'flex flex-row items-center'}>
-                <label htmlFor={'demoFormName'} className={'w-28'}>
-                  Username <span className={'text-red-500'}>*</span>
-                </label>
-                <Input ref={initialRef} placeholder={'Username'} id={'demoFormName'} />
-              </div>
-              <div className={'flex flex-row items-center'}>
-                <label htmlFor={'demoFormEmail'} className={'w-28'}>
-                  Email <span className={'text-red-500'}>*</span>
-                </label>
-                <Input placeholder={'Email'} id={'demoFormEmail'} />
-              </div>
+            <ModalBody className={'flex flex-col gap-4'}>
+              <FormExample />
             </ModalBody>
             <ModalFooter className={'flex gap-3 items-center justify-end'}>
               <Button type={'submit'}>Submit</Button>
