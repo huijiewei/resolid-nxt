@@ -174,7 +174,7 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
       }}
     >
       {prefix && (
-        <div className={cx('whitespace-nowrap text-fg-muted', size == 'xs' || size == 'sm' ? 'mr-1' : 'mr-2')}>
+        <div className={cx('whitespace-nowrap text-fg-subtle', size == 'xs' || size == 'sm' ? 'mr-1' : 'mr-2')}>
           {prefix}
         </div>
       )}
@@ -215,7 +215,7 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
         )}
       </div>
       {suffix && (
-        <div className={cx('whitespace-nowrap text-fg-muted', size == 'xs' || size == 'sm' ? 'ml-1' : 'ml-2')}>
+        <div className={cx('whitespace-nowrap text-fg-subtle', size == 'xs' || size == 'sm' ? 'ml-1' : 'ml-2')}>
           {suffix}
         </div>
       )}
