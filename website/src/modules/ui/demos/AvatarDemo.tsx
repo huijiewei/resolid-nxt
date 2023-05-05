@@ -81,31 +81,31 @@ export const Badge = () => {
       preview={() => (
         <div className={'flex flex-row gap-3 items-center'}>
           <Avatar name={'Alexander Hipp'} src={'https://nxt.resolid.tech/images/a001.jpg'}>
-            <AvatarBadge className={'border-[3px] h-5 w-5 border-bg-subtle bg-bg-success-emphasis'} />
+            <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-success-emphasis'} />
           </Avatar>
           <Avatar name={'Alex Suprun'} src={''}>
-            <AvatarBadge className={'border-[3px] h-5 w-5 border-bg-subtle bg-bg-warning-emphasis'} />
+            <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-warning-emphasis'} />
           </Avatar>
           <Avatar src={'https://nxt.resolid.tech/images/a004.jpg'}>
-            <AvatarBadge className={'border-[3px] h-5 w-5 border-bg-subtle bg-bg-danger-emphasis'} />
+            <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-danger-emphasis'} />
           </Avatar>
           <Avatar src={''}>
-            <AvatarBadge className={'border-[3px] h-5 w-5 border-bg-subtle bg-bg-primary-emphasis'} />
+            <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-primary-emphasis'} />
           </Avatar>
         </div>
       )}
       snippet={`<div className={'flex flex-row gap-3 items-center'}>
   <Avatar name={'Alexander Hipp'} src={'https://nxt.resolid.tech/images/a001.jpg'}>
-    <AvatarBadge className={'border-[3px] h-5 w-5 border-bg-subtle bg-bg-success-emphasis'} />
+    <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-success-emphasis'} />
   </Avatar>
   <Avatar name={'Alex Suprun'} src={''}>
-    <AvatarBadge className={'border-[3px] h-5 w-5 border-bg-subtle bg-bg-warning-emphasis'} />
+    <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-warning-emphasis'} />
   </Avatar>
   <Avatar src={'https://nxt.resolid.tech/images/a004.jpg'}>
-    <AvatarBadge className={'border-[3px] h-5 w-5 border-bg-subtle bg-bg-danger-emphasis'} />
+    <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-danger-emphasis'} />
   </Avatar>
   <Avatar src={''}>
-    <AvatarBadge className={'border-[3px] h-5 w-5 border-bg-subtle bg-bg-primary-emphasis'} />
+    <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-primary-emphasis'} />
   </Avatar>
 </div>`}
     />

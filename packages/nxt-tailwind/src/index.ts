@@ -3,11 +3,12 @@ import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 import { scrollbar } from './plugins/scrollbar';
 import { borderRadius } from './tokens/border-radius';
+import { borderWidth } from './tokens/border-width';
 import { colorsPalette } from './tokens/colors-palette';
 import { colorsSemantic } from './tokens/colors-semantic';
 import { fontFamily } from './tokens/font-family';
 import { fontSize } from './tokens/font-size';
-import { fontWidth } from './tokens/font-width';
+import { fontWeight } from './tokens/font-weight';
 import { screens } from './tokens/screens';
 import { flattenColorPalette } from './utils';
 
@@ -83,16 +84,17 @@ const preset: Preset = (config = {}) => {
   return {
     darkMode: 'class',
     theme: {
-      screens: screens,
-      fontFamily: fontFamily,
-      fontSize: fontSize,
+      screens,
+      fontFamily,
+      fontSize,
       colors: { ...colorsPalette, ...resolved.colors },
       borderColor: ({ theme }) => ({
         ...theme('colors'),
         DEFAULT: `rgb(var(--${cssVarPrefix}-border-default))`,
       }),
-      borderRadius: borderRadius,
-      fontWeight: fontWidth,
+      borderWidth,
+      borderRadius,
+      fontWeight,
     },
     plugins: [
       plugin(({ addBase, addUtilities, addVariant, theme }) => {
