@@ -10,6 +10,11 @@ export type ModalBaseProps = {
   opened: boolean;
 
   /**
+   * Centered
+   */
+  centered?: boolean;
+
+  /**
    * Lock scroll
    * @default true
    */

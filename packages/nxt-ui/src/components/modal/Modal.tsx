@@ -42,6 +42,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
     closeOnEsc = true,
     closeOnBlur = true,
     opened,
+    centered,
     duration = 250,
     onClose,
     onCloseComplete,
@@ -85,6 +86,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
   const modalContext = useMemo<ModalContext>(
     () => ({
       opened,
+      centered,
       status,
       duration,
       context,
@@ -97,6 +99,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
     }),
     [
       opened,
+      centered,
       status,
       duration,
       context,
