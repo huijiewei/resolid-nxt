@@ -32,7 +32,7 @@ export type ModalBaseProps = {
 
   /**
    * Where scroll behavior should originate.
-   * @default 'inside'
+   * @default 'outside'
    */
   scrollBehavior?: 'inside' | 'outside';
 };

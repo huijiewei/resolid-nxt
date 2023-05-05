@@ -49,7 +49,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
     lockScroll = true,
     initialFocus,
     finalFocus,
-    scrollBehavior = 'inside',
+    scrollBehavior = 'outside',
   } = props;
 
   const { refs, context } = useFloating<HTMLElement>({
