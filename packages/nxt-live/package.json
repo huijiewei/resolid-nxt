@@ -24,7 +24,7 @@
     }
   },
   "dependencies": {
-    "prism-react-renderer": "^1.3.5",
+    "prism-react-renderer": "^2.0.3",
     "react-simple-code-editor": "^0.13.1",
     "sucrase": "^3.32.0"
   },
