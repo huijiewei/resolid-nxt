@@ -4,8 +4,9 @@ export const colorsSemanticLight = {
   fg: {
     default: colorsPalette.black,
     emphasized: colorsPalette.white,
-    muted: colorsPalette.gray[600],
-    subtle: colorsPalette.gray[500],
+    muted: colorsPalette.gray[500],
+    subtle: colorsPalette.gray[400],
+    subtlest: colorsPalette.gray[300],
 
     primary: {
       DEFAULT: colorsPalette.blue[500],
