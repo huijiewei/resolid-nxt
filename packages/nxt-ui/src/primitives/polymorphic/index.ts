@@ -22,10 +22,11 @@ export type PrimitiveProps<
 
 export const primitiveComponent = <
   C extends ElementType = ElementType,
-  Props extends Record<string, unknown> = Record<never, never>
+  Props extends Record<string, unknown> = Record<never, never>,
+  Omits extends string | number | symbol = never
 >(
   render: (
-    props: Merge<ComponentPropsWithoutRef<C>, Props>,
+    props: Merge<Omit<ComponentPropsWithoutRef<C>, Omits>, Props>,
     ref?: ComponentPropsWithRef<C>['ref']
   ) => ReactElement | null
 ) => {
