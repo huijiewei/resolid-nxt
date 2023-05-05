@@ -44,6 +44,7 @@ export * from './provider/NxtProvider';
 export * from './radio/Radio';
 export * from './radio/RadioGroup';
 export * from './select/NativeSelect';
+export * from './spinner-overlay/SpinnerOverlay';
 export * from './spinner/Spinner';
 export * from './switch/Switch';
 export * from './tooltip/Tooltip';

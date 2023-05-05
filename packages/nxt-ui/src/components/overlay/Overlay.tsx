@@ -32,7 +32,7 @@ export type OverlayProps = {
 };
 
 const overlayColorStyles = {
-  neutral: 'bg-bg-neutral-emphasis',
+  neutral: 'bg-bg-neutral',
   primary: 'bg-bg-primary',
   success: 'bg-bg-success',
   warning: 'bg-bg-warning',
@@ -70,7 +70,7 @@ export const Overlay = primitiveComponent<'div', OverlayProps>((props, ref) => {
         style={{ '--blur-var': blurValue, '--rounded-var': rounded.value } as CSSProperties}
         className={cx(
           'absolute inset-0 z-10',
-          isNumber(blur) ? 'backdrop-blur-[--blur-var]' : 'backdrop-blur-sm',
+          isNumber(blur) ? 'backdrop-blur-[--blur-var]' : 'backdrop-blur-[2px]',
           rounded.style
         )}
       >
