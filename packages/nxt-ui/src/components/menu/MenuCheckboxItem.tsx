@@ -1,7 +1,7 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import { primitiveComponent } from '../../primitives';
 import { MenuItem } from './MenuItem';
-import { MenuItemIndicatorProvider, type CheckedState } from './MenuItemIndicator';
+import { MenuItemIndicatorProvider, type CheckedState } from './MenuItemIndicatorContext';
 
 export type MenuCheckboxItemProps = {
   checked?: CheckedState;

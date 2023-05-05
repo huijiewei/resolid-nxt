@@ -1,22 +1,9 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import type { PrimitiveProps } from '../../primitives';
-import { createContext } from '../../primitives';
 import { alertStyles, type AlertStyles } from './Alert.styles';
+import { AlertProvider, useAlert, type AlertContext } from './AlertContext';
 
-type AlertContextValue = {
-  /**
-   * Variant
-   * @default 'light'
-   */
-  variant?: NonNullable<AlertStyles['variant']>;
-};
-
-const [AlertProvider, useAlert] = createContext<AlertContextValue>({
-  strict: true,
-  name: 'AlertContext',
-});
-
-export type AlertProps = AlertContextValue & {
+export type AlertProps = AlertContext & {
   /**
    * Color
    * @default 'primary'

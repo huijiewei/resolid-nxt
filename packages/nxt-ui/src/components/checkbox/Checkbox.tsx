@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { cloneElement, useCallback, useRef, type CSSProperties, type ChangeEvent } from 'react';
 import { useControllableState, useIsomorphicLayoutEffect, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
-import { useCheckboxGroup, type CheckboxBaseProps } from './CheckboxGroup';
+import { useCheckboxGroup, type CheckboxBaseProps } from './CheckboxGroupContext';
 import { CheckboxIcon } from './CheckboxIcon';
 
 export type CheckboxProps = CheckboxBaseProps & {

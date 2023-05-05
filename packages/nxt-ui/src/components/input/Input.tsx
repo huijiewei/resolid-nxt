@@ -5,8 +5,7 @@ import { useControllableState, useFocus, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import { CloseButton } from '../close-button/CloseButton';
 import { inputGroupStyle, inputSizeStyles } from './Input.styles';
-import type { InputGroupContext } from './InputGroupContext';
-import { useInputGroup } from './InputGroupContext';
+import { useInputGroup, type InputGroupContext } from './InputGroupContext';
 
 export type InputProps = Partial<InputGroupContext> & {
   /**

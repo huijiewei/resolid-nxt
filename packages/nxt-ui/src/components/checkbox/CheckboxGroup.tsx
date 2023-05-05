@@ -2,46 +2,7 @@ import { __DEV__, isInputEvent } from '@resolid/nxt-utils';
 import type { PropsWithChildren } from 'react';
 import { useCallback, useMemo, type ChangeEvent } from 'react';
 import { useControllableState } from '../../hooks';
-import { createContext } from '../../primitives';
-import type { Color, Size } from '../../utils/types';
-
-export type CheckboxBaseProps = {
-  /**
-   * Size
-   * @default 'md'
-   */
-  size?: Size;
-
-  /**
-   * Color
-   * @default 'primary'
-   */
-  color?: Color;
-
-  /**
-   * Disabled
-   * @default false
-   */
-  disabled?: boolean;
-};
-
-type CheckboxGroupBaseProps = CheckboxBaseProps & {
-  /**
-   * Checked value
-   */
-  value?: (string | number)[];
-};
-
-type CheckboxGroupContext = CheckboxGroupBaseProps & {
-  onChange?: (event: ChangeEvent<HTMLInputElement> | string | number) => void;
-};
-
-const [CheckboxGroupProvider, useCheckboxGroup] = createContext<CheckboxGroupContext | undefined>({
-  name: 'CheckboxGroupContext',
-  strict: false,
-});
-
-export { useCheckboxGroup };
+import { CheckboxGroupProvider, type CheckboxGroupBaseProps } from './CheckboxGroupContext';
 
 export type CheckboxGroupProps = CheckboxGroupBaseProps & {
   /**

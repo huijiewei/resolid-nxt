@@ -1,51 +1,7 @@
 import { __DEV__, isInputEvent } from '@resolid/nxt-utils';
 import { useCallback, useMemo, type ChangeEvent, type PropsWithChildren } from 'react';
 import { useControllableState } from '../../hooks';
-import { createContext } from '../../primitives';
-import type { Color, Size } from '../../utils/types';
-
-export type RadioBaseProps = {
-  /**
-   * Size
-   * @default 'md'
-   */
-  size?: Size;
-
-  /**
-   * Color
-   * @default 'primary'
-   */
-  color?: Color;
-
-  /**
-   * Disabled
-   * @default false
-   */
-  disabled?: boolean;
-};
-
-type RadioGroupBaseProps = RadioBaseProps & {
-  /**
-   * The name of the input field in a radio
-   */
-  name?: string;
-
-  /**
-   * Value
-   */
-  value?: string | number;
-};
-
-type RadioGroupContext = RadioGroupBaseProps & {
-  onChange?: (event: ChangeEvent<HTMLInputElement> | string | number) => void;
-};
-
-const [RadioGroupProvider, useRadioGroup] = createContext<RadioGroupContext | undefined>({
-  name: 'RadioGroupContext',
-  strict: false,
-});
-
-export { useRadioGroup };
+import { RadioGroupProvider, type RadioGroupBaseProps } from './RadioGroupContext';
 
 type RadioGroupProps = RadioGroupBaseProps & {
   /**

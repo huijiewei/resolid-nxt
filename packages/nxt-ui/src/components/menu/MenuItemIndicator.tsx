@@ -1,18 +1,6 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
-import { createContext, type PrimitiveProps } from '../../primitives';
-
-export type CheckedState = boolean | 'indeterminate';
-
-type MenuItemIndicatorContext = {
-  checked: CheckedState;
-};
-
-const [MenuItemIndicatorProvider, useMenuItemIndicator] = createContext<MenuItemIndicatorContext>({
-  strict: true,
-  name: 'MenuItemIndicatorContext',
-});
-
-export { MenuItemIndicatorProvider };
+import { type PrimitiveProps } from '../../primitives';
+import { useMenuItemIndicator } from './MenuItemIndicatorContext';
 
 export const MenuItemIndicator = (props: PrimitiveProps<'span'>) => {
   const { className, children, ...rest } = props;

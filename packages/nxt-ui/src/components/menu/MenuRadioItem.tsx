@@ -1,8 +1,8 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import { primitiveComponent } from '../../primitives';
 import { MenuItem } from './MenuItem';
-import { MenuItemIndicatorProvider } from './MenuItemIndicator';
-import { useMenuRadioGroup } from './MenuRadioGroup';
+import { MenuItemIndicatorProvider } from './MenuItemIndicatorContext';
+import { useMenuRadioGroup } from './MenuRadioGroupContext';
 
 export type MenuRadioItemProps = {
   value: string | number;

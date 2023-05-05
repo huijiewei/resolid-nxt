@@ -1,7 +1,6 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import type { PrimitiveProps } from '../../primitives';
-import type { InputGroupContext } from './InputGroupContext';
-import { InputGroupProvider } from './InputGroupContext';
+import { InputGroupProvider, type InputGroupContext } from './InputGroupContext';
 
 export type InputGroupProps = Partial<InputGroupContext>;
 

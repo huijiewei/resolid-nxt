@@ -4,8 +4,7 @@ import { useCallback, useState } from 'react';
 import { useMergedRefs } from '../../hooks';
 import { polymorphicComponent } from '../../primitives';
 import { buttonStyles } from './Button.style';
-import type { ButtonBaseProps } from './ButtonGroup';
-import { useButtonGroup } from './ButtonGroup';
+import { useButtonGroup, type ButtonBaseProps } from './ButtonGroupContext';
 import { ButtonSpinner } from './ButtonSpinner';
 
 export type ButtonProps = ButtonBaseProps & {
