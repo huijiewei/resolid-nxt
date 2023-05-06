@@ -32,7 +32,7 @@ export default function HomeIndex() {
             as={'a'}
             target={'_blank'}
             rel="noopener noreferrer"
-            href="https://github.com/resolid/nxt"
+            href="https://github.com/huijiewei/resolid-nxt"
           >
             <Github className={'mr-2'} />
             GitHub

@@ -72,7 +72,7 @@ const Header = () => {
                 rel="noreferrer"
                 target="_blank"
                 aria-label={'Go to Resolid Nxt on Github'}
-                href="https://github.com/resolid/nxt"
+                href="https://github.com/huijiewei/resolid-nxt"
               >
                 <Github size={'sm'} />
               </a>

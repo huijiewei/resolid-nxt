@@ -27,7 +27,7 @@
   "peerDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/resolid/nxt",
+    "url": "https://github.com/huijiewei/resolid-nxt",
     "directory": "packages/nxt-utils"
   },
   "license": "MIT"
