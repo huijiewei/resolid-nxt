@@ -39,6 +39,7 @@ export * from './popover/PopoverFooter';
 export * from './popover/PopoverHeader';
 export * from './popover/PopoverTrigger';
 export * from './portal/Portal';
+export * from './progress/ProgressBar';
 export * from './provider/ColorModeScript';
 export * from './provider/NxtProvider';
 export * from './radio/Radio';
