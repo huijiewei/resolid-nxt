@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { createContext } from '../../primitives';
 import type { Color, Size } from '../../utils/types';
 
-export type ValueType = number | [number, number];
+export type SliderValue = number | [number, number];
 
 export type SliderBaseProps = {
   /**
@@ -77,9 +77,9 @@ export { SliderValueProvider, useSliderValue };
 export { SliderThumbProvider, useSliderThumb };
 
 type SliderValueContext = {
-  value: ValueType;
-  onChange: (value: ValueType) => void;
-  onChangeEnd: (value: ValueType) => void;
+  value: SliderValue;
+  onChange: (value: SliderValue) => void;
+  onChangeEnd: (value: SliderValue) => void;
 };
 
 const [SliderValueProvider, useSliderValue] = createContext<SliderValueContext>({

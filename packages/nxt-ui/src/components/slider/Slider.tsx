@@ -7,29 +7,31 @@ import {
   SliderThumbProvider,
   SliderValueProvider,
   type SliderBaseProps,
-  type ValueType,
+  type SliderValue,
 } from './SliderContext';
+
+export type { SliderValue };
 
 export type SliderProps = SliderBaseProps & {
   /**
    * The value of the slider in controlled mode
    */
-  value?: ValueType;
+  value?: SliderValue;
 
   /**
    * Default value
    */
-  defaultValue?: ValueType;
+  defaultValue?: SliderValue;
 
   /**
    * When the slider value changes (by dragging or clicking)
    */
-  onChange?: (value: ValueType) => void;
+  onChange?: (value: SliderValue) => void;
 
   /**
    * When the user is done selecting a new value (by dragging or clicking)
    */
-  onChangeEnd?: (value: ValueType) => void;
+  onChangeEnd?: (value: SliderValue) => void;
 };
 
 export const Slider = primitiveComponent<'input', SliderProps>((props, ref) => {
@@ -78,10 +80,10 @@ export const Slider = primitiveComponent<'input', SliderProps>((props, ref) => {
   const valueContext = useMemo(
     () => ({
       value: state,
-      onChange: (value: ValueType) => {
+      onChange: (value: SliderValue) => {
         setState(value);
       },
-      onChangeEnd: (value: ValueType) => {
+      onChangeEnd: (value: SliderValue) => {
         onChangeEnd && onChangeEnd(value);
       },
     }),
@@ -98,7 +100,7 @@ export const Slider = primitiveComponent<'input', SliderProps>((props, ref) => {
         const dx = (vertical ? y : x) * (max - min);
         const next = (dx != 0 ? Math.round((reverse ? max - dx : dx) / step) * step : reverse ? max : 0) + min;
 
-        const value: ValueType = Array.isArray(state)
+        const value: SliderValue = Array.isArray(state)
           ? thumbIndex == 1
             ? [state[0], clamp(next, [state[0], max])]
             : [clamp(next, [min, state[1]]), state[1]]

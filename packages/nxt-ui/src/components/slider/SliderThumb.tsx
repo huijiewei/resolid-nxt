@@ -1,11 +1,11 @@
-import { ariaAttr, clamp, cx, runIfFn } from '@resolid/nxt-utils';
-import { useCallback, type KeyboardEvent } from 'react';
+import { __DEV__, ariaAttr, clamp, cx, runIfFn } from '@resolid/nxt-utils';
+import { useCallback, type KeyboardEvent, type ReactNode } from 'react';
 import { useFocus, useHover, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import type { Color } from '../../utils/types';
 import { Tooltip } from '../tooltip/Tooltip';
 import { SliderColorStyles } from './Slider.styles';
-import { useSlider, useSliderThumb, useSliderValue, type ValueType } from './SliderContext';
+import { useSlider, useSliderThumb, useSliderValue, type SliderValue } from './SliderContext';
 
 type SliderThumbButtonProps = {
   value: number;
@@ -15,6 +15,10 @@ type SliderThumbButtonProps = {
   vertical: boolean;
   reverse: boolean;
   index?: number;
+} & SliderThumbChild;
+
+type SliderThumbChild = {
+  children?: ReactNode | ((index: number | undefined) => ReactNode);
 };
 
 const SliderThumbButton = primitiveComponent<'button', SliderThumbButtonProps>((props, ref) => {
@@ -74,7 +78,7 @@ const SliderThumbButton = primitiveComponent<'button', SliderThumbButtonProps>((
   );
 });
 
-export const SliderThumb = primitiveComponent<'button', Record<never, never>, 'value' | 'color'>((props, ref) => {
+export const SliderThumb = primitiveComponent<'button', SliderThumbChild, 'value' | 'color'>((props, ref) => {
   const { className, ...rest } = props;
 
   const { max, min, color, step, reverse, disabled, vertical } = useSlider();
@@ -86,7 +90,7 @@ export const SliderThumb = primitiveComponent<'button', Record<never, never>, 'v
         event.preventDefault();
         event.stopPropagation();
 
-        const next: ValueType = Array.isArray(value)
+        const next: SliderValue = Array.isArray(value)
           ? index == 0
             ? [clamp(reverse ? value[0] - step : value[0] + step, [min, value[1]]), value[1]]
             : [value[0], clamp(reverse ? value[1] - step : value[1] + step, [value[0], max])]
@@ -102,7 +106,7 @@ export const SliderThumb = primitiveComponent<'button', Record<never, never>, 'v
         event.preventDefault();
         event.stopPropagation();
 
-        const next: ValueType = Array.isArray(value)
+        const next: SliderValue = Array.isArray(value)
           ? index == 0
             ? [clamp(reverse ? value[0] + step : value[0] - step, [min, value[1]]), value[1]]
             : [value[0], clamp(reverse ? value[1] + step : value[1] - step, [value[0], max])]
@@ -118,7 +122,7 @@ export const SliderThumb = primitiveComponent<'button', Record<never, never>, 'v
         event.preventDefault();
         event.stopPropagation();
 
-        const next: ValueType = Array.isArray(value) ? (index == 0 ? [min, value[1]] : [value[0], value[0]]) : min;
+        const next: SliderValue = Array.isArray(value) ? (index == 0 ? [min, value[1]] : [value[0], value[0]]) : min;
 
         onChange(next);
         onChangeEnd(next);
@@ -128,7 +132,7 @@ export const SliderThumb = primitiveComponent<'button', Record<never, never>, 'v
         event.preventDefault();
         event.stopPropagation();
 
-        const next: ValueType = Array.isArray(value) ? (index == 0 ? [value[1], value[1]] : [value[0], max]) : max;
+        const next: SliderValue = Array.isArray(value) ? (index == 0 ? [value[1], value[1]] : [value[0], max]) : max;
 
         onChange(next);
         onChangeEnd(next);
@@ -206,4 +210,6 @@ export const SliderThumb = primitiveComponent<'button', Record<never, never>, 'v
   }
 });
 
-SliderThumb.displayName = 'SliderThumb';
+if (__DEV__) {
+  SliderThumb.displayName = 'SliderThumb';
+}
