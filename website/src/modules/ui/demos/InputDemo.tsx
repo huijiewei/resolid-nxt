@@ -60,17 +60,17 @@ export const PrefixSuffix = () => {
     <DemoExample
       preview={() => (
         <div className={'flex flex-row gap-3'}>
-          <Input clearable prefix={<UserCircle size={'1em'} />} />
-          <Input clearable disabled suffix={<Info size={'1em'} />} />
+          <Input clearable prefix={<UserCircle />} />
+          <Input clearable disabled suffix={<Info />} />
           <Input clearable prefix={'Name'} />
           <Input clearable suffix={'.com'} />
           <Input
             clearable
-            prefix={<UserCircle size={'1em'} />}
+            prefix={<UserCircle />}
             suffix={
               <Tooltip placement="top" content={'Tooltip'}>
                 <span>
-                  <Info size={'1em'} />
+                  <Info />
                 </span>
               </Tooltip>
             }
@@ -78,17 +78,17 @@ export const PrefixSuffix = () => {
         </div>
       )}
       snippet={`<div className={'flex flex-row gap-3'}>
-  <Input clearable prefix={<UserCircle size={'1em'} />} />
-  <Input clearable suffix={<Info size={'1em'} />} />
+  <Input clearable prefix={<UserCircle />} />
+  <Input clearable suffix={<Info />} />
   <Input clearable prefix={'Name'} />
   <Input clearable suffix={'.com'} />
   <Input
     clearable
-    prefix={<UserCircle size={'1em'} />}
+    prefix={<UserCircle />}
     suffix={
       <Tooltip placement="top" content={'Tooltip'}>
         <span>
-          <Info size={'1em'} />
+          <Info />
         </span>
       </Tooltip>
     }

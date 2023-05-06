@@ -76,7 +76,7 @@ export const IconSeparator = () => {
   return (
     <DemoExample
       preview={() => (
-        <Breadcrumb separator={<ChevronRight className={'text-fg-muted'} size={'0.875em'} />}>
+        <Breadcrumb separator={<ChevronRight className={'text-fg-muted'} />}>
           <BreadcrumbItem>
             <BreadcrumbLink href="#">Home</BreadcrumbLink>
           </BreadcrumbItem>
@@ -90,7 +90,7 @@ export const IconSeparator = () => {
           </BreadcrumbItem>
         </Breadcrumb>
       )}
-      snippet={`<Breadcrumb separator={<ChevronRight className={'text-fg-muted'} size={'0.875em'} />}>
+      snippet={`<Breadcrumb separator={<ChevronRight className={'text-fg-muted'} />}>
   <BreadcrumbItem>
     <BreadcrumbLink href="#">Home</BreadcrumbLink>
   </BreadcrumbItem>

@@ -128,55 +128,55 @@ export const WithIcon = () => {
       preview={() => (
         <div className={'flex flex-row gap-3'}>
           <Button>
-            <Sun size={'xs'} className={'me-1.5'} />
+            <Sun className={'me-1.5'} />
             Sun
           </Button>
           <Button variant={'outline'}>
-            <Moon size={'xs'} className={'me-1.5'} />
+            <Moon className={'me-1.5'} />
             Moon
           </Button>
           <Button variant={'light'}>
             Menu
-            <Menu size={'xs'} className={'ms-1.5'} />
+            <Menu className={'ms-1.5'} />
           </Button>
           <Button className={'aspect-square !px-0'}>
-            <Menu size={'xs'} />
+            <Menu />
           </Button>
           <Button className={'aspect-square !px-0'} variant={'outline'} color={'neutral'}>
-            <Github size={'xs'} />
+            <Github />
           </Button>
           <Button className={'aspect-square !px-0'} variant={'light'} color={'warning'}>
-            <System size={'xs'} />
+            <System />
           </Button>
           <Button className={'aspect-square !px-0'} variant={'subtle'} color={'success'}>
-            <Check size={'xs'} />
+            <Check />
           </Button>
         </div>
       )}
       snippet={`<div className={'flex flex-row gap-3'}>
   <Button>
-    <Sun size={'xs'} className={'me-1.5'} />
+    <Sun className={'me-1.5'} />
     Sun
   </Button>
   <Button variant={'outline'}>
-    <Moon size={'xs'} className={'me-1.5'} />
+    <Moon className={'me-1.5'} />
     Moon
   </Button>
   <Button variant={'light'}>
     Menu
-    <Menu size={'xs'} className={'ms-1.5'} />
+    <Menu className={'ms-1.5'} />
   </Button>
   <Button className={'aspect-square !px-0'}>
-    <Menu size={'xs'} />
+    <Menu />
   </Button>
   <Button className={'aspect-square !px-0'} variant={'outline'} color={'neutral'}>
-    <Github size={'xs'} />
+    <Github />
   </Button>
   <Button className={'aspect-square !px-0'} variant={'light'} color={'warning'}>
-    <System size={'xs'} />
+    <System />
   </Button>
   <Button className={'aspect-square !px-0'} variant={'subtle'} color={'success'}>
-    <Check size={'xs'} />
+    <Check />
   </Button>
 </div>`}
     />
@@ -218,55 +218,55 @@ export const Grouping = () => {
           <ButtonGroup>
             <Button>Save</Button>
             <Button className={'aspect-square !px-0'}>
-              <Plus size={'xs'} />
+              <Plus />
             </Button>
           </ButtonGroup>
           <ButtonGroup disabled>
             <Button>Save</Button>
             <Button className={'aspect-square !px-0'}>
-              <Plus size={'xs'} />
+              <Plus />
             </Button>
           </ButtonGroup>
           <ButtonGroup>
             <Button>Save</Button>
             <Button variant="outline" className={'aspect-square !px-0'}>
-              <Plus size={'xs'} />
+              <Plus />
             </Button>
           </ButtonGroup>
           <ButtonGroup>
             <Button>Save</Button>
             <Button color={'neutral'} className={'aspect-square !px-0'}>
-              <Plus size={'xs'} />
+              <Plus />
             </Button>
           </ButtonGroup>
           <ButtonGroup variant="outline">
             <Button>Save</Button>
             <Button className={'aspect-square !px-0'}>
-              <Plus size={'xs'} />
+              <Plus />
             </Button>
           </ButtonGroup>
           <ButtonGroup variant="light">
             <Button>Save</Button>
             <Button className={'aspect-square !px-0'}>
-              <Plus size={'xs'} />
+              <Plus />
             </Button>
           </ButtonGroup>
           <ButtonGroup vertical>
             <Button>Save</Button>
             <Button color={'success'} className={'aspect-square !px-0'}>
-              <Plus size={'xs'} />
+              <Plus />
             </Button>
           </ButtonGroup>
           <ButtonGroup vertical variant="outline">
             <Button>Save</Button>
             <Button className={'aspect-square !px-0'}>
-              <Plus size={'xs'} />
+              <Plus />
             </Button>
           </ButtonGroup>
           <ButtonGroup vertical variant="light">
             <Button>Save</Button>
             <Button className={'aspect-square !px-0'}>
-              <Plus size={'xs'} />
+              <Plus />
             </Button>
           </ButtonGroup>
         </div>
@@ -275,55 +275,55 @@ export const Grouping = () => {
   <ButtonGroup>
     <Button>Save</Button>
     <Button className={'aspect-square !px-0'}>
-      <Plus size={'xs'} />
+      <Plus />
     </Button>
   </ButtonGroup>
   <ButtonGroup disabled>
     <Button>Save</Button>
     <Button className={'aspect-square !px-0'}>
-      <Plus size={'xs'} />
+      <Plus />
     </Button>
   </ButtonGroup>
   <ButtonGroup>
     <Button>Save</Button>
     <Button variant="outline" className={'aspect-square !px-0'}>
-      <Plus size={'xs'} />
+      <Plus />
     </Button>
   </ButtonGroup>
   <ButtonGroup>
     <Button>Save</Button>
     <Button color={'neutral'} className={'aspect-square !px-0'}>
-      <Plus size={'xs'} />
+      <Plus />
     </Button>
   </ButtonGroup>
   <ButtonGroup variant="outline">
     <Button>保存</Button>
     <Button className={'aspect-square !px-0'}>
-      <Plus size={'xs'} />
+      <Plus />
     </Button>
   </ButtonGroup>
   <ButtonGroup variant="light">
     <Button>Save</Button>
     <Button className={'aspect-square !px-0'}>
-      <Plus size={'xs'} />
+      <Plus />
     </Button>
   </ButtonGroup>
   <ButtonGroup vertical>
     <Button>Save</Button>
     <Button color={'success'} className={'aspect-square !px-0'}>
-      <Plus size={'xs'} />
+      <Plus />
     </Button>
   </ButtonGroup>
   <ButtonGroup vertical variant="outline">
     <Button>Save</Button>
     <Button className={'aspect-square !px-0'}>
-      <Plus size={'xs'} />
+      <Plus />
     </Button>
   </ButtonGroup>
   <ButtonGroup vertical variant="light">
     <Button>Save</Button>
     <Button className={'aspect-square !px-0'}>
-      <Plus size={'xs'} />
+      <Plus />
     </Button>
   </ButtonGroup>
 </div>`}

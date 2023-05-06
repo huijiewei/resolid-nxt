@@ -247,13 +247,13 @@ const ComplexDemo = () => {
           onChange={(checked) => setBookmarksChecked(checked as boolean)}
         >
           <DropdownMenuItemIndicator>
-            <Check size={'1em'} />
+            <Check />
           </DropdownMenuItemIndicator>
           Show Bookmarks<div className="ml-auto pl-5 text-sm text-fg-subtle">⌘+B</div>
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem checked={urlsChecked} onChange={(checked) => setUrlsChecked(checked as boolean)}>
           <DropdownMenuItemIndicator>
-            <Check size={'1em'} />
+            <Check />
           </DropdownMenuItemIndicator>
           Show Full URLs
         </DropdownMenuCheckboxItem>
@@ -262,13 +262,13 @@ const ComplexDemo = () => {
           <DropdownMenuGroupLabel>Account</DropdownMenuGroupLabel>
           <DropdownMenuRadioItem value={'Jack Slovakia'}>
             <DropdownMenuItemIndicator>
-              <Dot size={'1em'} />
+              <Dot />
             </DropdownMenuItemIndicator>
             Jack Slovakia
           </DropdownMenuRadioItem>
           <DropdownMenuRadioItem value={'Rose DeWitt Bukater'}>
             <DropdownMenuItemIndicator>
-              <Dot size={'1em'} />
+              <Dot />
             </DropdownMenuItemIndicator>
             Rose DeWitt Bukater
           </DropdownMenuRadioItem>
@@ -377,13 +377,13 @@ export const Complex = () => {
           onChange={(checked) => setBookmarksChecked(checked)}
         >
           <DropdownMenuItemIndicator>
-            <Check size={'1em'} />
+            <Check />
           </DropdownMenuItemIndicator>
           Show Bookmarks<div className="ml-auto pl-5 text-sm text-fg-subtle">⌘+B</div>
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem checked={urlsChecked} onChange={(checked) => setUrlsChecked(checked)}>
           <DropdownMenuItemIndicator>
-            <Check size={'1em'} />
+            <Check />
           </DropdownMenuItemIndicator>
           Show Path
         </DropdownMenuCheckboxItem>
@@ -392,13 +392,13 @@ export const Complex = () => {
           <DropdownMenuGroupLabel>Account</DropdownMenuGroupLabel>
           <DropdownMenuRadioItem value={'Jack Slovakia'}>
             <DropdownMenuItemIndicator>
-              <Dot size={'1em'} />
+              <Dot />
             </DropdownMenuItemIndicator>
             Jack Slovakia
           </DropdownMenuRadioItem>
           <DropdownMenuRadioItem value={'Rose DeWitt Bukater'}>
             <DropdownMenuItemIndicator>
-              <Dot size={'1em'} />
+              <Dot />
             </DropdownMenuItemIndicator>
             Rose DeWitt Bukater
           </DropdownMenuRadioItem>

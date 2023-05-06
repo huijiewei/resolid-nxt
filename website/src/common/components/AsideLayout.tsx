@@ -24,7 +24,7 @@ const AsideBar = () => {
       }
     >
       <button onClick={() => setOpen(true)} className={'flex items-center gap-1 p-2'}>
-        <Menu size={'xs'} />
+        <Menu />
         <span>Menu</span>
       </button>
     </div>

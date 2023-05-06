@@ -23,7 +23,7 @@ export default function HomeIndex() {
         <p className={'mt-10 flex flex-row gap-9'}>
           <Button size={'xl'} as={Link} to={'/run'}>
             Get Started
-            <ArrowRight className={'ml-2'} size={'xs'} />
+            <ArrowRight className={'ml-2'} />
           </Button>
           <Button
             size={'xl'}
@@ -34,7 +34,7 @@ export default function HomeIndex() {
             rel="noopener noreferrer"
             href="https://github.com/resolid/nxt"
           >
-            <Github size={'xs'} className={'mr-2'} />
+            <Github className={'mr-2'} />
             GitHub
           </Button>
         </p>

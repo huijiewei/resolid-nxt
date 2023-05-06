@@ -1,6 +1,6 @@
+import { CloseButton } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import { useAsideLayoutDispatch, useAsideLayoutState } from '~/common/components/AsideLayout';
-import { Close } from '~/common/icons/Close';
 import { AsideLayoutMenu, type Menu } from './AsideLayoutMenu';
 
 export const AsideLayoutSide = (props: { menus: Menu[] }) => {
@@ -18,9 +18,7 @@ export const AsideLayoutSide = (props: { menus: Menu[] }) => {
       )}
     >
       <nav role={'navigation'} className={'relative'}>
-        <button onClick={() => setOpened(false)} className={'tablet:hidden fixed end-3 top-3 p-2'}>
-          <Close size={'xs'} />
-        </button>
+        <CloseButton onClick={() => setOpened(false)} className={'tablet:hidden fixed end-2 top-2 p-2'} />
         <AsideLayoutMenu menus={props.menus} />
       </nav>
     </aside>

@@ -57,7 +57,7 @@ export const ThemeSwitcher = () => {
           }}
         >
           <div className={'flex items-center gap-1'}>
-            <Sun size={'1em'} /> Light
+            <Sun /> Light
           </div>
         </DropdownMenuItem>
         <DropdownMenuItem
@@ -67,7 +67,7 @@ export const ThemeSwitcher = () => {
           }}
         >
           <div className={'flex items-center gap-1'}>
-            <Moon size={'1em'} /> Dark
+            <Moon /> Dark
           </div>
         </DropdownMenuItem>
         <DropdownMenuItem
@@ -77,7 +77,7 @@ export const ThemeSwitcher = () => {
           }}
         >
           <div className={'flex items-center gap-1'}>
-            <System size={'1em'} /> System
+            <System /> System
           </div>
         </DropdownMenuItem>
       </DropdownMenuContent>

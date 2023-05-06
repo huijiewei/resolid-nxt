@@ -11,9 +11,9 @@ export const CopyButton = ({ content }: { content: string }) => {
       <Tooltip color={copied ? 'success' : undefined} content={copied ? 'Copied' : 'Copy Code'}>
         <button type={'button'} className={'relative appearance-none p-1 font-medium'} onClick={() => onCopy(content)}>
           {copied ? (
-            <ClipboardCheck size={'1em'} className={'text-fg-success'} />
+            <ClipboardCheck className={'text-fg-success'} />
           ) : (
-            <Clipboard size={'1em'} className={'text-fg-muted hover:text-link-hovered'} />
+            <Clipboard className={'text-fg-muted hover:text-link-hovered'} />
           )}
         </button>
       </Tooltip>

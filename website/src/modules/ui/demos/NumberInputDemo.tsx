@@ -128,11 +128,11 @@ export const Prefix = () => {
     <DemoExample
       preview={() => (
         <div className={'flex flex-row gap-3'}>
-          <NumberInput prefix={<UserCircle size={'1em'} />} />
+          <NumberInput prefix={<UserCircle />} />
         </div>
       )}
       snippet={`<div className={'flex flex-row gap-3'}>
-  <NumberInput prefix={<UserCircle size={'1em'} />} />
+  <NumberInput prefix={<UserCircle />} />
 </div>`}
     />
   );
@@ -201,7 +201,7 @@ const CustomControlDemo = () => {
         variant={'light'}
         className={'aspect-square !px-0'}
       >
-        <Minus size={'1em'} />
+        <Minus />
       </Button>
 
       <NumberInput hideControls controlsRef={controls} onChange={(value) => console.log(value)} />
@@ -212,7 +212,7 @@ const CustomControlDemo = () => {
         variant={'light'}
         className={'aspect-square !px-0'}
       >
-        <Plus size={'1em'} />
+        <Plus />
       </Button>
     </div>
   );

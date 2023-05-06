@@ -23,24 +23,19 @@ export const FormExample = () => {
         <label htmlFor={'feEmail'} className={''}>
           Email <span className={'text-red-500'}>*</span>
         </label>
-        <Input prefix={<AtSymbol size={'1em'} />} className={'w-full'} placeholder={'Your email'} id={'feEmail'} />
+        <Input prefix={<AtSymbol />} className={'w-full'} placeholder={'Your email'} id={'feEmail'} />
       </div>
       <div className={'flex flex-col'}>
         <label htmlFor={'fePassword'} className={''}>
           Password <span className={'text-red-500'}>*</span>
         </label>
-        <Input prefix={<Lock size={'1em'} />} className={'w-full'} placeholder={'Your password'} id={'fePassword'} />
+        <Input prefix={<Lock />} className={'w-full'} placeholder={'Your password'} id={'fePassword'} />
       </div>
       <div className={'flex flex-col'}>
         <label htmlFor={'fePasswordRepeat'} className={''}>
           Confirm Password <span className={'text-red-500'}>*</span>
         </label>
-        <Input
-          prefix={<Lock size={'1em'} />}
-          className={'w-full'}
-          placeholder={'Your confirm Password'}
-          id={'fePasswordRepeat'}
-        />
+        <Input prefix={<Lock />} className={'w-full'} placeholder={'Your confirm Password'} id={'fePasswordRepeat'} />
       </div>
       <div>
         <Checkbox defaultChecked={true}>Agree to the user agreement and privacy policy.</Checkbox>

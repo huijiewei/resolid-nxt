@@ -147,7 +147,7 @@ export const TextLabel = () => {
           </Divider>
           <Divider variant="dotted">Divider</Divider>
           <Divider color={'primary'}>
-            <Info size={'xs'} className={'mr-1'} /> Divider
+            <Info className={'mr-1'} /> Divider
           </Divider>
           <Divider position={'right'} size={3} color={'success'} variant="dotted">
             Divider

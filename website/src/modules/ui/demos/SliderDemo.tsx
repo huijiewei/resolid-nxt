@@ -1,4 +1,4 @@
-import { Slider, SliderThumb, SliderTrack } from '@resolid/nxt-ui';
+import { Slider, SliderThumb, SliderTrack, type SliderValue } from '@resolid/nxt-ui';
 import { useState } from 'react';
 import { Heart } from '~/common/icons/Heart';
 import { HeartBroken } from '~/common/icons/HeartBroken';
@@ -155,10 +155,10 @@ export const Marks = () => {
 };
 
 const EventDemo = () => {
-  const [changeValue, setChangeValue] = useState();
-  const [changeEndValue, setChangeEndValue] = useState();
-  const [changeRangeValue, setChangeRangeValue] = useState();
-  const [changeEndRangeValue, setChangeEndRangeValue] = useState();
+  const [changeValue, setChangeValue] = useState<SliderValue>();
+  const [changeEndValue, setChangeEndValue] = useState<SliderValue>();
+  const [changeRangeValue, setChangeRangeValue] = useState<SliderValue>();
+  const [changeEndRangeValue, setChangeEndRangeValue] = useState<SliderValue>();
 
   return (
     <div className={'flex flex-col gap-5 tablet:flex-row'}>
@@ -185,10 +185,10 @@ const EventDemo = () => {
       <div className={'flex w-full  flex-col gap-3 tablet:w-1/2'}>
         <div>
           <p>
-            onChange value: <strong>{changeRangeValue && changeRangeValue.join(', ')}</strong>
+            onChange value: <strong>{Array.isArray(changeRangeValue) && changeRangeValue.join(', ')}</strong>
           </p>
           <p>
-            onChangeEnd value: <strong>{changeEndRangeValue && changeEndRangeValue.join(', ')}</strong>
+            onChangeEnd value: <strong>{Array.isArray(changeEndRangeValue) && changeEndRangeValue.join(', ')}</strong>
           </p>
         </div>
         <Slider
@@ -407,13 +407,13 @@ export const Custom = () => {
           <Slider ticks className={'w-full tablet:w-1/2'} defaultValue={10}>
             <SliderTrack />
             <SliderThumb className={'border p-0.5 text-sm'}>
-              <Heart size={'1em'} />
+              <Heart />
             </SliderThumb>
           </Slider>
           <Slider className={'w-full tablet:w-1/2'} defaultValue={[20, 60]}>
             <SliderTrack />
             <SliderThumb className={'border p-0.5 text-sm'}>
-              {(index) => (index == 0 ? <Heart size={'1em'} /> : <HeartBroken size={'1em'} />)}
+              {(index) => (index == 0 ? <Heart /> : <HeartBroken />)}
             </SliderThumb>
           </Slider>
         </div>
@@ -422,13 +422,13 @@ export const Custom = () => {
   <Slider ticks className={'w-full tablet:w-1/2'} defaultValue={10}>
     <SliderTrack />
     <SliderThumb className={'border p-0.5 text-sm'}>
-      <Heart size={'1em'} />
+      <Heart />
     </SliderThumb>
   </Slider>
   <Slider className={'w-full tablet:w-1/2'} defaultValue={[20, 60]}>
     <SliderTrack />
     <SliderThumb className={'border p-0.5 text-sm'}>
-      {(index) => (index == 0 ? <Heart size={'1em'} /> : <HeartBroken size={'1em'} />)}
+      {(index) => (index === 0 ? <Heart /> : <HeartBroken />)}
     </SliderThumb>
   </Slider>
 </div>`}

@@ -112,9 +112,7 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
                           setState((prev) => ({ ...prev, [prop.propName]: option }));
                         }}
                       >
-                        {propValue == option && (
-                          <Check strokeWidth={'3'} className={'text-white dark:text-black'} size={'xs'} />
-                        )}
+                        {propValue == option && <Check strokeWidth={'3'} className={'text-fg-emphasized'} />}
                       </Button>
                     ))}
                   </div>

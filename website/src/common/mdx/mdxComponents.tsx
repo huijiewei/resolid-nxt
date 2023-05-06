@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { cx, isAbsoluteUrl, isString } from '@resolid/nxt-utils';
 import type { ComponentProps } from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -99,7 +101,8 @@ export const mdxComponents = (module: string) => {
       );
     },
     code: (props: ComponentProps<'code'>) => {
-      return <MdxCode {...props} />;
+      const { children, ...rest } = props;
+      return <MdxCode {...rest}>{children as string}</MdxCode>;
     },
     pre: (props: ComponentProps<'pre'>) => {
       return <>{props.children}</>;
@@ -120,7 +123,7 @@ export const mdxComponents = (module: string) => {
           {...rest}
         >
           {children}
-          {external && <ExternalLink size={'0.93em'} className={'ml-0.5'} />}
+          {external && <ExternalLink className={'ml-0.5'} />}
         </a>
       );
     },
