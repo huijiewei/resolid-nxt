@@ -1,8 +1,8 @@
-import { Button } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import type { PropsWithChildren } from 'react';
 import { Fragment } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { BackButton } from '~/common/components/BackButton';
 
 export default function NotFound({
   layout,
@@ -34,7 +34,7 @@ export default function NotFound({
               to another URL. If you think this is an error contact support.
             </p>
             <div className={'mt-6'}>
-              <Button>Take me back</Button>
+              <BackButton>Take me back</BackButton>
             </div>
           </div>
         </div>

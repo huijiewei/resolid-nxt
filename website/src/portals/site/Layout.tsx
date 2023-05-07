@@ -1,9 +1,10 @@
 import { Tooltip, noScrollbarsClassName } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Banner } from '~/common/components/Banner';
 import { LazyLoader } from '~/common/components/LazyLoader';
+import { Link, NavLink } from '~/common/components/Link';
 import { ThemeSwitcher } from '~/common/components/ThemeSwitcher';
 import { Close } from '~/common/icons/Close';
 import { Github } from '~/common/icons/Github';

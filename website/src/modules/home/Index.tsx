@@ -1,5 +1,5 @@
 import { Button } from '@resolid/nxt-ui';
-import { Link } from 'react-router-dom';
+import { Link } from '~/common//components/Link';
 import { DefaultLayout } from '~/common/components/DefaultLayout';
 import { ArrowRight } from '~/common/icons/ArrowRight';
 import { Github } from '~/common/icons/Github';

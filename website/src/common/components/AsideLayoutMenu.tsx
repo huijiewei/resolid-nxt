@@ -1,6 +1,6 @@
 import { cx } from '@resolid/nxt-utils';
-import { NavLink } from 'react-router-dom';
 import { useAsideLayoutDispatch } from '~/common/components/AsideLayout';
+import { NavLink } from '~/common/components/Link';
 
 export type Menu = {
   label: string;

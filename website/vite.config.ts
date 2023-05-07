@@ -59,7 +59,7 @@ export default defineConfig(({ command }) => {
       minify: true,
     },
     optimizeDeps: {
-      include: ['@mdx-js/react'],
+      include: ['@mdx-js/react', 'fast-blurhash'],
     },
     test: {
       environment: 'jsdom',

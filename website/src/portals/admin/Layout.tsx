@@ -1,7 +1,8 @@
 import { Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { LazyLoader } from '~/common/components/LazyLoader';
+import { Link } from '~/common/components/Link';
 
 export default function AdminLayout() {
   return (
