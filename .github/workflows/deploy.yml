@@ -1,4 +1,4 @@
-name: Resolid Nxt Deploy
+name: Deploy Website
 
 on:
   workflow_dispatch:
