@@ -58,8 +58,6 @@ export const ToastContent = (props: ToastContentProps) => {
 
   const transformStyle = placementTransformStyles[placement?.split('-')[0] as keyof typeof placementTransformStyles];
 
-  console.log(status);
-
   return isMounted ? (
     <div
       className={cx(
