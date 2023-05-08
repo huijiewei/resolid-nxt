@@ -10,7 +10,7 @@ export const PopoverCloseButton = primitiveComponent<'button'>((props, ref) => {
 
   return (
     <CloseButton
-      onClick={close}
+      onClick={() => close()}
       ref={ref}
       className={cx('absolute right-1 top-1 rounded p-0.5 text-lg', className)}
       {...rest}

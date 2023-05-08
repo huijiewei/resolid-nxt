@@ -1,15 +1,28 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import { primitiveComponent } from '../../primitives';
 
-export const CloseButton = primitiveComponent<'button'>((props, ref) => {
-  const { className, disabled, children, ...rest } = props;
+export type CloseButtonProps = {
+  textClassName?: string;
+  statusClassName?: string;
+};
+
+export const CloseButton = primitiveComponent<'button', CloseButtonProps>((props, ref) => {
+  const {
+    className,
+    disabled,
+    textClassName = 'text-fg-muted',
+    statusClassName = 'hover:bg-bg-subtle active:bg-bg-muted',
+    children,
+    ...rest
+  } = props;
   return (
     <button
       disabled={disabled}
       ref={ref}
       className={cx(
-        'flex shrink-0 appearance-none items-center justify-center text-fg-muted outline-none transition-colors',
-        !disabled && 'hover:bg-bg-subtle focus-visible:ring active:bg-bg-muted',
+        'flex shrink-0 appearance-none items-center justify-center outline-none transition-colors',
+        textClassName,
+        !disabled && `focus-visible:ring ${statusClassName}`,
         className
       )}
       {...rest}
