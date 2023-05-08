@@ -23,7 +23,10 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "@resolid/nxt-utils": "workspace:*",
+    "@types/prismjs": "^1.26.0"
+  },
   "devDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

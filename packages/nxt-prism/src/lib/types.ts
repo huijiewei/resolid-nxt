@@ -1,8 +1,8 @@
+import type { Grammar } from 'prismjs';
+
 export type Language = 'markup' | 'clike' | 'javascript' | 'jsx' | 'typescript' | 'tsx';
 
-export type PrismGrammar = {
-  [key: string]: PrismGrammar | string | RegExp | Array<PrismGrammar | string | RegExp>;
-};
+export type PrismGrammar = Grammar;
 
 export type PrismToken = {
   type: string | string[];

@@ -16,7 +16,7 @@ export const CodeHighlight = (props: CodeHighlightProps) => {
       code={code?.replace(/\n$/, '')}
       theme={darkMode ? nightOwl : nightOwlLight}
       language={language}
-      Prism={Prism}
+      prism={Prism}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         return (

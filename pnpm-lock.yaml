@@ -120,6 +120,13 @@ importers:
         version: 18.2.0(react@18.2.0)
 
   packages/nxt-prism:
+    dependencies:
+      '@resolid/nxt-utils':
+        specifier: workspace:*
+        version: link:../nxt-utils
+      '@types/prismjs':
+        specifier: ^1.26.0
+        version: 1.26.0
     devDependencies:
       react:
         specifier: ^18.2.0

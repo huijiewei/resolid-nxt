@@ -3,6 +3,9 @@
   "include": ["src", "tsup.config.ts"],
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@resolid/nxt-utils": ["../nxt-utils/src"]
+    }
   }
 }
