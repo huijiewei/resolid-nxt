@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export const alertStyles = cva(['relative flex items-center gap-2 overflow-hidden rounded border p-3'], {
+export const alertStyles = cva(['relative flex gap-2 overflow-hidden rounded border p-3'], {
   variants: {
     color: {
       primary: '',
@@ -10,7 +10,7 @@ export const alertStyles = cva(['relative flex items-center gap-2 overflow-hidde
       danger: '',
     },
     variant: {
-      solid: 'text-fg-emphasized border-transparent',
+      solid: 'border-transparent',
       outline: 'bg-bg-default border-current',
       light: 'border-transparent',
     },
@@ -19,27 +19,27 @@ export const alertStyles = cva(['relative flex items-center gap-2 overflow-hidde
     {
       variant: 'solid',
       color: 'primary',
-      class: 'bg-bg-primary-emphasis',
+      class: 'bg-bg-primary-emphasis text-fg-primary-emphasized',
     },
     {
       variant: 'solid',
       color: 'neutral',
-      class: 'bg-bg-neutral-emphasis',
+      class: 'bg-bg-neutral-emphasis text-fg-emphasized',
     },
     {
       variant: 'solid',
       color: 'success',
-      class: 'bg-bg-success-emphasis',
+      class: 'bg-bg-success-emphasis text-fg-success-emphasized',
     },
     {
       variant: 'solid',
       color: 'warning',
-      class: 'bg-bg-warning-emphasis',
+      class: 'bg-bg-warning-emphasis text-fg-warning-emphasized',
     },
     {
       variant: 'solid',
       color: 'danger',
-      class: 'bg-bg-danger-emphasis',
+      class: 'bg-bg-danger-emphasis text-fg-danger-emphasized',
     },
     {
       variant: 'outline',

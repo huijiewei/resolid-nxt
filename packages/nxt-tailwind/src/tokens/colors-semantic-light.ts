@@ -12,21 +12,25 @@ export const colorsSemanticLight = {
       DEFAULT: colorsPalette.blue[500],
       hovered: colorsPalette.blue[600],
       pressed: colorsPalette.blue[700],
+      emphasized: colorsPalette.blue[50],
     },
     success: {
       DEFAULT: colorsPalette.green[500],
       hovered: colorsPalette.green[600],
       pressed: colorsPalette.green[700],
+      emphasized: colorsPalette.green[50],
     },
     warning: {
       DEFAULT: colorsPalette.yellow[500],
       hovered: colorsPalette.yellow[600],
       pressed: colorsPalette.yellow[700],
+      emphasized: colorsPalette.yellow[50],
     },
     danger: {
       DEFAULT: colorsPalette.red[500],
       hovered: colorsPalette.red[600],
       pressed: colorsPalette.red[700],
+      emphasized: colorsPalette.red[50],
     },
   },
   bg: {

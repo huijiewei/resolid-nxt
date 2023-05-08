@@ -1,10 +1,10 @@
-import { Button, Checkbox, Input, NativeSelect, NumberInput } from '@resolid/nxt-ui';
+import { Button, Checkbox, Input, NativeSelect, NumberInput, type PrimitiveProps } from '@resolid/nxt-ui';
 import { cx, isBoolean } from '@resolid/nxt-utils';
-import { useState } from 'react';
+import { useState, type ElementType } from 'react';
 import { CodeHighlight } from '~/common/components/CodeHighlight';
 import { Check } from '~/common/icons/Check';
 
-export type DemoShowcaseProps<ComponentProps> = {
+export type DemoShowcaseProps<ComponentProps extends Record<string, unknown>, Tag extends ElementType = ElementType> = {
   componentProps: {
     propName: Extract<keyof ComponentProps, string>;
     control?: 'select' | 'input' | 'color' | 'radio' | 'number' | 'placement' | 'switch';
@@ -12,7 +12,7 @@ export type DemoShowcaseProps<ComponentProps> = {
     labels?: string[];
     defaultValue?: ComponentProps[Extract<keyof ComponentProps, string>];
   }[];
-  defaultProps?: Partial<ComponentProps>;
+  defaultProps?: Partial<PrimitiveProps<Tag, ComponentProps>>;
   preview: (props: ComponentProps) => JSX.Element;
   snippet: string;
 };

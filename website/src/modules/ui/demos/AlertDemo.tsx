@@ -20,6 +20,9 @@ export const Usage = () => {
           defaultValue: 'primary',
         },
       ]}
+      defaultProps={{
+        className: 'items-center',
+      }}
       preview={(props) => (
         <Alert {...props}>
           <AlertIcon>
@@ -45,30 +48,30 @@ export const Variants = () => {
     <DemoExample
       preview={() => (
         <div className={'flex flex-col gap-3'}>
-          <Alert className={'w-full'}>
+          <Alert className={'w-full items-center'}>
             <AlertTitle>Alert Title</AlertTitle>
             <AlertDescription>Alert Description</AlertDescription>
           </Alert>
-          <Alert variant={'solid'} className={'w-full'}>
+          <Alert variant={'solid'} className={'w-full items-center'}>
             <AlertTitle>Alert Title</AlertTitle>
             <AlertDescription>Alert Description</AlertDescription>
           </Alert>
-          <Alert variant={'outline'} className={'w-full'}>
+          <Alert variant={'outline'} className={'w-full items-center'}>
             <AlertTitle>Alert Title</AlertTitle>
             <AlertDescription>Alert Description</AlertDescription>
           </Alert>
         </div>
       )}
       snippet={`<div className={'flex flex-col gap-3'}>
-  <Alert class={'w-full'}>
+  <Alert class={'w-full items-center'}>
     <AlertTitle>Alert Title</AlertTitle>
     <AlertDescription>Alert Description</AlertDescription>
   </Alert>
-  <Alert variant={'solid'} className={'w-full'}>
+  <Alert variant={'solid'} className={'w-full items-center'}>
     <AlertTitle>Alert Title</AlertTitle>
     <AlertDescription>Alert Description</AlertDescription>
   </Alert>
-  <Alert variant={'outline'} className={'w-full'}>
+  <Alert variant={'outline'} className={'w-full items-center'}>
     <AlertTitle>Alert Title</AlertTitle>
     <AlertDescription>Alert Description</AlertDescription>
   </Alert>
@@ -82,35 +85,35 @@ export const Colors = () => {
     <DemoExample
       preview={() => (
         <div className={'flex flex-col gap-3'}>
-          <Alert className={'w-full'}>
+          <Alert className={'w-full items-center'}>
             <AlertIcon>
               <Info size={'sm'} />
             </AlertIcon>
             <AlertTitle>Alert Title</AlertTitle>
             <AlertDescription>Alert Description</AlertDescription>
           </Alert>
-          <Alert color={'success'} className={'w-full'}>
+          <Alert color={'success'} className={'w-full items-center'}>
             <AlertIcon>
               <Info size={'sm'} />
             </AlertIcon>
             <AlertTitle>Alert Title</AlertTitle>
             <AlertDescription>Alert Description</AlertDescription>
           </Alert>
-          <Alert color={'warning'} className={'w-full'}>
+          <Alert color={'warning'} className={'w-full items-center'}>
             <AlertIcon>
               <Info size={'sm'} />
             </AlertIcon>
             <AlertTitle>Alert Title</AlertTitle>
             <AlertDescription>Alert Description</AlertDescription>
           </Alert>
-          <Alert color={'danger'} className={'w-full'}>
+          <Alert color={'danger'} className={'w-full items-center'}>
             <AlertIcon>
               <Info size={'sm'} />
             </AlertIcon>
             <AlertTitle>Alert Title</AlertTitle>
             <AlertDescription>Alert Description</AlertDescription>
           </Alert>
-          <Alert color={'neutral'} className={'w-full'}>
+          <Alert color={'neutral'} className={'w-full items-center'}>
             <AlertIcon>
               <Info size={'sm'} />
             </AlertIcon>
@@ -120,35 +123,35 @@ export const Colors = () => {
         </div>
       )}
       snippet={`<div className={'flex flex-col gap-3'}>
-  <Alert class={'w-full'}>
+  <Alert class={'w-full items-center'}>
     <AlertIcon>
       <Info size={'sm'} />
     </AlertIcon>
     <AlertTitle>Alert Title</AlertTitle>
     <AlertDescription>Alert Description</AlertDescription>
   </Alert>
-  <Alert color={'success'} className={'w-full'}>
+  <Alert color={'success'} className={'w-full items-center'}>
     <AlertIcon>
       <Info size={'sm'} />
     </AlertIcon>
     <AlertTitle>Alert Title</AlertTitle>
     <AlertDescription>Alert Description</AlertDescription>
   </Alert>
-  <Alert color={'warning'} className={'w-full'}>
+  <Alert color={'warning'} className={'w-full items-center'}>
     <AlertIcon>
       <Info size={'sm'} />
     </AlertIcon>
     <AlertTitle>Alert Title</AlertTitle>
     <AlertDescription>Alert Description</AlertDescription>
   </Alert>
-  <Alert color={'danger'} className={'w-full'}>
+  <Alert color={'danger'} className={'w-full items-center'}>
     <AlertIcon>
       <Info size={'sm'} />
     </AlertIcon>
     <AlertTitle>Alert Title</AlertTitle>
     <AlertDescription>Alert Description</AlertDescription>
   </Alert>
-  <Alert color={'neutral'} className={'w-full'}>
+  <Alert color={'neutral'} className={'w-full items-center'}>
     <AlertIcon>
       <Info size={'sm'} />
     </AlertIcon>

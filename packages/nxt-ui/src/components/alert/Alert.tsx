@@ -17,16 +17,7 @@ export const Alert = primitiveComponent<'div', AlertProps>((props, ref) => {
 
   return (
     <AlertProvider value={{ variant }}>
-      <div
-        ref={ref}
-        role={'alert'}
-        className={cx(
-          'relative flex items-center gap-2 overflow-hidden rounded border p-3',
-          alertStyles({ variant, color }),
-          className
-        )}
-        {...rest}
-      >
+      <div ref={ref} role={'alert'} className={cx(alertStyles({ variant, color }), className)} {...rest}>
         {children}
       </div>
     </AlertProvider>
@@ -52,7 +43,7 @@ export const AlertDescription = (props: PrimitiveProps<'div'>) => {
 
   const { variant } = useAlert();
 
-  return <div className={cx(variant != 'solid' && 'text-fg-default', className)} {...rest} />;
+  return <div className={cx(variant != 'solid' ? 'text-fg-default' : 'text-fg-emphasized', className)} {...rest} />;
 };
 
 if (__DEV__) {
