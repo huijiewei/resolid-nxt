@@ -51,5 +51,6 @@ export * from './slider/SliderTrack';
 export * from './spinner-overlay/SpinnerOverlay';
 export * from './spinner/Spinner';
 export * from './switch/Switch';
+export * from './toast/useToast';
 export * from './tooltip/Tooltip';
 export * from './visually-hidden/VisuallyHidden';
