@@ -20,12 +20,12 @@ export type ServerFunction = ((fn: DataFunction) => Awaited<ReturnType<DataFunct
 
 export const server$: ServerFunction = Object.assign(serverImpl, serverMethods);
 
-export const handleData$ = async (handler: DataFunction, { params, request }: DataFunctionArgs) => {
+export const handleData$ = async (handler: DataFunction, { params, request, context }: DataFunctionArgs) => {
   const url = new URL(request.url);
   url.searchParams.delete('index');
   url.searchParams.delete('_data');
 
-  const data = await handler({ params, request: new Request(url.href, request) });
+  const data = await handler({ params, request: new Request(url.href, request), context });
 
   if (data instanceof Response) {
     return data;

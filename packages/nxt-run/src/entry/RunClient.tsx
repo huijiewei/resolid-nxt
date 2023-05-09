@@ -1,10 +1,10 @@
-import { StrictMode } from 'react';
+import { startTransition, StrictMode } from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { createBrowserRouter, matchRoutes, RouterProvider } from 'react-router-dom';
 
 // @ts-expect-error Cannot find module
-import Root from '~nxt-run/root';
+import * as Root from '~nxt-run/root';
 
 // @ts-expect-error Cannot find module
 import routes from '~nxt-run/routes';
@@ -15,7 +15,9 @@ const RunClient = () => {
     [
       {
         path: '/',
-        element: <Root />,
+        id: 'root',
+        loader: Root.loader,
+        element: <Root.default />,
         children: routes,
       },
     ],
@@ -49,10 +51,12 @@ export const bootstrap = async (root: HTMLElement) => {
     );
   }
 
-  hydrateRoot(
-    root,
-    <StrictMode>
-      <RunClient />
-    </StrictMode>
-  );
+  startTransition(() => {
+    hydrateRoot(
+      root,
+      <StrictMode>
+        <RunClient />
+      </StrictMode>
+    );
+  });
 };

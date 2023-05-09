@@ -5,7 +5,7 @@ import { getHandler, handleData$ } from './bling';
 import { components$, type EntryContext } from './context';
 
 // @ts-expect-error Cannot find module
-import Root from '~nxt-run/root';
+import * as Root from '~nxt-run/root';
 
 // @ts-expect-error Cannot find module
 import routes from '~nxt-run/routes';
@@ -30,23 +30,13 @@ export const createHandler = (handle: HandleFn) => {
   ) => {
     const url = new URL(request.url);
 
-    const dataName = url.searchParams.get('_data');
-
-    if (dataName) {
-      const dataHandler = getHandler(dataName);
-
-      if (dataHandler) {
-        const matches = matchRoutes(routes, url.pathname);
-
-        return handleData$(dataHandler, { params: matches?.[0]?.params ?? {}, request: request });
-      }
-    }
-
     const staticHandler = createStaticHandler(
       [
         {
           path: '/',
-          Component: Root,
+          id: 'root',
+          loader: Root.loader,
+          Component: Root.default,
           children: routes,
         },
       ],
@@ -55,10 +45,22 @@ export const createHandler = (handle: HandleFn) => {
       }
     );
 
+    const dataName = url.searchParams.get('_data');
+
+    if (dataName) {
+      const dataHandler = getHandler(dataName);
+
+      if (dataHandler) {
+        const matches = matchRoutes(staticHandler.dataRoutes, url.pathname);
+
+        return handleData$(dataHandler, { params: matches?.[0]?.params ?? {}, request: request });
+      }
+    }
+
     const context = await staticHandler.query(request);
 
     if (context instanceof Response) {
-      throw context;
+      return context;
     }
 
     const responseContext: { status: number; to?: string } = {
