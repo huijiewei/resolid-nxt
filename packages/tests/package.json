@@ -1,6 +1,7 @@
 {
   "name": "@resolid/nxt-tests",
   "private": true,
+  "sideEffects": false,
   "type": "module",
   "main": "./src/index.ts",
   "dependencies": {
