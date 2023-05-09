@@ -8,7 +8,7 @@ import { AsideLayoutMain } from '~/common/components/AsideLayoutMain';
 import { AsideLayoutSide } from '~/common/components/AsideLayoutSide';
 import { BaseLayout } from '~/common/components/BaseLayout';
 import { LazyLoader } from '~/common/components/LazyLoader';
-import { TocContextProvider } from '~/common/mdx/TocContext';
+import { TocContextProvider, filterTocSection } from '~/common/mdx/TocContext';
 import { TocLayout } from '~/common/mdx/TocLayout';
 import type { TocItem } from '~/common/mdx/TocSection';
 import { headings } from '~/modules/ui/mdxDocuments';
@@ -25,7 +25,7 @@ const TocProvider = (props: PropsWithChildren) => {
 
     const docPath = path.includes('components/') ? `./content/${path}.mdx` : `./content/documents/${path}.mdx`;
 
-    headings[docPath]?.().then((toc) => setToc(toc));
+    headings[docPath]?.().then((toc) => setToc(filterTocSection(toc)));
 
     return () => {
       setToc([]);

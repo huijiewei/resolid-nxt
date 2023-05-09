@@ -8,8 +8,8 @@ export type TocItem = {
   slug: string;
 };
 
-const getHeadingsFromToc = (tableOfContents: TocItem[]) => {
-  return tableOfContents.map(({ slug }) => {
+const getHeadingsFromToc = (toc: TocItem[]) => {
+  return toc.map(({ slug }) => {
     const el = document.getElementById(slug);
 
     if (!el) {
@@ -27,7 +27,7 @@ const getHeadingsFromToc = (tableOfContents: TocItem[]) => {
 };
 
 const useCurrentSection = (toc: TocItem[]) => {
-  const [section, setSection] = useState<string | undefined>(toc[0]?.slug);
+  const [section, setSection] = useState<string | undefined>();
 
   useEffect(() => {
     if (toc.length == 0) {
@@ -69,11 +69,12 @@ const useCurrentSection = (toc: TocItem[]) => {
   return section;
 };
 
-const TocSections = ({ toc }: { toc: TocItem[] }) => {
+export const TocSection = () => {
+  const toc = useTocContext();
   const currentSection = useCurrentSection(toc);
 
   return (
-    <>
+    <ul className={'sticky top-20 space-y-1 border-s'}>
       {toc.map((item) => (
         <li key={item.slug}>
           <a
@@ -90,16 +91,6 @@ const TocSections = ({ toc }: { toc: TocItem[] }) => {
           </a>
         </li>
       ))}
-    </>
-  );
-};
-
-export const TocSection = () => {
-  const toc = useTocContext();
-
-  return (
-    <ul className={'sticky top-20 space-y-1 border-s'}>
-      <TocSections toc={toc.filter((item) => item.depth > 1 && item.depth <= 3)} />
     </ul>
   );
 };
