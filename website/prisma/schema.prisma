@@ -16,7 +16,30 @@ datasource db {
 model User {
   id        Int      @id @default(autoincrement())
   name      String   @unique @default("")
+  email     String   @unique @default("")
   password  String   @default("")
   avatar    String   @default("")
   createdAt DateTime @default(now())
+}
+
+model District {
+  id       Int    @id @default(autoincrement())
+  parentId Int    @default(0)
+  name     String @unique @default("")
+  code     String @default("")
+  zipCode  String @default("")
+  areaCode String @default("")
+
+  @@index([parentId])
+}
+
+model DistrictClosure {
+  id         Int @id @default(autoincrement())
+  ancestor   Int @default(0)
+  descendant Int @default(0)
+  distance   Int @default(0)
+
+  @@index([ancestor, descendant])
+  @@index([descendant, distance])
+  @@index([distance])
 }
