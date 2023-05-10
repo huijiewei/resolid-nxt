@@ -14,6 +14,10 @@ export type EntryContext = {
   helmetContext?: FilledContext;
 };
 
+export type LoadContext = {
+  [key: string]: unknown;
+};
+
 const componentsContext = new Set<string>();
 
 export const components$ = {

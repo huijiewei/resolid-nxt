@@ -1,8 +1,9 @@
 import { type FilledContext } from 'react-helmet-async';
 import { matchRoutes, redirect } from 'react-router-dom';
 import { createStaticHandler } from 'react-router-dom/server';
+import type { DataFunctionArgs } from '../base/types';
 import { getHandler, handleData$ } from './bling';
-import { components$, type EntryContext } from './context';
+import { components$, type EntryContext, type LoadContext } from './context';
 
 // @ts-expect-error Cannot find module
 import * as Root from '~nxt-run/root';
@@ -20,12 +21,15 @@ export type HandleFn = (
   renderOptions: RenderOptions
 ) => Promise<Response> | Response;
 
-export const createHandler = (handle: HandleFn) => {
+export type HandleDataFn = (response: Response, args: DataFunctionArgs) => Promise<Response> | Response;
+
+export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null = null) => {
   return async (
     request: Request,
     responseStatusCode: number,
     responseHeaders: Headers,
     entryContext: EntryContext,
+    loadContext: LoadContext,
     renderOptions: RenderOptions
   ) => {
     const url = new URL(request.url);
@@ -53,7 +57,15 @@ export const createHandler = (handle: HandleFn) => {
       if (dataHandler) {
         const matches = matchRoutes(staticHandler.dataRoutes, url.pathname);
 
-        return handleData$(dataHandler, { params: matches?.[0]?.params ?? {}, request: request });
+        const args = { params: matches?.[0]?.params ?? {}, request: request, context: loadContext };
+
+        const response = handleData$(dataHandler, args);
+
+        if (handleData) {
+          return handleData(await response, args);
+        }
+
+        return response;
       }
     }
 
