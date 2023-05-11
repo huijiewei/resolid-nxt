@@ -65,33 +65,50 @@ export const Basic = () => {
           </ContextMenu>
         </div>
       )}
-      snippet={`<ContextMenu>
-  <ContextMenuTrigger>
-    <Button>Basic menu</Button>
-  </ContextMenuTrigger>
-  <ContextMenuContent>
-    <ContextMenuArrow />
-    <ContextMenuItem>
-      New Tab<span className={'ml-auto pl-5 text-sm text-fg-subtle'}>⌘+T</span>
-    </ContextMenuItem>
-    <ContextMenuItem>
-      New Window<span className={'ml-auto pl-5 text-sm text-fg-subtle'}>⌘+N</span>
-    </ContextMenuItem>
-    <ContextMenuItem>
-      New Incognito Window<span className={'ml-auto pl-5 text-sm text-fg-subtle'}>⇧+⌘+N</span>
-    </ContextMenuItem>
-    <ContextMenuDivider />
-    <ContextMenuItem>
-      Close Window<span className={'ml-auto text-sm text-fg-subtle'}>⇧+⌘+W</span>
-    </ContextMenuItem>
-    <ContextMenuItem>
-      Close Tab<span className={'ml-auto text-sm text-fg-subtle'}>⌘+W</span>
-    </ContextMenuItem>
-    <ContextMenuItem>
-      Save As...<span className={'ml-auto text-sm text-fg-subtle'}>⌘+S</span>
-    </ContextMenuItem>
-  </ContextMenuContent>
-</ContextMenu>`}
+      snippet={`<div className={'flex flex-row gap-3 items-center'}>
+  <ContextMenu>
+    <ContextMenuTrigger>
+      <div className={'block border-dotted border-2 border-bg-muted select-none rounded p-10'}>
+        Right click here.
+      </div>
+    </ContextMenuTrigger>
+    <ContextMenuContent>
+      <ContextMenuItem>
+        New Tab<span className={'ml-auto pl-5 text-sm text-fg-subtle'}>⌘+T</span>
+      </ContextMenuItem>
+      <ContextMenuItem>
+        New Window<span className={'ml-auto pl-5 text-sm text-fg-subtle'}>⌘+N</span>
+      </ContextMenuItem>
+      <ContextMenuItem>
+        New Incognito Window<span className={'ml-auto pl-5 text-sm text-fg-subtle'}>⇧+⌘+N</span>
+      </ContextMenuItem>
+      <ContextMenuDivider />
+      <ContextMenuItem>
+        Close Window<span className={'ml-auto text-sm text-fg-subtle'}>⇧+⌘+W</span>
+      </ContextMenuItem>
+      <ContextMenuItem>
+        Close Tab<span className={'ml-auto text-sm text-fg-subtle'}>⌘+W</span>
+      </ContextMenuItem>
+      <ContextMenuItem>
+        Save As...<span className={'ml-auto text-sm text-fg-subtle'}>⌘+S</span>
+      </ContextMenuItem>
+    </ContextMenuContent>
+  </ContextMenu>
+  <div>Right click on the page!</div>
+  <ContextMenu>
+    <ContextMenuTrigger />
+    <ContextMenuContent>
+      <ContextMenuItem>Back</ContextMenuItem>
+      <ContextMenuItem disabled>Forward</ContextMenuItem>
+      <ContextMenuItem>Reload</ContextMenuItem>
+      <ContextMenuDivider />
+      <ContextMenuItem>
+        Save As...<span className={'ml-auto pl-5 text-sm text-fg-subtle'}>⌘+S</span>
+      </ContextMenuItem>
+      <ContextMenuItem>Print</ContextMenuItem>
+    </ContextMenuContent>
+  </ContextMenu>
+</div>`}
     />
   );
 };
