@@ -87,7 +87,7 @@ if (__DEV__) {
   Menu.displayName = 'Menu';
 }
 
-export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
+const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
   const {
     children,
     closeOnEsc = true,
@@ -152,9 +152,10 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
     () => ({
       opened: openedState,
       setReference: refs.setReference,
+      setPositionReference: refs.setPositionReference,
       getReferenceProps,
     }),
-    [getReferenceProps, openedState, refs.setReference]
+    [getReferenceProps, openedState, refs.setPositionReference, refs.setReference]
   );
 
   const floatingContext = useMemo<MenuFloatingContext>(
@@ -200,7 +201,7 @@ export const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
     <FloatingArrowProvider value={arrowContext}>
       <FloatingReferenceProvider value={referenceContext}>
         <MenuFloatingProvider value={floatingContext}>
-          <FloatingDispatchProvider value={{ close }}>
+          <FloatingDispatchProvider value={{ close, open }}>
             <FloatingNode id={nodeId}>{children}</FloatingNode>
           </FloatingDispatchProvider>
         </MenuFloatingProvider>

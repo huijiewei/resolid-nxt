@@ -1,8 +1,8 @@
-import { Divider } from '../divider/Divider';
 import { FloatingArrow } from '../floating/FloatingArrow';
 import { Menu } from '../menu/Menu';
 import { MenuCheckboxItem } from '../menu/MenuCheckboxItem';
 import { MenuContent } from '../menu/MenuContent';
+import { MenuDivider } from '../menu/MenuDivider';
 import { MenuGroup } from '../menu/MenuGroup';
 import { MenuGroupLabel } from '../menu/MenuGroupLabel';
 import { MenuItem } from '../menu/MenuItem';
@@ -33,6 +33,4 @@ export const DropdownMenuRadioGroup = MenuRadioGroup;
 
 export const DropdownMenuRadioItem = MenuRadioItem;
 
-export const DropdownMenuDivider = () => {
-  return <Divider className={'my-1.5'} />;
-};
+export const DropdownMenuDivider = MenuDivider;

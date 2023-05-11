@@ -1,10 +1,12 @@
+import type { ReferenceType } from '@floating-ui/react';
 import { type Dict } from '@resolid/nxt-utils';
 import { type HTMLProps } from 'react';
 import { createContext } from '../../primitives';
 
 type FloatingReferenceContext = {
   opened: boolean;
-  setReference: (node: HTMLElement) => void;
+  setReference: (node: ReferenceType | null) => void;
+  setPositionReference: (node: ReferenceType | null) => void;
   getReferenceProps: (userProps?: HTMLProps<Element> | undefined) => Dict<unknown>;
 };
 

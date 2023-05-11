@@ -17,9 +17,9 @@ export const FloatingTrigger = primitiveComponent<'div', FloatingTriggerProps>((
 
   return cloneElement(children, {
     'data-active': dataAttr(opened),
+    ref: refs,
     ...getReferenceProps({
       ...rest,
-      ref: refs,
     }),
   });
 });
