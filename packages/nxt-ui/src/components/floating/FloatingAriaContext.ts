@@ -1,6 +1,6 @@
 import { createContext } from '../../primitives';
 
-type FloatingAriaContext = {
+export type FloatingAriaContext = {
   labelId: string;
   descriptionId: string;
 };

@@ -1,7 +1,7 @@
 import { createContext } from '../../primitives';
 
-type FloatingDispatchContext = {
-  open: () => void;
+export type FloatingDispatchContext = {
+  open?: () => void;
   close: () => void;
 };
 

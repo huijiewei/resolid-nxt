@@ -3,7 +3,7 @@ import { type Dict } from '@resolid/nxt-utils';
 import { type HTMLProps } from 'react';
 import { createContext } from '../../primitives';
 
-type FloatingReferenceContext = {
+export type FloatingReferenceContext = {
   opened: boolean;
   setReference: (node: ReferenceType | null) => void;
   setPositionReference: (node: ReferenceType | null) => void;

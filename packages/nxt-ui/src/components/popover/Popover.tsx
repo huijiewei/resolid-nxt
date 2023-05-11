@@ -16,10 +16,10 @@ import { __DEV__, runIfFn } from '@resolid/nxt-utils';
 import type { ReactNode, RefObject } from 'react';
 import { useId, useMemo, useRef } from 'react';
 import { useDisclosure } from '../../hooks';
-import { FloatingAriaProvider } from '../floating/FloatingAriaContext';
-import { FloatingArrowProvider } from '../floating/FloatingArrowContext';
+import { FloatingAriaProvider, type FloatingAriaContext } from '../floating/FloatingAriaContext';
+import { FloatingArrowProvider, type FloatingArrowContext } from '../floating/FloatingArrowContext';
 import { FloatingDispatchProvider } from '../floating/FloatingDispatchContext';
-import { FloatingReferenceProvider } from '../floating/FloatingReferenceContext';
+import { FloatingReferenceProvider, type FloatingReferenceContext } from '../floating/FloatingReferenceContext';
 import { PopoverFloatingProvider, type PopoverFloatingContext } from './PopoverContext';
 
 export type PopoverProps = {
@@ -119,7 +119,7 @@ export const Popover = (props: PopoverProps) => {
     useDismiss(context, { escapeKey: closeOnEsc, outsidePress: closeOnBlur }),
   ]);
 
-  const ariaContext = useMemo(
+  const ariaContext = useMemo<FloatingAriaContext>(
     () => ({
       labelId,
       descriptionId,
@@ -127,13 +127,14 @@ export const Popover = (props: PopoverProps) => {
     [descriptionId, labelId]
   );
 
-  const referenceContext = useMemo(
+  const referenceContext = useMemo<FloatingReferenceContext>(
     () => ({
       opened: openedState,
       setReference: refs.setReference,
+      setPositionReference: refs.setPositionReference,
       getReferenceProps,
     }),
-    [getReferenceProps, openedState, refs.setReference]
+    [getReferenceProps, openedState, refs.setPositionReference, refs.setReference]
   );
 
   const floatingContext = useMemo<PopoverFloatingContext>(
@@ -150,7 +151,7 @@ export const Popover = (props: PopoverProps) => {
     [openedState, duration, context, floatingStyles, refs.setFloating, getFloatingProps, modal, initialFocus]
   );
 
-  const arrowContext = useMemo(
+  const arrowContext = useMemo<FloatingArrowContext>(
     () => ({
       context,
       setArrow: arrowRef,

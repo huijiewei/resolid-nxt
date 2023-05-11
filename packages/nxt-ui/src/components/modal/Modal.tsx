@@ -2,7 +2,7 @@ import { useClick, useDismiss, useFloating, useInteractions, useRole, useTransit
 import { __DEV__ } from '@resolid/nxt-utils';
 import { useEffect, useId, useMemo, type PropsWithChildren } from 'react';
 import { usePrevious } from '../../hooks';
-import { FloatingAriaProvider } from '../floating/FloatingAriaContext';
+import { FloatingAriaProvider, type FloatingAriaContext } from '../floating/FloatingAriaContext';
 import { FloatingDispatchProvider } from '../floating/FloatingDispatchContext';
 import { Portal } from '../portal/Portal';
 import { ModalProvider, type ModalBaseProps, type ModalContext } from './ModalContext';
@@ -65,7 +65,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
   const labelId = `${id}-label`;
   const descriptionId = `${id}-description`;
 
-  const ariaContext = useMemo(
+  const ariaContext = useMemo<FloatingAriaContext>(
     () => ({
       labelId,
       descriptionId,

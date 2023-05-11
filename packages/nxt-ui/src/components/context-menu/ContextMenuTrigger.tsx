@@ -40,7 +40,7 @@ export const ContextMenuTrigger = primitiveComponent<'div', ContextMenuTriggerPr
         },
       });
 
-      open();
+      open?.();
     };
 
     elem.addEventListener('contextmenu', handleContextMenu);
