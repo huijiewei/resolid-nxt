@@ -3,12 +3,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [
-    react({
-      fastRefresh: false,
-    }),
-    tsconfigPaths(),
-  ],
+  plugins: [react(), tsconfigPaths()],
   test: {
     environment: 'jsdom',
     setupFiles: '../tests/src/setup.ts',
