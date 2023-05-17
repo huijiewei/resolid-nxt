@@ -17,8 +17,9 @@ type PropsOf<T extends ElementType> = ComponentPropsWithoutRef<T> & {
 
 export type PrimitiveProps<
   Type extends ElementType = ElementType,
-  Props extends Record<string, unknown> = Record<never, never>
-> = Merge<ComponentPropsWithoutRef<Type>, Props>;
+  Props extends Record<string, unknown> = Record<never, never>,
+  Omits extends string | number | symbol = never
+> = Merge<Omit<ComponentPropsWithoutRef<Type>, Omits>, Props>;
 
 export const primitiveComponent = <
   C extends ElementType = ElementType,
