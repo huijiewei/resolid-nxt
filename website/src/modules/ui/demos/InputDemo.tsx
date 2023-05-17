@@ -102,7 +102,7 @@ export const Sizes = () => {
   return (
     <DemoExample
       preview={() => (
-        <div className={'flex flex-row items-center gap-5'}>
+        <div className={'flex flex-row items-center gap-3'}>
           <Input size={'xs'} />
           <Input size={'sm'} />
           <Input size={'md'} />
@@ -110,7 +110,7 @@ export const Sizes = () => {
           <Input size={'xl'} />
         </div>
       )}
-      snippet={`<div className={'flex flex-row items-center gap-5'}>
+      snippet={`<div className={'flex flex-row items-center gap-3'}>
   <Input size={'xs'} />
   <Input size={'sm'} />
   <Input size={'md'} />
