@@ -15,6 +15,7 @@
     "prisma": "pnpm run --filter website prisma",
     "nxt": "pnpm run --filter website nxt"
   },
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.3",
@@ -38,7 +39,7 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.7",
     "vite-tsconfig-paths": "^4.2.0",
-    "vitest": "^0.31.0"
+    "vitest": "^0.31.1"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": [
