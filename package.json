@@ -15,11 +15,10 @@
     "prisma": "pnpm run --filter website prisma",
     "nxt": "pnpm run --filter website nxt"
   },
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.3",
-    "@types/node": "^18.16.12",
+    "@types/node": "^18.16.13",
     "@types/react": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
@@ -37,7 +36,7 @@
     "prettier-plugin-tailwindcss": "^0.2.8",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4",
-    "vite": "^4.3.7",
+    "vite": "^4.3.8",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.31.1"
   },
