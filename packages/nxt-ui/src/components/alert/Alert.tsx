@@ -1,7 +1,7 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import type { PrimitiveProps } from '../../primitives';
 import { primitiveComponent } from '../../primitives';
-import { alertStyles, type AlertStyles } from './Alert.styles';
+import { alertStyle, type AlertStyles } from './Alert.style';
 import { AlertProvider, useAlert, type AlertContext } from './AlertContext';
 
 export type AlertProps = AlertContext & {
@@ -17,7 +17,7 @@ export const Alert = primitiveComponent<'div', AlertProps>((props, ref) => {
 
   return (
     <AlertProvider value={{ variant }}>
-      <div ref={ref} role={'alert'} className={cx(alertStyles({ variant, color }), className)} {...rest}>
+      <div ref={ref} role={'alert'} className={cx(alertStyle({ variant, color }), className)} {...rest}>
         {children}
       </div>
     </AlertProvider>

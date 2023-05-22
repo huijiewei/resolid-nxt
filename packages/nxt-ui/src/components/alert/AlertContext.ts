@@ -1,5 +1,5 @@
 import { createContext } from '../../primitives';
-import { type AlertStyles } from './Alert.styles';
+import { type AlertStyles } from './Alert.style';
 
 export type AlertContext = {
   /**
