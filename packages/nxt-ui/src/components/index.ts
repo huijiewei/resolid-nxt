@@ -46,6 +46,7 @@ export * from './provider/NxtProvider';
 export * from './radio/Radio';
 export * from './radio/RadioGroup';
 export * from './select/NativeSelect';
+export * from './select/Select';
 export * from './slider/Slider';
 export * from './slider/SliderThumb';
 export * from './slider/SliderTrack';
