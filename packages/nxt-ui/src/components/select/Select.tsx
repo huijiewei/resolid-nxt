@@ -20,7 +20,7 @@ import type { Size } from '../../utils/types';
 import { CloseButton } from '../close-button/CloseButton';
 import { Divider } from '../divider/Divider';
 import { Portal } from '../portal/Portal';
-import { selectSizeStyles } from './Select.styles';
+import { selectSizeStyles } from './Select.style';
 import { SelectChevron } from './SelectChevron';
 import {
   SelectProvider,
