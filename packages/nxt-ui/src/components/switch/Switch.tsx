@@ -1,7 +1,7 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import type { ChangeEvent } from 'react';
 import { useCallback, useRef, type CSSProperties } from 'react';
-import { useControllableState, useIsomorphicLayoutEffect, useMergedRefs } from '../../hooks';
+import { useControllableState, useFormReset, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import type { Color, Size } from '../../utils/types';
 
@@ -109,17 +109,12 @@ export const Switch = primitiveComponent<'input', SwitchProps>((props, ref) => {
     [readOnly, disabled, setState]
   );
 
-  useIsomorphicLayoutEffect(() => {
-    const el = inputRef.current;
-
-    if (!el?.form) {
-      return;
-    }
-
-    el.form.onreset = () => {
+  useFormReset({
+    ref: inputRef,
+    handler: () => {
       setState(defaultChecked);
-    };
-  }, []);
+    },
+  });
 
   const sizeStyle = switchSizeStyles[size];
   const colorStyle = switchColorStyles[color];
