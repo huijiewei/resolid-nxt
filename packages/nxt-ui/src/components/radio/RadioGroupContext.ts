@@ -35,7 +35,8 @@ export type RadioGroupBaseProps = RadioBaseProps & {
 };
 
 export type RadioGroupContext = RadioGroupBaseProps & {
-  onChange?: (event: ChangeEvent<HTMLInputElement> | string | number) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement> | string | number) => void;
+  onReset: () => void;
 };
 
 const [RadioGroupProvider, useRadioGroup] = createContext<RadioGroupContext | undefined>({

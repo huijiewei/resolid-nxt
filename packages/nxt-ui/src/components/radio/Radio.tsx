@@ -1,6 +1,6 @@
 import { __DEV__, ariaAttr, cx } from '@resolid/nxt-utils';
 import { useCallback, useRef, type CSSProperties, type ChangeEvent } from 'react';
-import { useControllableState, useIsomorphicLayoutEffect, useMergedRefs } from '../../hooks';
+import { useControllableState, useFormReset, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import { useRadioGroup, type RadioBaseProps } from './RadioGroupContext';
 
@@ -93,7 +93,7 @@ export const Radio = primitiveComponent<'input', RadioProps>((props, ref) => {
   } = props;
 
   const [state, setState] = useControllableState({
-    value: group?.value && value ? group.value == value : checked,
+    value: group ? group.value == value : checked,
     defaultValue: defaultChecked,
     onChange,
   });
@@ -104,22 +104,18 @@ export const Radio = primitiveComponent<'input', RadioProps>((props, ref) => {
     (event: ChangeEvent<HTMLInputElement>) => {
       setState(event.target.checked);
 
-      group?.onChange?.(event);
+      group?.onChange(event);
     },
     [group, setState]
   );
 
-  useIsomorphicLayoutEffect(() => {
-    const el = inputRef.current;
-
-    if (!el?.form) {
-      return;
-    }
-
-    el.form.onreset = () => {
+  useFormReset({
+    ref: inputRef,
+    handler: () => {
+      group?.onReset();
       setState(defaultChecked);
-    };
-  }, []);
+    },
+  });
 
   const sizeStyle = radioSizeStyles[size];
   const colorStyle = radioColorStyles[color];

@@ -33,16 +33,21 @@ export const RadioGroup = (props: PropsWithChildren<RadioGroupProps>) => {
     [setState]
   );
 
+  const handleReset = useCallback(() => {
+    setState(defaultValue);
+  }, [defaultValue, setState]);
+
   const group = useMemo(
     () => ({
       name,
       size,
       color,
-      onChange: handleChange,
-      value: state,
       disabled,
+      value: state,
+      onChange: handleChange,
+      onReset: handleReset,
     }),
-    [name, size, color, handleChange, state, disabled]
+    [name, size, color, handleChange, handleReset, state, disabled]
   );
 
   return <RadioGroupProvider value={group}>{children}</RadioGroupProvider>;

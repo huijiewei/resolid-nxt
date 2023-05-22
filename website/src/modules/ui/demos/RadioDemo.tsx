@@ -1,5 +1,5 @@
-import { Radio, RadioGroup, type RadioProps } from '@resolid/nxt-ui';
-import { useState } from 'react';
+import { Button, Radio, RadioGroup, type RadioProps } from '@resolid/nxt-ui';
+import { useState, type FormEvent } from 'react';
 import { DemoExample } from '~/modules/ui/components/DemoExample';
 import { DemoShowcase } from '~/modules/ui/components/DemoShowcase';
 
@@ -127,6 +127,122 @@ export const Sizes = () => {
     </Radio>
   </div>
 </RadioGroup>`}
+    />
+  );
+};
+
+const ControlledDemo = () => {
+  const [value, setValue] = useState<string>('orange');
+
+  return (
+    <>
+      <div className="mb-2">Your favorite fruit is {value}.</div>
+      <RadioGroup
+        value={value}
+        onChange={(value) => {
+          setValue(value as string);
+        }}
+      >
+        <div className={'flex flex-row gap-5'}>
+          <Radio value={'apple'}>Apple</Radio>
+          <Radio value={'orange'}>Orange</Radio>
+          <Radio value={'watermelon'}>Watermelon</Radio>
+        </div>
+      </RadioGroup>
+    </>
+  );
+};
+
+export const Controlled = () => {
+  return (
+    <DemoExample
+      preview={() => <ControlledDemo />}
+      snippet={`const ControlledDemo = () => {
+  const [value, setValue] = useState('orange');
+
+  return (
+    <>
+      <div className="mb-2">Your favorite fruit is {value}.</div>
+      <RadioGroup
+        value={value}
+        onChange={(value) => {
+          setValue(value);
+        }}
+      >
+        <div className={'flex flex-row gap-5'}>
+          <Radio value={'apple'}>Apple</Radio>
+          <Radio value={'orange'}>Orange</Radio>
+          <Radio value={'watermelon'}>Watermelon</Radio>
+        </div>
+      </RadioGroup>
+    </>
+  );
+};`}
+    />
+  );
+};
+
+const HtmlFormsDemo = () => {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData(e.target as HTMLFormElement);
+
+    alert(JSON.stringify(Object.fromEntries(formData), null, 2));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+      <RadioGroup name={'fruit'}>
+        <div className={'flex flex-row gap-5'}>
+          <Radio value={'apple'}>Apple</Radio>
+          <Radio value={'orange'}>Orange</Radio>
+          <Radio value={'watermelon'}>Watermelon</Radio>
+        </div>
+      </RadioGroup>
+      <div className={'flex flex-row gap-3'}>
+        <Button type={'reset'} color={'neutral'} variant={'light'}>
+          Reset
+        </Button>
+        <Button type={'submit'}>Submit</Button>
+      </div>
+    </form>
+  );
+};
+
+export const HtmlForms = () => {
+  return (
+    <DemoExample
+      preview={() => <HtmlFormsDemo />}
+      snippet={`const HtmlFormsDemo = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData(e.target);
+
+    alert(JSON.stringify(Object.fromEntries(formData), null, 2));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+      <RadioGroup name={'fruit'}>
+        <div className={'flex flex-row gap-5'}>
+          <Radio value={'apple'}>Apple</Radio>
+          <Radio value={'orange'}>Orange</Radio>
+          <Radio value={'watermelon'}>Watermelon</Radio>
+        </div>
+      </RadioGroup>
+      <div className={'flex flex-row gap-3'}>
+        <Button type={'reset'} color={'neutral'} variant={'light'}>
+          Reset
+        </Button>
+        <Button type={'submit'}>Submit</Button>
+      </div>
+    </form>
+  );
+};`}
     />
   );
 };
