@@ -1,4 +1,5 @@
-import { NativeSelect, Select } from '@resolid/nxt-ui';
+import { Button, NativeSelect, Select } from '@resolid/nxt-ui';
+import { useState, type FormEvent } from 'react';
 import { Brave } from '~/common/icons/browser/Brave';
 import { Firefox } from '~/common/icons/browser/Firefox';
 import { GoogleChrome } from '~/common/icons/browser/GoogleChrome';
@@ -86,6 +87,134 @@ export const Searchable = () => {
   ]}
   searchable
 />`}
+    />
+  );
+};
+
+const ControlledDemo = () => {
+  const [value, setValue] = useState<string>('');
+
+  return (
+    <>
+      <div className="mb-2">Your favorite frameworks/libraries:: {value}</div>
+      <Select
+        className={'w-56'}
+        value={value}
+        onChange={(value) => setValue(value as string)}
+        options={[
+          { value: 'react', label: 'React' },
+          { value: 'angular', label: 'Angular' },
+          { value: 'svelte', label: 'Svelte' },
+          { value: 'vue', label: 'Vue' },
+          { value: 'solid', label: 'Solid' },
+          { value: 'preact', label: 'Preact' },
+        ]}
+      />
+    </>
+  );
+};
+
+export const Controlled = () => {
+  return (
+    <DemoExample
+      preview={() => <ControlledDemo />}
+      snippet={`const ControlledDemo = () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <>
+      <div className="mb-2">Your favorite frameworks/libraries:: {value}</div>
+      <Select
+        className={'w-56'}
+        value={value}
+        onChange={(value) => setValue(value)}
+        options={[
+          { value: 'react', label: 'React' },
+          { value: 'angular', label: 'Angular' },
+          { value: 'svelte', label: 'Svelte' },
+          { value: 'vue', label: 'Vue' },
+          { value: 'solid', label: 'Solid' },
+          { value: 'preact', label: 'Preact' }
+        ]}
+      />
+    </>
+  );
+};`}
+    />
+  );
+};
+
+const HtmlFormsDemo = () => {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData(e.target as HTMLFormElement);
+
+    alert(JSON.stringify(Object.fromEntries(formData), null, 2));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+      <Select
+        name={'framework'}
+        className={'w-56'}
+        options={[
+          { value: 'react', label: 'React' },
+          { value: 'angular', label: 'Angular' },
+          { value: 'svelte', label: 'Svelte' },
+          { value: 'vue', label: 'Vue' },
+          { value: 'solid', label: 'Solid' },
+          { value: 'preact', label: 'Preact' },
+        ]}
+      />
+      <div className={'flex flex-row gap-3'}>
+        <Button type={'reset'} color={'neutral'} variant={'light'}>
+          Reset
+        </Button>
+        <Button type={'submit'}>Submit</Button>
+      </div>
+    </form>
+  );
+};
+
+export const HtmlForms = () => {
+  return (
+    <DemoExample
+      preview={() => <HtmlFormsDemo />}
+      snippet={`const HtmlFormsDemo = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData(e.target);
+
+    alert(JSON.stringify(Object.fromEntries(formData), null, 2));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+      <Select
+        name={'framework'}
+        className={'w-56'}
+        options={[
+          { value: 'react', label: 'React' },
+          { value: 'angular', label: 'Angular' },
+          { value: 'svelte', label: 'Svelte' },
+          { value: 'vue', label: 'Vue' },
+          { value: 'solid', label: 'Solid' },
+          { value: 'preact', label: 'Preact' }
+        ]}
+      />
+      <div className={'flex flex-row gap-3'}>
+        <Button type={'reset'} color={'neutral'} variant={'light'}>
+          Reset
+        </Button>
+        <Button type={'submit'}>Submit</Button>
+      </div>
+    </form>
+  );
+};`}
     />
   );
 };
