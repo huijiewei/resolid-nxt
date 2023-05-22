@@ -4,7 +4,7 @@ import { useFocus, useHover, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import type { Color } from '../../utils/types';
 import { Tooltip } from '../tooltip/Tooltip';
-import { SliderColorStyles } from './Slider.styles';
+import { SliderColorStyles } from './Slider.style';
 import { useSlider, useSliderThumb, useSliderValue, type SliderValue } from './SliderContext';
 
 type SliderThumbButtonProps = {

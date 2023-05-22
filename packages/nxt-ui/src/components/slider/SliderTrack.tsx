@@ -1,7 +1,7 @@
 import { __DEV__, clamp, cx } from '@resolid/nxt-utils';
 import { useCallback, useMemo } from 'react';
 import { primitiveComponent } from '../../primitives';
-import { SliderColorStyles } from './Slider.styles';
+import { SliderColorStyles } from './Slider.style';
 import { useSlider, useSliderValue } from './SliderContext';
 
 const generateTicks = (count: number, [begin, end]: [number, number]): number[] => {
