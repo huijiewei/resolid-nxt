@@ -1,5 +1,5 @@
 import { Button, NumberInput, type NumberInputHandlers, type NumberInputProps } from '@resolid/nxt-ui';
-import { useRef, useState } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import { Minus } from '~/common/icons/Minus';
 import { Plus } from '~/common/icons/Plus';
 import { UserCircle } from '~/common/icons/UserCircle';
@@ -247,6 +247,59 @@ export const CustomControl = () => {
         <Plus size={'1em'} />
       </Button>
     </div>
+  );
+};`}
+    />
+  );
+};
+
+const HtmlFormsDemo = () => {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData(e.target as HTMLFormElement);
+
+    alert(JSON.stringify(Object.fromEntries(formData), null, 2));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+      <NumberInput name={'age'} placeholder="Age" />
+      <div className={'flex flex-row gap-3'}>
+        <Button type={'reset'} color={'neutral'} variant={'light'}>
+          Reset
+        </Button>
+        <Button type={'submit'}>Submit</Button>
+      </div>
+    </form>
+  );
+};
+
+export const HtmlForms = () => {
+  return (
+    <DemoExample
+      preview={() => <HtmlFormsDemo />}
+      snippet={`const HtmlFormsDemo = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData(e.target);
+
+    alert(JSON.stringify(Object.fromEntries(formData), null, 2));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+      <NumberInput name={'age'} placeholder="Age" />
+      <div className={'flex flex-row gap-3'}>
+        <Button type={'reset'} color={'neutral'} variant={'light'}>
+          Reset
+        </Button>
+        <Button type={'submit'}>Submit</Button>
+      </div>
+    </form>
   );
 };`}
     />

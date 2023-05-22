@@ -1,10 +1,10 @@
 import { __DEV__, ariaAttr, cx } from '@resolid/nxt-utils';
 import type { ChangeEvent, KeyboardEvent, ReactNode } from 'react';
 import { useCallback, useRef } from 'react';
-import { useControllableState, useFocus, useMergedRefs } from '../../hooks';
+import { useControllableState, useFocus, useFormReset, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import { CloseButton } from '../close-button/CloseButton';
-import { inputGroupStyle, inputSizeStyles } from './Input.styles';
+import { inputGroupStyle, inputSizeStyles } from './Input.style';
 import { useInputGroup, type InputGroupContext } from './InputGroupContext';
 
 export type InputProps = Partial<InputGroupContext> & {
@@ -103,7 +103,7 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
     clearable = false,
     className,
     value,
-    defaultValue,
+    defaultValue = '',
     onChange,
     onClear,
     onPressEnter,
@@ -114,7 +114,7 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
     ...rest
   } = props;
 
-  const [state, setState] = useControllableState({ value, defaultValue: defaultValue ?? '', onChange });
+  const [state, setState] = useControllableState({ value, defaultValue: defaultValue, onChange });
 
   const inputRef = useRef<HTMLInputElement>(null);
   const [focusRef, focused] = useFocus();
@@ -152,6 +152,13 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
   const showClearButton = clearable && state;
 
   const refs = useMergedRefs(inputRef, focusRef, ref);
+
+  useFormReset({
+    ref: inputRef,
+    handler: () => {
+      setState(defaultValue);
+    },
+  });
 
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions

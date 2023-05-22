@@ -1,9 +1,9 @@
 import { __DEV__, ariaAttr, clamp, cx, isNumber } from '@resolid/nxt-utils';
 import type { ChangeEvent, FocusEvent, ForwardedRef, KeyboardEvent, ReactNode } from 'react';
 import { useCallback, useRef, useState } from 'react';
-import { assignRef, useControllableState, useEventListener, useFocus, useMergedRefs } from '../../hooks';
+import { assignRef, useControllableState, useEventListener, useFocus, useFormReset, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
-import { inputGroupStyle, inputSizeStyles } from '../input/Input.styles';
+import { inputGroupStyle, inputSizeStyles } from '../input/Input.style';
 import type { InputGroupContext } from '../input/InputGroupContext';
 import { useInputGroup } from '../input/InputGroupContext';
 import { NumberInputControl } from './NumberInputControl';
@@ -180,6 +180,14 @@ export const NumberInput = primitiveComponent<'input', NumberInputProps>((props,
   const [focusRef, focused] = useFocus<HTMLInputElement>();
 
   const refs = useMergedRefs(inputRef, focusRef, ref);
+
+  useFormReset({
+    ref: inputRef,
+    handler: () => {
+      setState(defaultValue);
+      setInputValue(isNumber(defaultValue) ? defaultValue.toFixed(numPrecision) : '');
+    },
+  });
 
   const update = useCallback(
     (next: number | undefined) => {

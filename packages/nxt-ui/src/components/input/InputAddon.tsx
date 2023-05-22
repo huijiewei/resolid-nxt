@@ -1,6 +1,6 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import { polymorphicComponent } from '../../primitives';
-import { inputSizeStyles } from './Input.styles';
+import { inputSizeStyles } from './Input.style';
 import { useInputGroup } from './InputGroupContext';
 
 export const InputAddon = polymorphicComponent<'div'>((props, ref) => {

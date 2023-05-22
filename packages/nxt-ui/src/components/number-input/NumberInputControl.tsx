@@ -17,11 +17,12 @@ const DecrementIcon = () => {
   );
 };
 
-export const NumberInputControl = (props: PrimitiveProps<'button', { stepper: 'increment' | 'decrement' }>) => {
+export const NumberInputControl = (props: PrimitiveProps<'button', { stepper: 'increment' | 'decrement' }, 'type'>) => {
   const { className, disabled, stepper, ...rest } = props;
 
   return (
     <button
+      type={'button'}
       tabIndex={-1}
       disabled={disabled}
       className={cx(

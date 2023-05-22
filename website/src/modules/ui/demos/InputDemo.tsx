@@ -1,5 +1,5 @@
 import { Button, Input, InputAddon, InputGroup, Tooltip, type InputProps } from '@resolid/nxt-ui';
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Info } from '~/common/icons/Info';
 import { UserCircle } from '~/common/icons/UserCircle';
 import { DemoExample } from '~/modules/ui/components/DemoExample';
@@ -243,6 +243,59 @@ export const Controlled = () => {
       <div className="mb-2">Input Value: {value}</div>
       <Input value={value} onChange={(value) => setValue(value)} placeholder="Controlled demo" />
     </>
+  );
+};`}
+    />
+  );
+};
+
+const HtmlFormsDemo = () => {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData(e.target as HTMLFormElement);
+
+    alert(JSON.stringify(Object.fromEntries(formData), null, 2));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+      <Input name={'username'} placeholder="Username" />
+      <div className={'flex flex-row gap-3'}>
+        <Button type={'reset'} color={'neutral'} variant={'light'}>
+          Reset
+        </Button>
+        <Button type={'submit'}>Submit</Button>
+      </div>
+    </form>
+  );
+};
+
+export const HtmlForms = () => {
+  return (
+    <DemoExample
+      preview={() => <HtmlFormsDemo />}
+      snippet={`const HtmlFormsDemo = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData(e.target);
+
+    alert(JSON.stringify(Object.fromEntries(formData), null, 2));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+      <Input name={'username'} placeholder="Username" />
+      <div className={'flex flex-row gap-3'}>
+        <Button type={'reset'} color={'neutral'} variant={'light'}>
+          Reset
+        </Button>
+        <Button type={'submit'}>Submit</Button>
+      </div>
+    </form>
   );
 };`}
     />
