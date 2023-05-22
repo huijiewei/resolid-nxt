@@ -131,12 +131,12 @@ export const dividerStyles = cva(['m-0 border-0'], {
     {
       label: true,
       position: 'left',
-      class: 'before:grow-0 before:basis-5 after:grow after:basis-0',
+      class: 'before:grow-0 before:basis-[5%] after:grow after:basis-0',
     },
     {
       label: true,
       position: 'right',
-      class: 'before:grow before:basis-0 after:grow-0 after:basis-5',
+      class: 'before:grow before:basis-0 after:grow-0 after:basis-[5%]',
     },
   ],
 });
