@@ -6,7 +6,7 @@ export type CloseButtonProps = {
   statusClassName?: string;
 };
 
-export const CloseButton = primitiveComponent<'button', CloseButtonProps>((props, ref) => {
+export const CloseButton = primitiveComponent<'button', CloseButtonProps, 'type'>((props, ref) => {
   const {
     className,
     disabled,
@@ -17,6 +17,7 @@ export const CloseButton = primitiveComponent<'button', CloseButtonProps>((props
   } = props;
   return (
     <button
+      type={'button'}
       disabled={disabled}
       ref={ref}
       className={cx(
