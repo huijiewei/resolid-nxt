@@ -2,7 +2,7 @@ import { __DEV__, cx } from '@resolid/nxt-utils';
 import { Children, isValidElement, type CSSProperties, type ReactElement } from 'react';
 import type { PrimitiveProps } from '../../primitives';
 import { toRounded } from '../../utils/radius';
-import { toSized } from './Avatar.styles';
+import { toSized } from './Avatar.style';
 import { AvatarGroupProvider, type AvatarBaseProps } from './AvatarGroupContext';
 
 export type AvatarGroupProps = AvatarBaseProps & {

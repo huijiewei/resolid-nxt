@@ -2,7 +2,7 @@ import { __DEV__, cx } from '@resolid/nxt-utils';
 import { type CSSProperties, type HTMLAttributeReferrerPolicy, type ReactElement } from 'react';
 import { primitiveComponent } from '../../primitives';
 import { toRounded } from '../../utils/radius';
-import { toColored, toSized } from './Avatar.styles';
+import { toColored, toSized } from './Avatar.style';
 import type { AvatarBaseProps } from './AvatarGroupContext';
 import { useAvatarGroup } from './AvatarGroupContext';
 import { AvatarImage } from './AvatarImage';
