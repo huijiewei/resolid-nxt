@@ -5,6 +5,7 @@ export * from './use-controllable-state';
 export * from './use-disclosure';
 export * from './use-event-listener';
 export * from './use-focus';
+export * from './use-form-reset';
 export * from './use-hover';
 export * from './use-isomorphic-layout-effect';
 export * from './use-local-storage';
