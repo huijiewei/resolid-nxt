@@ -4,7 +4,7 @@ import { primitiveComponent } from '../../primitives';
 import type { Radius } from '../../utils/radius';
 import { toRounded } from '../../utils/radius';
 import type { Color, Size } from '../../utils/types';
-import { progressColorStyles } from './Progress.styles';
+import { progressColorStyles } from './Progress.style';
 
 export type ProgressBarProps = {
   /**
