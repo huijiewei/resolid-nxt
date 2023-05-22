@@ -1,5 +1,5 @@
-import { Checkbox, CheckboxGroup, type CheckboxProps } from '@resolid/nxt-ui';
-import { useState, type SVGAttributes } from 'react';
+import { Button, Checkbox, CheckboxGroup, type CheckboxProps } from '@resolid/nxt-ui';
+import { useState, type FormEvent, type SVGAttributes } from 'react';
 import { DemoExample } from '~/modules/ui/components/DemoExample';
 import { DemoShowcase } from '~/modules/ui/components/DemoShowcase';
 
@@ -104,6 +104,96 @@ export const Sizes = () => {
   <Checkbox size={'lg'}>Checkbox</Checkbox>
   <Checkbox size={'xl'}>Checkbox</Checkbox>
 </div>`}
+    />
+  );
+};
+
+const ControlledDemo = () => {
+  const [checked, setChecked] = useState<boolean>(false);
+
+  return (
+    <>
+      <div className="mb-2">You are {checked ? 'subscribed' : 'unsubscribed'}.</div>
+      <Checkbox checked={checked} onChange={setChecked}>
+        Subscribe
+      </Checkbox>
+    </>
+  );
+};
+
+export const Controlled = () => {
+  return (
+    <DemoExample
+      preview={() => <ControlledDemo />}
+      snippet={`const ControlledDemo = () => {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <>
+      <div className="mb-2">You are {checked ? 'subscribed' : 'unsubscribed'}.</div>
+      <Checkbox checked={checked} onChange={setChecked}>
+        Subscribe
+      </Checkbox>
+    </>
+  );
+};`}
+    />
+  );
+};
+
+const HtmlFormsDemo = () => {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData(e.target as HTMLFormElement);
+
+    alert(JSON.stringify(Object.fromEntries(formData), null, 2));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+      <Checkbox name={'newsletter'} value={'subscribed'}>
+        Subscribe
+      </Checkbox>
+      <div className={'flex flex-row gap-3'}>
+        <Button type={'reset'} color={'neutral'} variant={'light'}>
+          Reset
+        </Button>
+        <Button type={'submit'}>Submit</Button>
+      </div>
+    </form>
+  );
+};
+
+export const HtmlForms = () => {
+  return (
+    <DemoExample
+      preview={() => <HtmlFormsDemo />}
+      snippet={`const HtmlFormsDemo = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const formData = new FormData(e.target);
+
+    alert(JSON.stringify(Object.fromEntries(formData), null, 2));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+      <Checkbox name={'newsletter'} value={'subscribed'}>
+        Subscribe
+      </Checkbox>
+      <div className={'flex flex-row gap-3'}>
+        <Button type={'reset'} color={'neutral'} variant={'light'}>
+          Reset
+        </Button>
+        <Button type={'submit'}>Submit</Button>
+      </div>
+    </form>
+  );
+};`}
     />
   );
 };

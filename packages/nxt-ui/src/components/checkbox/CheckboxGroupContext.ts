@@ -30,7 +30,8 @@ export type CheckboxGroupBaseProps = CheckboxBaseProps & {
 };
 
 export type CheckboxGroupContext = CheckboxGroupBaseProps & {
-  onChange?: (event: ChangeEvent<HTMLInputElement> | string | number) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement> | string | number) => void;
+  onReset: () => void;
 };
 
 const [CheckboxGroupProvider, useCheckboxGroup] = createContext<CheckboxGroupContext | undefined>({

@@ -1,7 +1,7 @@
 import { __DEV__, ariaAttr, cx } from '@resolid/nxt-utils';
 import type { ReactElement } from 'react';
 import { cloneElement, useCallback, useRef, type CSSProperties, type ChangeEvent } from 'react';
-import { useControllableState, useIsomorphicLayoutEffect, useMergedRefs } from '../../hooks';
+import { useControllableState, useFormReset, useIsomorphicLayoutEffect, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import { useCheckboxGroup, type CheckboxBaseProps } from './CheckboxGroupContext';
 import { CheckboxIcon } from './CheckboxIcon';
@@ -119,7 +119,7 @@ export const Checkbox = primitiveComponent<'input', CheckboxProps>((props, ref) 
     (event: ChangeEvent<HTMLInputElement>) => {
       setState(indeterminate ? true : event.target.checked);
 
-      group?.onChange?.(event);
+      group?.onChange(event);
     },
     [group, indeterminate, setState]
   );
@@ -130,17 +130,13 @@ export const Checkbox = primitiveComponent<'input', CheckboxProps>((props, ref) 
     }
   }, [indeterminate]);
 
-  useIsomorphicLayoutEffect(() => {
-    const el = inputRef.current;
-
-    if (!el?.form) {
-      return;
-    }
-
-    el.form.onreset = () => {
+  useFormReset({
+    ref: inputRef,
+    handler: () => {
       setState(defaultChecked);
-    };
-  }, []);
+      group?.onReset();
+    },
+  });
 
   useIsomorphicLayoutEffect(() => {
     if (!inputRef.current) {
