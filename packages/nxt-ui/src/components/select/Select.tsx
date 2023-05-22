@@ -663,7 +663,7 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
           {Array.isArray(state) ? renderMultipleValue(selectOptions) : renderSingleValue(selectOptions[0])}
         </div>
         <div className={'flex items-center gap-1'}>
-          {clearable && (
+          {clearable && selectOptions.length > 0 && (
             <CloseButton
               aria-hidden={true}
               onClick={(event) => {

@@ -167,6 +167,7 @@ const HtmlFormsDemo = () => {
           { value: 'solid', label: 'Solid' },
           { value: 'preact', label: 'Preact' },
         ]}
+        clearable
       />
       <div className={'flex flex-row gap-3'}>
         <Button type={'reset'} color={'neutral'} variant={'light'}>
@@ -205,6 +206,7 @@ export const HtmlForms = () => {
           { value: 'solid', label: 'Solid' },
           { value: 'preact', label: 'Preact' }
         ]}
+        clearable
       />
       <div className={'flex flex-row gap-3'}>
         <Button type={'reset'} color={'neutral'} variant={'light'}>
