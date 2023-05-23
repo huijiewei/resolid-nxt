@@ -13,8 +13,16 @@ import {
 } from '@floating-ui/react';
 import { __DEV__, ariaAttr, cx, dataAttr } from '@resolid/nxt-utils';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
-import { useCallbackRef, useControllableState, useFocus, useFormReset, useMergedRefs, usePrevious } from '../../hooks';
+import { Fragment, useCallback, useMemo, useRef, useState, type CSSProperties } from 'react';
+import {
+  useCallbackRef,
+  useControllableState,
+  useFocus,
+  useFormReset,
+  useIsomorphicEffect,
+  useMergedRefs,
+  usePrevious,
+} from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import type { Size } from '../../utils/types';
 import { CloseButton } from '../close-button/CloseButton';
@@ -493,7 +501,7 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
 
   const prevActiveIndex = usePrevious<number | null>(activeIndex);
 
-  useEffect(() => {
+  useIsomorphicEffect(() => {
     if (!openedState) {
       return;
     }
@@ -539,7 +547,7 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openedState, scrollState, prevActiveIndex, activeIndex, minSelectedIndex, refs.floating, virtual]);
 
-  useEffect(() => {
+  useIsomorphicEffect(() => {
     if (!openedState || !closeOnSelect) {
       return;
     }

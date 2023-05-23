@@ -1,5 +1,5 @@
 import type { MutableRefObject } from 'react';
-import { useIsomorphicLayoutEffect } from '../use-isomorphic-layout-effect';
+import { useIsomorphicEffect } from '../use-isomorphic-effect';
 
 export type UseFormResetProps = {
   ref: MutableRefObject<HTMLElement | null>;
@@ -13,7 +13,7 @@ const getClosestForm = (element: HTMLElement) => {
 };
 
 export const useFormReset = ({ ref, handler }: UseFormResetProps) => {
-  useIsomorphicLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (ref.current == null) {
       return;
     }

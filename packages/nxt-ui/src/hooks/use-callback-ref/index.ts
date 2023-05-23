@@ -1,5 +1,5 @@
 import { useCallback, useRef, type DependencyList } from 'react';
-import { useIsomorphicLayoutEffect } from '../use-isomorphic-layout-effect';
+import { useIsomorphicEffect } from '../use-isomorphic-effect';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useCallbackRef = <T extends (...args: any[]) => any>(
@@ -8,7 +8,7 @@ export const useCallbackRef = <T extends (...args: any[]) => any>(
 ): T => {
   const ref = useRef(callback);
 
-  useIsomorphicLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     ref.current = callback;
   });
 

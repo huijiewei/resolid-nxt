@@ -1,7 +1,7 @@
 import { __DEV__, ariaAttr, cx } from '@resolid/nxt-utils';
 import type { ReactElement } from 'react';
 import { cloneElement, useCallback, useRef, type CSSProperties, type ChangeEvent } from 'react';
-import { useControllableState, useFormReset, useIsomorphicLayoutEffect, useMergedRefs } from '../../hooks';
+import { useControllableState, useFormReset, useIsomorphicEffect, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
 import { useCheckboxGroup, type CheckboxBaseProps } from './CheckboxGroupContext';
 import { CheckboxIcon } from './CheckboxIcon';
@@ -124,7 +124,7 @@ export const Checkbox = primitiveComponent<'input', CheckboxProps>((props, ref) 
     [group, indeterminate, setState]
   );
 
-  useIsomorphicLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (inputRef.current) {
       inputRef.current.indeterminate = Boolean(indeterminate);
     }
@@ -138,7 +138,7 @@ export const Checkbox = primitiveComponent<'input', CheckboxProps>((props, ref) 
     },
   });
 
-  useIsomorphicLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (!inputRef.current) {
       return;
     }
@@ -148,7 +148,7 @@ export const Checkbox = primitiveComponent<'input', CheckboxProps>((props, ref) 
     if (notInSync) {
       setState(inputRef.current.checked);
     }
-  }, [inputRef.current]);
+  }, [setState, state]);
 
   const sizeStyle = checkboxSizeStyles[size];
   const colorStyle = checkboxColorStyles[color];

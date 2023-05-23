@@ -1,5 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
-import { useIsomorphicLayoutEffect } from '@resolid/nxt-ui';
+import { useIsomorphicEffect } from '@resolid/nxt-ui';
 import { Suspense, useState, type PropsWithChildren } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
@@ -20,7 +20,7 @@ const TocProvider = (props: PropsWithChildren) => {
 
   const [toc, setToc] = useState<TocItem[]>([]);
 
-  useIsomorphicLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     const path = pathname.replace('/run/', '');
     const docPath = path.includes('/') ? `./content/${path}.mdx` : `/content/getting-started/${path}.mdx`;
 

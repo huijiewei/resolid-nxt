@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type SyntheticEvent } from 'react';
-import { useIsomorphicLayoutEffect } from '../../hooks';
+import { useIsomorphicEffect } from '../../hooks';
 
 type NativeImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
 
@@ -107,7 +107,7 @@ export const useImage = (props: UseImageProps) => {
     }
   };
 
-  useIsomorphicLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (status === 'loading') {
       load();
     }
@@ -115,7 +115,7 @@ export const useImage = (props: UseImageProps) => {
     return () => {
       flush();
     };
-  }, [status, load]);
+  }, [load, status]);
 
   return status;
 };

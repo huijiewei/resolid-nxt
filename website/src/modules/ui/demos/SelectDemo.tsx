@@ -750,7 +750,7 @@ export const BigData = () => {
             clearable
           />
           <Select
-            className={'w-fit'}
+            className={'w-fit min-w-[9rem]'}
             closeOnSelect={false}
             multiple
             clearable
@@ -781,7 +781,7 @@ export const BigData = () => {
     clearable
   />
   <Select
-    className={'w-fit'}
+    className={'w-full'}
     closeOnSelect={false}
     multiple
     clearable

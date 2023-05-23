@@ -7,7 +7,7 @@ export * from './use-event-listener';
 export * from './use-focus';
 export * from './use-form-reset';
 export * from './use-hover';
-export * from './use-isomorphic-layout-effect';
+export * from './use-isomorphic-effect';
 export * from './use-local-storage';
 export * from './use-media-query';
 export * from './use-merge-refs';
