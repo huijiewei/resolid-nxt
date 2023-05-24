@@ -2,6 +2,7 @@ export * from './alert/Alert';
 export * from './avatar/Avatar';
 export * from './avatar/AvatarBadge';
 export * from './avatar/AvatarGroup';
+export * from './box/Box';
 export * from './breadcrumb/Breadcrumb';
 export * from './breadcrumb/BreadcrumbItem';
 export * from './breadcrumb/BreadcrumbLink';
