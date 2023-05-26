@@ -19,31 +19,31 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./node": {
+      "types": "./dist/node.d.ts",
       "import": "./dist/node.js",
-      "require": "./dist/node.cjs",
-      "types": "./dist/node.d.ts"
+      "require": "./dist/node.cjs"
     },
     "./server": {
       "browser": {
+        "types": "./dist/browser.d.ts",
         "import": "./dist/browser.js",
-        "require": "./dist/browser.cjs",
-        "types": "./dist/browser.d.ts"
+        "require": "./dist/browser.cjs"
       },
       "default": {
+        "types": "./dist/server.d.ts",
         "import": "./dist/server.js",
-        "require": "./dist/server.cjs",
-        "types": "./dist/server.d.ts"
+        "require": "./dist/server.cjs"
       }
     },
     "./vite": {
+      "types": "./dist/vite.d.ts",
       "import": "./dist/vite.js",
-      "require": "./dist/vite.cjs",
-      "types": "./dist/vite.d.ts"
+      "require": "./dist/vite.cjs"
     }
   },
   "typesVersions": {
