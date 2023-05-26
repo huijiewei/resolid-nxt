@@ -1,5 +1,3 @@
-import { startTransition, StrictMode } from 'react';
-import { hydrateRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { createBrowserRouter, matchRoutes, RouterProvider } from 'react-router-dom';
 
@@ -10,7 +8,7 @@ import * as Root from '~nxt-run/root';
 import routes from '~nxt-run/routes';
 
 // noinspection JSUnusedGlobalSymbols
-const RunClient = () => {
+export const RunClient = () => {
   const router = createBrowserRouter(
     [
       {
@@ -36,7 +34,8 @@ const RunClient = () => {
   );
 };
 
-export const bootstrap = async (root: HTMLElement) => {
+// noinspection JSUnusedGlobalSymbols
+export const lazyMatches = async () => {
   const lazyMatches = matchRoutes(routes, window.location)?.filter((m) => m.route.lazy);
 
   if (lazyMatches && lazyMatches?.length > 0) {
@@ -50,13 +49,4 @@ export const bootstrap = async (root: HTMLElement) => {
       })
     );
   }
-
-  startTransition(() => {
-    hydrateRoot(
-      root,
-      <StrictMode>
-        <RunClient />
-      </StrictMode>
-    );
-  });
 };

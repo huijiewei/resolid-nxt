@@ -9,6 +9,7 @@ export type RunServerProps = {
   context: EntryContext;
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const RunServer = ({ context }: RunServerProps) => {
   const router = createStaticRouter(context.routes, context.staticHandlerContext);
 
