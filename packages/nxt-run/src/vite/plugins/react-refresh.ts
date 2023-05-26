@@ -13,7 +13,7 @@ export const reactRefresh = () => {
   const runtimeCode = `
 const exports = {}
 ${readFileSync(runtimeFilePath, 'utf-8')}
-${readFileSync(_require.resolve('./refreshUtils.js'), 'utf-8')}
+${readFileSync(_require.resolve('./refreshUtils.cjs'), 'utf-8')}
 export default exports
 `;
 
