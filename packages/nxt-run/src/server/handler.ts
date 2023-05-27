@@ -23,6 +23,7 @@ export type HandleFn = (
 
 export type HandleDataFn = (response: Response, args: DataFunctionArgs) => Promise<Response> | Response;
 
+// noinspection JSUnusedGlobalSymbols
 export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null = null) => {
   return async (
     request: Request,
@@ -40,6 +41,7 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
           path: '/',
           id: 'root',
           loader: Root.loader,
+          handle: Root.handle,
           Component: Root.default,
           children: routes,
         },

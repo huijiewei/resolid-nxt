@@ -1,5 +1,6 @@
+import { type AgnosticRouteMatch } from '@remix-run/router';
 import { HelmetProvider } from 'react-helmet-async';
-import { createBrowserRouter, matchRoutes, RouterProvider } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 // @ts-expect-error Cannot find module
 import * as Root from '~nxt-run/root';
@@ -15,6 +16,7 @@ export const RunClient = () => {
         path: '/',
         id: 'root',
         loader: Root.loader,
+        handle: Root.handle,
         element: <Root.default />,
         children: routes,
       },
@@ -35,8 +37,8 @@ export const RunClient = () => {
 };
 
 // noinspection JSUnusedGlobalSymbols
-export const lazyMatches = async () => {
-  const lazyMatches = matchRoutes(routes, window.location)?.filter((m) => m.route.lazy);
+export const lazyMatches = async (matchRoutes: AgnosticRouteMatch<string>[] | null) => {
+  const lazyMatches = matchRoutes?.filter((m) => m.route.lazy);
 
   if (lazyMatches && lazyMatches?.length > 0) {
     await Promise.all(

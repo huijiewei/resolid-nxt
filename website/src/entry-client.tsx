@@ -1,6 +1,8 @@
 import { RunClient, lazyMatches } from '@resolid/nxt-run';
 import { StrictMode, startTransition } from 'react';
 import { hydrateRoot } from 'react-dom/client';
+import { matchRoutes } from 'react-router-dom';
+import routes from '~/routes';
 
 if (import.meta.env.DEV) {
   console.log(`import.meta.env.DEV = ${import.meta.env.DEV}`);
@@ -9,7 +11,9 @@ if (import.meta.env.DEV) {
 }
 
 async function hydrate() {
-  await lazyMatches();
+  const matches = matchRoutes(routes, window.location);
+
+  await lazyMatches(matches);
 
   startTransition(() => {
     hydrateRoot(
