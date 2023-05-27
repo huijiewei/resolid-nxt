@@ -35,7 +35,7 @@ export const MenuContent = primitiveComponent<'div'>((props, ref) => {
           <FloatingFocusManager modal={false} initialFocus={nested ? -1 : 0} returnFocus={!nested} context={context}>
             <div
               className={cx(
-                'rounded border border-bg-muted bg-bg-default p-1.5 shadow',
+                'rounded outline-none border border-bg-muted bg-bg-default p-1.5 shadow',
                 'transition-opacity duration-[--duration-var]',
                 status == 'open' ? 'opacity-1' : 'opacity-0',
                 className

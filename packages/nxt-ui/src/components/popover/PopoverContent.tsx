@@ -39,7 +39,9 @@ export const PopoverContent = primitiveComponent<'div'>((props, ref) => {
                 'aria-describedby': descriptionId,
               })}
             >
-              <div className={cx('relative rounded border border-bg-muted bg-bg-default shadow', className)}>
+              <div
+                className={cx('relative rounded outline-none border border-bg-muted bg-bg-default shadow', className)}
+              >
                 {children}
               </div>
             </div>

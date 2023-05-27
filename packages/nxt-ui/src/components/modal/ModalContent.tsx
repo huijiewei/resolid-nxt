@@ -42,7 +42,7 @@ export const ModalContent = primitiveComponent<'div'>((props, ref) => {
       <FloatingFocusManager initialFocus={initialFocus} returnFocus={finalFocus == undefined} context={context}>
         <div
           className={cx(
-            'relative flex flex-col rounded border border-bg-muted bg-bg-default shadow',
+            'relative flex flex-col rounded outline-none border border-bg-muted bg-bg-default shadow',
             centered ? 'my-6' : 'my-16',
             scrollBehavior == 'inside' && (centered ? 'max-h-[calc(100%-2rem)]' : 'max-h-[calc(100%-7rem)]'),
             'transition-opacity duration-[--duration-var]',
