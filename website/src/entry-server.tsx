@@ -1,5 +1,6 @@
 import { RunServer } from '@resolid/nxt-run';
 import { createHandler, processHelmet } from '@resolid/nxt-run/server';
+import { __DEV__ } from '@resolid/nxt-utils';
 import { createInstance } from 'i18next';
 import FsBackend from 'i18next-fs-backend';
 import isbot from 'isbot';
@@ -31,6 +32,7 @@ export default createHandler(async (request, responseStatusCode, responseHeaders
       ...i18n,
       lng,
       ns: ['common', ...ns],
+      debug: __DEV__,
       backend: { loadPath: resolve('./public/locales/{{lng}}/{{ns}}.json') },
     });
 

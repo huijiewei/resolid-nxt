@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "serve": "node ./dist/server.mjs",
+    "serve": "NODE_ENV=production node ./dist/server.mjs",
     "prisma": "prisma",
     "nxt": "tsx ./cli/index.ts"
   },
