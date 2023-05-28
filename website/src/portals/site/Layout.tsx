@@ -1,25 +1,29 @@
-import { Tooltip, noScrollbarsClassName } from '@resolid/nxt-ui';
+import { Button, Tooltip, noScrollbarsClassName } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
 import { Banner } from '~/common/components/Banner';
 import { LazyLoader } from '~/common/components/LazyLoader';
 import { Link, NavLink } from '~/common/components/Link';
+import { LocaleSwitcher } from '~/common/components/LocaleSwitcher';
 import { ThemeSwitcher } from '~/common/components/ThemeSwitcher';
 import { Close } from '~/common/icons/Close';
 import { Github } from '~/common/icons/Github';
 import { Menu } from '~/common/icons/Menu';
 
 const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> }) => {
+  const { t } = useTranslation('site');
+
   return (
     <ul className="tablet:flex-row tracking-wide tablet:max-w-none tablet:p-0 mx-auto flex max-w-xs flex-col p-4 font-medium">
       {[
-        { name: 'Home', href: '', end: true },
-        { name: 'Run', href: 'run' },
-        { name: 'UI', href: 'ui' },
-        { name: 'Forum', href: 'forum' },
-        { name: 'Blog', href: 'blog' },
-        { name: 'About', href: 'about' },
+        { name: 'menu.home', href: '', end: true },
+        { name: 'menu.run', href: 'run' },
+        { name: 'menu.ui', href: 'ui' },
+        { name: 'menu.forum', href: 'forum' },
+        { name: 'menu.blog', href: 'blog' },
+        { name: 'menu.about', href: 'about' },
       ].map((link) => (
         <li key={link.name}>
           <NavLink
@@ -30,7 +34,7 @@ const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> })
               return cx('tablet:px-4 block p-2 hover:text-link-pressed', isActive && 'text-link');
             }}
           >
-            <span>{link.name}</span>
+            <span>{t(link.name)}</span>
           </NavLink>
         </li>
       ))}
@@ -39,6 +43,8 @@ const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> })
 };
 
 const Header = () => {
+  const { t } = useTranslation('site');
+
   const [opened, setOpened] = useState(false);
 
   return (
@@ -66,17 +72,20 @@ const Header = () => {
             <NavMenu onClick={() => setOpened(false)} />
           </div>
           <div className={'flex flex-row items-center gap-1'}>
+            <LocaleSwitcher />
             <ThemeSwitcher />
-            <Tooltip placement={'bottom'} content={'Go to Resolid Nxt on Github'}>
-              <a
-                className={'p-2 hover:text-link'}
+            <Tooltip placement={'bottom'} content={t('link.github')}>
+              <Button
+                as={'a'}
+                color={'neutral'}
+                variant={'subtle'}
+                className={'aspect-square !px-0'}
                 rel="noreferrer"
                 target="_blank"
-                aria-label={'Go to Resolid Nxt on Github'}
                 href="https://github.com/huijiewei/resolid-nxt"
               >
                 <Github size={'sm'} />
-              </a>
+              </Button>
             </Tooltip>
           </div>
         </div>

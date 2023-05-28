@@ -1,8 +1,11 @@
 import { Spinner } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import type { HTMLProps } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const LazyLoader = (props: HTMLProps<HTMLDivElement>) => {
+  const { t } = useTranslation('common');
+
   const { className, height, ...rest } = props;
 
   return (
@@ -16,7 +19,7 @@ export const LazyLoader = (props: HTMLProps<HTMLDivElement>) => {
       {...rest}
     >
       <Spinner color={'primary'} className={'mr-2'} />
-      Loading...
+      {t('loading')}
     </div>
   );
 };

@@ -1,0 +1,31 @@
+{
+  "button": {
+    "start": "Get Started"
+  },
+  "link": {
+    "github": "Go to Resolid Nxt on Github"
+  },
+  "colorMode": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "home": {
+    "hero": "React SSR framework that combines the power of React-Router and TailwindCSS to give you a seamless web development experience."
+  },
+  "menu": {
+    "home": "Home",
+    "run": "Run",
+    "ui": "UI",
+    "forum": "Forum",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "error": {
+    "404": {
+      "title": "Not Found",
+      "message": "Nothing to see here",
+      "content": "Page you are trying to open does not exist. You may have mistyped the address, or the page has been moved to another URL. If you think this is an error contact support."
+    }
+  }
+}

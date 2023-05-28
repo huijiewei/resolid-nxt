@@ -10,6 +10,7 @@ const NotFound = lazy(() => import('~/portals/site/NotFound'));
 const routes: RouteObject[] = [
   {
     path: '/',
+    handle: { i18n: 'site' },
     Component: lazy(() => import('./Layout')),
     children: [
       {

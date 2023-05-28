@@ -1,4 +1,5 @@
 import {
+  Button,
   DropdownMenu,
   DropdownMenuArrow,
   DropdownMenuContent,
@@ -9,77 +10,66 @@ import {
 } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Moon } from '~/common/icons/Moon';
 import { Sun } from '~/common/icons/Sun';
 import { System } from '~/common/icons/System';
 
-const colorModeDetails = {
-  dark: {
-    label: 'Dark',
-    icon: <Moon size={'sm'} />,
-  },
+const colorModes = {
   light: {
-    label: 'Light',
-    icon: <Sun size={'sm'} />,
+    label: 'colorMode.light',
+    icon: Sun,
+  },
+  dark: {
+    label: 'colorMode.dark',
+    icon: Moon,
   },
   system: {
-    label: 'System',
-    icon: <System size={'sm'} />,
+    label: 'colorMode.system',
+    icon: System,
   },
 };
 
+type ColorMode = keyof typeof colorModes;
+
 export const ThemeSwitcher = () => {
+  const { t } = useTranslation('site');
+
   const { colorMode } = useColorModeState();
   const { setColorMode } = useColorModeDispatch();
 
-  const [colorModeState, setColorModeState] = useState(colorModeDetails['system']);
+  const [colorModeState, setColorModeState] = useState(colorModes['system']);
 
   useEffect(() => {
-    setColorModeState(colorModeDetails[colorMode]);
+    setColorModeState(colorModes[colorMode]);
   }, [colorMode]);
 
   return (
     <DropdownMenu placement={'bottom'}>
       <DropdownMenuTrigger>
-        <button
-          aria-label={colorModeState.label}
-          className={'block select-none p-2 transition-colors hover:text-link rounded'}
-        >
-          {colorModeState.icon}
-        </button>
+        <Button color={'neutral'} variant={'subtle'} className={'aspect-square !px-0'}>
+          <colorModeState.icon size={'sm'} />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className={'z-50'}>
         <DropdownMenuArrow />
-        <DropdownMenuItem
-          className={cx('my-1', colorMode == 'light' && 'text-link')}
-          onClick={() => {
-            setColorMode('light');
-          }}
-        >
-          <div className={'flex items-center gap-1'}>
-            <Sun /> Light
-          </div>
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          className={cx('my-1', colorMode == 'dark' && 'text-link')}
-          onClick={() => {
-            setColorMode('dark');
-          }}
-        >
-          <div className={'flex items-center gap-1'}>
-            <Moon /> Dark
-          </div>
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          className={cx('my-1', colorMode == 'system' && 'text-link')}
-          onClick={() => {
-            setColorMode('system');
-          }}
-        >
-          <div className={'flex items-center gap-1'}>
-            <System /> System
-          </div>
-        </DropdownMenuItem>
+        {Object.keys(colorModes).map((key) => {
+          const mode = colorModes[key as ColorMode];
+
+          return (
+            <DropdownMenuItem
+              key={key}
+              className={cx('my-1', colorMode == key && 'text-link')}
+              onClick={() => {
+                setColorMode(key as ColorMode);
+              }}
+            >
+              <div className={'flex items-center gap-1.5'}>
+                <mode.icon /> {t(mode.label)}
+              </div>
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );
