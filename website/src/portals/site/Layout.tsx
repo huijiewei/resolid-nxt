@@ -58,7 +58,7 @@ const Header = () => {
           </button>
         </div>
         <div className={'tablet:justify-between flex flex-1 items-center justify-center'}>
-          <Link to={'/'}>
+          <Link to={''}>
             <Banner />
           </Link>
         </div>

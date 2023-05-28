@@ -1,6 +1,5 @@
 import { RunServer } from '@resolid/nxt-run';
 import { createHandler, processHelmet } from '@resolid/nxt-run/server';
-import { __DEV__ } from '@resolid/nxt-utils';
 import { createInstance } from 'i18next';
 import FsBackend from 'i18next-fs-backend';
 import isbot from 'isbot';
@@ -12,27 +11,25 @@ import { i18n } from '~/i18n';
 
 const ABORT_DELAY = 5000;
 
-const getLocale = async (request: Request) => {
-  return 'en';
-};
-
 export default createHandler(async (request, responseStatusCode, responseHeaders, entryContext, renderOptions) => {
   const ready = isbot(request.headers.get('user-agent')) ? 'onAllReady' : 'onShellReady';
 
   const instance = createInstance();
-  const lng = await getLocale(request);
+  const lng =
+    entryContext.staticHandlerContext.matches.find((m) => m.params.lang != undefined)?.params.lang ??
+    (i18n.fallbackLng as string);
   const ns = entryContext.staticHandlerContext.matches
-    ?.filter((m) => m.route.handle?.i18n !== undefined)
+    .filter((m) => m.route.handle?.i18n != undefined)
     .flatMap((m) => m.route.handle.i18n);
 
   await instance
-    .use(initReactI18next)
     .use(FsBackend)
+    .use(initReactI18next)
     .init({
       ...i18n,
       lng,
       ns: ['common', ...ns],
-      debug: __DEV__,
+      debug: false,
       backend: { loadPath: resolve('./public/locales/{{lng}}/{{ns}}.json') },
     });
 

@@ -26,7 +26,7 @@ export default function HomeIndex() {
           <p className={'mt-10 text-lg'}>{t('home.hero')}</p>
 
           <p className={'mt-10 flex flex-row gap-9'}>
-            <Button size={'xl'} as={Link} to={'/run'}>
+            <Button size={'xl'} as={Link} to={'run'}>
               {t('button.start')}
               <ArrowRight className={'ms-3'} />
             </Button>

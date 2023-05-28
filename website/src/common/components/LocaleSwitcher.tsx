@@ -7,12 +7,18 @@ import {
   DropdownMenuTrigger,
 } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
+import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { UNSAFE_RouteContext, generatePath, useNavigate, useParams } from 'react-router-dom';
 import { Locale } from '~/common/icons/Locale';
-import { LOCALES } from '~/i18n';
+import { LOCALES, i18n as i18nOptions } from '~/i18n';
 
 export const LocaleSwitcher = () => {
   const { i18n, t } = useTranslation();
+
+  const routeContext = useContext(UNSAFE_RouteContext);
+  const params = useParams();
+  const navigate = useNavigate();
 
   return (
     <DropdownMenu placement={'bottom'}>
@@ -32,9 +38,31 @@ export const LocaleSwitcher = () => {
           return (
             <DropdownMenuItem
               key={key}
-              className={cx('my-1', i18n.language == key && 'text-link')}
+              className={cx('my-1', i18n.resolvedLanguage == key && 'text-link')}
               onClick={async () => {
                 await i18n.changeLanguage(key);
+
+                let lastRouteContext = routeContext;
+
+                while (lastRouteContext.outlet) {
+                  lastRouteContext = lastRouteContext.outlet.props.routeContext;
+                }
+
+                const pathPattern = lastRouteContext.matches
+                  .map(({ route: { path } }) => path)
+                  .filter(Boolean)
+                  .join('/')
+                  .replaceAll(/\/\*?\//g, '/');
+
+                navigate(
+                  {
+                    pathname: generatePath(pathPattern, {
+                      ...params,
+                      lang: key == i18nOptions.fallbackLng ? undefined : key,
+                    }),
+                  },
+                  { replace: true }
+                );
 
                 document.documentElement.setAttribute('lang', key);
               }}

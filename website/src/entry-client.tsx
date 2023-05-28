@@ -1,7 +1,5 @@
 import { RunClient, lazyMatches } from '@resolid/nxt-run';
-import { __DEV__ } from '@resolid/nxt-utils';
 import i18next from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpBackend from 'i18next-http-backend/cjs';
 import { StrictMode, startTransition } from 'react';
 import { hydrateRoot } from 'react-dom/client';
@@ -17,24 +15,18 @@ if (import.meta.env.DEV) {
 }
 
 async function hydrate() {
-  const matches = matchRoutes(routes, window.location);
-  const ns = matches?.filter((m) => m.route.handle?.i18n !== undefined).flatMap((m) => m.route.handle.i18n);
+  const matches = matchRoutes(routes, window.location, import.meta.env.BASE_URL.replace(/\/$/, ''));
+  const ns = matches?.filter((m) => m.route.handle?.i18n !== undefined).flatMap((m) => m.route.handle.i18n) ?? [];
+  const lng = matches?.find((m) => m.params.lang != undefined)?.params.lang ?? (i18n.fallbackLng as string);
 
   await i18next
     .use(HttpBackend)
-    .use(LanguageDetector)
     .use(initReactI18next)
     .init({
       ...i18n,
-      ns: ['common', ...(ns || [])],
-      debug: __DEV__,
-
-      detection: {
-        order: ['path'],
-      },
-      interpolation: {
-        escapeValue: false,
-      },
+      lng,
+      ns: ['common', ...ns],
+      debug: false,
     });
 
   await lazyMatches(matches);
