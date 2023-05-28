@@ -5,5 +5,7 @@
     "back": "返回"
   },
   "copyCode": "复制代码",
-  "copied": "复制成功"
+  "copied": "复制成功",
+  "changeLanguage": "更改语言",
+  "changeColorMode": "更改颜色模式"
 }

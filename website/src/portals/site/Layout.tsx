@@ -79,6 +79,7 @@ const Header = () => {
                 as={'a'}
                 color={'neutral'}
                 variant={'subtle'}
+                aria-label={t('link.github') || 'Github'}
                 className={'aspect-square !px-0'}
                 rel="noreferrer"
                 target="_blank"

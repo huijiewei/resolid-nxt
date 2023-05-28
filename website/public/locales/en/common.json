@@ -5,5 +5,7 @@
     "back": "Take me back"
   },
   "copyCode": "Copy code",
-  "copied": "Copied"
+  "copied": "Copied",
+  "changeLanguage": "Change Language",
+  "changeColorMode": "Change Color Mode"
 }

@@ -33,7 +33,7 @@ const colorModes = {
 type ColorMode = keyof typeof colorModes;
 
 export const ThemeSwitcher = () => {
-  const { t } = useTranslation('site');
+  const { t } = useTranslation();
 
   const { colorMode } = useColorModeState();
   const { setColorMode } = useColorModeDispatch();
@@ -47,7 +47,12 @@ export const ThemeSwitcher = () => {
   return (
     <DropdownMenu placement={'bottom'}>
       <DropdownMenuTrigger>
-        <Button color={'neutral'} variant={'subtle'} className={'aspect-square !px-0'}>
+        <Button
+          aria-label={t('changeColorMode') || 'Change Color Mode'}
+          color={'neutral'}
+          variant={'subtle'}
+          className={'aspect-square !px-0'}
+        >
           <colorModeState.icon size={'sm'} />
         </Button>
       </DropdownMenuTrigger>
@@ -65,7 +70,7 @@ export const ThemeSwitcher = () => {
               }}
             >
               <div className={'flex items-center gap-1.5'}>
-                <mode.icon /> {t(mode.label)}
+                <mode.icon /> {t(mode.label, { ns: 'site' })}
               </div>
             </DropdownMenuItem>
           );

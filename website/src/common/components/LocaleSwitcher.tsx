@@ -12,12 +12,17 @@ import { Locale } from '~/common/icons/Locale';
 import { LOCALES } from '~/i18n';
 
 export const LocaleSwitcher = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   return (
     <DropdownMenu placement={'bottom'}>
       <DropdownMenuTrigger>
-        <Button color={'neutral'} variant={'subtle'} className={'aspect-square !px-0'}>
+        <Button
+          aria-label={t('changeLanguage') || 'Change Language'}
+          color={'neutral'}
+          variant={'subtle'}
+          className={'aspect-square !px-0'}
+        >
           <Locale size={'sm'} />
         </Button>
       </DropdownMenuTrigger>
