@@ -11,25 +11,25 @@ export type UseImageProps = {
 
   /**
    * One or more strings separated by commas, indicating possible image sources for the user agent to use
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-srcset
+   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-srcset
    */
   srcSet?: string;
 
   /**
    * One or more strings separated by commas, indicating a set of source sizes
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-sizes
+   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-sizes
    */
   sizes?: string;
 
   /**
    * Indicates how the browser should load the image
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-loading
+   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-loading
    */
   loading?: NativeImageProps['loading'];
 
   /**
    * Indicates if the fetching of the image must be done using a CORS request
-   * @see https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-crossorigin
+   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-crossorigin
    */
   crossOrigin?: NativeImageProps['crossOrigin'];
 

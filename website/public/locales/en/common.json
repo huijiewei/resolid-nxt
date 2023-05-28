@@ -3,5 +3,7 @@
   "license": "Released under the MIT License",
   "button": {
     "back": "Take me back"
-  }
+  },
+  "copyCode": "Copy code",
+  "copied": "Copied"
 }

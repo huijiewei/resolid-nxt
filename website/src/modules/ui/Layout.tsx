@@ -1,7 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import { useIsomorphicEffect } from '@resolid/nxt-ui';
 import { Suspense, useState, type PropsWithChildren } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AsideLayout } from '~/common/components/AsideLayout';
 import { AsideLayoutMain } from '~/common/components/AsideLayoutMain';
@@ -38,11 +37,8 @@ const TocProvider = (props: PropsWithChildren) => {
 export default function Layout() {
   return (
     <BaseLayout>
-      <Helmet>
-        <title>UI</title>
-      </Helmet>
       <AsideLayout>
-        <AsideLayoutSide menus={menus} />
+        <AsideLayoutSide menus={menus} namespace={'ui'} />
         <AsideLayoutMain>
           <MDXProvider components={mdxComponents}>
             <TocProvider>

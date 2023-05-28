@@ -3,6 +3,7 @@
 import { cx, isAbsoluteUrl, isString } from '@resolid/nxt-utils';
 import type { ComponentProps } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { ExternalLink } from '~/common/icons/ExternalLink';
 import { MdxCode } from '~/common/mdx/MdxPreCode';
 
@@ -11,11 +12,14 @@ export const mdxComponents = (module: string) => {
     h1: (props: ComponentProps<'h1'>) => {
       const { className, children, ...rest } = props;
 
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const { t } = useTranslation('site');
+
       return (
         <h1 className={cx('mb-3 mt-2 text-[1.75em] font-bold', className)} {...rest}>
           <Helmet>
             <title>
-              {children} - {module}
+              {children} - {t(module)}
             </title>
           </Helmet>
           {children}

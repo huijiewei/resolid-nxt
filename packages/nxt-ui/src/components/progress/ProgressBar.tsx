@@ -9,6 +9,7 @@ import { progressColorStyles } from './Progress.style';
 export type ProgressBarProps = {
   /**
    * Color
+   *
    * @default 'primary'
    */
   color?: Color;

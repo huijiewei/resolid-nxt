@@ -4,7 +4,7 @@ import { MdxColorPalette } from './components/MdxColorPalette';
 import { MdxDemo } from './components/MdxDemo';
 
 export const mdxComponents = {
-  ...shared('UI'),
+  ...shared('menu.ui'),
   ColorPalette: MdxColorPalette,
   Demo: MdxDemo,
   PropsTable: MdxPropsTable,

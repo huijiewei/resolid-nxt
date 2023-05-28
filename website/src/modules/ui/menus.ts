@@ -2,184 +2,184 @@ import { type Menu } from '~/common/components/AsideLayoutMenu';
 
 export const menus: Menu[] = [
   {
-    label: 'Overview',
+    label: 'menu.overview',
     children: [
       {
-        label: 'Introduction',
+        label: 'menu.introduction',
         path: 'introduction',
       },
       {
-        label: 'Getting Started',
+        label: 'menu.started',
         path: 'getting-started',
       },
       {
-        label: 'Theming',
+        label: 'menu.theming',
         path: 'theming',
       },
       {
-        label: 'Dark Mode',
+        label: 'menu.darkMode',
         path: 'dark-mode',
       },
       {
-        label: 'Animation',
+        label: 'menu.animation',
         path: 'animation',
       },
     ],
   },
   {
-    label: 'General',
+    label: 'menu.general',
     children: [
       {
-        label: 'Button',
+        label: 'menu.button',
         path: 'components/button',
       },
       {
-        label: 'Icon',
+        label: 'menu.icon',
         path: 'components/icon',
       },
       {
-        label: 'Image',
+        label: 'menu.image',
         path: 'components/image',
       },
       {
-        label: 'Typography',
+        label: 'menu.typography',
         path: 'components/typography',
       },
     ],
   },
   {
-    label: 'Layout',
+    label: 'menu.layout',
     children: [
       {
-        label: 'Layout',
+        label: 'menu.layout',
         path: 'components/layout',
       },
       {
-        label: 'Flex',
+        label: 'menu.flex',
         path: 'components/flex',
       },
       {
-        label: 'Grid',
+        label: 'menu.grid',
         path: 'components/grid',
       },
       {
-        label: 'Table',
+        label: 'menu.table',
         path: 'components/table',
       },
       {
-        label: 'Divider',
+        label: 'menu.divider',
         path: 'components/divider',
       },
     ],
   },
   {
-    label: 'Data Display',
+    label: 'menu.dataDisplay',
     children: [
       {
-        label: 'Avatar',
+        label: 'menu.avatar',
         path: 'components/avatar',
       },
       {
-        label: 'Badge',
+        label: 'menu.badge',
         path: 'components/badge',
       },
     ],
   },
   {
-    label: 'Data Input',
+    label: 'menu.dataInput',
     children: [
       {
-        label: 'Input',
+        label: 'menu.input',
         path: 'components/input',
       },
       {
-        label: 'NumberInput',
+        label: 'menu.numberInput',
         path: 'components/number-input',
       },
       {
-        label: 'Select',
+        label: 'menu.select',
         path: 'components/select',
       },
       {
-        label: 'Slider',
+        label: 'menu.slider',
         path: 'components/slider',
       },
       {
-        label: 'Checkbox',
+        label: 'menu.checkbox',
         path: 'components/checkbox',
       },
       {
-        label: 'Radio',
+        label: 'menu.radio',
         path: 'components/radio',
       },
       {
-        label: 'Switch',
+        label: 'menu.switch',
         path: 'components/switch',
       },
     ],
   },
   {
-    label: 'Feedback',
+    label: 'menu.feedback',
     children: [
       {
-        label: 'Alert',
+        label: 'menu.alert',
         path: 'components/alert',
       },
       {
-        label: 'Toast',
+        label: 'menu.toast',
         path: 'components/toast',
       },
       {
-        label: 'Tooltip',
+        label: 'menu.tooltip',
         path: 'components/tooltip',
       },
       {
-        label: 'Popover',
+        label: 'menu.popover',
         path: 'components/popover',
       },
       {
-        label: 'Modal',
+        label: 'menu.modal',
         path: 'components/modal',
       },
       {
-        label: 'Drawer',
+        label: 'menu.drawer',
         path: 'components/drawer',
       },
       {
-        label: 'ProgressBar',
+        label: 'menu.progressBar',
         path: 'components/progress-bar',
       },
       {
-        label: 'Spinner',
+        label: 'menu.spinner',
         path: 'components/spinner',
       },
       {
-        label: 'Overlay',
+        label: 'menu.overlay',
         path: 'components/overlay',
       },
       {
-        label: 'SpinnerOverlay',
+        label: 'menu.spinnerOverlay',
         path: 'components/spinner-overlay',
       },
     ],
   },
   {
-    label: 'Navigation',
+    label: 'menu.navigation',
     children: [
       {
-        label: 'Breadcrumb',
+        label: 'menu.breadcrumb',
         path: 'components/breadcrumb',
       },
       {
-        label: 'Pagination',
+        label: 'menu.pagination',
         path: 'components/pagination',
       },
       {
-        label: 'DropdownMenu',
+        label: 'menu.dropdownMenu',
         path: 'components/dropdown-menu',
       },
       {
-        label: 'ContextMenu',
+        label: 'menu.contextMenu',
         path: 'components/context-menu',
       },
     ],

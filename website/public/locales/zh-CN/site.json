@@ -11,7 +11,7 @@
     "system": "跟随系统"
   },
   "home": {
-    "hero": "React SSR 框架结合了 React-Router 和 TailwindCSS 的优势，为您提供无缝的 Web 开发体验。"
+    "hero": "结合 React-Router 和 TailwindCSS 优势的 React SSR 框架，为您提供无缝的 Web 开发体验。"
   },
   "menu": {
     "home": "主页",
