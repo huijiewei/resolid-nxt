@@ -11,7 +11,7 @@ import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { UNSAFE_RouteContext, generatePath, useNavigate, useParams } from 'react-router-dom';
 import { Locale } from '~/common/icons/Locale';
-import { LOCALES, i18n as i18nOptions } from '~/i18n';
+import { LOCALES } from '~/i18n';
 
 export const LocaleSwitcher = () => {
   const { i18n, t } = useTranslation();
@@ -58,7 +58,7 @@ export const LocaleSwitcher = () => {
                   {
                     pathname: generatePath(pathPattern, {
                       ...params,
-                      lang: key == i18nOptions.fallbackLng ? undefined : key,
+                      lang: key,
                     }),
                   },
                   { replace: true }
