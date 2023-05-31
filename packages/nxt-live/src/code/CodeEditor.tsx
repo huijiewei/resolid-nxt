@@ -1,15 +1,14 @@
 import { useCallback, useMemo, useRef, useState, type ComponentPropsWithoutRef } from 'react';
 import Editor from 'react-simple-code-editor';
 
-import type { Language, PrismTheme } from 'prism-react-renderer';
-import { CodeBlock } from './CodeBlock';
+import { CodeBlock, type PrismTheme } from './CodeBlock';
 
 type EditorProps = ComponentPropsWithoutRef<typeof Editor>;
 
 export type CodeEditorProps = Partial<Omit<EditorProps, 'defaultValue' | 'value' | 'onValueChange' | 'onChange'>> & {
   value?: string;
   defaultValue?: string;
-  language?: Language;
+  language?: string;
   theme: PrismTheme;
   onChange?: (value: string) => void;
 };

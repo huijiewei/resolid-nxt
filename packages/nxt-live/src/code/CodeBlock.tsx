@@ -1,10 +1,11 @@
-import type { Language, PrismTheme } from 'prism-react-renderer';
-import Highlight, { Prism as defaultPrism } from 'prism-react-renderer';
+import { Highlight, themes } from 'prism-react-renderer';
 import { Fragment, type CSSProperties, type ComponentPropsWithoutRef } from 'react';
+
+export type PrismTheme = typeof themes.dracula;
 
 export type CodeBlockProps = Omit<ComponentPropsWithoutRef<'pre'>, 'children'> & {
   children?: string;
-  language?: Language;
+  language?: string;
   theme: PrismTheme;
   noWrapper?: boolean;
   noWrap?: boolean;
@@ -23,21 +24,20 @@ export const CodeBlock = ({
   ...rest
 }: CodeBlockProps) => {
   return (
-    <Highlight code={children || ''} language={language} Prism={defaultPrism} theme={theme}>
+    <Highlight code={children || ''} language={language} theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         const children = tokens.map((line, i) => (
           <Fragment key={i}>
             <span {...getLineProps({ line })}>
               {line.map((token, key) => (
-                // eslint-disable-next-line react/jsx-key
-                <span {...getTokenProps({ token, key })} />
+                <span key={key} {...getTokenProps({ token })} />
               ))}
             </span>
             {'\n'}
           </Fragment>
         ));
 
-        if (noWrapper) return children;
+        if (noWrapper) return <>{children}</>;
 
         const wrapperStyle: CSSProperties = {
           margin: 0,
