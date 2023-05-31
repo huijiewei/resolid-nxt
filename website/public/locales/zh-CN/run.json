@@ -1,1 +1,11 @@
-{}
+{
+  "menu": {
+    "started": "入门指南",
+    "introduction": "介绍",
+    "projectSetup": "项目设置",
+    "coreConcepts": "核心概念",
+    "routing": "路由设置",
+    "routeData": "路由数据",
+    "formActions": "表单动作"
+  }
+}

@@ -1,0 +1,34 @@
+# 警告提示
+
+以吸引用户注意力的方式显示简短重要信息，而不会打断用户正在进行的任务。
+
+## 导入
+
+```javascript
+import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@resolid/nxt-ui';
+```
+
+- **Alert:** The wrapper for alert components.
+- **AlertIcon:** The visual icon for the alert that changes based on the status prop.
+- **AlertTitle:** The title of the alert to be announced by screen readers.
+- **AlertDescription:** The description of the alert to be announced by screen readers
+
+## 用法
+
+<Demo file={'AlertDemo.tsx'} demo={'Usage'} height={280} />
+
+## 变体
+
+Alert has 3 variant styles you can use. Pass the `variant` prop and use either `light`, `solid` or `outline`.
+
+<Demo file={'AlertDemo.tsx'} demo={'Variants'} height={499} />
+
+## 颜色
+
+Change the color of the alerts by passing the `color` prop. This affects the color scheme and icon used. Alert supports `primary`, `success`, `warning`, `danger`, and `neutral` colors.
+
+<Demo file={'AlertDemo.tsx'} demo={'Colors'} height={1079} />
+
+## 属性
+
+<PropsTable component={'Alert'} />

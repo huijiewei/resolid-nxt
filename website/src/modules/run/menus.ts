@@ -2,31 +2,31 @@ import { type Menu } from '~/common/components/AsideLayoutMenu';
 
 export const menus: Menu[] = [
   {
-    label: 'Getting Started',
+    label: 'menu.started',
     children: [
       {
-        label: 'Introduction',
+        label: 'menu.introduction',
         path: 'introduction',
       },
       {
-        label: 'Project Setup',
+        label: 'menu.projectSetup',
         path: 'project-setup',
       },
     ],
   },
   {
-    label: 'Core Concepts',
+    label: 'menu.coreConcepts',
     children: [
       {
-        label: 'Routing',
+        label: 'menu.routing',
         path: 'core-concepts/routing',
       },
       {
-        label: 'Route Data',
+        label: 'menu.routeData',
         path: 'core-concepts/route-data',
       },
       {
-        label: 'Form Actions',
+        label: 'menu.formActions',
         path: 'core-concepts/form-actions',
       },
     ],

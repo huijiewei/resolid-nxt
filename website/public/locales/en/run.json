@@ -1,1 +1,11 @@
-{}
+{
+  "menu": {
+    "started": "Getting Started",
+    "introduction": "Introduction",
+    "projectSetup": "Project Setup",
+    "coreConcepts": "Core Concepts",
+    "routing": "Routing",
+    "routeData": "Route Data",
+    "formActions": "Form Actions"
+  }
+}

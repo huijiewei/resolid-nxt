@@ -28,7 +28,7 @@
     "radio": "单选框",
     "switch": "开关",
     "feedback": "交互反馈",
-    "alert": "警告框",
+    "alert": "警告提示",
     "toast": "通知提醒",
     "tooltip": "工具提示",
     "popover": "弹出框",

@@ -7,10 +7,10 @@ type DynamicLoaderProps = {
 };
 
 export const dynamicLoader = ({ loader, fallback }: DynamicLoaderProps) => {
+  const Lazy = lazy(loader);
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const LoaderComponent = (props: any) => {
-    const Lazy = lazy(loader);
-
     return (
       <Suspense fallback={fallback}>
         <Lazy {...props} />

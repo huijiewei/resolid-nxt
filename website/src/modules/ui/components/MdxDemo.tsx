@@ -6,7 +6,7 @@ const demos = import.meta.glob<boolean, string, { [key: string]: ComponentType }
 
 export const MdxDemo = ({ file, demo, height }: { file: string; demo: string; height?: number }) => {
   const Demo = dynamicLoader({
-    loader: () => demos[`../demos/${file}`]().then((module) => ({ default: module[demo] })),
+    loader: async () => ({ default: (await demos[`../demos/${file}`]())[demo] }),
     fallback: <LazyLoader height={height} />,
   });
 
