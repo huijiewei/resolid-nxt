@@ -1,0 +1,9 @@
+[
+  {
+    "name": "size",
+    "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+    "required": false,
+    "description": "Size",
+    "defaultValue": "'md'"
+  }
+]

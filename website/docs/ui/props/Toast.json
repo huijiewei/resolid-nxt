@@ -1,0 +1,28 @@
+[
+  { "name": "id", "type": "string | number", "required": false, "description": "Id", "defaultValue": "" },
+  { "name": "icon", "type": "ReactElement", "required": false, "description": "Icon", "defaultValue": "" },
+  { "name": "title", "type": "ReactNode", "required": false, "description": "Title", "defaultValue": "" },
+  { "name": "description", "type": "ReactNode", "required": false, "description": "Description", "defaultValue": "" },
+  {
+    "name": "variant",
+    "type": "\"solid\" | \"light\" | \"outline\"",
+    "required": false,
+    "description": "Variant",
+    "defaultValue": "'light'"
+  },
+  {
+    "name": "color",
+    "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
+    "required": false,
+    "description": "Color",
+    "defaultValue": "'primary'"
+  },
+  {
+    "name": "closeable",
+    "type": "boolean",
+    "required": false,
+    "description": "Show close button",
+    "defaultValue": "true"
+  },
+  { "name": "onClose", "type": "() => void", "required": false, "description": "onClose callback", "defaultValue": "" }
+]

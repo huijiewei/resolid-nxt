@@ -1,0 +1,51 @@
+---
+title: 入门指南
+---
+
+按照以下步骤快速开始使用组件库。
+
+## 安装
+
+通过以下任一方式安装 Resolid NxtUI 基础包：
+
+```shell
+## NPM
+npm install @resolid/nxt-ui
+## PNPM
+pnpm add @resolid/nxt-ui
+## Yarn
+yarn add @resolid/nxt-ui
+```
+
+通过以下任一方式将 Resolid NxtUI Tailwind CSS 预设作为开发依赖项安装：
+
+```shell
+## NPM
+npm install -D @resolid/nxt-tailwind
+## PNPM
+pnpm add -D @resolid/nxt-tailwind
+## Yarn
+yarn add -D @resolid/nxt-tailwind
+```
+
+## 添加 Tailwind CSS 预设
+
+确保您已经安装了 [Tailwind CSS](https://tailwindcss.com/docs/guides/solidjs) ，然后在 `tailwind.config.cjs` 文件内：
+
+1. 在 `content` 数组中添加 Resolid NxtUI，以便将类应用于组件。
+2. 要求 Tailwind CSS 的预设。
+
+```javascript
+module.exports = {
+  presets: [require('@resolid/nxt-tailwind')()],
+  content: [
+    './node_modules/@resolid/nxt-ui/dist/**/*.{js,cjs,mjs}',
+    './src/**/*.{html,js,jsx,ts,tsx,mdx}'
+  ],
+  theme: {}
+};
+```
+
+## 使用组件
+
+导入您需要的组件并开始构建应用程序。

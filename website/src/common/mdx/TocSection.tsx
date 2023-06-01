@@ -1,6 +1,5 @@
 import { cx } from '@resolid/nxt-utils';
 import { useEffect, useState } from 'react';
-import { useTocContext } from '~/common/mdx/TocContext';
 
 export type TocItem = {
   depth: number;
@@ -69,8 +68,7 @@ const useCurrentSection = (toc: TocItem[]) => {
   return section;
 };
 
-export const TocSection = () => {
-  const toc = useTocContext();
+export const TocSection = ({ toc }: { toc: TocItem[] }) => {
   const currentSection = useCurrentSection(toc);
 
   return (

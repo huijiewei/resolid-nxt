@@ -1,0 +1,9 @@
+[
+  {
+    "name": "stepper",
+    "type": "\"increment\" | \"decrement\"",
+    "required": true,
+    "description": "",
+    "defaultValue": ""
+  }
+]

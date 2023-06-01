@@ -1,0 +1,55 @@
+[
+  { "name": "opened", "type": "boolean", "required": true, "description": "Opened state", "defaultValue": "" },
+  { "name": "centered", "type": "boolean", "required": false, "description": "Centered", "defaultValue": "" },
+  { "name": "lockScroll", "type": "boolean", "required": false, "description": "Lock scroll", "defaultValue": "true" },
+  {
+    "name": "initialFocus",
+    "type": "number | RefObject<HTMLElement>",
+    "required": false,
+    "description": "The ref of element to receive focus when the modal opens.",
+    "defaultValue": ""
+  },
+  {
+    "name": "finalFocus",
+    "type": "RefObject<HTMLElement>",
+    "required": false,
+    "description": "The ref of element to receive focus when the modal closes.",
+    "defaultValue": ""
+  },
+  {
+    "name": "scrollBehavior",
+    "type": "\"inside\" | \"outside\"",
+    "required": false,
+    "description": "Where scroll behavior should originate.",
+    "defaultValue": "'outside'"
+  },
+  { "name": "onClose", "type": "", "required": true, "description": "onClose callback", "defaultValue": "" },
+  {
+    "name": "onCloseComplete",
+    "type": "() => void",
+    "required": false,
+    "description": "Fires when all exiting nodes have completed animating out",
+    "defaultValue": ""
+  },
+  {
+    "name": "closeOnEsc",
+    "type": "boolean",
+    "required": false,
+    "description": "Close when the Esc key is pressed",
+    "defaultValue": "true"
+  },
+  {
+    "name": "closeOnBlur",
+    "type": "boolean",
+    "required": false,
+    "description": "Close when you click outside the modal",
+    "defaultValue": "true"
+  },
+  {
+    "name": "duration",
+    "type": "number",
+    "required": false,
+    "description": "Animation Duration",
+    "defaultValue": "'250'"
+  }
+]

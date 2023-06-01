@@ -1,0 +1,17 @@
+[
+  {
+    "name": "size",
+    "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+    "required": false,
+    "description": "Size",
+    "defaultValue": "'md'"
+  },
+  {
+    "name": "color",
+    "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
+    "required": false,
+    "description": "Color",
+    "defaultValue": "'primary'"
+  },
+  { "name": "label", "type": "string", "required": false, "description": "Label", "defaultValue": "'Loading…'" }
+]

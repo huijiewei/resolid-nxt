@@ -1,0 +1,44 @@
+[
+  { "name": "page", "type": "number", "required": false, "description": "Current page", "defaultValue": "" },
+  { "name": "defaultPage", "type": "number", "required": false, "description": "Default page", "defaultValue": "1" },
+  { "name": "total", "type": "", "required": true, "description": "Total number", "defaultValue": "10" },
+  { "name": "pageSize", "type": "number", "required": false, "description": "Page size", "defaultValue": "20" },
+  { "name": "siblings", "type": "number", "required": false, "description": "Siblings", "defaultValue": "2" },
+  { "name": "boundaries", "type": "number", "required": false, "description": "Boundaries", "defaultValue": "2" },
+  { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "" },
+  {
+    "name": "onChange",
+    "type": "(page: number) => void",
+    "required": false,
+    "description": "onChange callback",
+    "defaultValue": ""
+  },
+  {
+    "name": "color",
+    "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
+    "required": false,
+    "description": "Color",
+    "defaultValue": "'primary'"
+  },
+  {
+    "name": "showTotal",
+    "type": "boolean",
+    "required": false,
+    "description": "Show total number",
+    "defaultValue": "true"
+  },
+  {
+    "name": "showJumper",
+    "type": "boolean",
+    "required": false,
+    "description": "Show jumper input",
+    "defaultValue": "false"
+  },
+  {
+    "name": "itemRender",
+    "type": "(props: PaginationItemProps) => Element",
+    "required": false,
+    "description": "Custom page item render",
+    "defaultValue": ""
+  }
+]

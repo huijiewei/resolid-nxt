@@ -1,0 +1,4 @@
+[
+  { "name": "id", "type": "string", "required": false, "description": "", "defaultValue": "nxt-portal-root" },
+  { "name": "root", "type": "HTMLElement | null", "required": false, "description": "", "defaultValue": "" }
+]

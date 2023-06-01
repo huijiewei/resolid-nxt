@@ -1,0 +1,59 @@
+[
+  { "name": "src", "type": "string", "required": false, "description": "The image URL", "defaultValue": "" },
+  {
+    "name": "srcSet",
+    "type": "string",
+    "required": false,
+    "description": "One or more strings separated by commas, indicating possible image sources for the user agent to use\n@link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-srcset",
+    "defaultValue": ""
+  },
+  {
+    "name": "sizes",
+    "type": "string",
+    "required": false,
+    "description": "One or more strings separated by commas, indicating a set of source sizes\n@link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-sizes",
+    "defaultValue": ""
+  },
+  {
+    "name": "loading",
+    "type": "\"eager\" | \"lazy\"",
+    "required": false,
+    "description": "Indicates how the browser should load the image\n@link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-loading",
+    "defaultValue": ""
+  },
+  {
+    "name": "crossOrigin",
+    "type": "\"\" | \"anonymous\" | \"use-credentials\"",
+    "required": false,
+    "description": "Indicates if the fetching of the image must be done using a CORS request\n@link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-crossorigin",
+    "defaultValue": ""
+  },
+  {
+    "name": "onLoad",
+    "type": "(event: ImageEvent) => void",
+    "required": false,
+    "description": "A callback for when the image `src` has been loaded",
+    "defaultValue": ""
+  },
+  {
+    "name": "onError",
+    "type": "(event: ImageEvent) => void",
+    "required": false,
+    "description": "A callback for when there was an error loading the image `src`",
+    "defaultValue": ""
+  },
+  {
+    "name": "fallback",
+    "type": "string | ReactElement",
+    "required": false,
+    "description": "Fallback element or string to show if image is loading or image fails.",
+    "defaultValue": ""
+  },
+  {
+    "name": "fallbackStrategy",
+    "type": "\"onError\" | \"beforeOrError\"",
+    "required": false,
+    "description": "- beforeOrError(default): loads the fallback while loading the src\n- onError: loads the fallback only if there is an error fetching the src",
+    "defaultValue": "\"beforeOrError\""
+  }
+]

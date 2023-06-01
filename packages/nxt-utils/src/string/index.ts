@@ -16,6 +16,7 @@ export const kebabCase = (str: string): string =>
 
 /* url-slugify */
 export const slugify = (str: string): string => {
+  // noinspection RegExpRedundantEscape
   return str
     .toLowerCase()
     .replace(

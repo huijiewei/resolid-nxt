@@ -5,22 +5,38 @@
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["jsonProtocol"]
+  previewFeatures = ["jsonProtocol", "clientExtensions"]
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider     = "sqlite"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique @default("")
-  email     String   @unique @default("")
-  password  String   @default("")
-  avatar    String   @default("")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             Int       @id @default(autoincrement())
+  userGroupId    Int       @default(0)
+  userGroup      UserGroup @relation(fields: [userGroupId], references: [id])
+  name           String    @unique @default("")
+  email          String    @unique @default("")
+  emailConfirmed Boolean   @default(false)
+  password       String    @default("")
+  avatar         String    @default("")
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime? @updatedAt
+  deletedAt      DateTime?
+
+  @@index([userGroupId])
+  @@index([deletedAt])
+}
+
+model UserGroup {
+  id    Int    @id @default(autoincrement())
+  name  String @unique @default("")
+  color String @default("")
+  icon  String @default("")
+  users User[]
 }
 
 model District {

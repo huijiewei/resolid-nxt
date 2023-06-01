@@ -1,0 +1,40 @@
+[
+  { "name": "opened", "type": "boolean", "required": false, "description": "Opened", "defaultValue": "" },
+  { "name": "onClose", "type": "() => void", "required": false, "description": "onClose callback", "defaultValue": "" },
+  {
+    "name": "initialFocus",
+    "type": "number | RefObject<HTMLElement>",
+    "required": false,
+    "description": "Initial Focus",
+    "defaultValue": ""
+  },
+  { "name": "modal", "type": "boolean", "required": false, "description": "Is Modal", "defaultValue": "true" },
+  {
+    "name": "closeOnEsc",
+    "type": "boolean",
+    "required": false,
+    "description": "Close when the Esc key is pressed",
+    "defaultValue": "true"
+  },
+  {
+    "name": "closeOnBlur",
+    "type": "boolean",
+    "required": false,
+    "description": "Close when you click outside the popover",
+    "defaultValue": "true"
+  },
+  {
+    "name": "placement",
+    "type": "\"auto\" | Placement",
+    "required": false,
+    "description": "Placement",
+    "defaultValue": "'auto'"
+  },
+  {
+    "name": "duration",
+    "type": "number",
+    "required": false,
+    "description": "Animation Duration",
+    "defaultValue": "'250'"
+  }
+]

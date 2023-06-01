@@ -1,34 +1,35 @@
-import mdx from '@mdx-js/rollup';
 import nxtRunNode from '@resolid/nxt-run-node';
 import nxtRun from '@resolid/nxt-run/vite';
-import { resolve } from 'path';
-import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
 import { fileURLToPath, URL } from 'url';
 import { type UserConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
-import rehypeHeadings from './scripts/rehype-headings';
-import remarkTypedoc from './scripts/remark-typedoc';
+import { viteCopy } from './scripts/vite-plugin-copy';
+import { viteTypedoc } from './scripts/vite-plugin-typedoc';
 
 export default defineConfig(({ command }) => {
   const isBuild = command == 'build';
 
   const config: UserConfig = {
     plugins: [
+      viteTypedoc({
+        sourcePath: '../packages/nxt-ui/src/components',
+        outputPath: 'docs/ui/props',
+      }),
       !isBuild && tsconfigPaths(),
-      {
-        ...mdx({
-          providerImportSource: '@mdx-js/react',
-          rehypePlugins: [rehypeSlug, rehypeHeadings],
-          remarkPlugins: [remarkGfm, [remarkTypedoc, { sourceRootPath: resolve(__dirname, '../packages/nxt-ui/src') }]],
+      isBuild &&
+        viteCopy({
+          targets: [
+            {
+              src: 'docs',
+              dest: 'dist/docs',
+            },
+          ],
         }),
-        enforce: 'pre',
-      },
       nxtRun({
         adapter: nxtRunNode(),
         reactOptions: {
-          include: /\.(mdx|js|jsx|ts|tsx)$/,
+          include: /\.(js|jsx|ts|tsx)$/,
         },
         manualChunks(id) {
           if (
@@ -59,7 +60,7 @@ export default defineConfig(({ command }) => {
       minify: true,
     },
     optimizeDeps: {
-      include: ['@mdx-js/react', 'fast-blurhash'],
+      include: ['fast-blurhash'],
     },
     test: {
       environment: 'jsdom',

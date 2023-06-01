@@ -1,0 +1,48 @@
+---
+title: ContextMenu
+description: Displays a menu located at the pointer, triggered by a right-click or a long-press.
+---
+
+## Import
+
+Resolid NxtUI exports 11 context-menu-related components:
+
+- `ContextMenu`: The wrapper component provides context, state, and focus management.
+- `ContextMenuTrigger`: The trigger for the menu list. Must be a direct child of `ContextMenu`.
+- `ContextMenuContent`: The wrapper for the menu items. Must be a direct child of `ContextMenu`.
+- `ContextMenuItem`: The trigger that handles menu selection. Must be a direct child of a `ContextMenuContent`.
+- `ContextMenuGroup`: A wrapper to group related menu items.
+- `ContextMenuGroupLabel`: Used to render the label of a group. It won't be focusable using arrow keys.
+- `ContextMenuDivider`: A visual separator for menu items and groups.
+- `ContextMenuItemIndicator`: Renders when the parent `ContextMenuCheckboxItem` or `ContextMenuRadioItem` is checked. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
+- `ContextMenuCheckboxItem`: An item that can be controlled and rendered like a checkbox.
+- `ContextMenuRadioGroup`: Used to group multiple `ContextMenuRadioItem`s.
+- `ContextMenuRadioItem`: An item that can be controlled and rendered like a radio.
+
+```javascript
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuContent,
+  ContextMenuGroup,
+  ContextMenuGroupLabel,
+  ContextMenuItem,
+  ContextMenuDivider,
+} from '@resolid/nxt-ui';
+```
+
+## Basic
+
+<Demo file={'ContextMenuDemo.tsx'} demo={'Basic'} height={1037} />
+
+## Multiple level
+
+<Demo file={'ContextMenuDemo.tsx'} demo={'MultipleLevel'} height={837} />
+
+## Complex
+
+<Demo file={'ContextMenuDemo.tsx'} demo={'Complex'} height={2737} />
+
+## Props
+
+<PropsTable component={'ContextMenu'} />

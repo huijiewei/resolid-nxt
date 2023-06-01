@@ -1,0 +1,53 @@
+[
+  {
+    "name": "radius",
+    "type": "number | false | true | \"xs\" | \"sm\" | \"lg\" | \"xl\" | \"full\"",
+    "required": false,
+    "description": "Rounded",
+    "defaultValue": "'full'"
+  },
+  { "name": "size", "type": "number | Size", "required": false, "description": "Size", "defaultValue": "'md'" },
+  {
+    "name": "src",
+    "type": "string",
+    "required": false,
+    "description": "The image url of the Avatar",
+    "defaultValue": ""
+  },
+  {
+    "name": "srcSet",
+    "type": "string",
+    "required": false,
+    "description": "List of sources to use for different screen resolutions",
+    "defaultValue": ""
+  },
+  { "name": "name", "type": "string", "required": false, "description": "Avatar name", "defaultValue": "" },
+  {
+    "name": "loading",
+    "type": "\"eager\" | \"lazy\"",
+    "required": false,
+    "description": "Defines loading strategy",
+    "defaultValue": ""
+  },
+  {
+    "name": "fallback",
+    "type": "",
+    "required": false,
+    "description": "Fallback when name, and src is not specified.",
+    "defaultValue": "'DefaultIcon'"
+  },
+  {
+    "name": "referrerPolicy",
+    "type": "",
+    "required": false,
+    "description": "Defining which referrer is sent when fetching the resource.",
+    "defaultValue": ""
+  },
+  {
+    "name": "onError",
+    "type": "() => void",
+    "required": false,
+    "description": "Function called when image failed to load",
+    "defaultValue": ""
+  }
+]

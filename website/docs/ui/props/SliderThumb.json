@@ -1,0 +1,9 @@
+[
+  {
+    "name": "children",
+    "type": "ReactNode | ((index: number) => ReactNode)",
+    "required": false,
+    "description": "",
+    "defaultValue": ""
+  }
+]

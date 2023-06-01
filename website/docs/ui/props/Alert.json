@@ -1,0 +1,16 @@
+[
+  {
+    "name": "variant",
+    "type": "\"solid\" | \"outline\" | \"light\"",
+    "required": false,
+    "description": "Variant",
+    "defaultValue": "'light'"
+  },
+  {
+    "name": "color",
+    "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
+    "required": false,
+    "description": "Color",
+    "defaultValue": "'primary'"
+  }
+]
