@@ -1,6 +1,7 @@
 import { type FilledContext } from 'react-helmet-async';
-import { matchRoutes, redirect } from 'react-router-dom';
+import { isRouteErrorResponse, matchRoutes, redirect } from 'react-router-dom';
 import { createStaticHandler } from 'react-router-dom/server';
+import { isRedirectResponse, isResponse, json } from '../base/data';
 import type { DataFunctionArgs } from '../base/types';
 import { getHandler, handleData$ } from './bling';
 import { components$, type EntryContext, type LoadContext } from './context';
@@ -61,13 +62,54 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
 
         const args = { params: matches?.[0]?.params ?? {}, request: request, context: loadContext };
 
-        const response = handleData$(dataHandler, args);
+        try {
+          const response = await handleData$(dataHandler, args);
 
-        if (handleData) {
-          return handleData(await response, args);
+          if (isRedirectResponse(response)) {
+            const headers = new Headers(response.headers);
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            headers.set('X-Nxt-Redirect', headers.get('Location')!);
+            headers.set('X-Nxt-Status', response.status);
+            headers.delete('Location');
+
+            if (response.headers.get('Set-Cookie') !== null) {
+              headers.set('X-Nxt-Revalidate', 'yes');
+            }
+
+            return new Response(null, {
+              status: 204,
+              headers,
+            });
+          }
+
+          if (handleData) {
+            return handleData(response, args);
+          }
+
+          return response;
+        } catch (error: unknown) {
+          if (isResponse(error)) {
+            error.headers.set('X-Nxt-Catch', 'yes');
+
+            return error;
+          }
+
+          const status = isRouteErrorResponse(error) ? error.status : 500;
+
+          const errorInstance =
+            isRouteErrorResponse(error) && error.error
+              ? error.error
+              : error instanceof Error
+              ? error
+              : new Error('Unexpected Server Error');
+
+          return json(errorInstance, {
+            status,
+            headers: {
+              'X-Nxt-Error': 'yes',
+            },
+          });
         }
-
-        return response;
       }
     }
 

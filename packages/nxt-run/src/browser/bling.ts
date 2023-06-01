@@ -1,3 +1,4 @@
+import { redirect } from '../base/data';
 import type { DataFunction } from '../base/types';
 
 const fetchImpl = (() => {
@@ -8,6 +9,18 @@ const fetchImpl = (() => {
 export type FetchMethods = {
   createFetcher(route: string): DataFunction;
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const isCatchResponse = (response: any): boolean =>
+  response instanceof Response && response.headers.get('X-Nxt-Catch') != null;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const isErrorResponse = (response: any): boolean =>
+  response instanceof Response && response.headers.get('X-Nxt-Error') != null;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const isRedirectResponse = (response: any): boolean =>
+  response instanceof Response && response.headers.get('X-Nxt-Redirect') != null;
 
 const fetchMethods: FetchMethods = {
   createFetcher: (pathname: string) => {
@@ -27,11 +40,40 @@ const fetchMethods: FetchMethods = {
             : await request.formData();
       }
 
-      return await fetch(url.href, init);
+      const result = await fetch(url.href, init);
+
+      if (isErrorResponse(result)) {
+        const data = await result.json();
+        const error = new Error(data.message);
+        error.stack = data.stack;
+        throw error;
+      }
+
+      if (isRedirectResponse(result)) {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const status = parseInt(result.headers.get('X-Nxt-Status')!, 10) || 302;
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const url = result.headers.get('X-Nxt-Redirect')!;
+        const headers: Record<string, string> = {};
+        const revalidate = result.headers.get('X-Nxt-Revalidate');
+
+        if (revalidate) {
+          headers['X-Nxt-Revalidate'] = revalidate;
+        }
+
+        throw redirect(url, { status, headers });
+      }
+
+      if (isCatchResponse(result)) {
+        throw result;
+      }
+
+      return result;
     };
   },
 };
 
 export type FetchFunction = (fn: DataFunction) => Awaited<ReturnType<DataFunction>>;
 
+// noinspection JSUnusedGlobalSymbols
 export const server$: FetchFunction = Object.assign(fetchImpl, fetchMethods);

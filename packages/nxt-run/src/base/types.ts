@@ -1,4 +1,10 @@
-import type { ActionFunction, ActionFunctionArgs, LoaderFunction, LoaderFunctionArgs } from '@remix-run/router';
+import type { LoaderFunctionArgs } from '@remix-run/router';
 
-export type DataFunction = LoaderFunction | ActionFunction;
-export type DataFunctionArgs = LoaderFunctionArgs | ActionFunctionArgs;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type AppData = any;
+
+export type DataFunctionArgs = LoaderFunctionArgs;
+
+export type DataFunction = {
+  (args: DataFunctionArgs): Promise<Response> | Response | Promise<AppData> | AppData;
+};

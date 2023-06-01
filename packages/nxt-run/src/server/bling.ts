@@ -1,4 +1,6 @@
 import { json } from '@remix-run/router';
+import { redirect } from 'react-router-dom';
+import { isDeferredData, isRedirectStatusCode, isResponse } from '../base/data';
 import type { DataFunction, DataFunctionArgs } from '../base/types';
 
 const serverImpl = (() => {
@@ -18,20 +20,30 @@ const serverMethods: ServerMethods = {
 
 export type ServerFunction = ((fn: DataFunction) => Awaited<ReturnType<DataFunction>>) & ServerMethods;
 
+// noinspection JSUnusedGlobalSymbols
 export const server$: ServerFunction = Object.assign(serverImpl, serverMethods);
 
-export const handleData$ = async (handler: DataFunction, { params, request, context }: DataFunctionArgs) => {
+export const handleData$ = async (
+  handler: DataFunction,
+  { params, request, context }: DataFunctionArgs
+): // eslint-disable-next-line @typescript-eslint/no-explicit-any
+Promise<any> => {
   const url = new URL(request.url);
   url.searchParams.delete('index');
   url.searchParams.delete('_data');
 
-  const data = await handler({ params, request: new Request(url.href, request), context });
+  const result = await handler({ params, request: new Request(url.href, request), context });
 
-  if (data instanceof Response) {
-    return data;
+  if (isDeferredData(result)) {
+    if (result.init && isRedirectStatusCode(result.init.status || 200)) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      return redirect(new Headers(result.init.headers).get('Location')!, result.init);
+    }
+
+    return result;
   }
 
-  return json(data, 200);
+  return isResponse(result) ? result : json(result);
 };
 
 const handlers = new Map<string, DataFunction>();
