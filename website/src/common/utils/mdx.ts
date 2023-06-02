@@ -1,6 +1,7 @@
 import remarkHeadings, { type Heading } from '@vcarl/remark-headings';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { json } from 'react-router-dom';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { VFile } from 'vfile';
@@ -35,4 +36,8 @@ export const serializeMdx = async (
   });
 
   return { source: mdxSource, data: vfile.data as MdxData };
+};
+
+export const responseMdx = (mdx: { source: MDXRemoteSerializeResult; data: MdxData }) => {
+  return json({ mdx }, { headers: { 'Cache-Control': 'max-age=300, stale-while-revalidate=604800' } });
 };

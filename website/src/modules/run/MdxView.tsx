@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { MdxView } from '~/common/mdx/MdxView';
 import { mdxComponents as shared } from '~/common/mdx/mdxComponents';
-import { getMdxFileName, serializeMdx } from '~/common/utils/mdx';
+import { getMdxFileName, responseMdx, serializeMdx } from '~/common/utils/mdx';
 import { i18n } from '~/i18n';
 
 const mdxComponents = {
@@ -26,21 +26,23 @@ export const loader = server$(async ({ params }) => {
     throw new Response('Not Found', { status: 404 });
   }
 
-  return await serializeMdx(readFileSync(file, 'utf-8'));
+  const mdx = await serializeMdx(readFileSync(file, 'utf-8'));
+
+  return responseMdx(mdx);
 });
 
 export const Component = () => {
-  const data = useLoaderData<typeof loader>();
+  const { mdx } = useLoaderData<typeof loader>();
   const { t } = useTranslation('site');
 
   return (
     <>
       <Helmet>
         <title>
-          {data.data.matter.title ?? ''} - {t('menu.run')}
+          {mdx.data.matter.title ?? ''} - {t('menu.run')}
         </title>
       </Helmet>
-      <MdxView source={data.source} data={data.data} components={mdxComponents} />
+      <MdxView source={mdx.source} data={mdx.data} components={mdxComponents} />
     </>
   );
 };

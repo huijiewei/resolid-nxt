@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { MdxView } from '~/common/mdx/MdxView';
 import { mdxComponents as shared } from '~/common/mdx/mdxComponents';
-import { getMdxFileName, serializeMdx } from '~/common/utils/mdx';
+import { getMdxFileName, responseMdx, serializeMdx } from '~/common/utils/mdx';
 import { i18n } from '~/i18n';
 import { MdxColorPalette } from '~/modules/ui/components/MdxColorPalette';
 import { MdxDemo } from '~/modules/ui/components/MdxDemo';
@@ -54,21 +54,23 @@ export const loader = server$(async ({ params }) => {
     }
   }
 
-  return await serializeMdx(source, scope);
+  const mdx = await serializeMdx(source, scope);
+
+  return responseMdx(mdx);
 });
 
 export const Component = () => {
-  const data = useLoaderData<typeof loader>();
+  const { mdx } = useLoaderData<typeof loader>();
   const { t } = useTranslation('site');
 
   return (
     <>
       <Helmet>
         <title>
-          {data.data.matter.title ?? ''} - {t('menu.ui')}
+          {mdx.data.matter.title ?? ''} - {t('menu.ui')}
         </title>
       </Helmet>
-      <MdxView source={data.source} data={data.data} components={mdxComponents} />
+      <MdxView source={mdx.source} data={mdx.data} components={mdxComponents} />
     </>
   );
 };
