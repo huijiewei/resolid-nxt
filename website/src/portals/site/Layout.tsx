@@ -100,7 +100,7 @@ export default function SiteLayout() {
     <>
       <Header />
       <div className={'pt-16'}>
-        <Suspense fallback={<LazyLoader />}>
+        <Suspense fallback={<LazyLoader height={'calc(100vh - 5em)'} />}>
           <Outlet />
         </Suspense>
       </div>

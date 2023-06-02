@@ -1,19 +1,24 @@
 import { Spinner } from '@resolid/nxt-ui';
-import { cx } from '@resolid/nxt-utils';
-import type { HTMLProps } from 'react';
+import { cx, isNumber } from '@resolid/nxt-utils';
+import type { CSSProperties, HTMLProps } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const LazyLoader = (props: HTMLProps<HTMLDivElement>) => {
   const { t } = useTranslation('common');
 
-  const { className, height, ...rest } = props;
+  const { className, height, style, ...rest } = props;
 
   return (
     <div
-      style={{ height: height }}
+      style={
+        {
+          ...style,
+          '--height-var': isNumber(height) ? `${height}px` : height,
+        } as CSSProperties
+      }
       className={cx(
         'flex w-full rounded items-center justify-center text-lg text-fg-muted bg-bg-subtle/30 transition-opacity',
-        !height && 'h-32',
+        height ? 'h-[--height-var]' : 'h-32',
         className
       )}
       {...rest}
