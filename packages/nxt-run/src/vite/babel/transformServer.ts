@@ -148,7 +148,7 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
                 if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'server$') {
                   const serverFn = path.get('arguments')[0] as Babel.NodePath<Babel.types.Expression>;
 
-                  const program = path.findParent((p) => t.isProgram(p)) as Babel.NodePath<Babel.types.Program>;
+                  const program = path.findParent((p) => t.isProgram(p.node)) as Babel.NodePath<Babel.types.Program>;
                   const statement = path.findParent((p) =>
                     program.get('body').includes(p as Babel.NodePath<Babel.types.Statement>)
                   ) as Babel.NodePath<Babel.types.Statement>;
@@ -260,7 +260,10 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
             if (ident && ident.node && refs.has(ident) && !isIdentifierReferenced(ident)) {
               ++count;
 
-              if (t.isAssignmentExpression(sweepPath.parentPath) || t.isVariableDeclarator(sweepPath.parentPath)) {
+              if (
+                t.isAssignmentExpression(sweepPath.parentPath.node) ||
+                t.isVariableDeclarator(sweepPath.parentPath.node)
+              ) {
                 sweepPath.parentPath.remove();
               } else {
                 sweepPath.remove();
