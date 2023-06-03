@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { MdxView } from '~/common/mdx/MdxView';
 import { mdxComponents as shared } from '~/common/mdx/mdxComponents';
-import { getMdxFileName, responseMdx, serializeMdx } from '~/common/utils/mdx';
+import { getMdxFileName, mdxHeaders, responseMdx, serializeMdx } from '~/common/utils/mdx';
 import { i18n } from '~/i18n';
 import { MdxColorPalette } from '~/modules/ui/components/MdxColorPalette';
 import { MdxDemo } from '~/modules/ui/components/MdxDemo';
@@ -57,6 +57,10 @@ export const loader = server$(async ({ params }) => {
   const mdx = await serializeMdx(source, scope);
 
   return responseMdx(mdx);
+});
+
+export const headers = server$(() => {
+  return mdxHeaders;
 });
 
 export const Component = () => {

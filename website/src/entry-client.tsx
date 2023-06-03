@@ -15,7 +15,8 @@ if (import.meta.env.DEV) {
 }
 
 async function hydrate() {
-  const matches = matchRoutes(routes, window.location, import.meta.env.BASE_URL.replace(/\/$/, ''));
+  const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const matches = matchRoutes(routes, window.location, basename);
   const ns = matches?.filter((m) => m.route.handle?.i18n !== undefined).flatMap((m) => m.route.handle.i18n) ?? [];
   const lng = matches?.find((m) => m.params.lang != undefined)?.params.lang ?? (i18n.fallbackLng as string);
 

@@ -1,10 +1,10 @@
 import { type FilledContext } from 'react-helmet-async';
-import { isRouteErrorResponse, matchRoutes, redirect } from 'react-router-dom';
+import { matchRoutes, redirect } from 'react-router-dom';
 import { createStaticHandler } from 'react-router-dom/server';
-import { isRedirectResponse, isResponse, json } from '../base/data';
+import { isDeferredData, isRedirectStatusCode, isResponse, json } from '../base/data';
 import type { DataFunctionArgs } from '../base/types';
-import { getHandler, handleData$ } from './bling';
-import { components$, type EntryContext, type LoadContext } from './context';
+import { handleData$ } from './bling';
+import { components$, type EntryContext } from './context';
 
 // @ts-expect-error Cannot find module
 import * as Root from '~nxt-run/root';
@@ -31,10 +31,10 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
     responseStatusCode: number,
     responseHeaders: Headers,
     entryContext: EntryContext,
-    loadContext: LoadContext,
     renderOptions: RenderOptions
   ) => {
     const url = new URL(request.url);
+    const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     const staticHandler = createStaticHandler(
       [
@@ -48,72 +48,39 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
         },
       ],
       {
-        basename: import.meta.env.BASE_URL.replace(/\/$/, ''),
+        basename,
       }
     );
 
-    const dataName = url.searchParams.get('_data');
+    if (url.searchParams.has('_data')) {
+      const matches = matchRoutes(staticHandler.dataRoutes, url.pathname, basename);
+      const currentMatch = matches?.[matches.length - 1];
 
-    if (dataName) {
-      const dataHandler = getHandler(dataName);
+      let response = await handleData$(staticHandler, request, currentMatch?.route.id);
 
-      if (dataHandler) {
-        const matches = matchRoutes(staticHandler.dataRoutes, url.pathname);
-
-        const args = { params: matches?.[0]?.params ?? {}, request: request, context: loadContext };
-
-        try {
-          const response = await handleData$(dataHandler, args);
-
-          if (isRedirectResponse(response)) {
-            const headers = new Headers(response.headers);
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            headers.set('X-Nxt-Redirect', headers.get('Location')!);
-            headers.set('X-Nxt-Status', response.status);
-            headers.delete('Location');
-
-            if (response.headers.get('Set-Cookie') !== null) {
-              headers.set('X-Nxt-Revalidate', 'yes');
-            }
-
-            return new Response(null, {
-              status: 204,
-              headers,
-            });
-          }
-
-          if (handleData) {
-            return handleData(response, args);
-          }
-
-          return response;
-        } catch (error: unknown) {
-          if (isResponse(error)) {
-            error.headers.set('X-Nxt-Catch', 'yes');
-
-            return error;
-          }
-
-          const status = isRouteErrorResponse(error) ? error.status : 500;
-
-          const errorInstance =
-            isRouteErrorResponse(error) && error.error
-              ? error.error
-              : error instanceof Error
-              ? error
-              : new Error('Unexpected Server Error');
-
-          return json(errorInstance, {
-            status,
-            headers: {
-              'X-Nxt-Error': 'yes',
-            },
-          });
-        }
+      if (handleData) {
+        response = handleData(response, { params: currentMatch?.params ?? {}, request: request });
       }
+
+      if (isDeferredData(response)) {
+        if (response.init && isRedirectStatusCode(response.init.status || 200)) {
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          return redirect(new Headers(response.init.headers).get('Location')!, response.init);
+        }
+
+        return response;
+      }
+
+      return isResponse(response) ? response : json(response);
     }
 
-    const context = await staticHandler.query(request);
+    let context;
+
+    try {
+      context = await staticHandler.query(request);
+    } catch {
+      return new Response(null, { status: 500 });
+    }
 
     if (context instanceof Response) {
       return context;
@@ -135,6 +102,16 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
       if (match.route.path == '*') {
         responseContext.status = 404;
         break;
+      }
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if ((match.route as any).headers) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const routeHeaders = (match.route as any).headers();
+
+        for (const key in routeHeaders) {
+          responseHeaders.set(key, routeHeaders[key]);
+        }
       }
     }
 

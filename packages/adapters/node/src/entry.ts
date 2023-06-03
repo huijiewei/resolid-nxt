@@ -39,7 +39,6 @@ const render = async (req: IncomingMessage, res: ServerResponse) => {
       {
         manifest: manifest,
       },
-      {},
       {
         startHtml,
         endHtml,

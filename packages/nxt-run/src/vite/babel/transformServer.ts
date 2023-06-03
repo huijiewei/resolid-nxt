@@ -1,6 +1,4 @@
 import type * as Babel from '@babel/core';
-import crypto from 'node:crypto';
-import { join } from 'node:path';
 
 type PluginState = {
   filename: string;
@@ -93,10 +91,6 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
     state.refs.add(path.get('local') as Babel.NodePath<Babel.types.Identifier>);
   };
 
-  const hashFn = (str: string) => {
-    return crypto.createHash('shake256', { outputLength: 5 }).update(str).digest('hex');
-  };
-
   return {
     visitor: {
       Program: {
@@ -146,94 +140,87 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
               },
               CallExpression: (path) => {
                 if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'server$') {
+                  const parentNodeIdName = (
+                    (path.parent as Babel.types.VariableDeclarator).id as Babel.types.Identifier
+                  ).name;
                   const serverFn = path.get('arguments')[0] as Babel.NodePath<Babel.types.Expression>;
 
-                  const program = path.findParent((p) => t.isProgram(p.node)) as Babel.NodePath<Babel.types.Program>;
-                  const statement = path.findParent((p) =>
-                    program.get('body').includes(p as Babel.NodePath<Babel.types.Statement>)
-                  ) as Babel.NodePath<Babel.types.Statement>;
-                  const decl = path.findParent(
-                    (p) => p.isVariableDeclarator() || p.isFunctionDeclaration() || p.isObjectProperty()
-                  ) as Babel.NodePath<
-                    Babel.types.VariableDeclarator | Babel.types.FunctionDeclaration | Babel.types.ObjectProperty
-                  >;
+                  if (parentNodeIdName == 'loader' || parentNodeIdName == 'action') {
+                    const program = path.findParent((p) => t.isProgram(p.node)) as Babel.NodePath<Babel.types.Program>;
+                    const statement = path.findParent((p) =>
+                      program.get('body').includes(p as Babel.NodePath<Babel.types.Statement>)
+                    ) as Babel.NodePath<Babel.types.Statement>;
 
-                  const serverIndex = state.servers++;
-                  const filename = state.filename.replace(state.opts.root, '').slice(1);
+                    const serverIndex = state.servers++;
 
-                  const hash = (state.opts.minify ? hashFn : (str: string) => str)(join(filename, String(serverIndex)));
+                    serverFn.traverse({
+                      MemberExpression(path) {
+                        const obj = path.get('object');
+                        if (obj.node.type === 'Identifier' && obj.node.name === 'server$') {
+                          obj.replaceWith(t.identifier('$$ctx'));
+                          return;
+                        }
+                      },
+                    });
 
-                  serverFn.traverse({
-                    MemberExpression(path) {
-                      const obj = path.get('object');
-                      if (obj.node.type === 'Identifier' && obj.node.name === 'server$') {
-                        obj.replaceWith(t.identifier('$$ctx'));
-                        return;
+                    if (serverFn.node.type === 'ArrowFunctionExpression') {
+                      const body = serverFn.get('body') as Babel.NodePath<
+                        Babel.types.Expression | Babel.types.BlockStatement
+                      >;
+
+                      if (body.node.type !== 'BlockStatement') {
+                        body.replaceWith(t.blockStatement([t.returnStatement(body.node)]));
                       }
-                    },
-                  });
 
-                  if (serverFn.node.type === 'ArrowFunctionExpression') {
-                    const body = serverFn.get('body') as Babel.NodePath<
-                      Babel.types.Expression | Babel.types.BlockStatement
-                    >;
-
-                    if (body.node.type !== 'BlockStatement') {
-                      body.replaceWith(t.blockStatement([t.returnStatement(body.node)]));
+                      serverFn.replaceWith(
+                        t.functionExpression(
+                          t.identifier('$$serverHandler' + serverIndex),
+                          serverFn.node.params,
+                          serverFn.node.body as Babel.types.BlockStatement,
+                          false,
+                          true
+                        )
+                      );
                     }
 
-                    serverFn.replaceWith(
-                      t.functionExpression(
-                        t.identifier('$$serverHandler' + serverIndex),
-                        serverFn.node.params,
-                        serverFn.node.body as Babel.types.BlockStatement,
-                        false,
-                        true
-                      )
-                    );
-                  }
+                    if (serverFn.node.type === 'FunctionExpression') {
+                      (serverFn.get('body') as Babel.NodePath<Babel.types.BlockStatement>).unshiftContainer(
+                        'body',
+                        t.variableDeclaration('const', [
+                          t.variableDeclarator(t.identifier('$$ctx'), t.thisExpression()),
+                        ])
+                      );
+                    }
 
-                  if (serverFn.node.type === 'FunctionExpression') {
-                    (serverFn.get('body') as Babel.NodePath<Babel.types.BlockStatement>).unshiftContainer(
-                      'body',
-                      t.variableDeclaration('const', [t.variableDeclarator(t.identifier('$$ctx'), t.thisExpression())])
-                    );
-                  }
-
-                  const route = join(
-                    hash,
-                    // @ts-expect-error Property 'id' does not exist
-                    decl?.node.id?.elements?.[0]?.name ?? decl?.node.id?.name ?? decl?.node.key?.name ?? 'fn'
-                  ).replaceAll('\\', '/');
-
-                  if (state.opts.ssr) {
-                    statement.insertBefore(
-                      template(`
+                    if (state.opts.ssr) {
+                      statement.insertBefore(
+                        template(`
                       const $$server_module${serverIndex} = %%source%%;
-                      server$.registerHandler("${route}", $$server_module${serverIndex});
                       `)({
-                        source: serverFn.node,
-                      })
-                    );
-                  } else {
-                    statement.insertBefore(
-                      template(
-                        `
-                        ${process.env.TEST_ENV === 'client' ? `server$.registerHandler("${route}", %%source%%);` : ``}
-                        const $$server_module${serverIndex} = server$.createFetcher("${route}");`,
-                        {
+                          source: serverFn.node,
+                        })
+                      );
+                    } else {
+                      statement.insertBefore(
+                        template(`const $$server_module${serverIndex} = server$.createFetcher();`, {
                           syntacticPlaceholders: true,
-                        }
-                      )(
-                        process.env.TEST_ENV === 'client'
-                          ? {
-                              source: serverFn.node,
-                            }
-                          : {}
-                      )
-                    );
+                        })(
+                          process.env.TEST_ENV === 'client'
+                            ? {
+                                source: serverFn.node,
+                              }
+                            : {}
+                        )
+                      );
+                    }
+                    path.replaceWith(t.identifier(`$$server_module${serverIndex}`));
+                  } else {
+                    if (state.opts.ssr) {
+                      path.replaceWith(t.identifier(serverFn.toString()));
+                    } else {
+                      path.parentPath.remove();
+                    }
                   }
-                  path.replaceWith(t.identifier(`$$server_module${serverIndex}`));
                 }
               },
               FunctionDeclaration: markFunction,

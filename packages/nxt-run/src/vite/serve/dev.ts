@@ -25,7 +25,6 @@ export const dev = (viteServer: ViteDevServer) => {
           {
             manifest: {},
           },
-          {},
           { startHtml, endHtml }
         );
 

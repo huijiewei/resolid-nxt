@@ -38,6 +38,13 @@ export const serializeMdx = async (
   return { source: mdxSource, data: vfile.data as MdxData };
 };
 
+const MDX_CACHE_CONTROL = 'max-age=300, stale-while-revalidate=604800';
+
+export const mdxHeaders = {
+  'Cache-Control': MDX_CACHE_CONTROL,
+  Vary: 'Cookie',
+};
+
 export const responseMdx = (mdx: { source: MDXRemoteSerializeResult; data: MdxData }) => {
-  return json({ mdx }, { headers: { 'Cache-Control': 'max-age=300, stale-while-revalidate=604800' } });
+  return json({ mdx }, { headers: { 'Cache-Control': MDX_CACHE_CONTROL } });
 };
