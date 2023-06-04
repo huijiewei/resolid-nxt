@@ -1,24 +1,27 @@
-[
-  { "name": "size", "type": "number | Size", "required": false, "description": "Size", "defaultValue": "'md'" },
-  {
-    "name": "radius",
-    "type": "number | false | true | \"xs\" | \"sm\" | \"lg\" | \"xl\" | \"full\"",
-    "required": false,
-    "description": "Rounded",
-    "defaultValue": "'full'"
-  },
-  {
-    "name": "limit",
-    "type": "number | null",
-    "required": false,
-    "description": "The limit number of visible avatars",
-    "defaultValue": "3"
-  },
-  {
-    "name": "spacing",
-    "type": "string",
-    "required": false,
-    "description": "The space between the avatars in the group.",
-    "defaultValue": "'-0.75em'"
-  }
-]
+{
+  "path": "/avatar/AvatarGroup.tsx",
+  "props": [
+    { "name": "size", "type": "number | Size", "required": false, "description": "Size", "defaultValue": "'md'" },
+    {
+      "name": "radius",
+      "type": "number | false | true | \"xs\" | \"sm\" | \"lg\" | \"xl\" | \"full\"",
+      "required": false,
+      "description": "Rounded",
+      "defaultValue": "'full'"
+    },
+    {
+      "name": "limit",
+      "type": "number | null",
+      "required": false,
+      "description": "The limit number of visible avatars",
+      "defaultValue": "3"
+    },
+    {
+      "name": "spacing",
+      "type": "string",
+      "required": false,
+      "description": "The space between the avatars in the group.",
+      "defaultValue": "'-0.75em'"
+    }
+  ]
+}

@@ -14,7 +14,8 @@ const mdxComponents = {
 };
 
 export const loader = server$(async ({ params }) => {
-  const filePath = join(process.cwd(), 'docs/run', params.category ?? 'getting-started');
+  const cwd = process.cwd();
+  const filePath = join(cwd, 'docs/run', params.category ?? 'getting-started');
 
   let file = join(filePath, getMdxFileName(params.document ?? '', params.lang, i18n.fallbackLng as string));
 
@@ -26,7 +27,7 @@ export const loader = server$(async ({ params }) => {
     throw new Response('Not Found', { status: 404 });
   }
 
-  const mdx = await serializeMdx(readFileSync(file, 'utf-8'));
+  const mdx = await serializeMdx(readFileSync(file, 'utf-8'), { document: file.replace(cwd, 'website') });
 
   return responseMdx(mdx);
 });

@@ -1,16 +1,19 @@
-[
-  {
-    "name": "separator",
-    "type": "string | ReactElement",
-    "required": false,
-    "description": "The visual separator between each breadcrumb item",
-    "defaultValue": "\"/\""
-  },
-  {
-    "name": "spacing",
-    "type": "string | number",
-    "required": false,
-    "description": "The left and right margin applied to the separator",
-    "defaultValue": "'0.5rem'"
-  }
-]
+{
+  "path": "/breadcrumb/Breadcrumb.tsx",
+  "props": [
+    {
+      "name": "separator",
+      "type": "string | ReactElement",
+      "required": false,
+      "description": "The visual separator between each breadcrumb item",
+      "defaultValue": "\"/\""
+    },
+    {
+      "name": "spacing",
+      "type": "string | number",
+      "required": false,
+      "description": "The left and right margin applied to the separator",
+      "defaultValue": "'0.5rem'"
+    }
+  ]
+}

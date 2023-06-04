@@ -1,10 +1,13 @@
-[
-  { "name": "value", "type": "string | number", "required": false, "description": "", "defaultValue": "" },
-  {
-    "name": "onChange",
-    "type": "((value: string | number) => void)",
-    "required": false,
-    "description": "",
-    "defaultValue": ""
-  }
-]
+{
+  "path": "/menu/MenuRadioGroup.tsx",
+  "props": [
+    { "name": "value", "type": "string | number", "required": false, "description": "", "defaultValue": "" },
+    {
+      "name": "onChange",
+      "type": "((value: string | number) => void)",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    }
+  ]
+}

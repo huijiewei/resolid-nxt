@@ -1,1 +1,6 @@
-[{ "name": "toastOptions", "type": "ToastProviderProps", "required": false, "description": "", "defaultValue": "" }]
+{
+  "path": "/provider/NxtProvider.tsx",
+  "props": [
+    { "name": "toastOptions", "type": "ToastProviderProps", "required": false, "description": "", "defaultValue": "" }
+  ]
+}

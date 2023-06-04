@@ -1,9 +1,12 @@
-[
-  {
-    "name": "size",
-    "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
-    "required": false,
-    "description": "Size",
-    "defaultValue": "'md'"
-  }
-]
+{
+  "path": "/input/InputGroup.tsx",
+  "props": [
+    {
+      "name": "size",
+      "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+      "required": false,
+      "description": "Size",
+      "defaultValue": "'md'"
+    }
+  ]
+}

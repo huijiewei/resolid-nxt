@@ -1,39 +1,48 @@
-[
-  { "name": "opened", "type": "boolean", "required": false, "description": "Opened", "defaultValue": "" },
-  { "name": "onClose", "type": "() => void", "required": false, "description": "onClose callback", "defaultValue": "" },
-  {
-    "name": "closeOnEsc",
-    "type": "boolean",
-    "required": false,
-    "description": "Close when press esc key",
-    "defaultValue": "true"
-  },
-  {
-    "name": "closeOnBlur",
-    "type": "boolean",
-    "required": false,
-    "description": "Close when you click outside the menu list",
-    "defaultValue": "true"
-  },
-  {
-    "name": "closeOnSelect",
-    "type": "boolean",
-    "required": false,
-    "description": "Close when a menu item is clicked",
-    "defaultValue": "true"
-  },
-  {
-    "name": "placement",
-    "type": "\"top\" | \"right\" | \"bottom\" | \"left\" | \"top-start\" | \"top-end\" | \"right-start\" | \"right-end\" | \"bottom-start\" | \"bottom-end\" | \"left-start\" | \"left-end\"",
-    "required": false,
-    "description": "Placement",
-    "defaultValue": "'bottom-start'"
-  },
-  {
-    "name": "duration",
-    "type": "number",
-    "required": false,
-    "description": "Animation Duration",
-    "defaultValue": "'250'"
-  }
-]
+{
+  "path": "/context-menu/ContextMenu.tsx",
+  "props": [
+    { "name": "opened", "type": "boolean", "required": false, "description": "Opened", "defaultValue": "" },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": false,
+      "description": "onClose callback",
+      "defaultValue": ""
+    },
+    {
+      "name": "closeOnEsc",
+      "type": "boolean",
+      "required": false,
+      "description": "Close when press esc key",
+      "defaultValue": "true"
+    },
+    {
+      "name": "closeOnBlur",
+      "type": "boolean",
+      "required": false,
+      "description": "Close when you click outside the menu list",
+      "defaultValue": "true"
+    },
+    {
+      "name": "closeOnSelect",
+      "type": "boolean",
+      "required": false,
+      "description": "Close when a menu item is clicked",
+      "defaultValue": "true"
+    },
+    {
+      "name": "placement",
+      "type": "\"top\" | \"right\" | \"bottom\" | \"left\" | \"top-start\" | \"top-end\" | \"right-start\" | \"right-end\" | \"bottom-start\" | \"bottom-end\" | \"left-start\" | \"left-end\"",
+      "required": false,
+      "description": "Placement",
+      "defaultValue": "'bottom-start'"
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "description": "Animation Duration",
+      "defaultValue": "'250'"
+    }
+  ]
+}

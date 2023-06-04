@@ -1,9 +1,12 @@
-[
-  {
-    "name": "stepper",
-    "type": "\"increment\" | \"decrement\"",
-    "required": true,
-    "description": "",
-    "defaultValue": ""
-  }
-]
+{
+  "path": "/number-input/NumberInputControl.tsx",
+  "props": [
+    {
+      "name": "stepper",
+      "type": "\"increment\" | \"decrement\"",
+      "required": true,
+      "description": "",
+      "defaultValue": ""
+    }
+  ]
+}

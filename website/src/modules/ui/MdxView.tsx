@@ -1,5 +1,6 @@
 import { useLoaderData } from '@resolid/nxt-run';
 import { server$ } from '@resolid/nxt-run/server';
+import { kebabCase } from '@resolid/nxt-utils';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { Helmet } from 'react-helmet-async';
@@ -38,23 +39,31 @@ export const loader = server$(async ({ params }) => {
   }
 
   let source = readFileSync(file, 'utf-8');
+  let sourcePath;
   const scope: Record<string, unknown> = {};
 
   if (params.component) {
     const matches = source.matchAll(/<PropsTable.*?component={['"](\w+)['"]}\s*\/>/gi);
 
     for (const match of matches) {
-      const propsFile = join(cwd, 'docs/ui/props', `${match[1]}.json`);
+      const componentName = match[1];
+      const propsFile = join(cwd, 'docs/ui/props', `${componentName}.json`);
 
       if (existsSync(propsFile)) {
-        const scopeName = `componentProps${match[1]}`;
-        scope[scopeName] = JSON.parse(readFileSync(propsFile, 'utf-8'));
+        const scopeName = `componentProps${componentName}`;
+        const json = JSON.parse(readFileSync(propsFile, 'utf-8'));
+
+        if (kebabCase(componentName) == params.component) {
+          sourcePath = `packages/nxt-ui/src/components${json.path}`;
+        }
+
+        scope[scopeName] = json.props;
         source = source.replace(match[0], match[0].replace('/>', `componentProps={${scopeName}} />`));
       }
     }
   }
 
-  const mdx = await serializeMdx(source, scope);
+  const mdx = await serializeMdx(source, { source: sourcePath, document: file.replace(cwd, 'website') }, scope);
 
   return responseMdx(mdx);
 });

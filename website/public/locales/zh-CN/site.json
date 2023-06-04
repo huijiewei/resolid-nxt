@@ -3,7 +3,9 @@
     "start": "快速开始"
   },
   "link": {
-    "github": "Github 上的 Resolid Nxt"
+    "github": "Github 上的 Resolid Nxt",
+    "editPage": "建议更改此页面",
+    "viewSource": "查看源代码"
   },
   "colorMode": {
     "light": "亮色模式",

@@ -1,1 +1,4 @@
-[{ "name": "nonce", "type": "string", "required": false, "description": "", "defaultValue": "" }]
+{
+  "path": "/provider/ColorModeScript.tsx",
+  "props": [{ "name": "nonce", "type": "string", "required": false, "description": "", "defaultValue": "" }]
+}

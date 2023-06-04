@@ -1,1 +1,4 @@
-[{ "name": "indeterminate", "type": "boolean", "required": false, "description": "", "defaultValue": "" }]
+{
+  "path": "/checkbox/CheckboxIcon.tsx",
+  "props": [{ "name": "indeterminate", "type": "boolean", "required": false, "description": "", "defaultValue": "" }]
+}

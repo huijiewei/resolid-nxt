@@ -1,4 +1,7 @@
-[
-  { "name": "option", "type": "", "required": true, "description": "", "defaultValue": "" },
-  { "name": "index", "type": "", "required": true, "description": "", "defaultValue": "" }
-]
+{
+  "path": "/select/SelectOption.tsx",
+  "props": [
+    { "name": "option", "type": "", "required": true, "description": "", "defaultValue": "" },
+    { "name": "index", "type": "", "required": true, "description": "", "defaultValue": "" }
+  ]
+}

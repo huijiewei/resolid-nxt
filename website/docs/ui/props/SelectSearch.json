@@ -1,7 +1,10 @@
-[
-  { "name": "open", "type": "boolean", "required": true, "description": "", "defaultValue": "" },
-  { "name": "setOpen", "type": "", "required": true, "description": "", "defaultValue": "" },
-  { "name": "setActiveIndex", "type": "", "required": true, "description": "", "defaultValue": "" },
-  { "name": "hidden", "type": "boolean", "required": true, "description": "", "defaultValue": "" },
-  { "name": "setHidden", "type": "", "required": true, "description": "", "defaultValue": "" }
-]
+{
+  "path": "/select/SelectSearch.tsx",
+  "props": [
+    { "name": "open", "type": "boolean", "required": true, "description": "", "defaultValue": "" },
+    { "name": "setOpen", "type": "", "required": true, "description": "", "defaultValue": "" },
+    { "name": "setActiveIndex", "type": "", "required": true, "description": "", "defaultValue": "" },
+    { "name": "hidden", "type": "boolean", "required": true, "description": "", "defaultValue": "" },
+    { "name": "setHidden", "type": "", "required": true, "description": "", "defaultValue": "" }
+  ]
+}

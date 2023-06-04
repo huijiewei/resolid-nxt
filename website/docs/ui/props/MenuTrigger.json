@@ -1,1 +1,4 @@
-[{ "name": "children", "type": "", "required": true, "description": "", "defaultValue": "" }]
+{
+  "path": "/menu/MenuTrigger.tsx",
+  "props": [{ "name": "children", "type": "", "required": true, "description": "", "defaultValue": "" }]
+}

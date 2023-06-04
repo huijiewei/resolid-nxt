@@ -3,7 +3,9 @@
     "start": "Get Started"
   },
   "link": {
-    "github": "Go to Resolid Nxt on Github"
+    "github": "Go to Resolid Nxt on Github",
+    "editPage": "Edit this page on GitHub",
+    "viewSource": "View source"
   },
   "colorMode": {
     "light": "Light",

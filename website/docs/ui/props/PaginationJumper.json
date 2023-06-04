@@ -1,5 +1,8 @@
-[
-  { "name": "page", "type": "", "required": true, "description": "", "defaultValue": "" },
-  { "name": "totalPage", "type": "", "required": true, "description": "", "defaultValue": "" },
-  { "name": "setPage", "type": "", "required": true, "description": "", "defaultValue": "" }
-]
+{
+  "path": "/pagination/PaginationJumper.tsx",
+  "props": [
+    { "name": "page", "type": "", "required": true, "description": "", "defaultValue": "" },
+    { "name": "totalPage", "type": "", "required": true, "description": "", "defaultValue": "" },
+    { "name": "setPage", "type": "", "required": true, "description": "", "defaultValue": "" }
+  ]
+}

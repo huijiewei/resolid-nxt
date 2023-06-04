@@ -1,76 +1,85 @@
-[
-  {
-    "name": "min",
-    "type": "number",
-    "required": false,
-    "description": "The minimum allowed value of the slider. Cannot be greater than max.",
-    "defaultValue": "0"
-  },
-  {
-    "name": "max",
-    "type": "number",
-    "required": false,
-    "description": "The maximum allowed value of the slider. Cannot be less than min.",
-    "defaultValue": "100"
-  },
-  {
-    "name": "step",
-    "type": "number",
-    "required": false,
-    "description": "The step in which increments/decrements have to be made",
-    "defaultValue": "1"
-  },
-  { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
-  { "name": "reverse", "type": "boolean", "required": false, "description": "Reverse", "defaultValue": "false" },
-  { "name": "vertical", "type": "boolean", "required": false, "description": "Vertical", "defaultValue": "false" },
-  { "name": "ticks", "type": "boolean | number[]", "required": false, "description": "Ticks", "defaultValue": "false" },
-  {
-    "name": "marks",
-    "type": "{ value: number; label?: ReactNode; }[]",
-    "required": false,
-    "description": "Masks",
-    "defaultValue": ""
-  },
-  {
-    "name": "size",
-    "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
-    "required": false,
-    "description": "The size of the Slider",
-    "defaultValue": "'md'"
-  },
-  {
-    "name": "color",
-    "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
-    "required": false,
-    "description": "Color",
-    "defaultValue": "'primary'"
-  },
-  {
-    "name": "value",
-    "type": "number | [number, number]",
-    "required": false,
-    "description": "The value of the slider in controlled mode",
-    "defaultValue": ""
-  },
-  {
-    "name": "defaultValue",
-    "type": "number | [number, number]",
-    "required": false,
-    "description": "Default value",
-    "defaultValue": ""
-  },
-  {
-    "name": "onChange",
-    "type": "(value: SliderValue) => void",
-    "required": false,
-    "description": "When the slider value changes (by dragging or clicking)",
-    "defaultValue": ""
-  },
-  {
-    "name": "onChangeEnd",
-    "type": "(value: SliderValue) => void",
-    "required": false,
-    "description": "When the user is done selecting a new value (by dragging or clicking)",
-    "defaultValue": ""
-  }
-]
+{
+  "path": "/slider/Slider.tsx",
+  "props": [
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "description": "The minimum allowed value of the slider. Cannot be greater than max.",
+      "defaultValue": "0"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "description": "The maximum allowed value of the slider. Cannot be less than min.",
+      "defaultValue": "100"
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "description": "The step in which increments/decrements have to be made",
+      "defaultValue": "1"
+    },
+    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
+    { "name": "reverse", "type": "boolean", "required": false, "description": "Reverse", "defaultValue": "false" },
+    { "name": "vertical", "type": "boolean", "required": false, "description": "Vertical", "defaultValue": "false" },
+    {
+      "name": "ticks",
+      "type": "boolean | number[]",
+      "required": false,
+      "description": "Ticks",
+      "defaultValue": "false"
+    },
+    {
+      "name": "marks",
+      "type": "{ value: number; label?: ReactNode; }[]",
+      "required": false,
+      "description": "Masks",
+      "defaultValue": ""
+    },
+    {
+      "name": "size",
+      "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+      "required": false,
+      "description": "The size of the Slider",
+      "defaultValue": "'md'"
+    },
+    {
+      "name": "color",
+      "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
+      "required": false,
+      "description": "Color",
+      "defaultValue": "'primary'"
+    },
+    {
+      "name": "value",
+      "type": "number | [number, number]",
+      "required": false,
+      "description": "The value of the slider in controlled mode",
+      "defaultValue": ""
+    },
+    {
+      "name": "defaultValue",
+      "type": "number | [number, number]",
+      "required": false,
+      "description": "Default value",
+      "defaultValue": ""
+    },
+    {
+      "name": "onChange",
+      "type": "(value: SliderValue) => void",
+      "required": false,
+      "description": "When the slider value changes (by dragging or clicking)",
+      "defaultValue": ""
+    },
+    {
+      "name": "onChangeEnd",
+      "type": "(value: SliderValue) => void",
+      "required": false,
+      "description": "When the user is done selecting a new value (by dragging or clicking)",
+      "defaultValue": ""
+    }
+  ]
+}

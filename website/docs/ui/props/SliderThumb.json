@@ -1,9 +1,12 @@
-[
-  {
-    "name": "children",
-    "type": "ReactNode | ((index: number) => ReactNode)",
-    "required": false,
-    "description": "",
-    "defaultValue": ""
-  }
-]
+{
+  "path": "/slider/SliderThumb.tsx",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode | ((index: number) => ReactNode)",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    }
+  ]
+}

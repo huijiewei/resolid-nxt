@@ -1,1 +1,4 @@
-[{ "name": "children", "type": "ReactElement", "required": false, "description": "", "defaultValue": "" }]
+{
+  "path": "/context-menu/ContextMenuTrigger.tsx",
+  "props": [{ "name": "children", "type": "ReactElement", "required": false, "description": "", "defaultValue": "" }]
+}

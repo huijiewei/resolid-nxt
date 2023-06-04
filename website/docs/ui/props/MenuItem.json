@@ -1,1 +1,4 @@
-[{ "name": "onClick", "type": "() => void", "required": false, "description": "", "defaultValue": "" }]
+{
+  "path": "/menu/MenuItem.tsx",
+  "props": [{ "name": "onClick", "type": "() => void", "required": false, "description": "", "defaultValue": "" }]
+}

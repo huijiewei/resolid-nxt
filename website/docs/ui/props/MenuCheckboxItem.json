@@ -1,17 +1,20 @@
-[
-  {
-    "name": "checked",
-    "type": "false | true | \"indeterminate\"",
-    "required": false,
-    "description": "",
-    "defaultValue": ""
-  },
-  {
-    "name": "onChange",
-    "type": "(checked: CheckedState) => void",
-    "required": false,
-    "description": "",
-    "defaultValue": ""
-  },
-  { "name": "onClick", "type": "() => void", "required": false, "description": "", "defaultValue": "" }
-]
+{
+  "path": "/menu/MenuCheckboxItem.tsx",
+  "props": [
+    {
+      "name": "checked",
+      "type": "false | true | \"indeterminate\"",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    },
+    {
+      "name": "onChange",
+      "type": "(checked: CheckedState) => void",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    },
+    { "name": "onClick", "type": "() => void", "required": false, "description": "", "defaultValue": "" }
+  ]
+}

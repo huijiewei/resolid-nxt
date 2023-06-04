@@ -1,65 +1,80 @@
-[
-  {
-    "name": "size",
-    "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
-    "required": false,
-    "description": "Size",
-    "defaultValue": "'md'"
-  },
-  { "name": "value", "type": "number", "required": false, "description": "Value", "defaultValue": "" },
-  { "name": "defaultValue", "type": "number", "required": false, "description": "Default value", "defaultValue": "" },
-  { "name": "prefix", "type": "ReactNode", "required": false, "description": "Prefix", "defaultValue": "" },
-  { "name": "step", "type": "number", "required": false, "description": "Step", "defaultValue": "1" },
-  { "name": "min", "type": "number", "required": false, "description": "Min", "defaultValue": "-Infinity" },
-  { "name": "max", "type": "number", "required": false, "description": "Max", "defaultValue": "Infinity" },
-  { "name": "precision", "type": "number", "required": false, "description": "Precision", "defaultValue": "0" },
-  {
-    "name": "format",
-    "type": "(value: string) => string",
-    "required": false,
-    "description": "Format",
-    "defaultValue": ""
-  },
-  {
-    "name": "parse",
-    "type": "(value: string) => string",
-    "required": false,
-    "description": "Parse",
-    "defaultValue": ""
-  },
-  { "name": "mouseWheel", "type": "boolean", "required": false, "description": "Mouse Wheel", "defaultValue": "false" },
-  { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
-  { "name": "required", "type": "boolean", "required": false, "description": "Required", "defaultValue": "false" },
-  { "name": "invalid", "type": "boolean", "required": false, "description": "Invalid", "defaultValue": "false" },
-  { "name": "readOnly", "type": "boolean", "required": false, "description": "ReadOnly", "defaultValue": "false" },
-  { "name": "fullWidth", "type": "boolean", "required": false, "description": "FullWidth", "defaultValue": "false" },
-  {
-    "name": "onChange",
-    "type": "((value: number) => void)",
-    "required": false,
-    "description": "onChange callback",
-    "defaultValue": ""
-  },
-  {
-    "name": "hideControls",
-    "type": "boolean",
-    "required": false,
-    "description": "Hide Controls",
-    "defaultValue": "false"
-  },
-  {
-    "name": "controlsRef",
-    "type": "ForwardedRef<NumberInputHandlers>",
-    "required": false,
-    "description": "Controls Ref",
-    "defaultValue": ""
-  },
-  {
-    "name": "htmlSize",
-    "type": "number",
-    "required": false,
-    "description": "The native HTML size attribute to be passed to the input",
-    "defaultValue": ""
-  },
-  { "name": "placeholder", "type": "string", "required": false, "description": "Placeholder text", "defaultValue": "" }
-]
+{
+  "path": "/number-input/NumberInput.tsx",
+  "props": [
+    {
+      "name": "size",
+      "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+      "required": false,
+      "description": "Size",
+      "defaultValue": "'md'"
+    },
+    { "name": "value", "type": "number", "required": false, "description": "Value", "defaultValue": "" },
+    { "name": "defaultValue", "type": "number", "required": false, "description": "Default value", "defaultValue": "" },
+    { "name": "prefix", "type": "ReactNode", "required": false, "description": "Prefix", "defaultValue": "" },
+    { "name": "step", "type": "number", "required": false, "description": "Step", "defaultValue": "1" },
+    { "name": "min", "type": "number", "required": false, "description": "Min", "defaultValue": "-Infinity" },
+    { "name": "max", "type": "number", "required": false, "description": "Max", "defaultValue": "Infinity" },
+    { "name": "precision", "type": "number", "required": false, "description": "Precision", "defaultValue": "0" },
+    {
+      "name": "format",
+      "type": "(value: string) => string",
+      "required": false,
+      "description": "Format",
+      "defaultValue": ""
+    },
+    {
+      "name": "parse",
+      "type": "(value: string) => string",
+      "required": false,
+      "description": "Parse",
+      "defaultValue": ""
+    },
+    {
+      "name": "mouseWheel",
+      "type": "boolean",
+      "required": false,
+      "description": "Mouse Wheel",
+      "defaultValue": "false"
+    },
+    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
+    { "name": "required", "type": "boolean", "required": false, "description": "Required", "defaultValue": "false" },
+    { "name": "invalid", "type": "boolean", "required": false, "description": "Invalid", "defaultValue": "false" },
+    { "name": "readOnly", "type": "boolean", "required": false, "description": "ReadOnly", "defaultValue": "false" },
+    { "name": "fullWidth", "type": "boolean", "required": false, "description": "FullWidth", "defaultValue": "false" },
+    {
+      "name": "onChange",
+      "type": "((value: number) => void)",
+      "required": false,
+      "description": "onChange callback",
+      "defaultValue": ""
+    },
+    {
+      "name": "hideControls",
+      "type": "boolean",
+      "required": false,
+      "description": "Hide Controls",
+      "defaultValue": "false"
+    },
+    {
+      "name": "controlsRef",
+      "type": "ForwardedRef<NumberInputHandlers>",
+      "required": false,
+      "description": "Controls Ref",
+      "defaultValue": ""
+    },
+    {
+      "name": "htmlSize",
+      "type": "number",
+      "required": false,
+      "description": "The native HTML size attribute to be passed to the input",
+      "defaultValue": ""
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "description": "Placeholder text",
+      "defaultValue": ""
+    }
+  ]
+}

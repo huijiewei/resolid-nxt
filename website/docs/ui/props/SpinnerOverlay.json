@@ -1,19 +1,22 @@
-[
-  { "name": "opacity", "type": "number", "required": false, "description": "Opacity", "defaultValue": "75" },
-  {
-    "name": "color",
-    "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
-    "required": false,
-    "description": "Color",
-    "defaultValue": "'neutral'"
-  },
-  { "name": "blur", "type": "number | boolean", "required": false, "description": "Blur", "defaultValue": "false" },
-  {
-    "name": "radius",
-    "type": "number | false | true | \"xs\" | \"sm\" | \"lg\" | \"xl\" | \"full\"",
-    "required": false,
-    "description": "Rounded",
-    "defaultValue": "false"
-  },
-  { "name": "visible", "type": "boolean", "required": true, "description": "Visible", "defaultValue": "" }
-]
+{
+  "path": "/spinner-overlay/SpinnerOverlay.tsx",
+  "props": [
+    { "name": "opacity", "type": "number", "required": false, "description": "Opacity", "defaultValue": "75" },
+    {
+      "name": "color",
+      "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
+      "required": false,
+      "description": "Color",
+      "defaultValue": "'neutral'"
+    },
+    { "name": "blur", "type": "number | boolean", "required": false, "description": "Blur", "defaultValue": "false" },
+    {
+      "name": "radius",
+      "type": "number | false | true | \"xs\" | \"sm\" | \"lg\" | \"xl\" | \"full\"",
+      "required": false,
+      "description": "Rounded",
+      "defaultValue": "false"
+    },
+    { "name": "visible", "type": "boolean", "required": true, "description": "Visible", "defaultValue": "" }
+  ]
+}

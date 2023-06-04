@@ -1,25 +1,28 @@
-[
-  {
-    "name": "color",
-    "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
-    "required": false,
-    "description": "Color",
-    "defaultValue": "\"neutral\""
-  },
-  {
-    "name": "variant",
-    "type": "\"solid\" | \"dashed\" | \"dotted\"",
-    "required": false,
-    "description": "Variant",
-    "defaultValue": "\"solid\""
-  },
-  { "name": "size", "type": "number", "required": false, "description": "Size", "defaultValue": "1" },
-  { "name": "vertical", "type": "boolean", "required": false, "description": "Vertical", "defaultValue": "false" },
-  {
-    "name": "position",
-    "type": "\"center\" | \"left\" | \"right\"",
-    "required": false,
-    "description": "Label Position",
-    "defaultValue": "\"center\""
-  }
-]
+{
+  "path": "/divider/Divider.tsx",
+  "props": [
+    {
+      "name": "color",
+      "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
+      "required": false,
+      "description": "Color",
+      "defaultValue": "\"neutral\""
+    },
+    {
+      "name": "variant",
+      "type": "\"solid\" | \"dashed\" | \"dotted\"",
+      "required": false,
+      "description": "Variant",
+      "defaultValue": "\"solid\""
+    },
+    { "name": "size", "type": "number", "required": false, "description": "Size", "defaultValue": "1" },
+    { "name": "vertical", "type": "boolean", "required": false, "description": "Vertical", "defaultValue": "false" },
+    {
+      "name": "position",
+      "type": "\"center\" | \"left\" | \"right\"",
+      "required": false,
+      "description": "Label Position",
+      "defaultValue": "\"center\""
+    }
+  ]
+}

@@ -6,6 +6,9 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { VFile } from 'vfile';
 
+const MDX_CACHE_CONTROL = 'max-age=300, stale-while-revalidate=604800';
+const MDX_GITHUB_URL = 'https://github.com/huijiewei/resolid-nxt/blob/main';
+
 export const getMdxFileName = (document: string, lang?: string, fallbackLng?: string) => {
   if (!lang || lang == fallbackLng) {
     return `${document}.mdx`;
@@ -17,10 +20,15 @@ export const getMdxFileName = (document: string, lang?: string, fallbackLng?: st
 export type MdxData = {
   matter: { title?: string; description?: string };
   headings: Heading[];
+  links: {
+    source?: string;
+    document: string;
+  };
 };
 
 export const serializeMdx = async (
   source: string,
+  paths: { source?: string; document: string },
   scope?: Record<string, unknown>
 ): Promise<{ source: MDXRemoteSerializeResult; data: MdxData }> => {
   const vfile = new VFile(source);
@@ -35,10 +43,17 @@ export const serializeMdx = async (
     scope: scope,
   });
 
-  return { source: mdxSource, data: vfile.data as MdxData };
+  return {
+    source: mdxSource,
+    data: {
+      ...vfile.data,
+      links: {
+        source: paths.source && `${MDX_GITHUB_URL}/${paths.source}`,
+        document: `${MDX_GITHUB_URL}/${paths.document}`,
+      },
+    } as MdxData,
+  };
 };
-
-const MDX_CACHE_CONTROL = 'max-age=300, stale-while-revalidate=604800';
 
 export const mdxHeaders = {
   'Cache-Control': MDX_CACHE_CONTROL,

@@ -1,1 +1,4 @@
-[{ "name": "spacing", "type": "string | number", "required": false, "description": "", "defaultValue": "" }]
+{
+  "path": "/breadcrumb/BreadcrumbSeparator.tsx",
+  "props": [{ "name": "spacing", "type": "string | number", "required": false, "description": "", "defaultValue": "" }]
+}

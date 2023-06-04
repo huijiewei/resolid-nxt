@@ -1,4 +1,7 @@
-[
-  { "name": "id", "type": "string", "required": false, "description": "", "defaultValue": "nxt-portal-root" },
-  { "name": "root", "type": "HTMLElement | null", "required": false, "description": "", "defaultValue": "" }
-]
+{
+  "path": "/portal/Portal.tsx",
+  "props": [
+    { "name": "id", "type": "string", "required": false, "description": "", "defaultValue": "nxt-portal-root" },
+    { "name": "root", "type": "HTMLElement | null", "required": false, "description": "", "defaultValue": "" }
+  ]
+}

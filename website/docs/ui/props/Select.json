@@ -1,110 +1,125 @@
-[
-  {
-    "name": "options",
-    "type": "",
-    "required": true,
-    "description": "Select options used to render items in dropdown",
-    "defaultValue": ""
-  },
-  {
-    "name": "fieldNames",
-    "type": "FieldNames",
-    "required": false,
-    "description": "Option field names",
-    "defaultValue": ""
-  },
-  {
-    "name": "size",
-    "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
-    "required": false,
-    "description": "Size",
-    "defaultValue": "'md'"
-  },
-  { "name": "multiple", "type": "boolean", "required": false, "description": "Multiple", "defaultValue": "false" },
-  { "name": "clearable", "type": "boolean", "required": false, "description": "Clearable", "defaultValue": "false" },
-  { "name": "searchable", "type": "boolean", "required": false, "description": "Searchable", "defaultValue": "false" },
-  {
-    "name": "filter",
-    "type": "(keyword: string, option: Omit<OptionDefault, never>) => boolean",
-    "required": false,
-    "description": "Function based on which items in dropdown are filtered",
-    "defaultValue": ""
-  },
-  { "name": "placeholder", "type": "string", "required": false, "description": "Placeholder", "defaultValue": "" },
-  { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
-  { "name": "required", "type": "boolean", "required": false, "description": "Required", "defaultValue": "false" },
-  { "name": "invalid", "type": "boolean", "required": false, "description": "Invalid", "defaultValue": "false" },
-  { "name": "fullWidth", "type": "boolean", "required": false, "description": "FullWidth", "defaultValue": "false" },
-  { "name": "opened", "type": "boolean", "required": false, "description": "Opened", "defaultValue": "" },
-  {
-    "name": "value",
-    "type": "string | number | (string | number)[] | null",
-    "required": false,
-    "description": "Value",
-    "defaultValue": ""
-  },
-  {
-    "name": "defaultValue",
-    "type": "string | number | (string | number)[] | null",
-    "required": false,
-    "description": "Default value",
-    "defaultValue": ""
-  },
-  {
-    "name": "closeOnSelect",
-    "type": "boolean",
-    "required": false,
-    "description": "Close on select",
-    "defaultValue": "true"
-  },
-  {
-    "name": "onChange",
-    "type": "((value: string | number | (string | number)[] | null) => void)",
-    "required": false,
-    "description": "onChange callback",
-    "defaultValue": ""
-  },
-  { "name": "onClear", "type": "() => void", "required": false, "description": "onClear callback", "defaultValue": "" },
-  {
-    "name": "onSearch",
-    "type": "(value: string) => void",
-    "required": false,
-    "description": "onSearch callback",
-    "defaultValue": ""
-  },
-  {
-    "name": "onSelect",
-    "type": "((value: string | number | null, option: Omit<OptionDefault, never>) => void)",
-    "required": false,
-    "description": "onSelect callback",
-    "defaultValue": ""
-  },
-  {
-    "name": "onDeselect",
-    "type": "((value: string | number | null, option: Omit<OptionDefault, never>) => void)",
-    "required": false,
-    "description": "onDeselect callback",
-    "defaultValue": ""
-  },
-  {
-    "name": "labelRender",
-    "type": "OptionRender<Omit<OptionDefault, never>>",
-    "required": false,
-    "description": "Label render",
-    "defaultValue": ""
-  },
-  {
-    "name": "optionRender",
-    "type": "OptionRender<Omit<OptionDefault, never>>",
-    "required": false,
-    "description": "Option render",
-    "defaultValue": ""
-  },
-  {
-    "name": "duration",
-    "type": "number",
-    "required": false,
-    "description": "Animation Duration",
-    "defaultValue": "'250'"
-  }
-]
+{
+  "path": "/select/Select.tsx",
+  "props": [
+    {
+      "name": "options",
+      "type": "",
+      "required": true,
+      "description": "Select options used to render items in dropdown",
+      "defaultValue": ""
+    },
+    {
+      "name": "fieldNames",
+      "type": "FieldNames",
+      "required": false,
+      "description": "Option field names",
+      "defaultValue": ""
+    },
+    {
+      "name": "size",
+      "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+      "required": false,
+      "description": "Size",
+      "defaultValue": "'md'"
+    },
+    { "name": "multiple", "type": "boolean", "required": false, "description": "Multiple", "defaultValue": "false" },
+    { "name": "clearable", "type": "boolean", "required": false, "description": "Clearable", "defaultValue": "false" },
+    {
+      "name": "searchable",
+      "type": "boolean",
+      "required": false,
+      "description": "Searchable",
+      "defaultValue": "false"
+    },
+    {
+      "name": "filter",
+      "type": "(keyword: string, option: Omit<OptionDefault, never>) => boolean",
+      "required": false,
+      "description": "Function based on which items in dropdown are filtered",
+      "defaultValue": ""
+    },
+    { "name": "placeholder", "type": "string", "required": false, "description": "Placeholder", "defaultValue": "" },
+    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
+    { "name": "required", "type": "boolean", "required": false, "description": "Required", "defaultValue": "false" },
+    { "name": "invalid", "type": "boolean", "required": false, "description": "Invalid", "defaultValue": "false" },
+    { "name": "fullWidth", "type": "boolean", "required": false, "description": "FullWidth", "defaultValue": "false" },
+    { "name": "opened", "type": "boolean", "required": false, "description": "Opened", "defaultValue": "" },
+    {
+      "name": "value",
+      "type": "string | number | (string | number)[] | null",
+      "required": false,
+      "description": "Value",
+      "defaultValue": ""
+    },
+    {
+      "name": "defaultValue",
+      "type": "string | number | (string | number)[] | null",
+      "required": false,
+      "description": "Default value",
+      "defaultValue": ""
+    },
+    {
+      "name": "closeOnSelect",
+      "type": "boolean",
+      "required": false,
+      "description": "Close on select",
+      "defaultValue": "true"
+    },
+    {
+      "name": "onChange",
+      "type": "((value: string | number | (string | number)[] | null) => void)",
+      "required": false,
+      "description": "onChange callback",
+      "defaultValue": ""
+    },
+    {
+      "name": "onClear",
+      "type": "() => void",
+      "required": false,
+      "description": "onClear callback",
+      "defaultValue": ""
+    },
+    {
+      "name": "onSearch",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "onSearch callback",
+      "defaultValue": ""
+    },
+    {
+      "name": "onSelect",
+      "type": "((value: string | number | null, option: Omit<OptionDefault, never>) => void)",
+      "required": false,
+      "description": "onSelect callback",
+      "defaultValue": ""
+    },
+    {
+      "name": "onDeselect",
+      "type": "((value: string | number | null, option: Omit<OptionDefault, never>) => void)",
+      "required": false,
+      "description": "onDeselect callback",
+      "defaultValue": ""
+    },
+    {
+      "name": "labelRender",
+      "type": "OptionRender<Omit<OptionDefault, never>>",
+      "required": false,
+      "description": "Label render",
+      "defaultValue": ""
+    },
+    {
+      "name": "optionRender",
+      "type": "OptionRender<Omit<OptionDefault, never>>",
+      "required": false,
+      "description": "Option render",
+      "defaultValue": ""
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "required": false,
+      "description": "Animation Duration",
+      "defaultValue": "'250'"
+    }
+  ]
+}
