@@ -140,9 +140,11 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
               },
               CallExpression: (path) => {
                 if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'server$') {
-                  const parentNodeIdName = (
-                    (path.parent as Babel.types.VariableDeclarator).id as Babel.types.Identifier
-                  ).name;
+                  const parentNodeIdName =
+                    path.parent.type == 'VariableDeclarator'
+                      ? ((path.parent as Babel.types.VariableDeclarator).id as Babel.types.Identifier).name
+                      : ((path.parent as Babel.types.ObjectProperty).key as Babel.types.Identifier).name;
+
                   const serverFn = path.get('arguments')[0] as Babel.NodePath<Babel.types.Expression>;
 
                   if (parentNodeIdName == 'loader' || parentNodeIdName == 'action') {

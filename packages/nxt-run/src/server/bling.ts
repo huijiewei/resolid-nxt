@@ -54,10 +54,9 @@ export const handleData$ = async (staticHandler: StaticHandler, request: Request
     }
 
     return response;
-  } catch (error: unknown) {
+  } catch (error) {
     if (isResponse(error)) {
       error.headers.set('X-Nxt-Catch', 'yes');
-
       return error;
     }
 

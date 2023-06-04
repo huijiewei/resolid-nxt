@@ -52,10 +52,10 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
       }
     );
 
-    if (url.searchParams.has('_data')) {
-      const matches = matchRoutes(staticHandler.dataRoutes, url.pathname, basename);
-      const currentMatch = matches?.[matches.length - 1];
+    const matches = matchRoutes(staticHandler.dataRoutes, url.pathname, basename);
+    const currentMatch = matches?.[matches.length - 1];
 
+    if (url.searchParams.has('_data')) {
       let response = await handleData$(staticHandler, request, currentMatch?.route.id);
 
       if (handleData) {
@@ -72,6 +72,26 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
       }
 
       return isResponse(response) ? response : json(response);
+    }
+
+    if (matches?.find((match) => match.route.handle?.api)) {
+      try {
+        return await staticHandler.queryRoute(request, {
+          routeId: currentMatch?.route.id,
+        });
+      } catch (error) {
+        if (isResponse(error)) {
+          error.headers.set('X-Nxt-Catch', 'yes');
+          return error;
+        }
+
+        return new Response('Unexpected Server Error', {
+          status: 500,
+          headers: {
+            'Content-Type': 'text/plain',
+          },
+        });
+      }
     }
 
     let context;
