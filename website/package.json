@@ -24,7 +24,7 @@
     "isbot": "^3.6.10",
     "next-mdx-remote": "^4.4.1",
     "polka": "1.0.0-next.22",
-    "prisma-soft-delete-middleware": "^1.1.0",
+    "prisma-soft-delete-middleware": "^1.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
@@ -35,8 +35,8 @@
   "devDependencies": {
     "@resolid/nxt-tailwind": "workspace:*",
     "@resolid/nxt-tests": "workspace:*",
-    "@vcarl/remark-headings": "^0.1.0",
     "@types/fs-extra": "^11.0.1",
+    "@vcarl/remark-headings": "^0.1.0",
     "autoprefixer": "^10.4.14",
     "chokidar": "^3.5.3",
     "commander": "^10.0.1",
