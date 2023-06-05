@@ -72,7 +72,7 @@ export const Button = polymorphicComponent<'button', ButtonProps>((props, ref) =
     as: Component = 'button',
     className,
     children,
-    type = 'button',
+    type,
     active = false,
     disabled = group?.disabled ?? false,
     loading = false,
@@ -103,7 +103,7 @@ export const Button = polymorphicComponent<'button', ButtonProps>((props, ref) =
         className
       )}
       disabled={disabled || loading}
-      type={type || defaultType}
+      type={type ?? defaultType}
       data-active={dataAttr(active)}
       ref={refs}
       {...rest}
