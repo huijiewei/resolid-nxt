@@ -24,7 +24,7 @@
     "isbot": "^3.6.10",
     "next-mdx-remote": "^4.4.1",
     "polka": "1.0.0-next.22",
-    "prisma-soft-delete-middleware": "^1.1.1",
+    "prisma-soft-delete-middleware": "^1.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
