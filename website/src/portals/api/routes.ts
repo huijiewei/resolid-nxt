@@ -16,9 +16,9 @@ const routes: RouteObject[] = [
       },
       {
         path: '*',
-        loader: () => {
+        loader: server$(() => {
           throw new Response('Not Found', { status: 404 });
-        },
+        }),
       },
     ],
   },

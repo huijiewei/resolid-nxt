@@ -1,20 +1,17 @@
 import { RunServer } from '@resolid/nxt-run';
 import { createHandler, processHelmet } from '@resolid/nxt-run/server';
-import { createInstance } from 'i18next';
-import FsBackend from 'i18next-fs-backend';
 import isbot from 'isbot';
-import { resolve } from 'node:path';
 import { PassThrough, Readable } from 'node:stream';
 import { renderToPipeableStream } from 'react-dom/server';
-import { I18nextProvider, initReactI18next } from 'react-i18next';
+import { I18nextProvider } from 'react-i18next';
 import { i18n } from '~/i18n';
+import { getInstance } from '~/i18n.server';
 
 const ABORT_DELAY = 5000;
 
 export default createHandler(async (request, responseStatusCode, responseHeaders, entryContext, renderOptions) => {
   const ready = isbot(request.headers.get('user-agent')) ? 'onAllReady' : 'onShellReady';
 
-  const instance = createInstance();
   const lng =
     entryContext.staticHandlerContext.matches.find((m) => m.params.lang != undefined)?.params.lang ??
     (i18n.fallbackLng as string);
@@ -22,19 +19,10 @@ export default createHandler(async (request, responseStatusCode, responseHeaders
     .filter((m) => m.route.handle?.i18n != undefined)
     .flatMap((m) => m.route.handle.i18n);
 
-  await instance
-    .use(FsBackend)
-    .use(initReactI18next)
-    .init({
-      ...i18n,
-      lng,
-      ns: ['common', ...ns],
-      debug: false,
-      backend: { loadPath: resolve('./public/locales/{{lng}}/{{ns}}.json') },
-    });
+  const instance = await getInstance(lng, ns);
 
   return new Promise((resolve, reject) => {
-    let didError = false;
+    let shellRendered = false;
 
     const { pipe, abort } = renderToPipeableStream(
       <I18nextProvider i18n={instance}>
@@ -42,6 +30,8 @@ export default createHandler(async (request, responseStatusCode, responseHeaders
       </I18nextProvider>,
       {
         [ready]() {
+          shellRendered = true;
+
           const body = new PassThrough();
 
           responseHeaders.set('Content-Type', 'text/html');
@@ -49,21 +39,26 @@ export default createHandler(async (request, responseStatusCode, responseHeaders
           resolve(
             new Response(Readable.toWeb(body) as unknown as ReadableStream, {
               headers: responseHeaders,
-              status: didError ? 500 : responseStatusCode,
+              status: responseStatusCode,
             })
           );
 
           body.write(
-            processHelmet(renderOptions.startHtml.replace('<html lang="en">', `<html lang="${lng}">`), entryContext)
+            processHelmet(
+              renderOptions.startHtml.replace('<html lang="en">', `<html lang="${lng}"  dir="${instance.dir()}">`),
+              entryContext
+            )
           );
           pipe(body);
           body.write(renderOptions.endHtml);
         },
         onShellError: reject,
         onError(error) {
-          didError = true;
+          responseStatusCode = 500;
 
-          console.error(error);
+          if (shellRendered) {
+            console.error(error);
+          }
         },
       }
     );

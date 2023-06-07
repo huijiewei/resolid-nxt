@@ -65,6 +65,7 @@ export const LocaleSwitcher = () => {
                 );
 
                 document.documentElement.setAttribute('lang', key);
+                document.documentElement.setAttribute('dir', i18n.dir(key));
               }}
             >
               <div className={'flex items-center gap-1'}>{LOCALES[key as keyof typeof LOCALES]}</div>
