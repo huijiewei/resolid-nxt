@@ -19,7 +19,7 @@
     "@resolid/nxt-utils": "workspace:*",
     "fast-blurhash": "^1.1.2",
     "i18next": "^22.5.1",
-    "i18next-fs-backend": "^2.1.2",
+    "i18next-fs-backend": "^2.1.3",
     "i18next-http-backend": "^2.2.1",
     "isbot": "^3.6.10",
     "next-mdx-remote": "^4.4.1",
