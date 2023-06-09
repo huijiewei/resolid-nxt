@@ -16,3 +16,8 @@ yarn add @resolid/nxtrun
 ## Documentation
 
 For full documentation, visit [nxt.resolid.tech/run](https://nxt.resolid.tech/run).
+
+## Acknowledgment
+
+- [Remix Run](https://github.com/remix.run/remix)
+- [TanStack Bling](https://github.com/TanStack/bling)

@@ -1,10 +1,10 @@
 import { createHeaders, createRequest, getUrl, setResponse } from '@resolid/nxt-run/node';
-import { readFileSync } from 'fs';
-import { type IncomingMessage, type ServerResponse } from 'http';
-import { dirname, join } from 'path';
+import { readFileSync } from 'node:fs';
+import { type IncomingMessage, type ServerResponse } from 'node:http';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import polka from 'polka';
 import sirv from 'sirv';
-import { fileURLToPath } from 'url';
 
 // @ts-expect-error Cannot find module
 import manifest from './route-manifest.json';

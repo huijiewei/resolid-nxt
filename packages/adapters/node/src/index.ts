@@ -2,10 +2,10 @@ import { type NxtRunAdapter } from '@resolid/nxt-run/vite';
 import common from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import nodeResolve from '@rollup/plugin-node-resolve';
-import { readFileSync, writeFileSync } from 'fs';
-import { dirname, join } from 'path';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { rollup } from 'rollup';
-import { fileURLToPath } from 'url';
 
 export default function (): NxtRunAdapter {
   return {
