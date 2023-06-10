@@ -1,12 +1,23 @@
-import { type AgnosticRouteMatch } from '@remix-run/router';
+import { type AgnosticRouteMatch, type ShouldRevalidateFunction } from '@remix-run/router';
 import { HelmetProvider } from 'react-helmet-async';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, type RouteObject } from 'react-router-dom';
 
 // @ts-expect-error Cannot find module
 import * as Root from '~nxt-run/root';
 
 // @ts-expect-error Cannot find module
 import routes from '~nxt-run/routes';
+
+const createRoutes = (routes: RouteObject[]): RouteObject[] => {
+  return routes.map((route) => {
+    return {
+      ...route,
+      shouldRevalidate: (arg: ShouldRevalidateFunction['arguments']) =>
+        route.shouldRevalidate ? route.shouldRevalidate(arg) : false,
+      children: route.children ? createRoutes(route.children) : undefined,
+    } as RouteObject;
+  });
+};
 
 // noinspection JSUnusedGlobalSymbols
 export const RunClient = () => {
@@ -17,8 +28,9 @@ export const RunClient = () => {
         id: 'root',
         loader: Root.loader,
         handle: Root.handle,
+        shouldRevalidate: () => false,
         element: <Root.default />,
-        children: routes,
+        children: createRoutes(routes),
       },
     ],
     {
