@@ -21,7 +21,7 @@ const [ColorModeDispatchProvider, useColorModeDispatch] = createContext<ColorMod
   strict: true,
 });
 
-export { useColorModeState, useColorModeDispatch };
+export { useColorModeDispatch, useColorModeState };
 
 const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)';
 

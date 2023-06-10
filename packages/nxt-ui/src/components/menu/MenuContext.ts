@@ -4,8 +4,7 @@ import { type HTMLProps, type MutableRefObject } from 'react';
 import { createContext } from '../../primitives';
 import type { FloatingFloatingContext } from '../floating/FloatingFloatingContext';
 
-export { MenuFloatingProvider, useMenuFloating };
-export { MenuSelectProvider, useMenuSelect };
+export { MenuFloatingProvider, MenuSelectProvider, useMenuFloating, useMenuSelect };
 
 export type MenuFloatingContext = MenuSelectContext &
   FloatingFloatingContext & {

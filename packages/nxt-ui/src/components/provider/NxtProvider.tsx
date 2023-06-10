@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 import { ToastProvider, type ToastProviderProps } from '../toast/ToastProvider';
 import { ColorModeProvider, useColorModeDispatch, useColorModeState } from './ColorModeProvider';
 
-export { useColorModeState, useColorModeDispatch };
+export { useColorModeDispatch, useColorModeState };
 
 export type NxtProviderProps = {
   toastOptions?: ToastProviderProps;

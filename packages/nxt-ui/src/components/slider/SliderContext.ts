@@ -72,9 +72,7 @@ const [SliderProvider, useSlider] = createContext<SliderContext>({
   name: 'SliderContext',
 });
 
-export { SliderProvider, useSlider };
-export { SliderValueProvider, useSliderValue };
-export { SliderThumbProvider, useSliderThumb };
+export { SliderProvider, SliderThumbProvider, SliderValueProvider, useSlider, useSliderThumb, useSliderValue };
 
 type SliderValueContext = {
   value: SliderValue;
