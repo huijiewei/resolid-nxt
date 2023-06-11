@@ -1,8 +1,9 @@
 {
-  "name": "@resolid/nxt-run-node",
+  "name": "@resolid/nxt-run-form",
   "version": "1.0.0",
-  "type": "module",
+  "description": "Utility wrapper around react-hook-form for use with Resolid Nxt",
   "sideEffects": false,
+  "type": "module",
   "publishConfig": {
     "access": "public"
   },
@@ -22,28 +23,30 @@
       "require": "./dist/index.cjs"
     }
   },
-  "engines": {
-    "node": ">=18"
-  },
   "dependencies": {
-    "polka": "1.0.0-next.22",
-    "sirv": "^2.0.3"
+    "@resolid/nxt-utils": "workspace:*"
   },
   "devDependencies": {
+    "@hookform/resolvers": "^3.1.0",
     "@resolid/nxt-run": "workspace:*",
-    "@rollup/plugin-commonjs": "^24.1.0",
-    "@rollup/plugin-json": "^6.0.0",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "rollup": "^3.25.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.3",
+    "react-router-dom": "^6.12.1",
+    "zod": "^3.21.4"
   },
   "peerDependencies": {
-    "@resolid/nxt-run": "*"
+    "@resolid/nxt-run": "*",
+    "react": ">=18",
+    "react-dom": ">=18",
+    "react-hook-form": ">=7",
+    "react-router-dom": ">=6"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/huijiewei/resolid-nxt",
-    "directory": "packages/adapters/nxt-run-node"
+    "directory": "packages/nxt-run-form"
   },
-  "homepage": "https://nxt.resolid.tech/run",
+  "homepage": "https://nxt.resolid.tech",
   "license": "MIT"
 }
