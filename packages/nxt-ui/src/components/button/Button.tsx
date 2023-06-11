@@ -1,7 +1,4 @@
 import { __DEV__, cx, dataAttr } from '@resolid/nxt-utils';
-import type { ElementType } from 'react';
-import { useCallback, useState } from 'react';
-import { useMergedRefs } from '../../hooks';
 import { polymorphicComponent } from '../../primitives';
 import { buttonStyles } from './Button.style';
 import { useButtonGroup, type ButtonBaseProps } from './ButtonGroupContext';
@@ -49,22 +46,6 @@ export type ButtonProps = ButtonBaseProps & {
   spinnerPlacement?: 'start' | 'end';
 };
 
-const useButtonType = (value?: ElementType) => {
-  const [isButton, setIsButton] = useState(!value);
-
-  const refCallback = useCallback((node: HTMLElement | null) => {
-    if (!node) {
-      return;
-    }
-
-    setIsButton(node.tagName === 'BUTTON');
-  }, []);
-
-  const type = isButton ? 'button' : undefined;
-
-  return { ref: refCallback, type } as const;
-};
-
 export const Button = polymorphicComponent<'button', ButtonProps>((props, ref) => {
   const group = useButtonGroup();
 
@@ -86,10 +67,6 @@ export const Button = polymorphicComponent<'button', ButtonProps>((props, ref) =
     ...rest
   } = props;
 
-  const { ref: _ref, type: defaultType } = useButtonType(Component);
-
-  const refs = useMergedRefs(ref, _ref);
-
   return (
     <Component
       className={cx(
@@ -103,9 +80,9 @@ export const Button = polymorphicComponent<'button', ButtonProps>((props, ref) =
         className
       )}
       disabled={disabled || loading}
-      type={type ?? defaultType}
+      type={type ?? (Component == 'button' ? 'button' : undefined)}
       data-active={dataAttr(active)}
-      ref={refs}
+      ref={ref}
       {...rest}
     >
       {loading && spinnerPlacement === 'start' && (
