@@ -9,7 +9,7 @@ import {
 import { cx } from '@resolid/nxt-utils';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { UNSAFE_RouteContext, generatePath, useNavigate, useParams } from 'react-router-dom';
+import { UNSAFE_RouteContext, generatePath, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Locale } from '~/common/icons/Locale';
 import { LOCALES } from '~/i18n';
 
@@ -19,6 +19,7 @@ export const LocaleSwitcher = () => {
   const routeContext = useContext(UNSAFE_RouteContext);
   const params = useParams();
   const navigate = useNavigate();
+  const { search } = useLocation();
 
   return (
     <DropdownMenu placement={'bottom'}>
@@ -60,6 +61,7 @@ export const LocaleSwitcher = () => {
                       ...params,
                       lang: key,
                     }),
+                    search,
                   },
                   { replace: true }
                 );
