@@ -7,5 +7,10 @@
   "copyCode": "复制代码",
   "copied": "复制成功",
   "changeLanguage": "更改语言",
-  "changeColorMode": "更改颜色模式"
+  "changeColorMode": "更改颜色模式",
+  "login": "登录",
+  "email": "邮箱",
+  "password": "密码",
+  "userNotExist": "用户不存在",
+  "passwordWrong": "密码错误"
 }

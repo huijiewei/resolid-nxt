@@ -13,7 +13,7 @@ export const getInstance = async (lng: string, ns: string[]) => {
     .init({
       ...i18n,
       lng,
-      ns: ['common', ...ns],
+      ns,
       debug: false,
       backend: { loadPath: resolve('./public/locales/{{lng}}/{{ns}}.json') },
     });
@@ -21,8 +21,9 @@ export const getInstance = async (lng: string, ns: string[]) => {
   return instance;
 };
 
-export const getFixedT = async (lng: string, ns?: string) => {
-  const instance = await getInstance(lng, ns ? [ns] : []);
+export const getFixedT = async (lng: string | null, ns?: string) => {
+  const language = lng ?? (i18n.fallbackLng as string);
+  const instance = await getInstance(language, ns ? [ns] : []);
 
-  return instance.getFixedT(lng, ns);
+  return instance.getFixedT(language, ns);
 };

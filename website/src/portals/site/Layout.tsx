@@ -2,15 +2,17 @@ import { Button, Tooltip, noScrollbarsClassName } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Outlet } from 'react-router-dom';
+import { Outlet, createPath, createSearchParams, useLocation, type To } from 'react-router-dom';
 import { Banner } from '~/common/components/Banner';
 import { LazyLoader } from '~/common/components/LazyLoader';
 import { Link, NavLink } from '~/common/components/Link';
 import { LocaleSwitcher } from '~/common/components/LocaleSwitcher';
 import { ThemeSwitcher } from '~/common/components/ThemeSwitcher';
+import { useSessionUser } from '~/common/hooks/useSessionUser';
 import { Close } from '~/common/icons/Close';
 import { Github } from '~/common/icons/Github';
 import { Menu } from '~/common/icons/Menu';
+import { UserCircle } from '~/common/icons/UserCircle';
 
 const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> }) => {
   const { t } = useTranslation('site');
@@ -39,6 +41,33 @@ const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> })
         </li>
       ))}
     </ul>
+  );
+};
+
+const NavUser = () => {
+  const { t } = useTranslation('common');
+  const user = useSessionUser();
+  const location = useLocation();
+
+  if (user) {
+    return '';
+  }
+
+  const to: To = {
+    pathname: 'login',
+    search: location.search,
+  };
+
+  if (!location.pathname.endsWith('login')) {
+    to.search = createSearchParams({ direct: createPath(location) }).toString();
+  }
+
+  return (
+    <Tooltip placement={'bottom'} content={t('login')}>
+      <Button className={'!px-0 aspect-square'} color={'neutral'} variant={'subtle'} as={Link} to={to}>
+        <UserCircle size={'sm'} />
+      </Button>
+    </Tooltip>
   );
 };
 
@@ -72,6 +101,7 @@ const Header = () => {
             <NavMenu onClick={() => setOpened(false)} />
           </div>
           <div className={'flex flex-row items-center gap-1'}>
+            <NavUser />
             <LocaleSwitcher />
             <ThemeSwitcher />
             <Tooltip placement={'bottom'} content={t('link.github')}>
@@ -79,7 +109,7 @@ const Header = () => {
                 as={'a'}
                 color={'neutral'}
                 variant={'subtle'}
-                aria-label={t('link.github') || 'Github'}
+                aria-label={t('link.github') as string}
                 className={'aspect-square !px-0'}
                 rel="noreferrer"
                 target="_blank"

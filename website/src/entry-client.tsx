@@ -26,7 +26,7 @@ async function hydrate() {
     .init({
       ...i18n,
       lng,
-      ns: ['common', ...ns],
+      ns,
       debug: false,
     });
 

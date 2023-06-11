@@ -33,6 +33,7 @@ const routes: RouteObject[] = [
         Component: lazy(() => import('~/modules/home/Index')),
       },
       { path: 'about', Component: lazy(() => import('~/modules/home/About')) },
+      { path: 'login', Component: lazy(() => import('~/modules/home/Login')) },
       {
         path: 'run',
         handle: { i18n: 'run' },

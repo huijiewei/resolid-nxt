@@ -8,6 +8,6 @@ export const LOCALES = {
 export const i18n: InitOptions = {
   supportedLngs: Object.keys(LOCALES),
   fallbackLng: 'en',
-  defaultNS: 'common',
+  defaultNS: ['common', 'zod'],
   load: 'currentOnly',
 };

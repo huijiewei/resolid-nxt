@@ -7,5 +7,10 @@
   "copyCode": "Copy code",
   "copied": "Copied",
   "changeLanguage": "Change Language",
-  "changeColorMode": "Change Color Mode"
+  "changeColorMode": "Change Color Mode",
+  "login": "Login",
+  "email": "Email",
+  "password": "Password",
+  "userNotExist": "User is not exist",
+  "passwordWrong": "Password is wrong"
 }
