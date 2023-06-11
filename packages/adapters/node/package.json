@@ -34,7 +34,7 @@
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.1.0",
-    "rollup": "^3.24.0"
+    "rollup": "^3.24.1"
   },
   "peerDependencies": {
     "@resolid/nxt-run": "*"

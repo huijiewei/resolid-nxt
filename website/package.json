@@ -49,5 +49,8 @@
     "tailwindcss": "^3.3.2",
     "tsx": "^3.12.7",
     "vfile": "^5.3.7"
+  },
+  "prisma": {
+    "seed": "tsx ./prisma/seed.ts"
   }
 }
