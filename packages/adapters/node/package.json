@@ -10,7 +10,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "watch": "tsup --watch"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

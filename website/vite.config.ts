@@ -59,6 +59,9 @@ export default defineConfig(({ command }) => {
     build: {
       minify: true,
     },
+    ssr: {
+      external: ['@node-rs/bcrypt', '@prisma/client', 'prisma'],
+    },
     optimizeDeps: {
       include: ['fast-blurhash'],
     },

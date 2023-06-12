@@ -15,7 +15,7 @@ export default function (): NxtRunAdapter {
 
       const inputEntry = join(root, '.resolid', 'server', 'server.js');
 
-      writeFileSync(inputEntry, readFileSync(join(__dirname, 'entry.js')).toString());
+      writeFileSync(inputEntry, readFileSync(join(__dirname, 'entry.js'), 'utf8'), 'utf8');
 
       const bundle = await rollup({
         input: inputEntry,
@@ -35,6 +35,34 @@ export default function (): NxtRunAdapter {
         file: join(outPath, 'server.mjs'),
         inlineDynamicImports: true,
       });
+
+      const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+
+      const distPkg = {
+        name: pkg.name,
+        type: pkg.type,
+        scripts: {
+          postinstall: pkg.scripts?.postinstall ?? '',
+        },
+        dependencies: {
+          ...Object.keys(pkg.dependencies)
+            .filter((key) => ssrExternal?.includes(key))
+            .reduce((obj: Record<string, string>, key) => {
+              obj[key] = pkg.dependencies[key];
+
+              return obj;
+            }, {}),
+          ...Object.keys(pkg.devDependencies)
+            .filter((key) => ssrExternal?.includes(key))
+            .reduce((obj: Record<string, string>, key) => {
+              obj[key] = pkg.devDependencies[key];
+
+              return obj;
+            }, {}),
+        },
+      };
+
+      writeFileSync(join(outPath, 'package.json'), JSON.stringify(distPkg, null, 2), 'utf8');
 
       await bundle.close();
     },
