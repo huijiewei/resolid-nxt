@@ -1,3 +1,3 @@
 export const FormError = ({ message }: { message: string | undefined }) => {
-  return <p className={'text-fg-danger'}>{message ?? <span>&nbsp;</span>}</p>;
+  return <>{message && <p className={'text-fg-danger text-sm absolute top-full left-0'}>{message}</p>}</>;
 };

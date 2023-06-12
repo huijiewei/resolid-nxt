@@ -33,7 +33,6 @@ export const useNxtFetcherForm = <T extends FieldValues>({
   ...formProps
 }: UseNxtFetcherFormOptions<T>) => {
   const fetcher = useFetcher();
-  const data = fetcher.data;
   const methods = useForm<T>(formProps);
 
   const onSubmit = (data: T) => {
@@ -59,15 +58,11 @@ export const useNxtFetcherForm = <T extends FieldValues>({
     isLoading,
   } = formState;
 
-  const formErrors = mergeErrors<T>(errors, data?.errors ? data.errors : data);
+  const formErrors = mergeErrors<T>(errors, fetcher.data?.errors);
 
   return {
     ...methods,
     handleSubmit: methods.handleSubmit(submitHandlers?.onValid ?? onSubmit, submitHandlers?.onInvalid ?? onInvalid),
-    register: (name: Path<T>, options?: RegisterOptions<T>) => ({
-      ...methods.register(name, options),
-      defaultValue: data?.defaultValues?.[name] ?? '',
-    }),
     formState: {
       dirtyFields,
       isDirty,
@@ -84,6 +79,7 @@ export const useNxtFetcherForm = <T extends FieldValues>({
     fetcher: {
       Form: fetcher.Form,
       state: fetcher.state,
+      data: fetcher.data,
     },
   };
 };
@@ -110,10 +106,6 @@ export const useNxtSubmitForm = <T extends FieldValues>({
     });
   };
 
-  const onInvalid = () => {
-    // empty
-  };
-
   const formState = methods.formState;
 
   const {
@@ -130,7 +122,7 @@ export const useNxtSubmitForm = <T extends FieldValues>({
     isLoading,
   } = formState;
 
-  const formErrors = mergeErrors<T>(errors, data?.errors ? data.errors : data);
+  const formErrors = mergeErrors<T>(errors, data?.errors);
 
   return {
     ...methods,

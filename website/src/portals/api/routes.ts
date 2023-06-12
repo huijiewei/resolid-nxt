@@ -42,7 +42,7 @@ const routes: RouteObject[] = [
               return json({
                 success: false,
                 errors: {
-                  email: { message: t('userNotExist'), type: 'invalid_string' },
+                  email: { message: t('userNotExist') },
                 },
               });
             }
@@ -51,7 +51,7 @@ const routes: RouteObject[] = [
               return json({
                 success: false,
                 errors: {
-                  password: { message: t('passwordWrong'), type: 'invalid_string' },
+                  password: { message: t('passwordWrong') },
                 },
               });
             }

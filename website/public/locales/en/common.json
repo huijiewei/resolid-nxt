@@ -8,9 +8,15 @@
   "copied": "Copied",
   "changeLanguage": "Change Language",
   "changeColorMode": "Change Color Mode",
-  "login": "Login",
+  "login": "Sign in",
+  "register": "Sign up",
+  "loginTitle": "Sign in to your account",
   "email": "Email",
   "password": "Password",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot password?",
+  "orContinue": "Or continue with",
+  "noAccount": "Don't have an account?",
   "userNotExist": "User is not exist",
   "passwordWrong": "Password is wrong"
 }

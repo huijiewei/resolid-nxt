@@ -8,9 +8,15 @@
   "copied": "复制成功",
   "changeLanguage": "更改语言",
   "changeColorMode": "更改颜色模式",
-  "login": "登录",
+  "login": "登陆",
+  "register": "注册",
+  "loginTitle": "登陆你的账号",
   "email": "邮箱",
   "password": "密码",
+  "rememberMe": "保存登陆",
+  "forgotPassword": "忘记密码?",
+  "orContinue": "第三方登陆",
+  "noAccount": "还没有账号?",
   "userNotExist": "用户不存在",
   "passwordWrong": "密码错误"
 }
