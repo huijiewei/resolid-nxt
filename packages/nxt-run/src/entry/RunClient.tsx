@@ -10,12 +10,17 @@ import routes from '~nxt-run/routes';
 
 const createRoutes = (routes: RouteObject[]): RouteObject[] => {
   return routes.map((route) => {
-    return {
+    const dataRoute = {
       ...route,
       shouldRevalidate: (arg: ShouldRevalidateFunction['arguments']) =>
-        route.shouldRevalidate ? route.shouldRevalidate(arg) : false,
-      children: route.children ? createRoutes(route.children) : undefined,
+        route.shouldRevalidate ? route.shouldRevalidate(arg) : arg.defaultShouldRevalidate,
     } as RouteObject;
+
+    if (route.children) {
+      dataRoute.children = createRoutes(route.children);
+    }
+
+    return dataRoute;
   });
 };
 
