@@ -43,12 +43,19 @@ export default createHandler(async (request, responseStatusCode, responseHeaders
             })
           );
 
-          body.write(
-            processHelmet(
-              renderOptions.startHtml.replace('<html lang="en">', `<html lang="${lng}"  dir="${instance.dir()}">`),
-              entryContext
-            )
+          let startHtml = renderOptions.startHtml.replace(
+            '<html lang="en">',
+            `<html lang="${lng}"  dir="${instance.dir()}">`
           );
+
+          if (request.headers.get('user-agent')?.includes('iPhone')) {
+            startHtml = startHtml.replace(
+              '<meta name="viewport" content="width=device-width, initial-scale=1" />',
+              '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />'
+            );
+          }
+
+          body.write(processHelmet(startHtml, entryContext));
           pipe(body);
           body.write(renderOptions.endHtml);
         },

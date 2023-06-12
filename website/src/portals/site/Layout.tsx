@@ -81,17 +81,15 @@ const Header = () => {
       className={cx('fixed inset-x-0 z-20 w-full border-b bg-bg-default/75 backdrop-blur', noScrollbarsClassName)}
     >
       <nav className={'desktop:max-w-7xl mx-auto flex h-16 items-center justify-between px-4'}>
-        <div className={'tablet:hidden flex flex-1'}>
-          <button title={'Menu'} className={'p-2'} onClick={() => setOpened((prev) => !prev)}>
+        <div className={'flex gap-4 items-center'}>
+          <button title={'Menu'} className={'p-2 tablet:hidden'} onClick={() => setOpened((prev) => !prev)}>
             {opened ? <Close size={'sm'} /> : <Menu size={'sm'} />}
           </button>
-        </div>
-        <div className={'tablet:justify-between flex flex-1 items-center justify-center'}>
           <Link to={''}>
             <Banner />
           </Link>
         </div>
-        <div className={'flex flex-1 items-center justify-end gap-4'}>
+        <div className={'flex items-center gap-4'}>
           <div
             className={cx(
               'tablet:block tablet:relative tablet:top-0 tablet:h-auto absolute inset-x-0 top-[calc(4rem+1px)] z-20 h-screen bg-bg-default tablet:bg-inherit p-0',
