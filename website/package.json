@@ -12,7 +12,7 @@
     "nxt": "tsx ./cli/index.ts"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.1.0",
+    "@hookform/resolvers": "^3.1.1",
     "@node-rs/bcrypt": "^1.7.1",
     "@prisma/client": "^4.15.0",
     "@resolid/nxt-prism": "workspace:*",
