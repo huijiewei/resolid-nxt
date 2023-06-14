@@ -26,7 +26,7 @@ function BasicDemo() {
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Modal Body</ModalBody>
+          <ModalBody className={'p-3'}>Modal Body</ModalBody>
           <ModalFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </ModalFooter>
@@ -51,7 +51,7 @@ export const Basic = () => {
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Modal Body</ModalBody>
+          <ModalBody className={'p-3'}>Modal Body</ModalBody>
           <ModalFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </ModalFooter>
@@ -75,7 +75,7 @@ function CenteredDemo() {
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Modal Body</ModalBody>
+          <ModalBody className={'p-3'}>Modal Body</ModalBody>
           <ModalFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </ModalFooter>
@@ -100,7 +100,7 @@ export const Centered = () => {
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Modal Body</ModalBody>
+          <ModalBody className={'p-3'}>Modal Body</ModalBody>
           <ModalFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </ModalFooter>
@@ -124,7 +124,7 @@ function UnlockScrollDemo() {
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Modal Body</ModalBody>
+          <ModalBody className={'p-3'}>Modal Body</ModalBody>
           <ModalFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </ModalFooter>
@@ -149,7 +149,7 @@ export const UnlockScroll = () => {
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Modal Body</ModalBody>
+          <ModalBody className={'p-3'}>Modal Body</ModalBody>
           <ModalFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </ModalFooter>
@@ -266,7 +266,7 @@ const ScrollBehaviorDemo = () => {
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>M2 Pro and M2 Max MacBook Pros</ModalHeader>
           <ModalCloseButton />
-          <ModalBody className={'flex flex-col gap-3'}>
+          <ModalBody className={'flex flex-col gap-3 p-3'}>
             <ModalBodyContent />
           </ModalBody>
           <ModalFooter className={'flex items-center justify-center gap-5'}>
@@ -304,7 +304,7 @@ export const ScrollBehavior = () => {
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>M2 Pro and M2 Max MacBook Pros</ModalHeader>
           <ModalCloseButton />
-          <ModalBody className={'flex flex-col gap-3'}>
+          <ModalBody className={'flex flex-col gap-3 p-3'}>
             <ModalBodyContent />
           </ModalBody>
           <ModalFooter className={'flex items-center justify-center gap-5'}>
@@ -340,7 +340,7 @@ const FocusDemo = () => {
               console.log('Submit');
             }}
           >
-            <ModalBody className={'flex flex-col gap-4'}>
+            <ModalBody className={'flex flex-col gap-3 p-3'}>
               <FormExample />
             </ModalBody>
             <ModalFooter className={'flex gap-3 items-center justify-end'}>
@@ -381,7 +381,7 @@ export const Focus = () => {
               console.log('Submit');
             }}
           >
-            <ModalBody className={'flex flex-col gap-4'}>
+            <ModalBody className={'flex flex-col gap-3 p-3'}>
               <FormExample />
             </ModalBody>
             <ModalFooter className={'flex gap-3 items-center justify-end'}>
@@ -432,7 +432,7 @@ const OverlayStylingDemo = () => {
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Modal Body</ModalBody>
+          <ModalBody className={'p-3'}>Modal Body</ModalBody>
           <ModalFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </ModalFooter>
@@ -478,7 +478,7 @@ export const OverlayStyling = () => {
         <ModalContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Modal Body</ModalBody>
+          <ModalBody className={'p-3'}>Modal Body</ModalBody>
           <ModalFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </ModalFooter>
