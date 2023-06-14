@@ -41,6 +41,7 @@ const routes: RouteObject[] = [
             if (user == null) {
               return json({
                 success: false,
+                revalidate: false,
                 errors: {
                   email: { message: t('userNotExist') },
                 },
@@ -50,6 +51,7 @@ const routes: RouteObject[] = [
             if (!verifySync(data.password, user.password)) {
               return json({
                 success: false,
+                revalidate: false,
                 errors: {
                   password: { message: t('passwordWrong') },
                 },
@@ -58,6 +60,7 @@ const routes: RouteObject[] = [
 
             return json({
               success: true,
+              revalidate: false,
             });
           }
         }),
