@@ -12,8 +12,17 @@ const createRoutes = (routes: RouteObject[]): RouteObject[] => {
   return routes.map((route) => {
     const dataRoute = {
       ...route,
-      shouldRevalidate: (arg: ShouldRevalidateFunction['arguments']) =>
-        route.shouldRevalidate ? route.shouldRevalidate(arg) : arg.defaultShouldRevalidate,
+      shouldRevalidate: (arg: ShouldRevalidateFunction['arguments']) => {
+        if (route.shouldRevalidate) {
+          return route.shouldRevalidate(arg);
+        }
+
+        if (arg.actionResult?.revalidate === false) {
+          return false;
+        }
+
+        return arg.defaultShouldRevalidate;
+      },
     } as RouteObject;
 
     if (route.children) {
