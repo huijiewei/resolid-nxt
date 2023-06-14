@@ -489,6 +489,7 @@ const CustomDemo = () => {
     },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const optionRender = (browser: any) => {
     return (
       <div className={'flex items-center gap-2'}>
@@ -501,6 +502,7 @@ const CustomDemo = () => {
     );
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const labelRender = (browser: any) => {
     return (
       <div className={'flex flex-row items-center gap-2'}>

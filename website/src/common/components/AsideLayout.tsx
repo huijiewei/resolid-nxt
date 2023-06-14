@@ -12,7 +12,7 @@ const [AsideLayoutDispatchProvider, useAsideLayoutDispatch] = createContext<Disp
   strict: true,
 });
 
-export { useAsideLayoutState, useAsideLayoutDispatch };
+export { useAsideLayoutDispatch, useAsideLayoutState };
 
 const AsideBar = () => {
   const setOpen = useAsideLayoutDispatch();

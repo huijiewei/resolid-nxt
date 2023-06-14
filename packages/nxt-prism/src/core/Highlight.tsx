@@ -7,7 +7,7 @@ import { useGetTokenProps, type TokenInputProps, type TokenOutputProps } from '.
 import { useThemeDict } from './useThemeDict';
 import { useTokenize } from './useTokenize';
 
-export type { PrismTheme, Language };
+export type { Language, PrismTheme };
 
 export type HighlightProps = {
   prism: PrismLib;
