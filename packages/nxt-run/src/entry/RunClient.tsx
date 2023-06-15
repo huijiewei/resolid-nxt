@@ -57,7 +57,7 @@ export const RunClient = () => {
 
   return (
     <HelmetProvider>
-      <RouterProvider router={router} fallbackElement={null} />
+      <RouterProvider future={{ v7_startTransition: true }} router={router} fallbackElement={null} />
     </HelmetProvider>
   );
 };
