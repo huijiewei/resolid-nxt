@@ -136,7 +136,7 @@ export const viteTypedoc = ({ sourcePath, outputPath }: ViteTypedocOptions): Plu
           props: getComponentProps(path),
         };
 
-        fse.writeJsonSync(outputFile, json);
+        fse.writeJsonSync(outputFile, json, { spaces: 2 });
       };
 
       watcher.on('add', (path) => generate(path, false));

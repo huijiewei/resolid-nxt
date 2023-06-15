@@ -8,7 +8,13 @@
       "description": "Color",
       "defaultValue": "'primary'"
     },
-    { "name": "value", "type": "number", "required": false, "description": "Value", "defaultValue": "" },
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "description": "Value",
+      "defaultValue": ""
+    },
     {
       "name": "size",
       "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
@@ -16,7 +22,13 @@
       "description": "Size",
       "defaultValue": "'md'"
     },
-    { "name": "label", "type": "string", "required": false, "description": "Label", "defaultValue": "" },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Label",
+      "defaultValue": ""
+    },
     {
       "name": "radius",
       "type": "number | false | true | \"xs\" | \"sm\" | \"lg\" | \"xl\" | \"full\"",

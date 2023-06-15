@@ -79,12 +79,12 @@ export const ProgressBar = primitiveComponent<'div', ProgressBarProps>((props, r
         aria-valuenow={value}
         role="progressbar"
         className={cx(
-          'flex h-full items-center justify-center rounded-none text-fg-emphasized origin-left transition-transform',
+          'flex h-full items-center justify-center rounded-none text-fg-emphasized transition-[width]',
           sizeStyle.text,
           colorStyle,
           className
         )}
-        style={{ transform: `scaleX(${value}%)` }}
+        style={{ width: `${value}%` }}
         {...rest}
       >
         {children || label}
