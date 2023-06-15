@@ -120,7 +120,7 @@ export const Tooltip = (props: PrimitiveProps<'div', TooltipProps>) => {
   });
 
   const { getFloatingProps, getReferenceProps } = useInteractions([
-    useHover(context),
+    useHover(context, { move: false }),
     useFocus(context),
     useRole(context, { role: 'tooltip' }),
     useDismiss(context),
