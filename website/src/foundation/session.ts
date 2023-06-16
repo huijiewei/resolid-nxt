@@ -63,6 +63,7 @@ const { getSession, commitSession, destroySession } = createDatabaseSessionStora
   cookie: {
     name: '__session',
     httpOnly: true,
+    sameSite: 'lax',
     path: '/',
   },
 });

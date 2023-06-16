@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { z } from 'zod';
 import { makeZodI18nMap } from 'zod-i18n-map';
-import { AuthLoginProvider } from '~/common/components/AuthLoginProvider';
+import { AuthProvider } from '~/common/components/AuthProvider';
 import { LazyLoader } from '~/common/components/LazyLoader';
 import { getSession } from '~/foundation/session';
 
@@ -29,11 +29,11 @@ export default function Root() {
         <meta name="keywords" content="react, react-router, tailwindcss, vite, typescript, framework" />
       </Helmet>
       <NxtProvider>
-        <AuthLoginProvider>
+        <AuthProvider>
           <Suspense fallback={<LazyLoader />}>
             <Outlet />
           </Suspense>
-        </AuthLoginProvider>
+        </AuthProvider>
       </NxtProvider>
       <ScrollRestoration />
     </>

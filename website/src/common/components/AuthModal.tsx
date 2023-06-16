@@ -1,12 +1,12 @@
 import { Modal, ModalBody, ModalContent, ModalOverlay } from '@resolid/nxt-ui';
 import { AuthLoginForm } from '~/common/components/AuthLoginForm';
-import { useAuthLoginDispatch } from '~/common/components/AuthLoginProvider';
+import { useAuthDispatch } from '~/common/components/AuthProvider';
 
-export const AuthLoginModal = ({ opened }: { opened: boolean }) => {
-  const { resetLoginAction } = useAuthLoginDispatch();
+export const AuthModal = ({ opened }: { opened: boolean }) => {
+  const { resetAction } = useAuthDispatch();
 
   return (
-    <Modal opened={opened} closeOnBlur={false} onClose={resetLoginAction}>
+    <Modal opened={opened} closeOnBlur={false} onClose={resetAction}>
       <ModalOverlay />
       <ModalContent>
         <ModalBody className={'p-5'}>

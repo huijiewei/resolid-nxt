@@ -58,12 +58,12 @@ const NavUser = () => {
     search: location.search,
   };
 
-  if (!location.pathname.endsWith('login')) {
+  if (!location.pathname.endsWith('login') && !location.pathname.endsWith('signup')) {
     to.search = createSearchParams({ direct: createPath(location) }).toString();
   }
 
   return (
-    <Tooltip placement={'bottom'} content={t('login')}>
+    <Tooltip placement={'bottom'} content={t('loginOrSignup')}>
       <Button className={'!px-0 aspect-square'} color={'neutral'} variant={'subtle'} as={Link} to={to}>
         <UserCircle size={'sm'} />
       </Button>
