@@ -16,7 +16,7 @@ async function main() {
     create: {
       email: 'admin@resolid.tech',
       emailVerified: new Date(),
-      name: 'admin',
+      username: 'admin',
       password: hashSync('123456'),
       nickname: 'Admin User',
       userGroupId: adminGroup.id,
