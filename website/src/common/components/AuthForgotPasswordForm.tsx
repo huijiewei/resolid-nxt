@@ -5,6 +5,7 @@ import { Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import { z } from 'zod';
+import { AuthModalAction, useAuthModalDispatch } from '~/common/components/AuthModal';
 import { FormError } from '~/common/components/FormError';
 import { Link } from '~/common/components/Link';
 
@@ -19,6 +20,7 @@ export const authForgotPasswordResolver = zodResolver(schema);
 export const AuthForgotPasswordForm = () => {
   const { t, i18n } = useTranslation('common');
   const [params] = useSearchParams();
+  const setAuthModalAction = useAuthModalDispatch();
 
   const {
     handleSubmit,
@@ -65,9 +67,20 @@ export const AuthForgotPasswordForm = () => {
         </div>
       </Form>
       <div className={''}>
-        <Button as={Link} to={{ pathname: '../login', search: params.toString() }} className={'!px-0'} variant={'link'}>
-          {t('backLogin')}
-        </Button>
+        {setAuthModalAction ? (
+          <Button onClick={() => setAuthModalAction(AuthModalAction.LOGIN)} className={'!px-0'} variant={'link'}>
+            {t('backLogin')}
+          </Button>
+        ) : (
+          <Button
+            as={Link}
+            to={{ pathname: '../login', search: params.toString() }}
+            className={'!px-0'}
+            variant={'link'}
+          >
+            {t('backLogin')}
+          </Button>
+        )}
       </div>
     </div>
   );

@@ -26,7 +26,6 @@ export default function Root() {
       <ColorModeScript />
       <Helmet prioritizeSeoTags defaultTitle={'Resolid Nxt'} titleTemplate={'%s - Resolid Nxt'}>
         <meta name="description" content="Get your app up and running with React" />
-        <meta name="keywords" content="react, react-router, tailwindcss, vite, typescript, framework" />
       </Helmet>
       <NxtProvider>
         <AuthProvider>

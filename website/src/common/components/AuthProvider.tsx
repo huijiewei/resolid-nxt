@@ -14,27 +14,27 @@ type AuthDispatchContext = {
 };
 
 const [AuthDispatchProvider, useAuthDispatch] = createContext<AuthDispatchContext>({
-  name: 'AuthLoginDispatchContext',
+  name: 'AuthDispatchContext',
   strict: true,
 });
 
 export { useAuthDispatch };
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
-  const [authLoginState, setAuthLoginState] = useState<AuthAction>(AuthAction.NONE);
+  const [authActionState, setAuthActionState] = useState<AuthAction>(AuthAction.NONE);
 
-  const setLoginAction = (action: AuthAction) => {
-    setAuthLoginState(action);
+  const setAction = (action: AuthAction) => {
+    setAuthActionState(action);
   };
 
-  const resetLoginAction = () => {
-    setAuthLoginState(AuthAction.NONE);
+  const resetAction = () => {
+    setAuthActionState(AuthAction.NONE);
   };
 
   return (
-    <AuthDispatchProvider value={{ setAction: setLoginAction, resetAction: resetLoginAction }}>
+    <AuthDispatchProvider value={{ setAction, resetAction }}>
       {children}
-      <AuthModal opened={authLoginState == AuthAction.MODAL} />
+      <AuthModal opened={authActionState == AuthAction.MODAL} />
     </AuthDispatchProvider>
   );
 };

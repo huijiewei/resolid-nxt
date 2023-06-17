@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import { z } from 'zod';
 import { AuthContinue } from '~/common/components/AuthContinue';
+import { AuthModalAction, useAuthModalDispatch } from '~/common/components/AuthModal';
 import { FormError } from '~/common/components/FormError';
 import { Link } from '~/common/components/Link';
 
@@ -22,6 +23,7 @@ export const authLoginResolver = zodResolver(schema);
 export const AuthLoginForm = () => {
   const { t, i18n } = useTranslation('common');
   const [params] = useSearchParams();
+  const setAuthModalAction = useAuthModalDispatch();
 
   const {
     handleSubmit,
@@ -86,18 +88,33 @@ export const AuthLoginForm = () => {
           <Controller
             name={'rememberMe'}
             control={control}
-            render={({ field: { onChange } }) => <Checkbox onChange={onChange}>{t('rememberMe')}</Checkbox>}
+            render={({ field: { onChange } }) => (
+              <Checkbox id={'rememberMe'} onChange={onChange}>
+                {t('rememberMe')}
+              </Checkbox>
+            )}
           />
 
-          <Button
-            as={Link}
-            to={{ pathname: '../forgot-password', search: params.toString() }}
-            className={'!px-0'}
-            color={'neutral'}
-            variant={'link'}
-          >
-            {t('forgotPassword')}
-          </Button>
+          {setAuthModalAction ? (
+            <Button
+              onClick={() => setAuthModalAction(AuthModalAction.FORGOT_PASSWORD)}
+              className={'!px-0'}
+              color={'neutral'}
+              variant={'link'}
+            >
+              {t('forgotPassword')}
+            </Button>
+          ) : (
+            <Button
+              as={Link}
+              to={{ pathname: '../forgot-password', search: params.toString() }}
+              className={'!px-0'}
+              color={'neutral'}
+              variant={'link'}
+            >
+              {t('forgotPassword')}
+            </Button>
+          )}
         </div>
         <div className={'text-center'}>
           <Button fullWidth loading={state == 'submitting'} type={'submit'}>
@@ -107,14 +124,20 @@ export const AuthLoginForm = () => {
       </Form>
       <div className={''}>
         {t('noAccount')}&nbsp;
-        <Button
-          as={Link}
-          to={{ pathname: '../signup', search: params.toString() }}
-          className={'!px-0'}
-          variant={'link'}
-        >
-          {t('signup')}
-        </Button>
+        {setAuthModalAction ? (
+          <Button onClick={() => setAuthModalAction(AuthModalAction.SIGNUP)} className={'!px-0'} variant={'link'}>
+            {t('signup')}
+          </Button>
+        ) : (
+          <Button
+            as={Link}
+            to={{ pathname: '../signup', search: params.toString() }}
+            className={'!px-0'}
+            variant={'link'}
+          >
+            {t('signup')}
+          </Button>
+        )}
       </div>
       <AuthContinue />
     </div>

@@ -6,6 +6,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import { z } from 'zod';
 import { AuthContinue } from '~/common/components/AuthContinue';
+import { AuthModalAction, useAuthModalDispatch } from '~/common/components/AuthModal';
 import { FormError } from '~/common/components/FormError';
 import { Link } from '~/common/components/Link';
 
@@ -31,6 +32,7 @@ export const authSignupResolver = zodResolver(schema);
 export const AuthSignupForm = () => {
   const { t, i18n } = useTranslation('common');
   const [params] = useSearchParams();
+  const setAuthModalAction = useAuthModalDispatch();
 
   const {
     handleSubmit,
@@ -163,9 +165,20 @@ export const AuthSignupForm = () => {
       </Form>
       <div className={''}>
         {t('haveAccount')}&nbsp;
-        <Button as={Link} to={{ pathname: '../login', search: params.toString() }} className={'!px-0'} variant={'link'}>
-          {t('login')}
-        </Button>
+        {setAuthModalAction ? (
+          <Button onClick={() => setAuthModalAction(AuthModalAction.LOGIN)} className={'!px-0'} variant={'link'}>
+            {t('login')}
+          </Button>
+        ) : (
+          <Button
+            as={Link}
+            to={{ pathname: '../login', search: params.toString() }}
+            className={'!px-0'}
+            variant={'link'}
+          >
+            {t('login')}
+          </Button>
+        )}
       </div>
       <AuthContinue />
     </div>
