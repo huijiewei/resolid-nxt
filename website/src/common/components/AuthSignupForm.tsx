@@ -47,8 +47,6 @@ export const AuthSignupForm = () => {
     resolver: authSignupResolver,
   });
 
-  console.log(errors);
-
   return (
     <div className={'flex flex-col gap-2'}>
       <h3 className={'font-bold text-center text-xl py-3'}>{t('signupTitle')}</h3>
@@ -58,10 +56,11 @@ export const AuthSignupForm = () => {
           <Controller
             name={'email'}
             control={control}
-            render={({ field: { onChange, onBlur, value, ref } }) => (
+            render={({ field: { name, onChange, onBlur, value, ref } }) => (
               <Input
+                id={name}
+                name={name}
                 invalid={Boolean(errors.email)}
-                id={'email'}
                 type={'email'}
                 fullWidth
                 placeholder={t('email') as string}
@@ -79,10 +78,11 @@ export const AuthSignupForm = () => {
           <Controller
             name={'username'}
             control={control}
-            render={({ field: { onChange, onBlur, value, ref } }) => (
+            render={({ field: { name, onChange, onBlur, value, ref } }) => (
               <Input
+                id={name}
+                name={name}
                 invalid={Boolean(errors.username)}
-                id={'username'}
                 fullWidth
                 placeholder={t('username') as string}
                 onChange={onChange}
@@ -99,10 +99,11 @@ export const AuthSignupForm = () => {
           <Controller
             name={'password'}
             control={control}
-            render={({ field: { onChange, onBlur, value, ref } }) => (
+            render={({ field: { name, onChange, onBlur, value, ref } }) => (
               <Input
+                id={name}
+                name={name}
                 invalid={Boolean(errors.password)}
-                id={'password'}
                 type={'password'}
                 fullWidth
                 placeholder={t('password') as string}
@@ -120,10 +121,11 @@ export const AuthSignupForm = () => {
           <Controller
             name={'confirmPassword'}
             control={control}
-            render={({ field: { onChange, onBlur, value, ref } }) => (
+            render={({ field: { name, onChange, onBlur, value, ref } }) => (
               <Input
+                id={name}
+                name={name}
                 invalid={Boolean(errors.confirmPassword)}
-                id={'confirmPassword'}
                 type={'password'}
                 fullWidth
                 placeholder={t('confirmPassword') as string}
@@ -140,8 +142,8 @@ export const AuthSignupForm = () => {
           <Controller
             name={'agreeTerms'}
             control={control}
-            render={({ field: { onChange } }) => (
-              <Checkbox onChange={onChange}>
+            render={({ field: { name, onChange } }) => (
+              <Checkbox id={name} name={name} invalid={Boolean(errors.agreeTerms)} onChange={onChange}>
                 <Trans t={t} i18nKey={'agreeTerms'}>
                   Agree{' '}
                   <Link className={'text-link hover:text-link-hovered'} target={'_blank'} to={'../terms'}>
@@ -155,7 +157,6 @@ export const AuthSignupForm = () => {
               </Checkbox>
             )}
           />
-          <FormError message={errors.agreeTerms?.message ? '请同意服务协议' : undefined} />
         </div>
         <div className={'text-center'}>
           <Button fullWidth loading={state == 'submitting'} type={'submit'}>

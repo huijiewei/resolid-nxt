@@ -44,10 +44,11 @@ export const AuthForgotPasswordForm = () => {
           <Controller
             name={'email'}
             control={control}
-            render={({ field: { onChange, onBlur, value, ref } }) => (
+            render={({ field: { name, onChange, onBlur, value, ref } }) => (
               <Input
+                id={name}
+                name={name}
                 invalid={Boolean(errors.email)}
-                id={'email'}
                 type={'email'}
                 fullWidth
                 placeholder={t('email') as string}

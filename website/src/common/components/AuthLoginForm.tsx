@@ -47,10 +47,11 @@ export const AuthLoginForm = () => {
           <Controller
             name={'email'}
             control={control}
-            render={({ field: { onChange, onBlur, value, ref } }) => (
+            render={({ field: { name, onChange, onBlur, value, ref } }) => (
               <Input
+                id={name}
+                name={name}
                 invalid={Boolean(errors.email)}
-                id={'email'}
                 type={'email'}
                 fullWidth
                 placeholder={t('email') as string}
@@ -68,10 +69,11 @@ export const AuthLoginForm = () => {
           <Controller
             name={'password'}
             control={control}
-            render={({ field: { onChange, onBlur, value, ref } }) => (
+            render={({ field: { name, onChange, onBlur, value, ref } }) => (
               <Input
+                id={name}
+                name={name}
                 invalid={Boolean(errors.password)}
-                id={'password'}
                 type={'password'}
                 fullWidth
                 placeholder={t('password') as string}
@@ -88,8 +90,8 @@ export const AuthLoginForm = () => {
           <Controller
             name={'rememberMe'}
             control={control}
-            render={({ field: { onChange } }) => (
-              <Checkbox id={'rememberMe'} onChange={onChange}>
+            render={({ field: { name, onChange } }) => (
+              <Checkbox id={name} name={name} onChange={onChange}>
                 {t('rememberMe')}
               </Checkbox>
             )}
