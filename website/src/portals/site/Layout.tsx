@@ -1,5 +1,5 @@
 import { Button, Tooltip, noScrollbarsClassName } from '@resolid/nxt-ui';
-import { cx } from '@resolid/nxt-utils';
+import { cx, omit } from '@resolid/nxt-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Outlet, createPath, createSearchParams, useLocation, type To } from 'react-router-dom';
@@ -59,7 +59,7 @@ const NavUser = () => {
   };
 
   if (!location.pathname.endsWith('login') && !location.pathname.endsWith('signup')) {
-    to.search = createSearchParams({ direct: createPath(location) }).toString();
+    to.search = createSearchParams({ direct: createPath(omit(location, ['hash'])) }).toString();
   }
 
   return (
