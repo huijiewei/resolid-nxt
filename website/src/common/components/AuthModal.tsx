@@ -29,7 +29,7 @@ export const AuthModal = ({ opened }: { opened: boolean }) => {
       <ModalOverlay />
       <ModalContent>
         <ModalCloseButton />
-        <ModalBody className={'p-5 w-96'}>
+        <ModalBody className={'p-5 w-[30em]'}>
           <AuthModalDispatchProvider value={(action) => setAuthActionState(action)}>
             {authActionState == AuthModalAction.LOGIN && <AuthLoginForm />}
             {authActionState == AuthModalAction.SIGNUP && <AuthSignupForm />}
