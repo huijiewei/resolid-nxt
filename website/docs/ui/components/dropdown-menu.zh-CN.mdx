@@ -1,0 +1,52 @@
+---
+title: 下拉菜单
+description: 一个常见的下拉菜单按钮设计模式的可访问下拉菜单。菜单使用循环的 tabIndex 来进行焦点管理。
+---
+
+## 导入
+
+```javascript
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuArrow,
+  DropdownMenuItem,
+  DropdownMenuGroup,
+  DropdownMenuGroupLabel,
+  DropdownMenuDivider,
+  DropdownMenuItemIndicator,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem
+} from '@resolid/nxt-ui';
+```
+
+- `DropdownMenu`: 该包装器组件提供上下文、状态和焦点管理。
+- `DropdownMenuTrigger`: 菜单列表的触发器。必须是 `DropdownMenu` 的直接子组件。
+- `DropdownMenuContent`: 菜单项的包装器。必须是 `DropdownMenu` 的直接子组件。
+- `DropdownMenuArrow`: 可选的箭头元素，可与菜单内容一起渲染。必须是 `DropdownMenuContent` 的直接子组件。
+- `DropdownMenuItem`: 处理菜单选择的触发器。必须是 `DropdownMenuContent` 的直接子组件。
+- `DropdownMenuGroup`: 一个用于分组相关菜单项的包装器。
+- `DropdownMenuGroupLabel`: 用于呈现组的标签。它不会使用箭头键聚焦。
+- `DropdownMenuDivider`: 菜单项和组之间的可视分隔符。
+- `DropdownMenuItemIndicator`: 在父级的 `DropdownMenuCheckboxItem` 或 `DropdownMenuRadioItem` 被选中时渲染。您可以直接对该元素进行样式设置，也可以将其用作包装器来放置图标，或同时使用两种方式。
+- `DropdownMenuCheckboxItem`: 一个可以像复选框一样进行控制和渲染的项目。
+- `DropdownMenuRadioGroup`: 用于分组多个 `DropdownMenuRadioItem` 的组件。
+- `DropdownMenuRadioItem`: 一个可以像单选按钮一样进行控制和渲染的项目。
+
+## 基础
+
+<Demo file={'DropdownMenuDemo.tsx'} demo={'Basic'} height={623} />
+
+## 多级菜单
+
+<Demo file={'DropdownMenuDemo.tsx'} demo={'MultipleLevel'} height={723} />
+
+## 复杂菜单
+
+<Demo file={'DropdownMenuDemo.tsx'} demo={'Complex'} height={2763} />
+
+## 属性
+
+<PropsTable component={'DropdownMenu'} />

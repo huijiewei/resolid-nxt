@@ -26,7 +26,7 @@ function BasicDemo() {
         <DrawerContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <DrawerHeader>Drawer Title</DrawerHeader>
           <DrawerCloseButton />
-          <DrawerBody>Drawer Body</DrawerBody>
+          <DrawerBody className={'p-3'}>Drawer Body</DrawerBody>
           <DrawerFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </DrawerFooter>
@@ -51,7 +51,7 @@ export const Basic = () => {
         <DrawerContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <DrawerHeader>Drawer Title</DrawerHeader>
           <DrawerCloseButton />
-          <DrawerBody>Drawer Body</DrawerBody>
+          <DrawerBody className={'p-3'}>Drawer Body</DrawerBody>
           <DrawerFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </DrawerFooter>
@@ -91,7 +91,7 @@ function PlacementDemo() {
         >
           <DrawerHeader>Drawer Title</DrawerHeader>
           <DrawerCloseButton />
-          <DrawerBody>Drawer Body</DrawerBody>
+          <DrawerBody className={'p-3'}>Drawer Body</DrawerBody>
           <DrawerFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </DrawerFooter>
@@ -132,7 +132,7 @@ export const Placement = () => {
         >
           <DrawerHeader>Drawer Title</DrawerHeader>
           <DrawerCloseButton />
-          <DrawerBody>Drawer Body</DrawerBody>
+          <DrawerBody className={'p-3'}>Drawer Body</DrawerBody>
           <DrawerFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </DrawerFooter>
@@ -167,7 +167,7 @@ const FocusDemo = () => {
               console.log('Submit');
             }}
           >
-            <DrawerBody className={'flex flex-col gap-3'}>
+            <DrawerBody className={'flex flex-col gap-3 p-3'}>
               <div className={'flex flex-row items-center'}>
                 <label htmlFor={'demoFormName'} className={'w-28'}>
                   Username <span className={'text-red-500'}>*</span>
@@ -220,7 +220,7 @@ export const Focus = () => {
               console.log('Submit');
             }}
           >
-            <DrawerBody className={'flex flex-col gap-3'}>
+            <DrawerBody className={'flex flex-col gap-3 p-3'}>
               <div className={'flex flex-row items-center'}>
                 <label htmlFor={'demoFormName'} className={'w-28'}>
                   Username <span className={'text-red-500'}>*</span>
@@ -282,7 +282,7 @@ const OverlayStylingDemo = () => {
         <DrawerContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <DrawerHeader>Drawer Title</DrawerHeader>
           <DrawerCloseButton />
-          <DrawerBody>Drawer Body</DrawerBody>
+          <DrawerBody className={'p-3'}>Drawer Body</DrawerBody>
           <DrawerFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </DrawerFooter>
@@ -328,7 +328,7 @@ export const OverlayStyling = () => {
         <DrawerContent className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
           <DrawerHeader>Drawer Title</DrawerHeader>
           <DrawerCloseButton />
-          <DrawerBody>Modal Body</DrawerBody>
+          <DrawerBody className={'p-3'}>Modal Body</DrawerBody>
           <DrawerFooter className={'flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>Close</Button>
           </DrawerFooter>

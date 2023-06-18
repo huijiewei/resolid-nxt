@@ -42,7 +42,7 @@
     "breadcrumb": "面包屑",
     "pagination": "分页",
     "dropdownMenu": "下拉菜单",
-    "contextMenu": "右键菜单"
+    "contextMenu": "上下文菜单"
   },
   "prop": {
     "name": "参数名",

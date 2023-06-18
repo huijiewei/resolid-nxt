@@ -1,0 +1,52 @@
+---
+title: 按钮
+description: 按钮组件用于触发动作或事件，例如提交表单、打开对话框、取消操作或执行删除操作。
+---
+
+## 导入
+
+```javascript
+import { Button, ButtonGroup } from '@resolid/nxt-ui';
+```
+
+- `Button`: 具有自定义图标、加载指示器等功能的按钮组件。
+- `ButtonGroup`: 用于将相关动作的按钮分组在一起的组件，可以选择将它们一起对齐。
+
+## 用法
+
+<Demo file={'ButtonDemo.tsx'} height={346} demo={'Usage'} />
+
+## 变体
+
+按钮有四种不同的样式变体可供使用。通过传递 `variant` 属性，可以选择使用 `solid`、`outline`、`light`、`subtle` 或 `link` 中的任意一种。
+
+<Demo file={'ButtonDemo.tsx'} height={221} demo={'Variants'} />
+
+## 颜色
+
+通过传递 `color` 属性来更改按钮的颜色。按钮支持 `primary`、`success`、`warning`、`danger` 和 `neutral` 这些颜色。
+
+<Demo file={'ButtonDemo.tsx'} height={223} demo={'Colors'} />
+
+## 大小
+
+按钮有五种可用的尺寸。通过传递 `size` 属性，可以选择使用 `xs`、`sm`、`md`、`lg` 或 `xl` 中的任意一种。
+
+<Demo file={'ButtonDemo.tsx'} height={231} demo={'Sizes'} />
+
+## 图标
+
+<Demo file={'ButtonDemo.tsx'} height={603} demo={'WithIcon'} />
+
+## 加载状态
+
+<Demo file={'ButtonDemo.tsx'} height={603} demo={'LoadingState'} />
+
+## 按钮组
+
+<Demo file={'ButtonDemo.tsx'} height={603} demo={'Grouping'} />
+
+## 属性
+
+<PropsTable title={true} component={'Button'} />
+<PropsTable title={true} component={'ButtonGroup'} />

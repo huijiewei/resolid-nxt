@@ -1,0 +1,50 @@
+---
+title: 上下文菜单
+description: 显示一个位于鼠标指针位置的菜单，可以通过右键点击或长按触发。
+---
+
+## 导入
+
+```javascript
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuGroup,
+  ContextMenuGroupLabel,
+  ContextMenuDivider,
+  ContextMenuItemIndicator,
+  ContextMenuCheckboxItem,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem
+} from '@resolid/nxt-ui';
+```
+
+- `ContextMenu`: 该包装器组件提供上下文、状态和焦点管理。
+- `ContextMenuTrigger`: 用于触发菜单列表的触发器。必须是 `ContextMenu` 的直接子组件。
+- `ContextMenuContent`: 菜单项的包装器。必须是 `ContextMenu` 的直接子组件。
+- `ContextMenuItem`: 处理菜单选择的触发器。必须是 `ContextMenuContent` 的直接子组件。
+- `ContextMenuGroup`: 一个用于分组相关菜单项的包装器。
+- `ContextMenuGroupLabel`: 用于呈现组的标签。使用箭头键无法聚焦。
+- `ContextMenuDivider`: 菜单项和组之间的可视分隔符。
+- `ContextMenuItemIndicator`: 在父级的 `ContextMenuCheckboxItem` 或 `ContextMenuRadioItem` 被选中时渲染。您可以直接对该元素进行样式设置，也可以将其用作包装器来放置图标，或同时使用两种方式。
+- `ContextMenuCheckboxItem`: 一个可以像复选框一样进行控制和渲染的项目。
+- `ContextMenuRadioGroup`: 用于分组多个 `ContextMenuRadioItem` 的组件。
+- `ContextMenuRadioItem`: 一个可以像单选按钮一样进行控制和渲染的项目。
+
+## 基础
+
+<Demo file={'ContextMenuDemo.tsx'} demo={'Basic'} height={1037} />
+
+## 多级菜单
+
+<Demo file={'ContextMenuDemo.tsx'} demo={'MultipleLevel'} height={837} />
+
+## 复杂菜单
+
+<Demo file={'ContextMenuDemo.tsx'} demo={'Complex'} height={2737} />
+
+## 属性
+
+<PropsTable component={'ContextMenu'} />

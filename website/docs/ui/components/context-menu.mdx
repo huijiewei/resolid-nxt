@@ -5,7 +5,21 @@ description: Displays a menu located at the pointer, triggered by a right-click 
 
 ## Import
 
-Resolid NxtUI exports 11 context-menu-related components:
+```javascript
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuGroup,
+  ContextMenuGroupLabel,
+  ContextMenuDivider,
+  ContextMenuItemIndicator,
+  ContextMenuCheckboxItem,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem
+} from '@resolid/nxt-ui';
+```
 
 - `ContextMenu`: The wrapper component provides context, state, and focus management.
 - `ContextMenuTrigger`: The trigger for the menu list. Must be a direct child of `ContextMenu`.
@@ -18,18 +32,6 @@ Resolid NxtUI exports 11 context-menu-related components:
 - `ContextMenuCheckboxItem`: An item that can be controlled and rendered like a checkbox.
 - `ContextMenuRadioGroup`: Used to group multiple `ContextMenuRadioItem`s.
 - `ContextMenuRadioItem`: An item that can be controlled and rendered like a radio.
-
-```javascript
-import {
-  ContextMenu,
-  ContextMenuTrigger,
-  ContextMenuContent,
-  ContextMenuGroup,
-  ContextMenuGroupLabel,
-  ContextMenuItem,
-  ContextMenuDivider,
-} from '@resolid/nxt-ui';
-```
 
 ## Basic
 

@@ -1,0 +1,36 @@
+---
+title: 面包屑
+description: 一种辅助导航模式，用于标识页面在层次结构中的位置，并允许根据需要进行向上导航。
+---
+
+## 导入
+
+```javascript
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator
+} from '@resolid/nxt-ui';
+```
+
+- `Breadcrumb`: 面包屑的父容器。
+- `BreadcrumbItem`: 包含链接和分隔符的单个面包屑元素。
+- `BreadcrumbLink`: 面包屑链接。
+- `BreadcrumbSeparator`: 每个面包屑之间的可视分隔符。
+
+## 基础
+
+<Demo file={'BreadcrumbDemo.tsx'} demo={'Basic'} height={333} />
+
+## 分隔符
+
+<Demo file={'BreadcrumbDemo.tsx'} demo={'Separator'} height={333} />
+
+## 图标分隔符
+
+<Demo file={'BreadcrumbDemo.tsx'} demo={'IconSeparator'} height={333} />
+
+## 属性
+
+<PropsTable component={'Breadcrumb'} />
