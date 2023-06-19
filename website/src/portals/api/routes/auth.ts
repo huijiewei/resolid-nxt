@@ -11,6 +11,7 @@ import type { AuthSignupFormData } from '~/common/components/AuthSignupForm';
 import { authSignupResolver } from '~/common/components/AuthSignupForm';
 import { problem, success } from '~/common/utils/http';
 import { db } from '~/foundation/db';
+import { commitSession, destroySession, getSession, omitUser } from '~/foundation/session';
 import { getFixedT } from '~/i18n.server';
 
 const routes: RouteObject[] = [
@@ -42,7 +43,28 @@ const routes: RouteObject[] = [
         });
       }
 
-      return success({});
+      const session = await getSession(request.headers.get('Cookie'));
+      session.set('id', user.id);
+
+      return success(omitUser(user), false, {
+        headers: {
+          'Set-Cookie': await commitSession(session, {
+            maxAge: data?.rememberMe ? 60 * 60 * 24 * 7 : undefined,
+          }),
+        },
+      });
+    }),
+  },
+  {
+    path: 'logout',
+    action: server$(async ({ request }) => {
+      const session = await getSession(request.headers.get('Cookie'));
+
+      return success(null, true, {
+        headers: {
+          'Set-Cookie': await destroySession(session),
+        },
+      });
     }),
   },
   {
@@ -88,7 +110,14 @@ const routes: RouteObject[] = [
         },
       });
 
-      return success(user);
+      const session = await getSession(request.headers.get('Cookie'));
+      session.set('id', user.id);
+
+      return success(omitUser(user), false, {
+        headers: {
+          'Set-Cookie': await commitSession(session),
+        },
+      });
     }),
   },
   {

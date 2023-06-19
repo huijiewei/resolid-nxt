@@ -29,5 +29,8 @@
   "passwordWrong": "密码错误",
   "terms": "服务协议",
   "privacy": "隐私策略",
-  "agreeTerms": "同意<2>服务协议</2>并已阅读<6>隐私策略</6>"
+  "agreeTerms": "同意<2>服务协议</2>并已阅读<6>隐私策略</6>",
+  "logout": "退出登陆",
+  "profile": "个人资料",
+  "settings": "用户设置"
 }

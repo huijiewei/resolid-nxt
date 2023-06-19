@@ -1,9 +1,14 @@
 import { type User } from '@prisma/client';
 import { createSessionStorage, type SessionIdStorageStrategy, type SessionStorage } from '@resolid/nxt-run/node';
+import { omit } from '@resolid/nxt-utils';
 import { randomBytes } from 'node:crypto';
 import { db } from '~/foundation/db';
 
-export type SessionUser = Omit<User, 'password'>;
+export type SessionUser = Omit<User, 'password' | 'updatedAt' | 'deletedAt'>;
+
+export const omitUser = (user: User): SessionUser => {
+  return omit(user, ['password', 'updatedAt', 'deletedAt']) as SessionUser;
+};
 
 const createDatabaseSessionStorage = ({
   cookie,
@@ -26,7 +31,7 @@ const createDatabaseSessionStorage = ({
       return token;
     },
     async readData(id) {
-      return await db.user.findFirst({
+      const user = await db.user.findFirst({
         where: {
           userSessions: {
             some: {
@@ -38,6 +43,8 @@ const createDatabaseSessionStorage = ({
           userGroup: true,
         },
       });
+
+      return user ? omitUser(user) : null;
     },
     async updateData(id, data, expires) {
       await db.userSession.update({

@@ -13,10 +13,13 @@ export const problem = (errors: any, revalidate = false) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const success = (data: any, revalidate = false) => {
-  return json({
-    success: true,
-    revalidate,
-    data,
-  });
+export const success = (data: any, revalidate = false, init: number | ResponseInit = {}) => {
+  return json(
+    {
+      success: true,
+      revalidate,
+      data,
+    },
+    init
+  );
 };

@@ -69,9 +69,8 @@ export const ThemeSwitcher = () => {
                 setColorMode(key as ColorMode);
               }}
             >
-              <div className={'flex items-center gap-1.5'}>
-                <mode.icon /> {t(mode.label, { ns: 'site' })}
-              </div>
+              <mode.icon className={'me-1.5'} />
+              {t(mode.label, { ns: 'site' })}
             </DropdownMenuItem>
           );
         })}

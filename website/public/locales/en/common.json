@@ -29,5 +29,8 @@
   "passwordWrong": "Password is wrong",
   "terms": "Terms of Service",
   "privacy": "Privacy Policy",
-  "agreeTerms": "Agree <2>Terms of Service</2> and have read <6>Privacy Policy</6>"
+  "agreeTerms": "Agree <2>Terms of Service</2> and have read <6>Privacy Policy</6>",
+  "logout": "Logout",
+  "profile": "Profile",
+  "settings": "Settings"
 }

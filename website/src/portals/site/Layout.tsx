@@ -1,17 +1,38 @@
-import { Button, Tooltip, noScrollbarsClassName } from '@resolid/nxt-ui';
+import {
+  Avatar,
+  Button,
+  DropdownMenu,
+  DropdownMenuArrow,
+  DropdownMenuContent,
+  DropdownMenuDivider,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  Tooltip,
+  noScrollbarsClassName,
+} from '@resolid/nxt-ui';
 import { cx, omit } from '@resolid/nxt-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Outlet, createPath, createSearchParams, useLocation, type To } from 'react-router-dom';
+import {
+  Outlet,
+  createPath,
+  createSearchParams,
+  useFetcher,
+  useLocation,
+  useNavigate,
+  type To,
+} from 'react-router-dom';
+import { useAuthUserDispatch, useAuthUserState } from '~/common/components/AuthUserProvider';
 import { Banner } from '~/common/components/Banner';
 import { LazyLoader } from '~/common/components/LazyLoader';
 import { Link, NavLink } from '~/common/components/Link';
 import { LocaleSwitcher } from '~/common/components/LocaleSwitcher';
 import { ThemeSwitcher } from '~/common/components/ThemeSwitcher';
-import { useSessionUser } from '~/common/hooks/useSessionUser';
 import { Close } from '~/common/icons/Close';
 import { Github } from '~/common/icons/Github';
+import { Logout } from '~/common/icons/Logout';
 import { Menu } from '~/common/icons/Menu';
+import { Settings } from '~/common/icons/Settings';
 import { UserCircle } from '~/common/icons/UserCircle';
 
 const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> }) => {
@@ -46,11 +67,51 @@ const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> })
 
 const NavUser = () => {
   const { t } = useTranslation('common');
-  const user = useSessionUser();
+  const user = useAuthUserState();
+  const { resetUser } = useAuthUserDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
+  const fetcher = useFetcher();
 
   if (user) {
-    return '';
+    return (
+      <DropdownMenu placement={'bottom'}>
+        <DropdownMenuTrigger>
+          <Avatar
+            size={'sm'}
+            className={'hover:cursor-pointer hover:border-dotted'}
+            src={user.avatar}
+            name={user.nickname}
+          />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className={'z-50'}>
+          <DropdownMenuArrow />
+          <DropdownMenuItem disabled>{user.email}</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => navigate(`user/${user.username}`)}>
+            <UserCircle className={'me-1.5'} />
+            {t('profile')}
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => navigate('settings')}>
+            <Settings className={'me-1.5'} />
+            {t('settings')}
+          </DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem
+            onClick={() => {
+              fetcher.submit(null, {
+                method: 'post',
+                action: '/api/auth/logout',
+              });
+
+              resetUser();
+            }}
+          >
+            <Logout className={'me-1.5'} />
+            {t('logout')}
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
   }
 
   const to: To = {
