@@ -77,12 +77,9 @@ const NavUser = () => {
     return (
       <DropdownMenu placement={'bottom'}>
         <DropdownMenuTrigger>
-          <Avatar
-            size={'sm'}
-            className={'hover:cursor-pointer hover:border-dotted'}
-            src={user.avatar}
-            name={user.nickname}
-          />
+          <Button className={'!px-0 aspect-square'} variant={'subtle'} color={'neutral'}>
+            <Avatar size={26} src={user.avatar} name={user.nickname} />
+          </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className={'z-50'}>
           <DropdownMenuArrow />

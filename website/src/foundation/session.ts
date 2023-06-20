@@ -24,7 +24,7 @@ const createDatabaseSessionStorage = ({
         data: {
           userId: data.id,
           token: token,
-          expiredAt: expires || new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+          expiredAt: expires || new Date(Date.now() + 1000 * 60 * 30),
         },
       });
 

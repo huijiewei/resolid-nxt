@@ -69,7 +69,7 @@ model UserAccount {
 model UserSession {
   id        Int      @id @default(autoincrement())
   userId    Int      @default(0)
-  token     String   @unique
+  token     String   @unique @default("")
   expiredAt DateTime
 
   user User @relation(fields: [userId], references: [id])

@@ -49,7 +49,7 @@ const routes: RouteObject[] = [
       return success(omitUser(user), false, {
         headers: {
           'Set-Cookie': await commitSession(session, {
-            maxAge: data?.rememberMe ? 60 * 60 * 24 * 7 : undefined,
+            maxAge: data?.rememberMe ? 60 * 60 * 24 * 7 : 60 * 60 * 30,
           }),
         },
       });
