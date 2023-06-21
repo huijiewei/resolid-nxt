@@ -16,7 +16,7 @@ const schema = z
     username: z.string().nonempty().min(3).max(15),
     password: z.string().nonempty().min(6),
     confirmPassword: z.string().nonempty().min(6),
-    agreeTerms: z.boolean(),
+    agreeTerms: z.literal<boolean>(true),
   })
   .refine((data) => data.password === data.confirmPassword, {
     path: ['confirmPassword'],
@@ -64,7 +64,7 @@ export const AuthSignupForm = () => {
                 type={'email'}
                 fullWidth
                 placeholder={t('email') as string}
-                onChange={onChange}
+                onChange={(vc) => onChange(vc as string)}
                 onBlur={onBlur}
                 value={value}
                 ref={ref}
@@ -85,7 +85,7 @@ export const AuthSignupForm = () => {
                 invalid={Boolean(errors.username)}
                 fullWidth
                 placeholder={t('username') as string}
-                onChange={onChange}
+                onChange={(vc) => onChange(vc as string)}
                 onBlur={onBlur}
                 value={value}
                 ref={ref}
@@ -107,7 +107,7 @@ export const AuthSignupForm = () => {
                 type={'password'}
                 fullWidth
                 placeholder={t('password') as string}
-                onChange={onChange}
+                onChange={(vc) => onChange(vc as string)}
                 onBlur={onBlur}
                 value={value}
                 ref={ref}
@@ -129,7 +129,7 @@ export const AuthSignupForm = () => {
                 type={'password'}
                 fullWidth
                 placeholder={t('confirmPassword') as string}
-                onChange={onChange}
+                onChange={(vc) => onChange(vc as string)}
                 onBlur={onBlur}
                 value={value}
                 ref={ref}

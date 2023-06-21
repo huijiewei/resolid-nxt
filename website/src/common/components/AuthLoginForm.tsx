@@ -73,7 +73,7 @@ export const AuthLoginForm = () => {
                 type={'email'}
                 fullWidth
                 placeholder={t('email') as string}
-                onChange={onChange}
+                onChange={(vc) => onChange(vc as string)}
                 onBlur={onBlur}
                 value={value}
                 ref={ref}
@@ -95,7 +95,7 @@ export const AuthLoginForm = () => {
                 type={'password'}
                 fullWidth
                 placeholder={t('password') as string}
-                onChange={onChange}
+                onChange={(vc) => onChange(vc as string)}
                 onBlur={onBlur}
                 value={value}
                 ref={ref}

@@ -12,7 +12,7 @@
     "website:serve": "pnpm run --filter website serve",
     "website:deploy": "pnpm run --filter website... build",
     "test": "pnpm test -r",
-    "prisma": "pnpm run --filter website prisma",
+    "drizzle-kit": "pnpm run --filter website drizzle-kit",
     "nxt": "pnpm run --filter website nxt"
   },
   "devDependencies": {

@@ -1,18 +1,19 @@
-import { PrismaClient } from '@prisma/client';
-import { closureTableMiddleware } from './prisma/closure-table-middleware';
-import { softDeleteMiddleware } from './prisma/soft-delete-middleware';
+import { drizzle } from 'drizzle-orm/mysql2';
+import mysql from 'mysql2/promise';
 
-interface PrismaNodeJsGlobal extends Global {
-  prisma: PrismaClient | null;
-}
+import * as schema from '~/engine/core/schema';
 
-declare const global: PrismaNodeJsGlobal;
+const pool = await mysql.createPool({
+  host: process.env.NXT_DB_HOST,
+  user: process.env.NXT_DB_USER,
+  password: process.env.NXT_DB_PASSWORD,
+  database: process.env.NXT_DB_DATABASE,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
-const db = global.prisma || new PrismaClient();
-
-db.$use(softDeleteMiddleware());
-db.$use(closureTableMiddleware(db));
-
-if (process.env.NODE_ENV === 'development') global.prisma = db;
-
-export { db };
+export const db = drizzle(pool, {
+  schema,
+  logger: process.env.NODE_ENV == 'development',
+});

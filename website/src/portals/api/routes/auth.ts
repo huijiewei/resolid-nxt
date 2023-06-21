@@ -10,7 +10,7 @@ import { authLoginResolver, type AuthLoginFormData } from '~/common/components/A
 import type { AuthSignupFormData } from '~/common/components/AuthSignupForm';
 import { authSignupResolver } from '~/common/components/AuthSignupForm';
 import { problem, success } from '~/common/utils/http';
-import { db } from '~/foundation/db';
+import { existByEmail, existByUsername, findUserByEmail, insertUser } from '~/engine/modules/user/userRepository';
 import { commitSession, destroySession, getSession, omitUser } from '~/foundation/session';
 import { getFixedT } from '~/i18n.server';
 
@@ -25,11 +25,7 @@ const routes: RouteObject[] = [
       }
 
       const t = await getFixedT(new URL(request.url).searchParams.get('lng'), 'common');
-      const user = await db.user.findUnique({
-        where: {
-          email: data.email,
-        },
-      });
+      const user = await findUserByEmail(data?.email);
 
       if (user == null) {
         return problem({
@@ -78,36 +74,23 @@ const routes: RouteObject[] = [
 
       const t = await getFixedT(new URL(request.url).searchParams.get('lng'), 'common');
 
-      if (
-        (await db.user.findUnique({
-          where: {
-            email: data.email,
-          },
-        })) != null
-      ) {
+      if (await existByEmail(data?.email)) {
         return problem({
           email: { message: t('userExist') },
         });
       }
 
-      if (
-        (await db.user.findUnique({
-          where: {
-            username: data.username,
-          },
-        })) != null
-      ) {
+      if (await existByUsername(data?.username)) {
         return problem({
           username: { message: t('userExist') },
         });
       }
 
-      const user = await db.user.create({
-        data: {
-          email: data.email,
-          username: data.username,
-          password: hashSync(data?.password),
-        },
+      const user = await insertUser({
+        email: data.email,
+        username: data.username,
+        password: hashSync(data?.password),
+        userGroupId: 3,
       });
 
       const session = await getSession(request.headers.get('Cookie'));
@@ -130,13 +113,8 @@ const routes: RouteObject[] = [
       }
 
       const t = await getFixedT(new URL(request.url).searchParams.get('lng'), 'common');
-      const user = await db.user.findUnique({
-        where: {
-          email: data.email,
-        },
-      });
 
-      if (user == null) {
+      if (!(await existByEmail(data?.email))) {
         return problem({
           email: { message: t('userNotExist') },
         });

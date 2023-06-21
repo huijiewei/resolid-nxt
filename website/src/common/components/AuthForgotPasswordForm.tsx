@@ -52,7 +52,7 @@ export const AuthForgotPasswordForm = () => {
                 type={'email'}
                 fullWidth
                 placeholder={t('email') as string}
-                onChange={onChange}
+                onChange={(vc) => onChange(vc as string)}
                 onBlur={onBlur}
                 value={value}
                 ref={ref}

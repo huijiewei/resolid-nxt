@@ -7,6 +7,7 @@ import { defineConfig } from 'vitest/config';
 import { viteCopy } from './scripts/vite-plugin-copy';
 import { viteTypedoc } from './scripts/vite-plugin-typedoc';
 
+// noinspection JSUnusedGlobalSymbols
 export default defineConfig(({ command }) => {
   const isBuild = command == 'build';
 
@@ -64,7 +65,7 @@ export default defineConfig(({ command }) => {
       minify: true,
     },
     ssr: {
-      external: ['@node-rs/bcrypt', '@prisma/client', 'prisma'],
+      external: ['@node-rs/bcrypt'],
     },
     optimizeDeps: {
       include: ['fast-blurhash'],
