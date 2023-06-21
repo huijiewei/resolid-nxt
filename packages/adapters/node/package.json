@@ -35,10 +35,12 @@
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.1.0",
+    "dotenv": "^16.3.1",
     "rollup": "^3.25.1"
   },
   "peerDependencies": {
-    "@resolid/nxt-run": "*"
+    "@resolid/nxt-run": "*",
+    "dotenv": ">=16"
   },
   "repository": {
     "type": "git",
