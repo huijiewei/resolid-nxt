@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 import polka from 'polka';
 import sirv from 'sirv';
 
+import 'dotenv/config';
+
 // @ts-expect-error Cannot find module
 import manifest from './route-manifest.json';
 // @ts-expect-error Cannot find module

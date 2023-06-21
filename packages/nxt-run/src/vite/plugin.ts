@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { build, mergeConfig, type Plugin, type ResolvedConfig, type UserConfig } from 'vite';
+import { build, loadEnv, mergeConfig, type Plugin, type ResolvedConfig, type UserConfig } from 'vite';
 import viteInspect from 'vite-plugin-inspect';
 import transformServer from './babel/transformServer';
 import { chunkSplitPlugin } from './plugins/split-chunk';
@@ -132,8 +132,13 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
       name: 'nxt-run-server',
       apply: 'serve',
       config() {
+        const env = loadEnv('', process.cwd(), 'NXT_');
+
         return {
           appType: 'custom',
+          define: Object.fromEntries(
+            new Map(Object.keys(env).map((key) => [`process.env.${key}`, JSON.stringify(env[key])]))
+          ),
         };
       },
       configureServer(viteServer) {
