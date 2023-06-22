@@ -37,6 +37,7 @@
     "zod-i18n-map": "^2.13.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@resolid/nxt-tailwind": "workspace:*",
     "@resolid/nxt-tests": "workspace:*",
     "@types/fs-extra": "^11.0.1",

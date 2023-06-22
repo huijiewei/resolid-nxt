@@ -1,8 +1,14 @@
-import { eq, inArray } from 'drizzle-orm';
+import { desc, eq, inArray } from 'drizzle-orm';
 import { randomBytes } from 'node:crypto';
 import { db } from '~/foundation/db';
 import type { UserInsert, UserSelect } from './schema';
 import { userSessions, users } from './schema';
+
+export const findUserByLast = async (): Promise<UserSelect | null> => {
+  const result = await db.select().from(users).orderBy(desc(users.id)).limit(1);
+
+  return result[0] ?? null;
+};
 
 export const findUserByEmail = async (email: string): Promise<UserSelect | null> => {
   const user = await db.query.users.findFirst({

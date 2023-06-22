@@ -5,6 +5,8 @@ import * as blogSchema from '~/engine/modules/blog/schema';
 import * as districtSchema from '~/engine/modules/district/schema';
 import * as userSchema from '~/engine/modules/user/schema';
 
+process.env.TZ = 'UTC';
+
 const pool = await mysql.createPool({
   host: process.env.NXT_DB_HOST,
   user: process.env.NXT_DB_USER,
