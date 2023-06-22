@@ -1,8 +1,8 @@
 import { getTableConfig } from 'drizzle-orm/mysql-core';
-import type { DistrictInsert, DistrictSelect } from '~/engine/core/schema';
-import { districts } from '~/engine/core/schema';
 import { insertClosure } from '~/engine/core/treeRepository';
 import { db } from '~/foundation/db';
+import type { DistrictInsert, DistrictSelect } from './schema';
+import { districts } from './schema';
 
 export const insertDistrict = async (district: DistrictInsert) => {
   const inserted = await db.insert(districts).values(district);

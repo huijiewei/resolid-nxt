@@ -4,8 +4,9 @@ import { hashSync } from '@node-rs/bcrypt';
 import { Command } from 'commander';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { districts, districtsClosure, userGroups, users } from '~/engine/core/schema';
 import { insertDistrict } from '~/engine/modules/district/districtRepository';
+import { districts, districtsClosure } from '~/engine/modules/district/schema';
+import { userGroups, users } from '~/engine/modules/user/schema';
 import { db } from '~/foundation/db';
 
 const program = new Command();

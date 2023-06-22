@@ -1,8 +1,8 @@
 import { eq, inArray } from 'drizzle-orm';
 import { randomBytes } from 'node:crypto';
-import type { UserInsert, UserSelect } from '~/engine/core/schema';
-import { userSessions, users } from '~/engine/core/schema';
 import { db } from '~/foundation/db';
+import type { UserInsert, UserSelect } from './schema';
+import { userSessions, users } from './schema';
 
 export const findUserByEmail = async (email: string): Promise<UserSelect | null> => {
   const user = await db.query.users.findFirst({
