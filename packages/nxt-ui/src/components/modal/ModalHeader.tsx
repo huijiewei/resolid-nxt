@@ -1,10 +1,14 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import { primitiveComponent } from '../../primitives';
+import { useFloatingAria } from '../floating/FloatingAriaContext';
 
-export const ModalHeader = primitiveComponent<'header'>((props, ref) => {
+export const ModalHeader = primitiveComponent<'header', Record<string, never>, 'id'>((props, ref) => {
   const { children, className, ...rest } = props;
+
+  const { labelId } = useFloatingAria();
+
   return (
-    <header ref={ref} className={cx('flex-0 p-3 text-lg font-bold', className)} {...rest}>
+    <header id={labelId} ref={ref} className={cx('flex-0 p-3 text-lg font-bold', className)} {...rest}>
       {children}
     </header>
   );

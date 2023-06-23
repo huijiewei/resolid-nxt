@@ -73,7 +73,7 @@ const switchColorStyles = {
   },
 };
 
-export const Switch = primitiveComponent<'input', SwitchProps>((props, ref) => {
+export const Switch = primitiveComponent<'input', SwitchProps, 'role'>((props, ref) => {
   const {
     color = 'primary',
     size = 'md',
@@ -143,6 +143,7 @@ export const Switch = primitiveComponent<'input', SwitchProps>((props, ref) => {
         disabled={disabled}
         readOnly={readOnly}
         onChange={handleChange}
+        role={'switch'}
         {...rest}
       />
       <span

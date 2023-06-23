@@ -22,8 +22,20 @@
       "description": "Spacing",
       "defaultValue": "'0.5em'"
     },
-    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
-    { "name": "readOnly", "type": "boolean", "required": false, "description": "ReadOnly", "defaultValue": "false" },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Disabled",
+      "defaultValue": "false"
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "required": false,
+      "description": "ReadOnly",
+      "defaultValue": "false"
+    },
     {
       "name": "onChange",
       "type": "(value: boolean) => void",

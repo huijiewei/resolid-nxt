@@ -1,14 +1,17 @@
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import { primitiveComponent } from '../../primitives';
+import { useFloatingAria } from '../floating/FloatingAriaContext';
 import { useModal } from './ModalContext';
 
-export const ModalBody = primitiveComponent<'div'>((props, ref) => {
+export const ModalBody = primitiveComponent<'div', Record<string, never>, 'id'>((props, ref) => {
   const { children, className, ...rest } = props;
 
   const { scrollBehavior } = useModal();
+  const { descriptionId } = useFloatingAria();
 
   return (
     <div
+      id={descriptionId}
       ref={ref}
       className={cx(
         scrollBehavior == 'inside' && 'overflow-y-auto overscroll-contain scrollbar scrollbar-thin',
