@@ -32,5 +32,6 @@
   "agreeTerms": "Agree <2>Terms of Service</2> and have read <6>Privacy Policy</6>",
   "logout": "Logout",
   "profile": "Profile",
-  "settings": "Settings"
+  "settings": "Settings",
+  "administration": "Administration"
 }

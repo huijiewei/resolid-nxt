@@ -4,20 +4,21 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { getLocale } from '~/common/components/LocalizedLink';
 import { MdxView } from '~/common/mdx/MdxView';
 import { mdxComponents as shared } from '~/common/mdx/mdxComponents';
 import { getMdxFileName, mdxHeaders, responseMdx, serializeMdx } from '~/common/utils/mdx';
-import { i18n } from '~/i18n';
+import { DEFAULT_LOCALE } from '~/i18n';
 
 const mdxComponents = {
   ...shared,
 };
 
-export const loader = server$(async ({ params }) => {
+export const loader = server$(async ({ params, request }) => {
   const cwd = process.cwd();
   const filePath = join(cwd, 'docs/run', params.category ?? 'getting-started');
 
-  let file = join(filePath, getMdxFileName(params.document ?? '', params.lang, i18n.fallbackLng as string));
+  let file = join(filePath, getMdxFileName(params.document ?? '', getLocale(request), DEFAULT_LOCALE));
 
   if (!existsSync(file)) {
     file = join(filePath, getMdxFileName(params.document ?? ''));

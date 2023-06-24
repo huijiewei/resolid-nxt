@@ -12,6 +12,7 @@ import {
 } from '@resolid/nxt-ui';
 import { cx, omit } from '@resolid/nxt-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import {
   Outlet,
@@ -19,21 +20,23 @@ import {
   createSearchParams,
   useFetcher,
   useLocation,
-  useNavigate,
+  useRouteLoaderData,
   type To,
 } from 'react-router-dom';
 import { useAuthUserDispatch, useAuthUserState } from '~/common/components/AuthUserProvider';
 import { Banner } from '~/common/components/Banner';
 import { LazyLoader } from '~/common/components/LazyLoader';
-import { Link, NavLink } from '~/common/components/Link';
 import { LocaleSwitcher } from '~/common/components/LocaleSwitcher';
+import { LocalizedLink, LocalizedNavLink, getLocaleUrl, useLocalizedNavigate } from '~/common/components/LocalizedLink';
 import { ThemeSwitcher } from '~/common/components/ThemeSwitcher';
 import { Close } from '~/common/icons/Close';
+import { Dashboard } from '~/common/icons/Dashboard';
 import { Github } from '~/common/icons/Github';
 import { Logout } from '~/common/icons/Logout';
 import { Menu } from '~/common/icons/Menu';
 import { Settings } from '~/common/icons/Settings';
 import { UserCircle } from '~/common/icons/UserCircle';
+import { LOCALES, type LocaleKey } from '~/i18n';
 
 const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> }) => {
   const { t } = useTranslation('site');
@@ -49,7 +52,7 @@ const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> })
         { name: 'menu.about', href: 'about' },
       ].map((link) => (
         <li key={link.name}>
-          <NavLink
+          <LocalizedNavLink
             end={link.end}
             to={link.href}
             onClick={onClick}
@@ -58,7 +61,7 @@ const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> })
             }}
           >
             <span>{t(link.name)}</span>
-          </NavLink>
+          </LocalizedNavLink>
         </li>
       ))}
     </ul>
@@ -70,7 +73,7 @@ const NavUser = () => {
   const user = useAuthUserState();
   const { resetUser } = useAuthUserDispatch();
   const location = useLocation();
-  const navigate = useNavigate();
+  const navigate = useLocalizedNavigate();
   const fetcher = useFetcher();
 
   if (user) {
@@ -92,6 +95,12 @@ const NavUser = () => {
             <Settings className={'me-1.5'} />
             {t('settings')}
           </DropdownMenuItem>
+          {user.userGroupId == 1 && (
+            <DropdownMenuItem onClick={() => navigate('/admin')}>
+              <Dashboard className={'me-1.5'} />
+              {t('administration')}
+            </DropdownMenuItem>
+          )}
           <DropdownMenuDivider />
           <DropdownMenuItem
             onClick={() => {
@@ -122,7 +131,7 @@ const NavUser = () => {
 
   return (
     <Tooltip placement={'bottom'} content={t('loginOrSignup')}>
-      <Button className={'!px-0 aspect-square'} color={'neutral'} variant={'subtle'} as={Link} to={to}>
+      <Button className={'!px-0 aspect-square'} color={'neutral'} variant={'subtle'} as={LocalizedLink} to={to}>
         <UserCircle size={'sm'} />
       </Button>
     </Tooltip>
@@ -143,9 +152,9 @@ const Header = () => {
           <button title={'Menu'} className={'p-2 tablet:hidden'} onClick={() => setOpened((prev) => !prev)}>
             {opened ? <Close size={'sm'} /> : <Menu size={'sm'} />}
           </button>
-          <Link to={''}>
+          <LocalizedLink to={''}>
             <Banner />
-          </Link>
+          </LocalizedLink>
         </div>
         <div className={'flex items-center gap-4'}>
           <div
@@ -181,9 +190,25 @@ const Header = () => {
   );
 };
 
+export const LocaleHelmet = () => {
+  const { url } = useRouteLoaderData('root') as { url: string };
+
+  return (
+    <Helmet>
+      <link rel="alternate" hrefLang="x-default" href={getLocaleUrl(url)} />
+      {Object.keys(LOCALES).map((key) => {
+        return (
+          <link key={key} rel="alternate" hrefLang={LOCALES[key as LocaleKey].hrefLang} href={getLocaleUrl(url, key)} />
+        );
+      })}
+    </Helmet>
+  );
+};
+
 export default function SiteLayout() {
   return (
     <>
+      <LocaleHelmet />
       <Header />
       <div className={'pt-16'}>
         <Suspense fallback={<LazyLoader height={'calc(100vh - 5em)'} />}>

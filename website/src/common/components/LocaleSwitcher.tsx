@@ -7,19 +7,14 @@ import {
   DropdownMenuTrigger,
 } from '@resolid/nxt-ui';
 import { cx } from '@resolid/nxt-utils';
-import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { UNSAFE_RouteContext, generatePath, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { Locale } from '~/common/icons/Locale';
-import { LOCALES } from '~/i18n';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_PARAMS, type LocaleKey } from '~/i18n';
 
 export const LocaleSwitcher = () => {
   const { i18n, t } = useTranslation();
-
-  const routeContext = useContext(UNSAFE_RouteContext);
-  const params = useParams();
-  const navigate = useNavigate();
-  const { search } = useLocation();
+  const [, setSearchParams] = useSearchParams();
 
   return (
     <DropdownMenu placement={'bottom'}>
@@ -39,38 +34,25 @@ export const LocaleSwitcher = () => {
           return (
             <DropdownMenuItem
               key={key}
-              className={cx('my-1', i18n.resolvedLanguage == key && 'text-link')}
+              className={cx('my-1', i18n.language == key && 'text-link')}
               onClick={async () => {
                 await i18n.changeLanguage(key);
 
-                let lastRouteContext = routeContext;
+                setSearchParams((prev) => {
+                  if (key == DEFAULT_LOCALE) {
+                    prev.delete(LOCALE_PARAMS);
+                  } else {
+                    prev.set(LOCALE_PARAMS, key);
+                  }
 
-                while (lastRouteContext.outlet) {
-                  lastRouteContext = lastRouteContext.outlet.props.routeContext;
-                }
-
-                const pathPattern = lastRouteContext.matches
-                  .map(({ route: { path } }) => path)
-                  .filter(Boolean)
-                  .join('/')
-                  .replaceAll(/\/\*?\//g, '/');
-
-                navigate(
-                  {
-                    pathname: generatePath(pathPattern, {
-                      ...params,
-                      lang: key,
-                    }),
-                    search,
-                  },
-                  { replace: true }
-                );
+                  return prev;
+                });
 
                 document.documentElement.setAttribute('lang', key);
                 document.documentElement.setAttribute('dir', i18n.dir(key));
               }}
             >
-              <div className={'flex items-center gap-1'}>{LOCALES[key as keyof typeof LOCALES]}</div>
+              <div className={'flex items-center gap-1'}>{LOCALES[key as LocaleKey].name}</div>
             </DropdownMenuItem>
           );
         })}

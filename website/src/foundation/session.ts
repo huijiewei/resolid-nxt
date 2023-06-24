@@ -1,6 +1,6 @@
 import { createSessionStorage, type SessionIdStorageStrategy, type SessionStorage } from '@resolid/nxt-run/node';
 import { omit } from '@resolid/nxt-utils';
-import type { UserSelect } from '~/engine/core/schema';
+import type { UserSelect } from '~/engine/modules/user/schema';
 import { deleteUserSession, findUserBySessionToken, updateUserSession } from '~/engine/modules/user/userRepository';
 
 export type SessionUser = Omit<UserSelect, 'password' | 'updatedAt' | 'deletedAt'>;

@@ -8,7 +8,7 @@ import { z } from 'zod';
 import { AuthContinue } from '~/common/components/AuthContinue';
 import { AuthModalAction, useAuthModalDispatch } from '~/common/components/AuthModal';
 import { FormError } from '~/common/components/FormError';
-import { Link } from '~/common/components/Link';
+import { LocalizedLink } from '~/common/components/LocalizedLink';
 
 const schema = z
   .object({
@@ -42,7 +42,7 @@ export const AuthSignupForm = () => {
   } = useNxtFetcherForm<AuthSignupFormData>({
     mode: 'onSubmit',
     submitOptions: {
-      action: `/api/auth/signup?lng=${i18n.resolvedLanguage}`,
+      action: `/api/auth/signup?lng=${i18n.language}`,
     },
     resolver: authSignupResolver,
   });
@@ -146,13 +146,13 @@ export const AuthSignupForm = () => {
               <Checkbox id={name} name={name} invalid={Boolean(errors.agreeTerms)} onChange={onChange}>
                 <Trans t={t} i18nKey={'agreeTerms'}>
                   Agree{' '}
-                  <Link className={'text-link hover:text-link-hovered'} target={'_blank'} to={'../terms'}>
+                  <LocalizedLink className={'text-link hover:text-link-hovered'} target={'_blank'} to={'../terms'}>
                     Terms of Service
-                  </Link>{' '}
+                  </LocalizedLink>{' '}
                   and have read{' '}
-                  <Link className={'text-link hover:text-link-hovered'} target={'_blank'} to={'../privacy'}>
+                  <LocalizedLink className={'text-link hover:text-link-hovered'} target={'_blank'} to={'../privacy'}>
                     Privacy Policy
-                  </Link>
+                  </LocalizedLink>
                 </Trans>
               </Checkbox>
             )}
@@ -172,7 +172,7 @@ export const AuthSignupForm = () => {
           </Button>
         ) : (
           <Button
-            as={Link}
+            as={LocalizedLink}
             to={{ pathname: '../login', search: params.toString() }}
             className={'!px-0'}
             variant={'link'}

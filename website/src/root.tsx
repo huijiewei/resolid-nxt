@@ -14,7 +14,7 @@ import { getSession, type SessionUser } from '~/foundation/session';
 export const loader = server$(async ({ request }) => {
   const session = await getSession(request.headers.get('Cookie'));
 
-  return { user: session.has('id') ? session.data : null };
+  return { user: session.has('id') ? session.data : null, url: request.url };
 });
 
 export default function Root() {

@@ -130,6 +130,8 @@ program
 
       console.log(`Insert user ${email} success!`);
     }
+
+    process.exit(0);
   });
 
 await program.parseAsync(process.argv);

@@ -32,5 +32,6 @@
   "agreeTerms": "同意<2>服务协议</2>并已阅读<6>隐私策略</6>",
   "logout": "退出登陆",
   "profile": "个人主页",
-  "settings": "用户设置"
+  "settings": "用户设置",
+  "administration": "后台管理"
 }

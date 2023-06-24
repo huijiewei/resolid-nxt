@@ -1,8 +1,8 @@
 import { Button } from '@resolid/nxt-ui';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { Link } from '~/common//components/Link';
 import { DefaultLayout } from '~/common/components/DefaultLayout';
+import { LocalizedLink } from '~/common/components/LocalizedLink';
 import { ArrowRight } from '~/common/icons/ArrowRight';
 import { Github } from '~/common/icons/Github';
 
@@ -26,7 +26,7 @@ export default function HomeIndex() {
           <p className={'mt-10 text-lg'}>{t('home.hero')}</p>
 
           <p className={'mt-10 flex flex-row gap-9'}>
-            <Button size={'xl'} as={Link} to={'run'}>
+            <Button size={'xl'} as={LocalizedLink} to={'run'}>
               {t('button.start')}
               <ArrowRight className={'ms-3'} />
             </Button>

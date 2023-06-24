@@ -1,7 +1,7 @@
 import { cx } from '@resolid/nxt-utils';
 import { useTranslation } from 'react-i18next';
 import { useAsideLayoutDispatch } from '~/common/components/AsideLayout';
-import { NavLink } from '~/common/components/Link';
+import { LocalizedNavLink } from '~/common/components/LocalizedLink';
 
 export type Menu = {
   label: string;
@@ -16,7 +16,7 @@ const MenuItem = ({ menu, depth, namespace }: { menu: Menu; depth: number; names
   return (
     <li>
       {menu.path ? (
-        <NavLink
+        <LocalizedNavLink
           className={({ isActive }) => {
             return cx(
               'block py-1',
@@ -28,7 +28,7 @@ const MenuItem = ({ menu, depth, namespace }: { menu: Menu; depth: number; names
           to={menu.path}
         >
           {t(menu.label)}
-        </NavLink>
+        </LocalizedNavLink>
       ) : (
         <h5 className={depth > 1 ? 'mb-1 ps-4 font-normal' : 'mb-2 font-medium'}>{t(menu.label)}</h5>
       )}

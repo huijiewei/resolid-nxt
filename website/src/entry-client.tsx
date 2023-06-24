@@ -5,7 +5,7 @@ import { StrictMode, startTransition } from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { matchRoutes } from 'react-router-dom';
-import { i18n } from '~/i18n';
+import { DEFAULT_LOCALE, LOCALE_PARAMS, i18n } from '~/i18n';
 import routes from '~/routes';
 
 if (import.meta.env.DEV) {
@@ -17,8 +17,9 @@ if (import.meta.env.DEV) {
 async function hydrate() {
   const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
   const matches = matchRoutes(routes, window.location, basename);
+
+  const lng = new URLSearchParams(window.location.search).get(LOCALE_PARAMS) ?? DEFAULT_LOCALE;
   const ns = matches?.filter((m) => m.route.handle?.i18n !== undefined).flatMap((m) => m.route.handle.i18n) ?? [];
-  const lng = matches?.find((m) => m.params.lang != undefined)?.params.lang ?? (i18n.fallbackLng as string);
 
   await i18next
     .use(HttpBackend)

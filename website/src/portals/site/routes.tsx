@@ -1,8 +1,6 @@
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
-import { redirect } from 'react-router-dom';
 import { DefaultLayout } from '~/common/components/DefaultLayout';
-import { i18n } from '~/i18n';
 
 import runSiteRoutes from '~/modules/run/siteRoutes';
 import uiSiteRoutes from '~/modules/ui/siteRoutes';
@@ -12,20 +10,7 @@ const NotFound = lazy(() => import('~/portals/site/NotFound'));
 const routes: RouteObject[] = [
   {
     path: '/',
-    loader: () => redirect(i18n.fallbackLng as string),
-  },
-  {
-    path: '/:lang',
     handle: { i18n: 'site' },
-    loader: ({ params, request }) => {
-      if (Array.isArray(i18n.supportedLngs) && !i18n.supportedLngs.includes(params.lang)) {
-        const basename = import.meta.env.BASE_URL;
-        const pathname = new URL(request.url).pathname.slice(basename.length);
-        return redirect(`${basename.replace(/\/$/, '')}/${i18n.fallbackLng}/${pathname}`);
-      }
-
-      return null;
-    },
     Component: lazy(() => import('./Layout')),
     children: [
       {

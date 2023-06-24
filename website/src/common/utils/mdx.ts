@@ -9,7 +9,7 @@ import { VFile } from 'vfile';
 const MDX_CACHE_CONTROL = 'max-age=300, stale-while-revalidate=604800';
 const MDX_GITHUB_URL = 'https://github.com/huijiewei/resolid-nxt/blob/main';
 
-export const getMdxFileName = (document: string, lang?: string, fallbackLng?: string) => {
+export const getMdxFileName = (document: string, lang?: string | null, fallbackLng?: string) => {
   if (!lang || lang == fallbackLng) {
     return `${document}.mdx`;
   }

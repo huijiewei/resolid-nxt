@@ -4,14 +4,14 @@ import { Button, Checkbox, Input } from '@resolid/nxt-ui';
 import { useEffect } from 'react';
 import { Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { resolvePath, useSearchParams } from 'react-router-dom';
 import { z } from 'zod';
 import { AuthContinue } from '~/common/components/AuthContinue';
 import { AuthModalAction, useAuthModalDispatch } from '~/common/components/AuthModal';
 import { useAuthDispatch } from '~/common/components/AuthProvider';
 import { useAuthUserDispatch } from '~/common/components/AuthUserProvider';
 import { FormError } from '~/common/components/FormError';
-import { Link } from '~/common/components/Link';
+import { LocalizedLink, useLocalizedNavigate } from '~/common/components/LocalizedLink';
 
 const schema = z.object({
   email: z.string().nonempty().email(),
@@ -26,7 +26,7 @@ export const authLoginResolver = zodResolver(schema);
 export const AuthLoginForm = () => {
   const { t, i18n } = useTranslation('common');
   const [params] = useSearchParams();
-  const navigate = useNavigate();
+  const navigate = useLocalizedNavigate();
   const setAuthModalAction = useAuthModalDispatch();
   const { resetAction } = useAuthDispatch();
   const { setUser } = useAuthUserDispatch();
@@ -39,7 +39,7 @@ export const AuthLoginForm = () => {
   } = useNxtFetcherForm<AuthLoginFormData>({
     mode: 'onSubmit',
     submitOptions: {
-      action: `/api/auth/login?lng=${i18n.resolvedLanguage}`,
+      action: `/api/auth/login?lng=${i18n.language}`,
     },
     resolver: authLoginResolver,
   });
@@ -51,7 +51,7 @@ export const AuthLoginForm = () => {
       if (setAuthModalAction) {
         resetAction();
       } else {
-        navigate(params.get('direct') || '/', { replace: true });
+        navigate(params.get('direct') ? resolvePath(params.get('direct') as string) : '/', { replace: true });
       }
     }
   }, [data, navigate, params, resetAction, setAuthModalAction, setUser]);
@@ -126,7 +126,7 @@ export const AuthLoginForm = () => {
             </Button>
           ) : (
             <Button
-              as={Link}
+              as={LocalizedLink}
               to={{ pathname: '../forgot-password', search: params.toString() }}
               className={'!px-0'}
               color={'neutral'}
@@ -150,7 +150,7 @@ export const AuthLoginForm = () => {
           </Button>
         ) : (
           <Button
-            as={Link}
+            as={LocalizedLink}
             to={{ pathname: '../signup', search: params.toString() }}
             className={'!px-0'}
             variant={'link'}

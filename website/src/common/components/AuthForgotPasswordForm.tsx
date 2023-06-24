@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 import { z } from 'zod';
 import { AuthModalAction, useAuthModalDispatch } from '~/common/components/AuthModal';
 import { FormError } from '~/common/components/FormError';
-import { Link } from '~/common/components/Link';
+import { LocalizedLink } from '~/common/components/LocalizedLink';
 
 const schema = z.object({
   email: z.string().nonempty().email(),
@@ -30,7 +30,7 @@ export const AuthForgotPasswordForm = () => {
   } = useNxtFetcherForm<AuthForgotPasswordFormData>({
     mode: 'onSubmit',
     submitOptions: {
-      action: `/api/auth/forgot-password?lng=${i18n.resolvedLanguage}`,
+      action: `/api/auth/forgot-password?lng=${i18n.language}`,
     },
     resolver: authForgotPasswordResolver,
   });
@@ -74,7 +74,7 @@ export const AuthForgotPasswordForm = () => {
           </Button>
         ) : (
           <Button
-            as={Link}
+            as={LocalizedLink}
             to={{ pathname: '../login', search: params.toString() }}
             className={'!px-0'}
             variant={'link'}

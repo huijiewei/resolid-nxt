@@ -5,10 +5,11 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { getLocale } from '~/common/components/LocalizedLink';
 import { MdxView } from '~/common/mdx/MdxView';
 import { mdxComponents as shared } from '~/common/mdx/mdxComponents';
 import { getMdxFileName, mdxHeaders, responseMdx, serializeMdx } from '~/common/utils/mdx';
-import { i18n } from '~/i18n';
+import { DEFAULT_LOCALE } from '~/i18n';
 import { MdxColorPalette } from '~/modules/ui/components/MdxColorPalette';
 import { MdxDemo } from '~/modules/ui/components/MdxDemo';
 import { MdxPropsTable } from '~/modules/ui/components/MdxPropsTable';
@@ -20,14 +21,14 @@ const mdxComponents = {
   PropsTable: MdxPropsTable,
 };
 
-export const loader = server$(async ({ params }) => {
+export const loader = server$(async ({ params, request }) => {
   const cwd = process.cwd();
 
   const filePath = join(cwd, 'docs/ui', params.document ? 'documents' : 'components');
 
   let file = join(
     filePath,
-    getMdxFileName(params.document ?? params.component ?? '', params.lang, i18n.fallbackLng as string)
+    getMdxFileName(params.document ?? params.component ?? '', getLocale(request), DEFAULT_LOCALE)
   );
 
   if (!existsSync(file)) {

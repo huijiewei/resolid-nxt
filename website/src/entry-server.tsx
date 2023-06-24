@@ -4,7 +4,7 @@ import isbot from 'isbot';
 import { PassThrough, Readable } from 'node:stream';
 import { renderToPipeableStream } from 'react-dom/server';
 import { I18nextProvider } from 'react-i18next';
-import { i18n } from '~/i18n';
+import { getLocaleWithDefault } from '~/common/components/LocalizedLink';
 import { getInstance } from '~/i18n.server';
 
 const ABORT_DELAY = 5000;
@@ -12,9 +12,7 @@ const ABORT_DELAY = 5000;
 export default createHandler(async (request, responseStatusCode, responseHeaders, entryContext, renderOptions) => {
   const ready = isbot(request.headers.get('user-agent')) ? 'onAllReady' : 'onShellReady';
 
-  const lng =
-    entryContext.staticHandlerContext.matches.find((m) => m.params.lang != undefined)?.params.lang ??
-    (i18n.fallbackLng as string);
+  const lng = getLocaleWithDefault(request);
   const ns = entryContext.staticHandlerContext.matches
     .filter((m) => m.route.handle?.i18n != undefined)
     .flatMap((m) => m.route.handle.i18n);
