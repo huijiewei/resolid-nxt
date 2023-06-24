@@ -1,15 +1,15 @@
 import { useListItem } from '@floating-ui/react';
 import { __DEV__, cx } from '@resolid/nxt-utils';
 import { useMergedRefs } from '../../hooks';
-import { primitiveComponent } from '../../primitives';
+import { polymorphicComponent } from '../../primitives';
 import { useMenuSelect } from './MenuContext';
 
 type DropdownMenuItemProps = {
   onClick?: () => void;
 };
 
-export const MenuItem = primitiveComponent<'button', DropdownMenuItemProps>((props, ref) => {
-  const { className, children, onClick, disabled = false, ...rest } = props;
+export const MenuItem = polymorphicComponent<'button', DropdownMenuItemProps, 'type'>((props, ref) => {
+  const { as: Component = 'button', className, children, onClick, disabled = false, ...rest } = props;
 
   const { tree, getItemProps, activeIndex } = useMenuSelect();
   const { ref: itemRef, index } = useListItem();
@@ -19,10 +19,10 @@ export const MenuItem = primitiveComponent<'button', DropdownMenuItemProps>((pro
   const isActive = index === activeIndex && index !== null;
 
   return (
-    <button
+    <Component
       ref={refs}
       role={'menuitem'}
-      type={'button'}
+      type={Component == 'button' ? 'button' : undefined}
       disabled={disabled}
       className={cx(
         'flex w-full cursor-default items-center rounded py-1 px-2 outline-none transition-colors',
@@ -39,7 +39,7 @@ export const MenuItem = primitiveComponent<'button', DropdownMenuItemProps>((pro
       {...rest}
     >
       {children}
-    </button>
+    </Component>
   );
 });
 
