@@ -24,8 +24,7 @@ program
 
     await db.insert(userGroups).values([
       { id: 1, name: 'Admin' },
-      { id: 2, name: 'Guest' },
-      { id: 3, name: 'Member' },
+      { id: 2, name: 'Member' },
     ]);
 
     await db.insert(users).values({
@@ -118,9 +117,9 @@ program
       const createdAt = new Date(fakeCreatedAtTimestamp * 1000);
 
       await insertUser({
-        userGroupId: 3,
+        userGroupId: 2,
         email: email,
-        emailVerified: faker.number.int({ max: 100 }) > 30 ? null : createdAt,
+        emailVerified: faker.number.int({ max: 100 }) > 66 ? null : createdAt,
         username: username,
         password: hashSync(password),
         avatar: avatar,

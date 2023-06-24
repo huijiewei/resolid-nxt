@@ -90,7 +90,7 @@ const routes: RouteObject[] = [
         email: data.email,
         username: data.username,
         password: hashSync(data?.password),
-        userGroupId: 3,
+        userGroupId: 2,
       });
 
       const session = await getSession(request.headers.get('Cookie'));
