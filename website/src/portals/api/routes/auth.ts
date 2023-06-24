@@ -10,6 +10,7 @@ import { authLoginResolver, type AuthLoginFormData } from '~/common/components/A
 import type { AuthSignupFormData } from '~/common/components/AuthSignupForm';
 import { authSignupResolver } from '~/common/components/AuthSignupForm';
 import { problem, success } from '~/common/utils/http';
+import { verifyToken } from '~/common/utils/trunstile';
 import { existByEmail, existByUsername, findUserByEmail, insertUser } from '~/engine/modules/user/userRepository';
 import { commitSession, destroySession, getSession, omitUser } from '~/foundation/session';
 import { getFixedT } from '~/i18n.server';
@@ -110,6 +111,14 @@ const routes: RouteObject[] = [
 
       if (errors) {
         return problem(errors);
+      }
+
+      const captcha = await verifyToken(data?.token);
+
+      if (!captcha.success) {
+        return problem({
+          captcha: { message: captcha.error },
+        });
       }
 
       const t = await getFixedT(new URL(request.url).searchParams.get('lng'), 'common');

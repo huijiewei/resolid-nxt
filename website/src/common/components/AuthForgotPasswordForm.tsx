@@ -1,16 +1,20 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import type { TurnstileInstance } from '@marsidev/react-turnstile';
 import { useNxtFetcherForm } from '@resolid/nxt-run-form';
 import { Button, Input } from '@resolid/nxt-ui';
+import { useEffect, useRef, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import { z } from 'zod';
 import { AuthModalAction, useAuthModalDispatch } from '~/common/components/AuthModal';
 import { FormError } from '~/common/components/FormError';
+import { FormTurnstile } from '~/common/components/FormTurnstile';
 import { LocalizedLink } from '~/common/components/LocalizedLink';
 
 const schema = z.object({
   email: z.string().nonempty().email(),
+  token: z.string().nonempty(),
 });
 
 export type AuthForgotPasswordFormData = z.infer<typeof schema>;
@@ -21,10 +25,12 @@ export const AuthForgotPasswordForm = () => {
   const { t, i18n } = useTranslation('common');
   const [params] = useSearchParams();
   const setAuthModalAction = useAuthModalDispatch();
+  const [captchaVerify, setCaptchaVerify] = useState(false);
+  const captchaRef = useRef<TurnstileInstance>(null);
 
   const {
     handleSubmit,
-    fetcher: { Form, state },
+    fetcher: { Form, state, data },
     formState: { errors },
     control,
   } = useNxtFetcherForm<AuthForgotPasswordFormData>({
@@ -34,6 +40,13 @@ export const AuthForgotPasswordForm = () => {
     },
     resolver: authForgotPasswordResolver,
   });
+
+  useEffect(() => {
+    if (!data?.success) {
+      setCaptchaVerify(false);
+      captchaRef.current?.reset();
+    }
+  }, [data]);
 
   return (
     <div className={'flex flex-col gap-2'}>
@@ -61,8 +74,22 @@ export const AuthForgotPasswordForm = () => {
           />
           <FormError message={errors.email?.message} />
         </div>
+        <Controller
+          name={'token'}
+          control={control}
+          render={({ field: { onChange } }) => (
+            <FormTurnstile
+              ref={captchaRef}
+              onSuccess={(token) => {
+                onChange(token);
+                setCaptchaVerify(true);
+              }}
+              options={{ responseField: false }}
+            />
+          )}
+        ></Controller>
         <div className={'text-center'}>
-          <Button fullWidth loading={state == 'submitting'} type={'submit'}>
+          <Button fullWidth size={'lg'} disabled={!captchaVerify} loading={state == 'submitting'} type={'submit'}>
             {t('send')}
           </Button>
         </div>

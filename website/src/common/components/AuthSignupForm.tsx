@@ -159,7 +159,7 @@ export const AuthSignupForm = () => {
           />
         </div>
         <div className={'text-center'}>
-          <Button fullWidth loading={state == 'submitting'} type={'submit'}>
+          <Button size={'lg'} fullWidth loading={state == 'submitting'} type={'submit'}>
             {t('signup')}
           </Button>
         </div>
