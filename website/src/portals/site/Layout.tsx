@@ -87,16 +87,16 @@ const NavUser = () => {
         <DropdownMenuContent className={'z-50'}>
           <DropdownMenuArrow />
           <DropdownMenuItem disabled>{user.email}</DropdownMenuItem>
-          <DropdownMenuItem onClick={() => navigate(`user/${user.username}`)}>
+          <DropdownMenuItem as={LocalizedLink} to={`user/${user.username}`}>
             <UserCircle className={'me-1.5'} />
             {t('profile')}
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => navigate('settings')}>
+          <DropdownMenuItem as={LocalizedLink} to={'settings'}>
             <Settings className={'me-1.5'} />
             {t('settings')}
           </DropdownMenuItem>
           {user.userGroupId == 1 && (
-            <DropdownMenuItem onClick={() => navigate('/admin')}>
+            <DropdownMenuItem as={LocalizedLink} to={'/admin'} target={'_blank'}>
               <Dashboard className={'me-1.5'} />
               {t('administration')}
             </DropdownMenuItem>
