@@ -26,6 +26,11 @@ jobs:
         shell: 'bash'
         run: pnpm install
 
+      - name: Create env file
+        shell: 'bash'
+        run: |
+          echo "VITE_TURNSTILE_KEY=${{ secrets.TURNSTILE_KEY }}" >> .env
+
       - name: Build
         shell: 'bash'
         run: pnpm run website:deploy
