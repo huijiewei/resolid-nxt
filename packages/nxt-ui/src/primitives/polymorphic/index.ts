@@ -50,10 +50,17 @@ export type PolymorphicProps<
 
 export type PolymorphicComponent<
   Component extends ElementType,
-  Props extends Record<never, never> = Record<never, never>
+  Props extends Record<never, never> = Record<never, never>,
+  Omits extends string | number | symbol = never
 > = {
   <AsComponent extends ElementType = Component>(
-    props: PolymorphicProps<Component, AsComponent, Props, ComponentProps<Component>, ComponentProps<AsComponent>>
+    props: PolymorphicProps<
+      Component,
+      AsComponent,
+      Props,
+      Omit<ComponentProps<Component>, Omits>,
+      ComponentProps<AsComponent>
+    >
   ): JSX.Element;
 
   displayName?: string;
@@ -64,7 +71,8 @@ export type PolymorphicComponent<
 
 export const polymorphicComponent = <
   Component extends ElementType,
-  Props extends Record<never, never> = Record<never, never>
+  Props extends Record<never, never> = Record<never, never>,
+  Omits extends string | number | symbol = never
 >(
-  component: ForwardRefRenderFunction<never, Assign<PropsOf<Component>, Props> & { as?: ElementType }>
-) => forwardRef(component) as unknown as PolymorphicComponent<Component, Props>;
+  component: ForwardRefRenderFunction<never, Assign<Omit<PropsOf<Component>, Omits>, Props> & { as?: ElementType }>
+) => forwardRef(component) as unknown as PolymorphicComponent<Component, Props, Omits>;
