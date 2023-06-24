@@ -9,6 +9,7 @@ import {
 import { authLoginResolver, type AuthLoginFormData } from '~/common/components/AuthLoginForm';
 import type { AuthSignupFormData } from '~/common/components/AuthSignupForm';
 import { authSignupResolver } from '~/common/components/AuthSignupForm';
+import { getLocale } from '~/common/components/LocalizedLink';
 import { problem, success } from '~/common/utils/http';
 import { verifyToken } from '~/common/utils/trunstile';
 import { existByEmail, existByUsername, findUserByEmail, insertUser } from '~/engine/modules/user/userRepository';
@@ -25,7 +26,7 @@ const routes: RouteObject[] = [
         return problem(errors);
       }
 
-      const t = await getFixedT(new URL(request.url).searchParams.get('lng'), 'common');
+      const t = await getFixedT(getLocale(request), 'common');
       const user = await findUserByEmail(data?.email);
 
       if (user == null) {
@@ -73,7 +74,7 @@ const routes: RouteObject[] = [
         return problem(errors);
       }
 
-      const t = await getFixedT(new URL(request.url).searchParams.get('lng'), 'common');
+      const t = await getFixedT(getLocale(request), 'common');
 
       if (await existByEmail(data?.email)) {
         return problem({
@@ -121,7 +122,7 @@ const routes: RouteObject[] = [
         });
       }
 
-      const t = await getFixedT(new URL(request.url).searchParams.get('lng'), 'common');
+      const t = await getFixedT(getLocale(request), 'common');
 
       if (!(await existByEmail(data?.email))) {
         return problem({

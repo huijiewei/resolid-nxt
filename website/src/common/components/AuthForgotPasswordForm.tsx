@@ -36,7 +36,7 @@ export const AuthForgotPasswordForm = () => {
   } = useNxtFetcherForm<AuthForgotPasswordFormData>({
     mode: 'onSubmit',
     submitOptions: {
-      action: `/api/auth/forgot-password?lng=${i18n.language}`,
+      action: `/api/auth/forgot-password?hl=${i18n.language}`,
     },
     resolver: authForgotPasswordResolver,
   });
