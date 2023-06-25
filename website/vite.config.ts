@@ -25,10 +25,6 @@ export default defineConfig(({ command }) => {
               src: 'docs',
               dest: 'dist/docs',
             },
-            {
-              src: 'prisma/schema.prisma',
-              dest: 'dist/prisma/schema.prisma',
-            },
           ],
         }),
       nxtRun({
