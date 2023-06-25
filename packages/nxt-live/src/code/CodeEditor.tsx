@@ -1,14 +1,14 @@
+import type { Language, PrismTheme } from '@resolid/nxt-prism';
 import { useCallback, useMemo, useRef, useState, type ComponentPropsWithoutRef } from 'react';
 import Editor from 'react-simple-code-editor';
-
-import { CodeBlock, type PrismTheme } from './CodeBlock';
+import { CodeBlock } from './CodeBlock';
 
 type EditorProps = ComponentPropsWithoutRef<typeof Editor>;
 
 export type CodeEditorProps = Partial<Omit<EditorProps, 'defaultValue' | 'value' | 'onValueChange' | 'onChange'>> & {
   value?: string;
   defaultValue?: string;
-  language?: string;
+  language?: Language;
   theme: PrismTheme;
   onChange?: (value: string) => void;
 };

@@ -1,11 +1,9 @@
-import { Highlight, themes } from 'prism-react-renderer';
+import { Highlight, Prism, type Language, type PrismTheme } from '@resolid/nxt-prism';
 import { Fragment, type CSSProperties, type ComponentPropsWithoutRef } from 'react';
-
-export type PrismTheme = typeof themes.dracula;
 
 export type CodeBlockProps = Omit<ComponentPropsWithoutRef<'pre'>, 'children'> & {
   children?: string;
-  language?: string;
+  language?: Language;
   theme: PrismTheme;
   noWrapper?: boolean;
   noWrap?: boolean;
@@ -24,7 +22,7 @@ export const CodeBlock = ({
   ...rest
 }: CodeBlockProps) => {
   return (
-    <Highlight code={children || ''} language={language} theme={theme}>
+    <Highlight prism={Prism} code={children || ''} language={language} theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         const children = tokens.map((line, i) => (
           <Fragment key={i}>

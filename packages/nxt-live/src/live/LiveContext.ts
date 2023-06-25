@@ -1,4 +1,4 @@
-import type { Language, PrismTheme } from 'prism-react-renderer';
+import type { Language, PrismTheme } from '@resolid/nxt-prism';
 import { createContext, useContext } from 'react';
 import type { UseRunnerReturn } from '../runner/useRunner';
 
