@@ -2,8 +2,6 @@ import { server$ } from '@resolid/nxt-run/server';
 import { json, type RouteObject } from 'react-router-dom';
 import authRoutes from './routes/auth';
 
-const verifyEndpoint = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
-
 const routes: RouteObject[] = [
   {
     path: '/api',

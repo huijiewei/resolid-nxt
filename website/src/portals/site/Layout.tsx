@@ -27,7 +27,7 @@ import { useAuthUserDispatch, useAuthUserState } from '~/common/components/AuthU
 import { Banner } from '~/common/components/Banner';
 import { LazyLoader } from '~/common/components/LazyLoader';
 import { LocaleSwitcher } from '~/common/components/LocaleSwitcher';
-import { LocalizedLink, LocalizedNavLink, getLocaleUrl, useLocalizedNavigate } from '~/common/components/LocalizedLink';
+import { LocalizedLink, LocalizedNavLink, getLocaleUrl } from '~/common/components/LocalizedLink';
 import { ThemeSwitcher } from '~/common/components/ThemeSwitcher';
 import { Close } from '~/common/icons/Close';
 import { Dashboard } from '~/common/icons/Dashboard';
@@ -73,7 +73,6 @@ const NavUser = () => {
   const user = useAuthUserState();
   const { resetUser } = useAuthUserDispatch();
   const location = useLocation();
-  const navigate = useLocalizedNavigate();
   const fetcher = useFetcher();
 
   if (user) {
