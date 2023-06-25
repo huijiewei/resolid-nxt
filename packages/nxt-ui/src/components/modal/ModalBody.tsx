@@ -3,7 +3,7 @@ import { primitiveComponent } from '../../primitives';
 import { useFloatingAria } from '../floating/FloatingAriaContext';
 import { useModal } from './ModalContext';
 
-export const ModalBody = primitiveComponent<'div', Record<string, never>, 'id'>((props, ref) => {
+export const ModalBody = primitiveComponent<'div', Record<never, never>, 'id'>((props, ref) => {
   const { children, className, ...rest } = props;
 
   const { scrollBehavior } = useModal();
