@@ -45,6 +45,7 @@ export const RunClient = () => {
         shouldRevalidate: () => false,
         element: <Root.default />,
         children: createRoutes(routes),
+        errorElement: Root.ErrorBoundary ? <Root.ErrorBoundary /> : null,
       },
     ],
     {

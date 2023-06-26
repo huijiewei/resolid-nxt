@@ -155,16 +155,6 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
 
                     const serverIndex = state.servers++;
 
-                    serverFn.traverse({
-                      MemberExpression(path) {
-                        const obj = path.get('object');
-                        if (obj.node.type === 'Identifier' && obj.node.name === 'server$') {
-                          obj.replaceWith(t.identifier('$$ctx'));
-                          return;
-                        }
-                      },
-                    });
-
                     if (serverFn.node.type === 'ArrowFunctionExpression') {
                       const body = serverFn.get('body') as Babel.NodePath<
                         Babel.types.Expression | Babel.types.BlockStatement
@@ -182,15 +172,6 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
                           false,
                           true
                         )
-                      );
-                    }
-
-                    if (serverFn.node.type === 'FunctionExpression') {
-                      (serverFn.get('body') as Babel.NodePath<Babel.types.BlockStatement>).unshiftContainer(
-                        'body',
-                        t.variableDeclaration('const', [
-                          t.variableDeclarator(t.identifier('$$ctx'), t.thisExpression()),
-                        ])
                       );
                     }
 

@@ -1,8 +1,8 @@
+import { createLocation, createPath } from '@remix-run/router/history';
 import { type FilledContext } from 'react-helmet-async';
 import { matchRoutes, redirect } from 'react-router-dom';
 import { createStaticHandler } from 'react-router-dom/server';
 import { isDeferredData, isRedirectStatusCode, isResponse, json } from '../base/data';
-import type { DataFunctionArgs } from '../base/types';
 import { handleData$ } from './bling';
 import { components$, type EntryContext } from './context';
 
@@ -22,7 +22,7 @@ export type HandleFn = (
   renderOptions: RenderOptions
 ) => Promise<Response> | Response;
 
-export type HandleDataFn = (response: Response, args: DataFunctionArgs) => Promise<Response> | Response;
+export type HandleDataFn = (response: Response, request: Request) => Promise<Response> | Response;
 
 // noinspection JSUnusedGlobalSymbols
 export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null = null) => {
@@ -52,14 +52,11 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
       }
     );
 
-    const matches = matchRoutes(staticHandler.dataRoutes, url.pathname, basename);
-    const currentMatch = matches?.[matches.length - 1];
-
     if (url.searchParams.has('_data')) {
-      let response = await handleData$(staticHandler, request, currentMatch?.route.id);
+      let response = await handleData$(staticHandler, request);
 
       if (handleData) {
-        response = handleData(response, { params: currentMatch?.params ?? {}, request: request });
+        response = handleData(response, request);
       }
 
       if (isDeferredData(response)) {
@@ -74,11 +71,12 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
       return isResponse(response) ? response : json(response);
     }
 
+    const location = createLocation('', createPath(url), null, 'default');
+    const matches = matchRoutes(staticHandler.dataRoutes, location, basename);
+
     if (matches?.find((match) => match.route.handle?.api)) {
       try {
-        return await staticHandler.queryRoute(request, {
-          routeId: currentMatch?.route.id,
-        });
+        return await staticHandler.queryRoute(request);
       } catch (error) {
         if (isResponse(error)) {
           error.headers.set('X-Nxt-Catch', 'yes');

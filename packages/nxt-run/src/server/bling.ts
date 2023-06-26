@@ -18,11 +18,9 @@ export type ServerFunction = (fn: DataFunction) => Awaited<ReturnType<DataFuncti
 // noinspection JSUnusedGlobalSymbols
 export const server$: ServerFunction = serverImpl;
 
-export const handleData$ = async (staticHandler: StaticHandler, request: Request, routeId?: string) => {
+export const handleData$ = async (staticHandler: StaticHandler, request: Request) => {
   try {
-    const response = await staticHandler.queryRoute(request, {
-      routeId: routeId,
-    });
+    const response = await staticHandler.queryRoute(request);
 
     if (isRedirectResponse(response)) {
       const headers = new Headers(response.headers);
@@ -60,19 +58,20 @@ export const handleData$ = async (staticHandler: StaticHandler, request: Request
       return error;
     }
 
-    const status = isRouteErrorResponse(error) ? error.status : 500;
+    if (isRouteErrorResponse(error)) {
+      return json(error.error, {
+        status: error.status,
+        statusText: error.statusText,
+        headers: {
+          'X-Nxt-Error': 'yes',
+        },
+      });
+    }
 
-    const errorInstance =
-      isRouteErrorResponse(error) && error.error
-        ? error.error
-        : error instanceof Error
-        ? error
-        : new Error('Unexpected Server Error');
-
-    return json(errorInstance, {
-      status,
+    return new Response('Unexpected Server Error', {
+      status: 500,
       headers: {
-        'X-Nxt-Error': 'yes',
+        'Content-Type': 'text/plain',
       },
     });
   }

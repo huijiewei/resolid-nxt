@@ -8,7 +8,7 @@ const fetchImpl = (() => {
 }) as any;
 
 export type FetchMethods = {
-  createFetcher(route: string): DataFunction;
+  createFetcher(): DataFunction;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
