@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 import {
   Link,
   NavLink,
+  Navigate,
   createSearchParams,
   redirect,
   useNavigate,
@@ -11,6 +12,7 @@ import {
   type NavLinkProps,
   type NavigateFunction,
   type NavigateOptions,
+  type NavigateProps,
   type To,
 } from 'react-router-dom';
 import { DEFAULT_LOCALE, LOCALE_PARAMS } from '~/i18n';
@@ -72,6 +74,13 @@ if (__DEV__) {
   LocalizedNavLink.displayName = 'NavLink';
 }
 
+export const LocalizedNavigate = (props: NavigateProps) => {
+  const { to, ...rest } = props;
+  const [searchParams] = useSearchParams();
+
+  return <Navigate to={localizedTo(to, searchParams.get(LOCALE_PARAMS))} {...rest} />;
+};
+
 export const useLocalizedNavigate = (): NavigateFunction => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -98,8 +107,9 @@ export const localizedRedirect = (url: string, request: Request, init?: number |
 
   if (locale) {
     const search = createSearchParams([[LOCALE_PARAMS, locale]]).toString();
+    const join = url.includes('?') ? '&' : '?';
 
-    url = `${url}?${search}`;
+    url = `${url}${join}${search}`;
   }
 
   return redirect(url, init);

@@ -10,20 +10,12 @@ import {
   Tooltip,
   noScrollbarsClassName,
 } from '@resolid/nxt-ui';
-import { cx, omit } from '@resolid/nxt-utils';
+import { cx } from '@resolid/nxt-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import {
-  Outlet,
-  createPath,
-  createSearchParams,
-  useFetcher,
-  useLocation,
-  useRouteLoaderData,
-  type To,
-} from 'react-router-dom';
-import { useAuthUserDispatch, useAuthUserState } from '~/common/components/AuthUserProvider';
+import { Outlet, useFetcher, useLocation, useRouteLoaderData } from 'react-router-dom';
+import { getLoginTo, useAuthUserDispatch, useAuthUserState } from '~/common/components/AuthUserProvider';
 import { Banner } from '~/common/components/Banner';
 import { LazyLoader } from '~/common/components/LazyLoader';
 import { LocaleSwitcher } from '~/common/components/LocaleSwitcher';
@@ -119,14 +111,7 @@ const NavUser = () => {
     );
   }
 
-  const to: To = {
-    pathname: 'login',
-    search: location.search,
-  };
-
-  if (!location.pathname.endsWith('login') && !location.pathname.endsWith('signup')) {
-    to.search = createSearchParams({ direct: createPath(omit(location, ['hash'])) }).toString();
-  }
+  const to = getLoginTo('login', location);
 
   return (
     <Tooltip placement={'bottom'} content={t('loginOrSignup')}>

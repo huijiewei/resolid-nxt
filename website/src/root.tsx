@@ -9,12 +9,10 @@ import { makeZodI18nMap } from 'zod-i18n-map';
 import { AuthProvider } from '~/common/components/AuthProvider';
 import { AuthUserProvider } from '~/common/components/AuthUserProvider';
 import { LazyLoader } from '~/common/components/LazyLoader';
-import { getSession, type SessionUser } from '~/foundation/session';
+import { getSessionUser, type SessionUser } from '~/foundation/session';
 
 export const loader = server$(async ({ request }) => {
-  const session = await getSession(request.headers.get('Cookie'));
-
-  return { user: session.has('id') ? session.data : null, url: request.url };
+  return { user: await getSessionUser(request), url: request.url };
 });
 
 export default function Root() {

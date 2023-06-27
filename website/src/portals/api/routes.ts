@@ -4,7 +4,7 @@ import authRoutes from './routes/auth';
 
 const routes: RouteObject[] = [
   {
-    path: '/api',
+    path: 'api',
     handle: { api: true },
     children: [
       {

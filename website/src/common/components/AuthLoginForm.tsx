@@ -51,10 +51,11 @@ export const AuthLoginForm = () => {
       if (setAuthModalAction) {
         resetAction();
       } else {
-        navigate(params.get('direct') ? resolvePath(params.get('direct') as string) : '/', { replace: true });
+        navigate(params.get('redirect') ? resolvePath(params.get('redirect') as string) : '', { replace: true });
       }
     }
-  }, [data, navigate, params, resetAction, setAuthModalAction, setUser]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   return (
     <div className={'flex flex-col gap-2'}>

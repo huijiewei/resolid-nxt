@@ -1,14 +1,17 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNxtFetcherForm } from '@resolid/nxt-run-form';
 import { Button, Checkbox, Input } from '@resolid/nxt-ui';
+import { useEffect } from 'react';
 import { Controller } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
-import { useSearchParams } from 'react-router-dom';
+import { resolvePath, useSearchParams } from 'react-router-dom';
 import { z } from 'zod';
 import { AuthContinue } from '~/common/components/AuthContinue';
 import { AuthModalAction, useAuthModalDispatch } from '~/common/components/AuthModal';
+import { useAuthDispatch } from '~/common/components/AuthProvider';
+import { useAuthUserDispatch } from '~/common/components/AuthUserProvider';
 import { FormError } from '~/common/components/FormError';
-import { LocalizedLink } from '~/common/components/LocalizedLink';
+import { LocalizedLink, useLocalizedNavigate } from '~/common/components/LocalizedLink';
 
 const schema = z
   .object({
@@ -33,10 +36,13 @@ export const AuthSignupForm = () => {
   const { t, i18n } = useTranslation('common');
   const [params] = useSearchParams();
   const setAuthModalAction = useAuthModalDispatch();
+  const navigate = useLocalizedNavigate();
+  const { resetAction } = useAuthDispatch();
+  const { setUser } = useAuthUserDispatch();
 
   const {
     handleSubmit,
-    fetcher: { Form, state },
+    fetcher: { Form, state, data },
     formState: { errors },
     control,
   } = useNxtFetcherForm<AuthSignupFormData>({
@@ -46,6 +52,19 @@ export const AuthSignupForm = () => {
     },
     resolver: authSignupResolver,
   });
+
+  useEffect(() => {
+    if (data && data.success && data.data) {
+      setUser(data.data);
+
+      if (setAuthModalAction) {
+        resetAction();
+      } else {
+        navigate(params.get('redirect') ? resolvePath(params.get('redirect') as string) : '', { replace: true });
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   return (
     <div className={'flex flex-col gap-2'}>

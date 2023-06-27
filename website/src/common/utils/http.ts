@@ -23,3 +23,7 @@ export const success = (data: any, revalidate = false, init: number | ResponseIn
     init
   );
 };
+
+export const unauthorized = () => {
+  return new Response(null, { status: 401 });
+};

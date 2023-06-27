@@ -32,11 +32,13 @@ const routes: RouteObject[] = [
       if (user == null) {
         return problem({
           email: { message: t('userNotExist') },
+          password: null,
         });
       }
 
       if (!verifySync(data.password, user.password)) {
         return problem({
+          email: null,
           password: { message: t('passwordWrong') },
         });
       }

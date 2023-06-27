@@ -46,4 +46,10 @@ const { getSession, commitSession, destroySession } = createDatabaseSessionStora
   },
 });
 
+export const getSessionUser = async (request: Request) => {
+  const session = await getSession(request.headers.get('Cookie'));
+
+  return session.has('id') ? (session.data as SessionUser) : null;
+};
+
 export { commitSession, destroySession, getSession };
