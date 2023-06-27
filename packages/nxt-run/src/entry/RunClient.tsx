@@ -38,7 +38,7 @@ export const RunClient = () => {
   const router = createBrowserRouter(
     [
       {
-        path: '/',
+        path: '',
         id: 'root',
         loader: Root.loader,
         handle: Root.handle,

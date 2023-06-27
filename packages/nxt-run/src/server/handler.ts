@@ -39,7 +39,7 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
     const staticHandler = createStaticHandler(
       [
         {
-          path: '/',
+          path: '',
           id: 'root',
           loader: Root.loader,
           handle: Root.handle,
