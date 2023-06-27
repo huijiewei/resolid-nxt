@@ -1,4 +1,4 @@
-import { type AgnosticRouteMatch, type ShouldRevalidateFunction } from '@remix-run/router';
+import { type AgnosticRouteMatch, type Router, type ShouldRevalidateFunction } from '@remix-run/router';
 import { HelmetProvider } from 'react-helmet-async';
 import { RouterProvider, createBrowserRouter, type RouteObject } from 'react-router-dom';
 
@@ -33,9 +33,8 @@ const createRoutes = (routes: RouteObject[]): RouteObject[] => {
   });
 };
 
-// noinspection JSUnusedGlobalSymbols
-export const RunClient = () => {
-  const router = createBrowserRouter(
+export const createClientRouter = () => {
+  return createBrowserRouter(
     [
       {
         path: '',
@@ -55,7 +54,10 @@ export const RunClient = () => {
       },
     }
   );
+};
 
+// noinspection JSUnusedGlobalSymbols
+export const RunClient = ({ router }: { router: Router }) => {
   return (
     <HelmetProvider>
       <RouterProvider future={{ v7_startTransition: true }} router={router} fallbackElement={null} />

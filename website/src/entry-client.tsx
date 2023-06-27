@@ -1,4 +1,4 @@
-import { RunClient, lazyMatches } from '@resolid/nxt-run';
+import { RunClient, createClientRouter, lazyMatches } from '@resolid/nxt-run';
 import i18next from 'i18next';
 import HttpBackend from 'i18next-http-backend/cjs';
 import { StrictMode, startTransition } from 'react';
@@ -32,6 +32,7 @@ async function hydrate() {
     });
 
   await lazyMatches(matches);
+  const router = createClientRouter();
 
   startTransition(() => {
     hydrateRoot(
@@ -39,7 +40,7 @@ async function hydrate() {
       document.getElementById('app')!,
       <I18nextProvider i18n={i18next}>
         <StrictMode>
-          <RunClient />
+          <RunClient router={router} />
         </StrictMode>
       </I18nextProvider>
     );
