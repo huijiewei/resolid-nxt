@@ -7,327 +7,312 @@ type PluginState = {
     root: string;
     minify: boolean;
   };
-  refs: Set<Babel.NodePath<Babel.types.Identifier>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  refs: Set<any>;
   servers: number;
 };
 
 const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<PluginState> => {
-  const getLocal = (
-    e: Babel.NodePath<null | Babel.types.PatternLike | Babel.types.LVal>
-  ): Babel.NodePath<Babel.types.Identifier> | null => {
-    if (e.node && e.node.type === 'Identifier') {
-      return e as Babel.NodePath<Babel.types.Identifier>;
-    } else if (e.node && e.node.type === 'RestElement') {
-      return e.get('argument') as Babel.NodePath<Babel.types.Identifier>;
-    }
-
-    return null;
-  };
-
-  const getIdentifier = (
-    path:
-      | Babel.NodePath<Babel.types.FunctionDeclaration>
-      | Babel.NodePath<Babel.types.FunctionExpression>
-      | Babel.NodePath<Babel.types.ArrowFunctionExpression>
-  ): Babel.NodePath<Babel.types.Identifier> | null => {
+  const getIdentifier = (path: Babel.NodePath) => {
     const parentPath = path.parentPath;
 
-    if (parentPath.type === 'VariableDeclarator') {
-      const name = (parentPath as Babel.NodePath<Babel.types.VariableDeclarator>).get('id');
-
-      return name.node.type === 'Identifier' ? (name as Babel.NodePath<Babel.types.Identifier>) : null;
+    if (parentPath?.type === 'VariableDeclarator') {
+      const name = parentPath.get('id') as Babel.NodePath;
+      return name.node.type === 'Identifier' ? name : null;
     }
 
-    if (parentPath.type === 'AssignmentExpression') {
-      const name = (parentPath as Babel.NodePath<Babel.types.AssignmentExpression>).get('left');
-
-      return name.node.type === 'Identifier' ? (name as Babel.NodePath<Babel.types.Identifier>) : null;
+    if (parentPath?.type === 'AssignmentExpression') {
+      const name = parentPath.get('left') as Babel.NodePath;
+      return name.node.type === 'Identifier' ? name : null;
     }
 
     if (path.node.type === 'ArrowFunctionExpression') {
       return null;
     }
 
-    return path.node.id && path.node.id.type === 'Identifier'
-      ? (path.get('id') as Babel.NodePath<Babel.types.Identifier>)
-      : null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const node = path.node as any;
+
+    return node.id && node.id.type === 'Identifier' ? path.get('id') : null;
   };
 
-  const isIdentifierReferenced = (ident: Babel.NodePath<Babel.types.Identifier>): boolean => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const isIdentifierReferenced = (ident: Babel.NodePath<any>): boolean => {
     const b = ident.scope.getBinding(ident.node.name);
-
     if (b && b.referenced) {
       if (b.path.type === 'FunctionDeclaration') {
         return !b.constantViolations.concat(b.referencePaths).every((ref) => ref.findParent((p) => p === b.path));
       }
-
       return true;
     }
-
     return false;
   };
 
-  const markFunction = (
-    path:
-      | Babel.NodePath<Babel.types.FunctionDeclaration>
-      | Babel.NodePath<Babel.types.FunctionExpression>
-      | Babel.NodePath<Babel.types.ArrowFunctionExpression>,
-    state: PluginState
-  ) => {
-    const ident = getIdentifier(path);
+  const markFunction = (path: Babel.NodePath, state: PluginState) => {
+    const ident = getIdentifier(path) as Babel.NodePath<Babel.types.Identifier> | null;
 
     if (ident && ident.node && isIdentifierReferenced(ident)) {
       state.refs.add(ident);
     }
   };
 
-  const markImport = (
-    path:
-      | Babel.NodePath<Babel.types.ImportSpecifier>
-      | Babel.NodePath<Babel.types.ImportDefaultSpecifier>
-      | Babel.NodePath<Babel.types.ImportNamespaceSpecifier>,
-    state: PluginState
-  ) => {
-    state.refs.add(path.get('local') as Babel.NodePath<Babel.types.Identifier>);
+  const markImport = (path: Babel.NodePath, state: PluginState) => {
+    state.refs.add(path.get('local'));
+  };
+
+  const trackProgram = (path: Babel.NodePath, state: PluginState) => {
+    state.refs = new Set();
+
+    path.traverse(
+      {
+        VariableDeclarator(variablePath, variableState) {
+          if (variablePath.node.id.type === 'Identifier') {
+            const local = variablePath.get('id');
+            if (isIdentifierReferenced(local)) {
+              variableState.refs.add(local);
+            }
+          } else if (variablePath.node.id.type === 'ObjectPattern') {
+            const pattern = variablePath.get('id');
+            const properties = pattern.get('properties') as Babel.NodePath<Babel.types.Node>[];
+            properties.forEach((p) => {
+              const local = p.get(
+                p.node.type === 'ObjectProperty'
+                  ? 'value'
+                  : p.node.type === 'RestElement'
+                  ? 'argument'
+                  : (function () {
+                      throw new Error('invariant');
+                    })()
+              ) as Babel.NodePath<Babel.types.Node>;
+
+              if (isIdentifierReferenced(local)) {
+                variableState.refs.add(local);
+              }
+            });
+          } else if (variablePath.node.id.type === 'ArrayPattern') {
+            const pattern = variablePath.get('id');
+            const elements = pattern.get('elements') as Babel.NodePath<Babel.types.Node>[];
+            elements.forEach((e) => {
+              let local: Babel.NodePath;
+
+              if (e.node && e.node.type === 'Identifier') {
+                local = e;
+              } else if (e.node && e.node.type === 'RestElement') {
+                local = e.get('argument') as Babel.NodePath;
+              } else {
+                return;
+              }
+
+              if (isIdentifierReferenced(local)) {
+                variableState.refs.add(local);
+              }
+            });
+          }
+        },
+        FunctionDeclaration: markFunction,
+        FunctionExpression: markFunction,
+        ArrowFunctionExpression: markFunction,
+        ImportSpecifier: markImport,
+        ImportDefaultSpecifier: markImport,
+        ImportNamespaceSpecifier: markImport,
+      },
+      state
+    );
+  };
+
+  const treeShake = (path: Babel.NodePath, state: PluginState) => {
+    const refs = state.refs;
+
+    let count = 0;
+
+    const shouldRemove = (node: Babel.NodePath<Babel.types.Node>) => refs.has(node) && !isIdentifierReferenced(node);
+
+    const sweepFunction = (sweepPath: Babel.NodePath<Babel.types.Function>) => {
+      const ident = getIdentifier(sweepPath) as Babel.NodePath<Babel.types.Identifier>;
+
+      if (ident && ident.node && shouldRemove(ident)) {
+        ++count;
+        if (t.isAssignmentExpression(sweepPath.parentPath.node) || t.isVariableDeclarator(sweepPath.parentPath.node)) {
+          sweepPath.parentPath.remove();
+        } else {
+          sweepPath.remove();
+        }
+      }
+    };
+
+    const sweepImport = (
+      sweepPath: Babel.NodePath<
+        Babel.types.ImportSpecifier | Babel.types.ImportDefaultSpecifier | Babel.types.ImportNamespaceSpecifier
+      >
+    ) => {
+      const local = sweepPath.get('local');
+
+      if (shouldRemove(local)) {
+        ++count;
+        sweepPath.remove();
+        if (!state.opts.ssr) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const parent = sweepPath.parent as any;
+          if (parent.specifiers.length === 0) {
+            sweepPath.parentPath.remove();
+          }
+        }
+      }
+    };
+
+    do {
+      path.scope.crawl();
+      count = 0;
+      path.traverse({
+        VariableDeclarator(variablePath) {
+          if (variablePath.node.id.type === 'Identifier') {
+            const local = variablePath.get('id');
+            if (shouldRemove(local)) {
+              ++count;
+              variablePath.remove();
+            }
+          } else if (variablePath.node.id.type === 'ObjectPattern') {
+            const pattern = variablePath.get('id');
+            const beforeCount = count;
+            const properties = pattern.get('properties') as Babel.NodePath[];
+            properties.forEach((p) => {
+              const local = p.get(
+                p.node.type === 'ObjectProperty'
+                  ? 'value'
+                  : p.node.type === 'RestElement'
+                  ? 'argument'
+                  : (function () {
+                      throw new Error('invariant');
+                    })()
+              ) as Babel.NodePath;
+
+              if (shouldRemove(local)) {
+                ++count;
+                p.remove();
+              }
+            });
+            if (beforeCount !== count && (pattern.get('properties') as Babel.NodePath[]).length < 1) {
+              variablePath.remove();
+            }
+          } else if (variablePath.node.id.type === 'ArrayPattern') {
+            const pattern = variablePath.get('id');
+            const beforeCount = count;
+            const elements = pattern.get('elements') as Babel.NodePath[];
+            elements.forEach((e) => {
+              let local: Babel.NodePath;
+
+              if (e.node && e.node.type === 'Identifier') {
+                local = e;
+              } else if (e.node && e.node.type === 'RestElement') {
+                local = e.get('argument') as Babel.NodePath;
+              } else {
+                return;
+              }
+              if (shouldRemove(local)) {
+                ++count;
+                e.remove();
+              }
+            });
+            if (beforeCount !== count && (pattern.get('elements') as Babel.NodePath[]).length < 1) {
+              variablePath.remove();
+            }
+          }
+        },
+        FunctionDeclaration: sweepFunction,
+        FunctionExpression: sweepFunction,
+        ArrowFunctionExpression: sweepFunction,
+        ImportSpecifier: sweepImport,
+        ImportDefaultSpecifier: sweepImport,
+        ImportNamespaceSpecifier: sweepImport,
+      });
+    } while (count);
+  };
+
+  const transformServer$ = (path: Babel.NodePath<Babel.types.CallExpression>, state: PluginState) => {
+    const parentNodeIdName =
+      path.parent.type == 'VariableDeclarator'
+        ? ((path.parent as Babel.types.VariableDeclarator).id as Babel.types.Identifier).name
+        : ((path.parent as Babel.types.ObjectProperty).key as Babel.types.Identifier).name;
+
+    const serverFn = path.get('arguments')[0] as Babel.NodePath<Babel.types.Expression>;
+
+    if (parentNodeIdName == 'loader' || parentNodeIdName == 'action') {
+      const program = path.findParent((p) => t.isProgram(p.node)) as Babel.NodePath<Babel.types.Program>;
+      const statement = path.findParent((p) =>
+        program.get('body').includes(p as Babel.NodePath<Babel.types.Statement>)
+      ) as Babel.NodePath<Babel.types.Statement>;
+
+      const serverIndex = state.servers++;
+
+      if (serverFn.node.type === 'ArrowFunctionExpression') {
+        const body = serverFn.get('body') as Babel.NodePath<Babel.types.Expression | Babel.types.BlockStatement>;
+
+        if (body.node.type !== 'BlockStatement') {
+          body.replaceWith(t.blockStatement([t.returnStatement(body.node)]));
+        }
+
+        serverFn.replaceWith(
+          t.functionExpression(
+            t.identifier('$$serverHandler' + serverIndex),
+            serverFn.node.params,
+            serverFn.node.body as Babel.types.BlockStatement,
+            false,
+            true
+          )
+        );
+      }
+
+      if (state.opts.ssr) {
+        statement.insertBefore(
+          template(`
+                      const $$server_module${serverIndex} = %%source%%;
+                      `)({
+            source: serverFn.node,
+          })
+        );
+      } else {
+        statement.insertBefore(
+          template(`const $$server_module${serverIndex} = server$.createFetcher();`, {
+            syntacticPlaceholders: true,
+          })(
+            process.env.TEST_ENV === 'client'
+              ? {
+                  source: serverFn.node,
+                }
+              : {}
+          )
+        );
+      }
+      path.replaceWith(t.identifier(`$$server_module${serverIndex}`));
+    } else {
+      if (state.opts.ssr) {
+        path.replaceWith(t.identifier(serverFn.toString()));
+      } else {
+        path.parentPath.remove();
+      }
+    }
   };
 
   return {
     visitor: {
       Program: {
         enter(path, state) {
-          state.refs = new Set<Babel.NodePath<Babel.types.Identifier>>();
           state.servers = 0;
+
+          trackProgram(path, state);
+
           path.traverse(
             {
-              VariableDeclarator(variablePath, variableState) {
-                if (variablePath.node.id.type === 'Identifier') {
-                  const local = variablePath.get('id') as Babel.NodePath<Babel.types.Identifier>;
-
-                  if (isIdentifierReferenced(local)) {
-                    variableState.refs.add(local);
-                  }
-                } else if (variablePath.node.id.type === 'ObjectPattern') {
-                  (variablePath.get('id') as Babel.NodePath<Babel.types.ObjectPattern>)
-                    .get('properties')
-                    .forEach((p) => {
-                      const local = p.get(
-                        p.node.type === 'ObjectProperty'
-                          ? 'value'
-                          : p.node.type === 'RestElement'
-                          ? 'argument'
-                          : (function () {
-                              throw new Error('invariant');
-                            })()
-                      ) as Babel.NodePath<Babel.types.Identifier>;
-
-                      if (isIdentifierReferenced(local)) {
-                        variableState.refs.add(local);
-                      }
-                    });
-                } else if (variablePath.node.id.type === 'ArrayPattern') {
-                  (variablePath.get('id') as Babel.NodePath<Babel.types.ArrayPattern>).get('elements').forEach((e) => {
-                    const local = getLocal(e);
-
-                    if (local == null) {
-                      return;
-                    }
-
-                    if (isIdentifierReferenced(local)) {
-                      variableState.refs.add(local);
-                    }
-                  });
-                }
-              },
               CallExpression: (path) => {
                 if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'server$') {
-                  const parentNodeIdName =
-                    path.parent.type == 'VariableDeclarator'
-                      ? ((path.parent as Babel.types.VariableDeclarator).id as Babel.types.Identifier).name
-                      : ((path.parent as Babel.types.ObjectProperty).key as Babel.types.Identifier).name;
-
-                  const serverFn = path.get('arguments')[0] as Babel.NodePath<Babel.types.Expression>;
-
-                  if (parentNodeIdName == 'loader' || parentNodeIdName == 'action') {
-                    const program = path.findParent((p) => t.isProgram(p.node)) as Babel.NodePath<Babel.types.Program>;
-                    const statement = path.findParent((p) =>
-                      program.get('body').includes(p as Babel.NodePath<Babel.types.Statement>)
-                    ) as Babel.NodePath<Babel.types.Statement>;
-
-                    const serverIndex = state.servers++;
-
-                    if (serverFn.node.type === 'ArrowFunctionExpression') {
-                      const body = serverFn.get('body') as Babel.NodePath<
-                        Babel.types.Expression | Babel.types.BlockStatement
-                      >;
-
-                      if (body.node.type !== 'BlockStatement') {
-                        body.replaceWith(t.blockStatement([t.returnStatement(body.node)]));
-                      }
-
-                      serverFn.replaceWith(
-                        t.functionExpression(
-                          t.identifier('$$serverHandler' + serverIndex),
-                          serverFn.node.params,
-                          serverFn.node.body as Babel.types.BlockStatement,
-                          false,
-                          true
-                        )
-                      );
-                    }
-
-                    if (state.opts.ssr) {
-                      statement.insertBefore(
-                        template(`
-                      const $$server_module${serverIndex} = %%source%%;
-                      `)({
-                          source: serverFn.node,
-                        })
-                      );
-                    } else {
-                      statement.insertBefore(
-                        template(`const $$server_module${serverIndex} = server$.createFetcher();`, {
-                          syntacticPlaceholders: true,
-                        })(
-                          process.env.TEST_ENV === 'client'
-                            ? {
-                                source: serverFn.node,
-                              }
-                            : {}
-                        )
-                      );
-                    }
-                    path.replaceWith(t.identifier(`$$server_module${serverIndex}`));
-                  } else {
-                    if (state.opts.ssr) {
-                      path.replaceWith(t.identifier(serverFn.toString()));
-                    } else {
-                      path.parentPath.remove();
-                    }
-                  }
+                  transformServer$(path, state);
                 }
               },
-              FunctionDeclaration: markFunction,
-              FunctionExpression: markFunction,
-              ArrowFunctionExpression: markFunction,
-              ImportDefaultSpecifier: markImport,
-              ImportNamespaceSpecifier: markImport,
             },
             state
           );
 
-          const refs = state.refs;
-
-          let count: number;
-
-          const sweepFunction = (
-            sweepPath:
-              | Babel.NodePath<Babel.types.FunctionDeclaration>
-              | Babel.NodePath<Babel.types.FunctionExpression>
-              | Babel.NodePath<Babel.types.ArrowFunctionExpression>
-          ): void => {
-            const ident = getIdentifier(sweepPath);
-
-            if (ident && ident.node && refs.has(ident) && !isIdentifierReferenced(ident)) {
-              ++count;
-
-              if (
-                t.isAssignmentExpression(sweepPath.parentPath.node) ||
-                t.isVariableDeclarator(sweepPath.parentPath.node)
-              ) {
-                sweepPath.parentPath.remove();
-              } else {
-                sweepPath.remove();
-              }
-            }
-          };
-
-          const sweepImport = (
-            sweepPath:
-              | Babel.NodePath<Babel.types.ImportSpecifier>
-              | Babel.NodePath<Babel.types.ImportDefaultSpecifier>
-              | Babel.NodePath<Babel.types.ImportNamespaceSpecifier>
-          ): void => {
-            const local = sweepPath.get('local') as Babel.NodePath<Babel.types.Identifier>;
-
-            if (refs.has(local) && !isIdentifierReferenced(local)) {
-              ++count;
-              sweepPath.remove();
-              if (!state.opts.ssr) {
-                if ((sweepPath.parent as Babel.types.ImportDeclaration).specifiers.length === 0) {
-                  sweepPath.parentPath.remove();
-                }
-              }
-            }
-          };
-
-          do {
-            path.scope.crawl();
-            count = 0;
-            path.traverse({
-              VariableDeclarator(variablePath) {
-                if (variablePath.node.id.type === 'Identifier') {
-                  const local = variablePath.get('id') as Babel.NodePath<Babel.types.Identifier>;
-
-                  if (refs.has(local) && !isIdentifierReferenced(local)) {
-                    ++count;
-                    variablePath.remove();
-                  }
-                } else if (variablePath.node.id.type === 'ObjectPattern') {
-                  const pattern = variablePath.get('id') as Babel.NodePath<Babel.types.ObjectPattern>;
-                  const beforeCount = count;
-                  const properties = pattern.get('properties');
-
-                  properties.forEach((p) => {
-                    const local = p.get(
-                      p.node.type === 'ObjectProperty'
-                        ? 'value'
-                        : p.node.type === 'RestElement'
-                        ? 'argument'
-                        : (function () {
-                            throw new Error('invariant');
-                          })()
-                    ) as Babel.NodePath<Babel.types.Identifier>;
-
-                    if (refs.has(local) && !isIdentifierReferenced(local)) {
-                      ++count;
-                      p.remove();
-                    }
-                  });
-
-                  if (beforeCount !== count && pattern.get('properties').length < 1) {
-                    variablePath.remove();
-                  }
-                } else if (variablePath.node.id.type === 'ArrayPattern') {
-                  const pattern = variablePath.get('id') as Babel.NodePath<Babel.types.ArrayPattern>;
-                  const beforeCount = count;
-                  const elements = pattern.get('elements');
-
-                  elements.forEach((e) => {
-                    const local = getLocal(e);
-
-                    if (local == null) {
-                      return;
-                    }
-
-                    if (refs.has(local) && !isIdentifierReferenced(local)) {
-                      ++count;
-                      e.remove();
-                    }
-                  });
-
-                  if (beforeCount !== count && pattern.get('elements').length < 1) {
-                    variablePath.remove();
-                  }
-                }
-              },
-              FunctionDeclaration: sweepFunction,
-              FunctionExpression: sweepFunction,
-              ArrowFunctionExpression: sweepFunction,
-              ImportSpecifier: sweepImport,
-              ImportDefaultSpecifier: sweepImport,
-              ImportNamespaceSpecifier: sweepImport,
-            });
-          } while (count);
+          treeShake(path, state);
         },
       },
     },

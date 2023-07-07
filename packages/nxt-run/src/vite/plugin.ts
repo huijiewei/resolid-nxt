@@ -4,7 +4,8 @@ import { join } from 'node:path';
 import { build, loadEnv, mergeConfig, type Plugin, type ResolvedConfig, type UserConfig } from 'vite';
 import viteInspect from 'vite-plugin-inspect';
 import transformServer from './babel/transformServer';
-import { chunkSplitPlugin } from './plugins/split-chunk';
+import { removeEmptyImportPlugin } from './plugins/removeEmptyImport';
+import { chunkSplitPlugin } from './plugins/splitChunk';
 import { dev } from './serve/dev';
 import type { NxtRunViteOptions } from './types';
 import { findAny } from './utils/file';
@@ -237,6 +238,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
         },
       },
     } as Plugin,
+    removeEmptyImportPlugin(),
     manualChunks && chunkSplitPlugin({ manualChunks }),
   ].filter(Boolean) as Plugin[];
 };
