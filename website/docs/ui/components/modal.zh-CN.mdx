@@ -1,0 +1,54 @@
+---
+title: 模态框
+description: 模态框是一种对话框，通过覆盖在主要内容上的窗口将用户的注意力专门集中在信息上。
+---
+
+## 导入
+
+```javascript
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
+} from '@resolid/nxt-ui';
+```
+
+- `Modal`: 为其子级提供上下文的包装器。
+- `ModalOverlay`: 模态框后面的灰度叠加层。
+- `ModalContent`: 模态框内容的容器。
+- `ModalHeader`: 模态框的标题。
+- `ModalFooter`: 模态框的页脚。
+- `ModalBody`: 包含模态框主要内容的包装器。
+- `ModalCloseButton`: 关闭模态框的按钮。
+
+## 基础
+
+<Demo file={'ModalDemo.tsx'} demo={'Basic'} height={483} />
+
+## 居中
+
+<Demo file={'ModalDemo.tsx'} demo={'Centered'} height={483} />
+
+## 解锁滚动条
+
+<Demo file={'ModalDemo.tsx'} demo={'UnlockScroll'} height={483} />
+
+## 滚动行为
+
+<Demo file={'ModalDemo.tsx'} demo={'ScrollBehavior'} height={771} />
+
+## 焦点
+
+<Demo file={'ModalDemo.tsx'} demo={'Focus'} height={823} />
+
+## 叠加样式
+
+<Demo file={'ModalDemo.tsx'} demo={'OverlayStyling'} height={903} />
+
+## 属性
+
+<PropsTable component={'Modal'} />
