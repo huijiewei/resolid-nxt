@@ -234,43 +234,46 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
         ? ((path.parent as Babel.types.VariableDeclarator).id as Babel.types.Identifier).name
         : ((path.parent as Babel.types.ObjectProperty).key as Babel.types.Identifier).name;
 
+    const isData = parentNodeIdName == 'loader' || parentNodeIdName == 'action';
+
     const serverFn = path.get('arguments')[0] as Babel.NodePath<Babel.types.Expression>;
 
-    if (parentNodeIdName == 'loader' || parentNodeIdName == 'action') {
-      const program = path.findParent((p) => t.isProgram(p.node)) as Babel.NodePath<Babel.types.Program>;
-      const statement = path.findParent((p) =>
-        program.get('body').includes(p as Babel.NodePath<Babel.types.Statement>)
-      ) as Babel.NodePath<Babel.types.Statement>;
+    const program = path.findParent((p) => t.isProgram(p.node)) as Babel.NodePath<Babel.types.Program>;
+    const statement = path.findParent((p) =>
+      program.get('body').includes(p as Babel.NodePath<Babel.types.Statement>)
+    ) as Babel.NodePath<Babel.types.Statement>;
 
-      const serverIndex = state.servers++;
+    const serverIndex = state.servers++;
 
-      if (serverFn.node.type === 'ArrowFunctionExpression') {
-        const body = serverFn.get('body') as Babel.NodePath<Babel.types.Expression | Babel.types.BlockStatement>;
+    if (serverFn.node.type === 'ArrowFunctionExpression') {
+      const body = serverFn.get('body') as Babel.NodePath<Babel.types.Expression | Babel.types.BlockStatement>;
 
-        if (body.node.type !== 'BlockStatement') {
-          body.replaceWith(t.blockStatement([t.returnStatement(body.node)]));
-        }
-
-        serverFn.replaceWith(
-          t.functionExpression(
-            t.identifier('$$serverHandler' + serverIndex),
-            serverFn.node.params,
-            serverFn.node.body as Babel.types.BlockStatement,
-            false,
-            true
-          )
-        );
+      if (body.node.type !== 'BlockStatement') {
+        body.replaceWith(t.blockStatement([t.returnStatement(body.node)]));
       }
 
-      if (state.opts.ssr) {
-        statement.insertBefore(
-          template(`
+      serverFn.replaceWith(
+        t.functionExpression(
+          t.identifier('$$serverHandler' + serverIndex),
+          serverFn.node.params,
+          serverFn.node.body as Babel.types.BlockStatement,
+          false,
+          isData
+        )
+      );
+    }
+
+    if (state.opts.ssr) {
+      statement.insertBefore(
+        template(`
                       const $$server_module${serverIndex} = %%source%%;
                       `)({
-            source: serverFn.node,
-          })
-        );
-      } else {
+          source: serverFn.node,
+        })
+      );
+      path.replaceWith(t.identifier(`$$server_module${serverIndex}`));
+    } else {
+      if (isData) {
         statement.insertBefore(
           template(`const $$server_module${serverIndex} = server$.createFetcher();`, {
             syntacticPlaceholders: true,
@@ -282,11 +285,8 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
               : {}
           )
         );
-      }
-      path.replaceWith(t.identifier(`$$server_module${serverIndex}`));
-    } else {
-      if (state.opts.ssr) {
-        path.replaceWith(t.identifier(serverFn.toString()));
+
+        path.replaceWith(t.identifier(`$$server_module${serverIndex}`));
       } else {
         path.parentPath.remove();
       }

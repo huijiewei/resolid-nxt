@@ -5,7 +5,10 @@ export const removeEmptyImportPlugin = (): Plugin => {
     name: 'remove-empty-import',
 
     transform(code) {
-      return code.replace(/import {} from .*/g, '');
+      return code
+        .replace(/import {} from .*/g, '')
+        .replace("import '@resolid/nxt-run/server';", '')
+        .replace('import "@resolid/nxt-run/server";', '');
     },
   };
 };
