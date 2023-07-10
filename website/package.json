@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
-    "@marsidev/react-turnstile": "^0.2.1",
+    "@marsidev/react-turnstile": "^0.2.2",
     "@node-rs/bcrypt": "^1.7.1",
     "@resolid/nxt-prism": "workspace:*",
     "@resolid/nxt-run": "workspace:*",
