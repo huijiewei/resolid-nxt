@@ -3,6 +3,6 @@ module.exports = {
   printWidth: 120,
   tabWidth: 2,
   tailwindConfig: './website/tailwind.config.cjs',
-  plugins: [require('prettier-plugin-tailwindcss'), require('prettier-plugin-organize-imports')],
+  plugins: [require('prettier-plugin-tailwindcss')],
   pluginSearchDirs: false,
 };
