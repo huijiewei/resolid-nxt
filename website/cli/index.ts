@@ -2,6 +2,7 @@ import 'dotenv/config';
 
 import { faker } from '@faker-js/faker';
 import { hashSync } from '@node-rs/bcrypt';
+import { wait } from '@resolid/nxt-utils';
 import { Command } from 'commander';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -128,6 +129,8 @@ program
       });
 
       console.log(`Insert user ${email} success!`);
+
+      await wait(1000);
     }
 
     process.exit(0);

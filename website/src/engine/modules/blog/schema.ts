@@ -1,5 +1,5 @@
 import { relations, sql } from 'drizzle-orm';
-import { datetime, index, int, text, uniqueIndex, varchar } from 'drizzle-orm/mysql-core';
+import { datetime, index, int, text, unique, varchar } from 'drizzle-orm/mysql-core';
 import { nxtMysqlTable } from '~/engine/core/schema';
 import { users } from '~/engine/modules/user/schema';
 
@@ -12,9 +12,9 @@ export const blogCategories = nxtMysqlTable(
     name: varchar('name', { length: 32 }).notNull().default(''),
   },
   (blogCategories) => ({
-    slugIndex: uniqueIndex('slugIndex').on(blogCategories.slug),
+    slugIndex: unique('slugIndex').on(blogCategories.slug),
     parentIdIndex: index('parentId').on(blogCategories.parentId),
-  })
+  }),
 );
 
 export const blogPosts = nxtMysqlTable(
@@ -36,10 +36,10 @@ export const blogPosts = nxtMysqlTable(
     deletedAt: datetime('deletedAt'),
   },
   (blogPosts) => ({
-    slugIndex: uniqueIndex('slugIndex').on(blogPosts.slug, blogPosts.userId),
+    slugIndex: unique('slugIndex').on(blogPosts.slug, blogPosts.userId),
     userIdIndex: index('userIdIndex').on(blogPosts.userId),
     blogCategoryIdIndex: index('blogCategoryIdIndex').on(blogPosts.blogCategoryId),
-  })
+  }),
 );
 
 export const blogPostsRelations = relations(blogPosts, ({ one }) => ({

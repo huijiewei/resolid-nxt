@@ -1,5 +1,5 @@
 import { type InferModel } from 'drizzle-orm';
-import { index, int, uniqueIndex, varchar } from 'drizzle-orm/mysql-core';
+import { index, int, unique, varchar } from 'drizzle-orm/mysql-core';
 import { nxtMysqlTable } from '~/engine/core/schema';
 
 export const districts = nxtMysqlTable(
@@ -13,10 +13,10 @@ export const districts = nxtMysqlTable(
     areaCode: varchar('areaCode', { length: 32 }).notNull().default(''),
   },
   (districts) => ({
-    codeIndex: uniqueIndex('codeIndex').on(districts.code),
+    codeIndex: unique('codeIndex').on(districts.code),
     parentIdIndex: index('parentIdIndex').on(districts.parentId),
     nameIndex: index('nameIndex').on(districts.name),
-  })
+  }),
 );
 
 export type DistrictSelect = InferModel<typeof districts, 'select'>;
@@ -34,5 +34,5 @@ export const districtsClosure = nxtMysqlTable(
     distanceIndex: index('distanceIndex').on(districts.distance),
     ancestorIndex: index('ancestorIndex').on(districts.ancestor, districts.descendant),
     descendantIndex: index('descendantIndex').on(districts.descendant, districts.distance),
-  })
+  }),
 );

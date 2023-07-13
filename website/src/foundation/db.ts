@@ -3,11 +3,12 @@ import mysql from 'mysql2/promise';
 
 import * as blogSchema from '~/engine/modules/blog/schema';
 import * as districtSchema from '~/engine/modules/district/schema';
+import * as forumSchema from '~/engine/modules/forum/schema';
 import * as userSchema from '~/engine/modules/user/schema';
 
 process.env.TZ = 'UTC';
 
-const pool = await mysql.createPool({
+const pool = mysql.createPool({
   host: process.env.NXT_DB_HOST,
   user: process.env.NXT_DB_USER,
   password: process.env.NXT_DB_PASSWORD,
@@ -18,6 +19,6 @@ const pool = await mysql.createPool({
 });
 
 export const db = drizzle(pool, {
-  schema: { ...userSchema, ...blogSchema, ...districtSchema },
+  schema: { ...userSchema, ...blogSchema, ...districtSchema, ...forumSchema },
   logger: process.env.NODE_ENV == 'development',
 });

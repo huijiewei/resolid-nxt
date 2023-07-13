@@ -1,5 +1,5 @@
 import { relations, sql, type InferModel } from 'drizzle-orm';
-import { datetime, index, int, uniqueIndex, varchar } from 'drizzle-orm/mysql-core';
+import { datetime, index, int, unique, varchar } from 'drizzle-orm/mysql-core';
 import { nxtMysqlTable } from '~/engine/core/schema';
 
 export const users = nxtMysqlTable(
@@ -20,11 +20,11 @@ export const users = nxtMysqlTable(
     deletedAt: datetime('deletedAt'),
   },
   (users) => ({
-    emailIndex: uniqueIndex('emailIndex').on(users.email),
-    usernameIndex: uniqueIndex('usernameIndex').on(users.username),
+    emailIndex: unique('emailIndex').on(users.email),
+    usernameIndex: unique('usernameIndex').on(users.username),
     userGroupIdIndex: index('userGroupIdIndex').on(users.userGroupId),
     deletedAtIndex: index('deletedAtIndex').on(users.deletedAt),
-  })
+  }),
 );
 
 export type UserSelect = InferModel<typeof users, 'select'>;
@@ -57,9 +57,9 @@ export const userAccounts = nxtMysqlTable(
     sessionState: varchar('sessionState', { length: 191 }).notNull().default(''),
   },
   (userAccounts) => ({
-    providerIndex: uniqueIndex('providerIndex').on(userAccounts.provider, userAccounts.providerAccountId),
+    providerIndex: unique('providerIndex').on(userAccounts.provider, userAccounts.providerAccountId),
     userIdIndex: index('userIdIndex').on(userAccounts.userId),
-  })
+  }),
 );
 
 export const userSessions = nxtMysqlTable(
@@ -71,9 +71,9 @@ export const userSessions = nxtMysqlTable(
     expiredAt: datetime('expiredAt').notNull(),
   },
   (userSessions) => ({
-    tokenIndex: uniqueIndex('tokenIndex').on(userSessions.token),
+    tokenIndex: unique('tokenIndex').on(userSessions.token),
     userIdIndex: index('userIdIndex').on(userSessions.userId),
-  })
+  }),
 );
 
 export const usersRelations = relations(users, ({ one }) => ({
