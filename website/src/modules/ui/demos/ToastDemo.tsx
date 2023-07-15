@@ -489,7 +489,7 @@ const PlacementDemo = () => {
             key={placement}
             style={{ gridArea: placement }}
             className={
-              'flex h-12 w-12 text-center leading-tight text-sm cursor-default items-center justify-center rounded bg-bg-subtle hover:bg-bg-subtlest active:bg-bg-muted'
+              'flex h-12 w-12 cursor-default items-center justify-center rounded bg-bg-subtle text-center text-sm leading-tight hover:bg-bg-subtlest active:bg-bg-muted'
             }
             onClick={() => {
               placement == 'center'

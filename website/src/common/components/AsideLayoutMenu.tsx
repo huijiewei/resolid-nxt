@@ -21,7 +21,7 @@ const MenuItem = ({ menu, depth, namespace }: { menu: Menu; depth: number; names
             return cx(
               'block py-1',
               depth == 2 && 'ps-4',
-              isActive ? 'bg-bg-primary' : 'hover:bg-bg-subtle active:bg-bg-muted'
+              isActive ? 'bg-bg-primary' : 'hover:bg-bg-subtle active:bg-bg-muted',
             );
           }}
           onClick={() => setOpen(false)}

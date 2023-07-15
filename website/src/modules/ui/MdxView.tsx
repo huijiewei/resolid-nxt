@@ -28,7 +28,7 @@ export const loader = server$(async ({ params, request }) => {
 
   let file = join(
     filePath,
-    getMdxFileName(params.document ?? params.component ?? '', getLocale(request), DEFAULT_LOCALE)
+    getMdxFileName(params.document ?? params.component ?? '', getLocale(request), DEFAULT_LOCALE),
   );
 
   if (!existsSync(file)) {

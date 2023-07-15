@@ -29,7 +29,7 @@ export type MdxData = {
 export const serializeMdx = async (
   source: string,
   paths: { source?: string; document: string },
-  scope?: Record<string, unknown>
+  scope?: Record<string, unknown>,
 ): Promise<{ source: MDXRemoteSerializeResult; data: MdxData }> => {
   const vfile = new VFile(source);
 

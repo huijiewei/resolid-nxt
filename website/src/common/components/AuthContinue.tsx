@@ -13,7 +13,7 @@ export const AuthContinue = () => {
   return (
     <>
       <Divider className={'my-3'}>{t('orContinue')}</Divider>
-      <div className={'grid grid-cols-3 gap-3 justify-center'}>
+      <div className={'grid grid-cols-3 justify-center gap-3'}>
         <Button variant={'outline'} color={'neutral'}>
           <Github className={'me-2'} /> Github
         </Button>

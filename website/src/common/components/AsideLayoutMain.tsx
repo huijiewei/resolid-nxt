@@ -5,10 +5,10 @@ export const AsideLayoutMain = (props: HTMLProps<HTMLDivElement>) => {
   const { className, children, ...rest } = props;
   return (
     <div className={'tablet:ps-56'}>
-      <main className={cx('tablet:pt-4 mx-auto p-4 pt-16 min-h-[calc(100vh-10em)]', className)} {...rest}>
+      <main className={cx('mx-auto min-h-[calc(100vh-10em)] p-4 pt-16 tablet:pt-4', className)} {...rest}>
         {children}
       </main>
-      <footer className={'border-t mt-6 py-3 px-5 text-fg-muted'}>
+      <footer className={'mt-6 border-t px-5 py-3 text-fg-muted'}>
         <div className={'flex justify-between text-[13px] font-medium'}>
           <div>Copyright © 2023</div>
           <div>

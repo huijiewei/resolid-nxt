@@ -101,7 +101,7 @@ export const Vertical = () => {
   return (
     <DemoExample
       preview={() => (
-        <div className={'flex flex-row gap-5 px-3 h-6 items-center'}>
+        <div className={'flex h-6 flex-row items-center gap-5 px-3'}>
           <span>Word</span>
           <Divider vertical />
           <span>Word</span>

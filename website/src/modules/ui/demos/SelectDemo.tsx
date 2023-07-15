@@ -155,7 +155,7 @@ const HtmlFormsDemo = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+    <form onSubmit={handleSubmit} className={'flex flex-col items-center gap-3'}>
       <Select
         name={'framework'}
         className={'w-56'}
@@ -516,7 +516,10 @@ const CustomDemo = () => {
     <div className={'flex flex-row gap-3'}>
       <Select
         className={'w-56'}
-        options={browsers as any}
+        options={
+          /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+          browsers as any
+        }
         optionRender={optionRender}
         labelRender={labelRender}
         clearable
@@ -530,7 +533,10 @@ const CustomDemo = () => {
       />
       <Select
         className={'w-fit'}
-        options={browsers as any}
+        options={
+          /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+          browsers as any
+        }
         optionRender={optionRender}
         labelRender={labelRender}
         clearable

@@ -8,7 +8,7 @@ const BasicDemo = () => {
 
   return (
     <>
-      <div className={'relative w-fit shadow-md mx-auto p-5'}>
+      <div className={'relative mx-auto w-fit p-5 shadow-md'}>
         <SpinnerOverlay blur visible={visible} />
         <form className={'flex flex-col gap-4'}>
           <FormExample />
@@ -52,7 +52,7 @@ export const Rounded = () => {
   return (
     <DemoExample
       preview={() => (
-        <div className={'relative w-fit shadow-md mx-auto p-5'}>
+        <div className={'relative mx-auto w-fit p-5 shadow-md'}>
           <SpinnerOverlay blur radius visible />
           <form className={'flex flex-col gap-4 rounded'}>
             <FormExample />
@@ -73,7 +73,7 @@ export const Colors = () => {
   return (
     <DemoExample
       preview={() => (
-        <div className={'relative w-fit shadow-md mx-auto p-5'}>
+        <div className={'relative mx-auto w-fit p-5 shadow-md'}>
           <SpinnerOverlay color={'warning'} blur radius visible />
           <form className={'flex flex-col gap-4 rounded'}>
             <FormExample />
@@ -94,7 +94,7 @@ export const CustomerSpinner = () => {
   return (
     <DemoExample
       preview={() => (
-        <div className={'relative w-fit shadow-md mx-auto p-5'}>
+        <div className={'relative mx-auto w-fit p-5 shadow-md'}>
           <SpinnerOverlay radius visible>
             <Spinner color={'success'} size={'xl'} />
           </SpinnerOverlay>

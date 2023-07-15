@@ -13,8 +13,8 @@ export default function HomeSignup() {
         <title>{t('signup')}</title>
       </Helmet>
       <DefaultLayout>
-        <div className={'justify-center flex'}>
-          <div className={'w-96 mt-10'}>
+        <div className={'flex justify-center'}>
+          <div className={'mt-10 w-96'}>
             <div className={'flex justify-center'}>
               <img width={50} alt={'Resolid Nxt'} src={ResolidLogo} />
             </div>

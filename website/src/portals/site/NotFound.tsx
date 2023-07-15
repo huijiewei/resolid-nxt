@@ -24,7 +24,7 @@ export default function NotFound({
       <div className={cx('mx-auto h-full max-w-3xl p-4', className)}>
         <div className={'relative mt-16 w-full'}>
           <svg
-            className={'fill-fg-default/5 absolute inset-0'}
+            className={'absolute inset-0 fill-fg-default/5'}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 362 145"
           >

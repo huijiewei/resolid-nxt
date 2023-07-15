@@ -343,7 +343,7 @@ const FocusDemo = () => {
             <ModalBody className={'flex flex-col gap-3 p-3'}>
               <FormExample />
             </ModalBody>
-            <ModalFooter className={'flex gap-3 items-center justify-end'}>
+            <ModalFooter className={'flex items-center justify-end gap-3'}>
               <Button type={'submit'}>Submit</Button>
               <Button color={'neutral'} onClick={() => setOpened(false)}>
                 Cancel

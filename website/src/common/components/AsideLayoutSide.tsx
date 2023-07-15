@@ -10,15 +10,15 @@ export const AsideLayoutSide = ({ menus, namespace }: AsideLayoutMenuProps) => {
   return (
     <aside
       className={cx(
-        'scrollbar scrollbar-thin overflow-y-auto overflow-x-hidden overscroll-contain',
+        'overflow-y-auto overflow-x-hidden overscroll-contain scrollbar scrollbar-thin',
         'fixed bottom-0 top-16 w-56 border-e bg-bg-default tablet:bg-inherit',
-        'tablet:z-0 z-10',
-        'tablet:translate-x-0 transition-transform duration-200',
-        opened ? 'translate-x-0' : '-translate-x-full'
+        'z-10 tablet:z-0',
+        'transition-transform duration-200 tablet:translate-x-0',
+        opened ? 'translate-x-0' : '-translate-x-full',
       )}
     >
       <nav role={'navigation'} className={'relative'}>
-        <CloseButton onClick={() => setOpened(false)} className={'tablet:hidden fixed end-2 top-2 p-2'} />
+        <CloseButton onClick={() => setOpened(false)} className={'fixed end-2 top-2 p-2 tablet:hidden'} />
         <AsideLayoutMenu menus={menus} namespace={namespace} />
       </nav>
     </aside>

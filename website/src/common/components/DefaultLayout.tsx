@@ -8,9 +8,9 @@ export const DefaultLayout = ({ children, className }: PropsWithChildren<{ class
   return (
     <>
       <BaseLayout className={className}>
-        <div className={'p-4 min-h-[calc(100vh-15em)]'}>{children}</div>
+        <div className={'min-h-[calc(100vh-15em)] p-4'}>{children}</div>
       </BaseLayout>
-      <footer className={'border-t flex mt-12 flex-col items-center gap-2 py-5 text-center'}>
+      <footer className={'mt-12 flex flex-col items-center gap-2 border-t py-5 text-center'}>
         <p>{t('license')}</p>
         <p>
           Proudly made in

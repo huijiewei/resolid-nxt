@@ -38,7 +38,7 @@ export const MdxColorPalette = () => {
               <div className={'w-16 shrink-0'}>
                 <div className={'flex h-10 flex-col justify-center font-medium capitalize'}>{color.name}</div>
               </div>
-              <div className={'tablet:grid-cols-10 grid min-w-0 flex-1 grid-cols-5 gap-3'}>
+              <div className={'grid min-w-0 flex-1 grid-cols-5 gap-3 tablet:grid-cols-10'}>
                 {Object.keys(color.value).map((key) => {
                   const value = (color.value as Record<string, string>)[key];
 

@@ -54,18 +54,18 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
   };
 
   return (
-    <div className={'flex min-h-[20em] flex-col laptop:flex-row w-full rounded border'}>
+    <div className={'flex min-h-[20em] w-full flex-col rounded border laptop:flex-row'}>
       <div className={'flex flex-1 flex-col p-5'}>
-        <div className={'flex-grow flex items-center justify-center'}>{preview(state)}</div>
+        <div className={'flex flex-grow items-center justify-center'}>{preview(state)}</div>
         <CodeHighlight
-          className={'rounded mt-6 p-3 border overflow-x-auto scrollbar scrollbar-thin'}
+          className={'mt-6 overflow-x-auto rounded border p-3 scrollbar scrollbar-thin'}
           language={'jsx'}
           code={snippet.replace(' {...props}', codePropsReplace())}
         />
       </div>
-      <div className={'flex-shrink-0 gap-2 p-3 min-w-[15em] laptop:border-t-0 laptop:border-s border-t'}>
+      <div className={'min-w-[15em] flex-shrink-0 gap-2 border-t p-3 laptop:border-s laptop:border-t-0'}>
         <div className={'flex justify-between'}>
-          <h3 className={'font-medium text-lg mb-3'}>Playground</h3>
+          <h3 className={'mb-3 text-lg font-medium'}>Playground</h3>
         </div>
         <div className={'flex flex-col gap-2'}>
           {componentProps.map((prop) => {
@@ -79,8 +79,8 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
               <label
                 key={prop.propName}
                 className={cx(
-                  'flex justify-between items-center gap-1.5',
-                  prop.control == 'switch' ? 'flex-row' : 'flex-row laptop:flex-col laptop:items-start'
+                  'flex items-center justify-between gap-1.5',
+                  prop.control == 'switch' ? 'flex-row' : 'flex-row laptop:flex-col laptop:items-start',
                 )}
               >
                 <div className={'capitalize'}>{prop.propName}</div>
@@ -101,7 +101,7 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
                 )}
 
                 {prop.control == 'color' && (
-                  <div className={'inline-flex gap-1 justify-between w-auto laptop:w-full'}>
+                  <div className={'inline-flex w-auto justify-between gap-1 laptop:w-full'}>
                     {prop.options?.map((option) => (
                       <Button
                         key={`${prop.propName}-${option}`}
@@ -129,7 +129,7 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
 
                 {prop.control == 'input' && (
                   <Input
-                    className={'laptop:w-full w-auto'}
+                    className={'w-auto laptop:w-full'}
                     type="text"
                     value={propValue}
                     onChange={(value) => {
@@ -140,7 +140,7 @@ export const DemoShowcase = <T extends { [k: string]: any } = {}>({
 
                 {prop.control == 'number' && (
                   <NumberInput
-                    className={'laptop:w-full w-auto'}
+                    className={'w-auto laptop:w-full'}
                     value={propValue}
                     onChange={(value) => {
                       setState((prev) => ({ ...prev, [prop.propName]: value }));

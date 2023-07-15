@@ -81,7 +81,7 @@ export const TocSection = ({ toc }: { toc: TocItem[] }) => {
               item.depth == 2 ? 'ps-4' : 'ps-8',
               item.slug == currentSection
                 ? 'border-link text-link'
-                : 'text-fg-muted hover:border-fg-subtle hover:text-fg-subtle'
+                : 'text-fg-muted hover:border-fg-subtle hover:text-fg-subtle',
             )}
             href={'#' + item.slug}
           >

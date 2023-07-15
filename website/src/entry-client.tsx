@@ -42,7 +42,7 @@ async function hydrate() {
         <StrictMode>
           <RunClient router={router} />
         </StrictMode>
-      </I18nextProvider>
+      </I18nextProvider>,
     );
   });
 }

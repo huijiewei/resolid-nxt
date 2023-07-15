@@ -8,7 +8,7 @@ export const problem = (errors: any, revalidate = false) => {
       revalidate,
       errors,
     },
-    { status: 422 }
+    { status: 422 },
   );
 };
 
@@ -20,7 +20,7 @@ export const success = (data: any, revalidate = false, init: number | ResponseIn
       revalidate,
       data,
     },
-    init
+    init,
   );
 };
 

@@ -20,10 +20,10 @@ export const Basic = () => {
   return (
     <DemoExample
       preview={() => (
-        <div className={'flex flex-row gap-3 items-center'}>
+        <div className={'flex flex-row items-center gap-3'}>
           <ContextMenu>
             <ContextMenuTrigger>
-              <div className={'block border-dotted border-2 border-bg-muted select-none rounded p-10'}>
+              <div className={'block select-none rounded border-2 border-dotted border-bg-muted p-10'}>
                 Right click here.
               </div>
             </ContextMenuTrigger>
@@ -119,7 +119,7 @@ export const MultipleLevel = () => {
       preview={() => (
         <ContextMenu>
           <ContextMenuTrigger>
-            <div className={'block border-dotted border-2 border-bg-muted select-none rounded p-10 text-center'}>
+            <div className={'block select-none rounded border-2 border-dotted border-bg-muted p-10 text-center'}>
               Right click here.
             </div>
           </ContextMenuTrigger>
@@ -196,7 +196,7 @@ const ComplexDemo = () => {
   return (
     <ContextMenu>
       <ContextMenuTrigger>
-        <div className={'block border-dotted border-2 border-bg-muted select-none rounded p-10 text-center'}>
+        <div className={'block select-none rounded border-2 border-dotted border-bg-muted p-10 text-center'}>
           Right click here.
         </div>
       </ContextMenuTrigger>

@@ -11,7 +11,7 @@ export const MdxCode = (props: PrimitiveProps<'code', MdxCodeProps>) => {
   const { className, children } = props;
 
   return className ? (
-    <div className={'relative rounded mt-6 border overflow-x-auto scrollbar scrollbar-thin'}>
+    <div className={'relative mt-6 overflow-x-auto rounded border scrollbar scrollbar-thin'}>
       <CodeHighlight
         className={'p-3'}
         language={(className.replace('language-', '') as Language) || 'jsx'}
@@ -20,6 +20,6 @@ export const MdxCode = (props: PrimitiveProps<'code', MdxCodeProps>) => {
       <CopyButton content={children} />
     </div>
   ) : (
-    <code className={'m-0 px-[0.4em] py-[0.2em] bg-bg-subtle rounded text-sm'}>{children}</code>
+    <code className={'m-0 rounded bg-bg-subtle px-[0.4em] py-[0.2em] text-sm'}>{children}</code>
   );
 };

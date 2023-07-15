@@ -11,7 +11,7 @@ export const MdxDemo = ({ file, demo, height }: { file: string; demo: string; he
         loader: async () => ({ default: (await demos[`../demos/${file}`]())[demo] }),
         fallback: <LazyLoader height={height} />,
       }),
-    [demo, file, height]
+    [demo, file, height],
   );
 
   return <Demo />;

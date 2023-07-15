@@ -152,7 +152,7 @@ const HtmlFormsDemo = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+    <form onSubmit={handleSubmit} className={'flex flex-col items-center gap-3'}>
       <Checkbox name={'newsletter'} value={'subscribed'}>
         Subscribe
       </Checkbox>

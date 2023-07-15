@@ -17,7 +17,7 @@ export const MdxPropsTable = ({ componentProps, title, component }: MdxPropsTabl
   const { t } = useTranslation('ui');
 
   return (
-    <table className={'w-full my-4 table-auto border-separate rounded border border-bg-subtle'}>
+    <table className={'my-4 w-full table-auto border-separate rounded border border-bg-subtle'}>
       {title && (
         <caption className={'mb-1.5 text-left font-bold text-fg-muted'}>{isString(title) ? title : component}</caption>
       )}
@@ -34,24 +34,24 @@ export const MdxPropsTable = ({ componentProps, title, component }: MdxPropsTabl
         {componentProps?.map((prop, i) => (
           <tr
             className={
-              'last:border-none last:pb-0 last:mb-0 tablet:table-row tablet:flex-no-wrap tablet:border-none tablet:mb-0 mb-[1px] flex flex-row flex-wrap border-b border-b-bg-subtle pb-[1px]'
+              'tablet:flex-no-wrap mb-[1px] flex flex-row flex-wrap border-b border-b-bg-subtle pb-[1px] last:mb-0 last:border-none last:pb-0 tablet:mb-0 tablet:table-row tablet:border-none'
             }
             key={`${prop.name}-${i}`}
           >
-            <td className={'tablet:table-cell tablet:p-2 tablet:w-auto font-bold block w-full whitespace-nowrap'}>
+            <td className={'block w-full whitespace-nowrap font-bold tablet:table-cell tablet:w-auto tablet:p-2'}>
               <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
                 {t('prop.name')}
               </span>
               {prop.name}
             </td>
-            <td className={'tablet:table-cell tablet:p-2 tablet:w-auto block w-full whitespace-pre-line'}>
+            <td className={'block w-full whitespace-pre-line tablet:table-cell tablet:w-auto tablet:p-2'}>
               <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
                 {t('prop.description')}
               </span>
               {prop.description || '-'}
             </td>
             <td
-              className={'tablet:table-cell tablet:text-center tablet:w-auto table:p-2 block w-full whitespace-nowrap'}
+              className={'table:p-2 block w-full whitespace-nowrap tablet:table-cell tablet:w-auto tablet:text-center'}
             >
               <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
                 {t('prop.default')}
@@ -59,14 +59,14 @@ export const MdxPropsTable = ({ componentProps, title, component }: MdxPropsTabl
               {prop.defaultValue || '-'}
             </td>
             <td
-              className={'tablet:table-cell tablet:text-center tablet:w-auto tablet:p-2 block w-full whitespace-nowrap'}
+              className={'block w-full whitespace-nowrap tablet:table-cell tablet:w-auto tablet:p-2 tablet:text-center'}
             >
               <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
                 {t('prop.required')}
               </span>
               {prop.required ? 'true' : 'false'}
             </td>
-            <td className={'tablet:table-cell tablet:p-2 tablet:w-auto block w-full'}>
+            <td className={'block w-full tablet:table-cell tablet:w-auto tablet:p-2'}>
               <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold tablet:hidden">
                 {t('prop.type')}
               </span>

@@ -9,11 +9,11 @@ type DemoExampleProps = {
 
 export const DemoExample = ({ preview, snippet }: DemoExampleProps) => {
   return (
-    <div className={'my-4 border rounded'}>
-      <div className={'overflow-x-auto scrollbar scrollbar-thin p-3'}>{preview()}</div>
+    <div className={'my-4 rounded border'}>
+      <div className={'overflow-x-auto p-3 scrollbar scrollbar-thin'}>{preview()}</div>
       <div className={'relative rounded'}>
         <CodeHighlight
-          className={'p-3 border-t overflow-x-auto scrollbar scrollbar-thin'}
+          className={'overflow-x-auto border-t p-3 scrollbar scrollbar-thin'}
           language={'jsx'}
           code={snippet}
         />

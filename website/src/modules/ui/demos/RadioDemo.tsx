@@ -193,7 +193,7 @@ const HtmlFormsDemo = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+    <form onSubmit={handleSubmit} className={'flex flex-col items-center gap-3'}>
       <RadioGroup name={'fruit'}>
         <div className={'flex flex-row gap-5'}>
           <Radio value={'apple'}>Apple</Radio>

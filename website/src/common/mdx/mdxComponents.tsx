@@ -108,7 +108,7 @@ export const mdxComponents = {
     return (
       <a
         className={
-          'text-link inline-flex items-center hover:text-link-hovered hover:underline active:text-link-pressed'
+          'inline-flex items-center text-link hover:text-link-hovered hover:underline active:text-link-pressed'
         }
         href={href}
         title={isString(children) ? children : ''}

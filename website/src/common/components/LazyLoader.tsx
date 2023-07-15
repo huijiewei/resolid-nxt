@@ -17,9 +17,9 @@ export const LazyLoader = (props: HTMLProps<HTMLDivElement>) => {
         } as CSSProperties
       }
       className={cx(
-        'flex w-full rounded items-center justify-center text-lg text-fg-muted bg-bg-subtle/30 transition-opacity',
+        'flex w-full items-center justify-center rounded bg-bg-subtle/30 text-lg text-fg-muted transition-opacity',
         height ? 'h-[--height-var]' : 'h-32',
-        className
+        className,
       )}
       {...rest}
     >

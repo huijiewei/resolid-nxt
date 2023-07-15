@@ -34,7 +34,7 @@ const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> })
   const { t } = useTranslation('site');
 
   return (
-    <ul className="tablet:flex-row tracking-wide tablet:max-w-none tablet:p-0 mx-auto flex max-w-xs flex-col p-4 font-medium">
+    <ul className="mx-auto flex max-w-xs flex-col p-4 font-medium tracking-wide tablet:max-w-none tablet:flex-row tablet:p-0">
       {[
         { name: 'menu.home', href: '', end: true },
         { name: 'menu.run', href: 'run' },
@@ -49,7 +49,7 @@ const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> })
             to={link.href}
             onClick={onClick}
             className={({ isActive }) => {
-              return cx('tablet:px-4 block p-2 hover:text-link-pressed', isActive && 'text-link');
+              return cx('block p-2 hover:text-link-pressed tablet:px-4', isActive && 'text-link');
             }}
           >
             <span>{t(link.name)}</span>
@@ -71,7 +71,7 @@ const NavUser = () => {
     return (
       <DropdownMenu placement={'bottom'}>
         <DropdownMenuTrigger>
-          <Button className={'!px-0 aspect-square'} variant={'subtle'} color={'neutral'}>
+          <Button className={'aspect-square !px-0'} variant={'subtle'} color={'neutral'}>
             <Avatar size={26} src={user.avatar} name={user.nickname} />
           </Button>
         </DropdownMenuTrigger>
@@ -115,7 +115,7 @@ const NavUser = () => {
 
   return (
     <Tooltip placement={'bottom'} content={t('loginOrSignup')}>
-      <Button className={'!px-0 aspect-square'} color={'neutral'} variant={'subtle'} as={LocalizedLink} to={to}>
+      <Button className={'aspect-square !px-0'} color={'neutral'} variant={'subtle'} as={LocalizedLink} to={to}>
         <UserCircle size={'sm'} />
       </Button>
     </Tooltip>
@@ -131,8 +131,8 @@ const Header = () => {
     <header
       className={cx('fixed inset-x-0 z-20 w-full border-b bg-bg-default/75 backdrop-blur', noScrollbarsClassName)}
     >
-      <nav className={'desktop:max-w-7xl mx-auto flex h-16 items-center justify-between px-4'}>
-        <div className={'flex gap-4 items-center'}>
+      <nav className={'mx-auto flex h-16 items-center justify-between px-4 desktop:max-w-7xl'}>
+        <div className={'flex items-center gap-4'}>
           <button title={'Menu'} className={'p-2 tablet:hidden'} onClick={() => setOpened((prev) => !prev)}>
             {opened ? <Close size={'sm'} /> : <Menu size={'sm'} />}
           </button>
@@ -143,8 +143,8 @@ const Header = () => {
         <div className={'flex items-center gap-4'}>
           <div
             className={cx(
-              'tablet:block tablet:relative tablet:top-0 tablet:h-auto absolute inset-x-0 top-[calc(4rem+1px)] z-20 h-screen bg-bg-default tablet:bg-inherit p-0',
-              opened ? 'block' : 'hidden'
+              'absolute inset-x-0 top-[calc(4rem+1px)] z-20 h-screen bg-bg-default p-0 tablet:relative tablet:top-0 tablet:block tablet:h-auto tablet:bg-inherit',
+              opened ? 'block' : 'hidden',
             )}
           >
             <NavMenu onClick={() => setOpened(false)} />

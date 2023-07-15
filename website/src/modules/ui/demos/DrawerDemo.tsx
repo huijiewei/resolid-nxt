@@ -181,7 +181,7 @@ const FocusDemo = () => {
                 <Input placeholder={'Email'} id={'demoFormEmail'} />
               </div>
             </DrawerBody>
-            <DrawerFooter className={'flex gap-3 items-center justify-end'}>
+            <DrawerFooter className={'flex items-center justify-end gap-3'}>
               <Button type={'submit'}>Submit</Button>
               <Button color={'neutral'} onClick={() => setOpened(false)}>
                 Cancel

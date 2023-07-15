@@ -9,7 +9,7 @@ import type { MdxData } from '~/common/utils/mdx';
 export const MdxView = <
   TScope = Record<string, unknown>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  TFrontmatter extends Record<string, any> = { title: string; description: string }
+  TFrontmatter extends Record<string, any> = { title: string; description: string },
 >({
   source,
   data,
@@ -23,12 +23,12 @@ export const MdxView = <
 
   return (
     <div className={'flex justify-between'}>
-      <article className={'desktop:w-[calc(100%-14rem)] w-full max-w-none px-2'}>
-        <div className={'flex flex-row items-center justify-between mb-3 mt-2'}>
+      <article className={'w-full max-w-none px-2 desktop:w-[calc(100%-14rem)]'}>
+        <div className={'mb-3 mt-2 flex flex-row items-center justify-between'}>
           <h1 className={'text-[1.75em] font-bold'}>{data.matter.title}</h1>
           {data.links.source && (
             <a
-              className={'hover:underline inline-flex flex-row items-center'}
+              className={'inline-flex flex-row items-center hover:underline'}
               target={'_blank'}
               href={data.links.source}
               rel="noreferrer"
@@ -42,7 +42,7 @@ export const MdxView = <
         <MDXRemote {...source} components={components} />
         <p className={'my-4'}>
           <a
-            className={'hover:underline inline-flex flex-row items-center'}
+            className={'inline-flex flex-row items-center hover:underline'}
             target={'_blank'}
             href={data.links.document}
             rel="noreferrer"
@@ -52,7 +52,7 @@ export const MdxView = <
           </a>
         </p>
       </article>
-      <nav className={'desktop:block hidden w-52'}>
+      <nav className={'hidden w-52 desktop:block'}>
         <TocSection
           toc={data.headings
             .filter((h) => h.depth == 2 || h.depth == 3)

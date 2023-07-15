@@ -38,18 +38,18 @@ export default createHandler(async (request, responseStatusCode, responseHeaders
             new Response(Readable.toWeb(body) as unknown as ReadableStream, {
               headers: responseHeaders,
               status: responseStatusCode,
-            })
+            }),
           );
 
           let startHtml = renderOptions.startHtml.replace(
             '<html lang="en">',
-            `<html lang="${lng}"  dir="${instance.dir()}">`
+            `<html lang="${lng}"  dir="${instance.dir()}">`,
           );
 
           if (request.headers.get('user-agent')?.includes('iPhone')) {
             startHtml = startHtml.replace(
               '<meta name="viewport" content="width=device-width, initial-scale=1" />',
-              '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />'
+              '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />',
             );
           }
 
@@ -65,7 +65,7 @@ export default createHandler(async (request, responseStatusCode, responseHeaders
             console.error(error);
           }
         },
-      }
+      },
     );
 
     setTimeout(() => abort(), ABORT_DELAY);

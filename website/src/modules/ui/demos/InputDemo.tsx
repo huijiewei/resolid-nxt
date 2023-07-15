@@ -260,7 +260,7 @@ const HtmlFormsDemo = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={'flex items-center flex-col gap-3'}>
+    <form onSubmit={handleSubmit} className={'flex flex-col items-center gap-3'}>
       <Input name={'username'} placeholder="Username" />
       <div className={'flex flex-row gap-3'}>
         <Button type={'reset'} color={'neutral'} variant={'light'}>
