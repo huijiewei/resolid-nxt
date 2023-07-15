@@ -123,7 +123,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
           root,
           rootEntry,
           serverEntry,
-          (componentId) => routeComponents.add(componentId)
+          (componentId) => routeComponents.add(componentId),
         );
       },
     } as Plugin,
@@ -138,7 +138,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
         return {
           appType: 'custom',
           define: Object.fromEntries(
-            new Map(Object.keys(env).map((key) => [`process.env.${key}`, JSON.stringify(env[key])]))
+            new Map(Object.keys(env).map((key) => [`process.env.${key}`, JSON.stringify(env[key])])),
           ),
         };
       },
@@ -208,12 +208,12 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
 
           writeFileSync(
             join(clientOutPath, 'route-manifest.json'),
-            JSON.stringify(prepareManifest(manifest, ssrManifest, routeComponents, viteConfig.base), null, 2)
+            JSON.stringify(prepareManifest(manifest, ssrManifest, routeComponents, viteConfig.base), null, 2),
           );
 
           writeFileSync(
             join(serverOutPath, 'route-manifest.json'),
-            readFileSync(join(clientOutPath, 'route-manifest.json'), 'utf-8')
+            readFileSync(join(clientOutPath, 'route-manifest.json'), 'utf-8'),
           );
 
           const indexHtml = join(clientOutPath, 'index.html');

@@ -36,7 +36,7 @@ export type TypedDeferredData<Data extends Record<string, unknown>> = Pick<Defer
 
 export type DeferFunction = <Data extends Record<string, unknown>>(
   data: Data,
-  init?: number | ResponseInit
+  init?: number | ResponseInit,
 ) => TypedDeferredData<Data>;
 
 export const defer: DeferFunction = (data, init = {}) => {

@@ -78,7 +78,7 @@ export const createFormData = <T extends FieldValues>(data: T, key = 'formData')
 
 export const mergeErrors = <T extends FieldValues>(
   frontendErrors: Partial<FieldErrorsImpl<DeepRequired<T>>>,
-  backendErrors?: Partial<FieldErrorsImpl<DeepRequired<T>>>
+  backendErrors?: Partial<FieldErrorsImpl<DeepRequired<T>>>,
 ) => {
   if (!backendErrors) {
     return frontendErrors;

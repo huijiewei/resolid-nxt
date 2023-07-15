@@ -13,7 +13,7 @@ export const transformRouteComponent = (
   root: string,
   rootEntry: string,
   serverEntry: string,
-  addComponentId: (componentId: string) => void
+  addComponentId: (componentId: string) => void,
 ) => {
   if (ssr && (id.includes('.tsx') || id.includes('.mdx')) && id != rootEntry && id != serverEntry) {
     const componentId = id.replace(root + '/', '');

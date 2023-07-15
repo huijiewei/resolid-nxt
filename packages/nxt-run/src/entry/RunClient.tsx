@@ -52,7 +52,7 @@ export const createClientRouter = () => {
       future: {
         v7_normalizeFormMethod: true,
       },
-    }
+    },
   );
 };
 
@@ -77,7 +77,7 @@ export const lazyMatches = async (matchRoutes: AgnosticRouteMatch<string>[] | nu
           ...routeModule,
           lazy: undefined,
         });
-      })
+      }),
     );
   }
 };

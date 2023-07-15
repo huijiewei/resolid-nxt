@@ -20,7 +20,7 @@ const staticImportedByEntry = (
   id: string,
   getModuleInfo: GetModuleInfo,
   cache: Map<string, boolean>,
-  importStack: string[] = []
+  importStack: string[] = [],
 ) => {
   if (cache.has(id)) {
     return cache.get(id);
@@ -44,7 +44,7 @@ const staticImportedByEntry = (
   }
 
   const someImporterIs = mod.importers.some((importer) =>
-    staticImportedByEntry(importer, getModuleInfo, cache, importStack.concat(id))
+    staticImportedByEntry(importer, getModuleInfo, cache, importStack.concat(id)),
   );
 
   cache.set(id, someImporterIs);

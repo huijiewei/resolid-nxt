@@ -11,7 +11,7 @@ export const prepareManifest = (
   manifest: Record<string, ManifestFile>,
   ssrManifest: Record<string, string[]>,
   routeComponents: Set<string>,
-  basePath: string
+  basePath: string,
 ) => {
   basePath = basePath.endsWith('/') ? basePath : basePath + '/';
 

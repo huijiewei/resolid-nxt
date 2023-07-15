@@ -9,7 +9,7 @@ export type NxtRunAdapter = {
     root: string,
     outPath: string,
     ssrExternal: string[] | undefined,
-    commonjsOptions: RollupCommonJSOptions | undefined
+    commonjsOptions: RollupCommonJSOptions | undefined,
   ) => Promise<void> | void;
 };
 

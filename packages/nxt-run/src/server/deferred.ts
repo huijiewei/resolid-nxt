@@ -56,8 +56,8 @@ const enqueueTrackedPromise = (controller: any, encoder: TextEncoder, settledKey
           JSON.stringify({
             [settledKey]: promise._error,
           }) +
-          '\n\n'
-      )
+          '\n\n',
+      ),
     );
   } else {
     controller.enqueue(encoder.encode('data:' + JSON.stringify({ [settledKey]: promise._data ?? null }) + '\n\n'));

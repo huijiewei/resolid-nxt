@@ -11,7 +11,7 @@ export const dev = (viteServer: ViteDevServer) => {
 
       const indexHtml = await viteServer.transformIndexHtml(
         req.originalUrl ?? '/',
-        readFileSync('./index.html', 'utf-8')
+        readFileSync('./index.html', 'utf-8'),
       );
       const [startHtml, endHtml] = indexHtml.split('<!-- app -->');
 
@@ -25,7 +25,7 @@ export const dev = (viteServer: ViteDevServer) => {
           {
             manifest: {},
           },
-          { startHtml, endHtml }
+          { startHtml, endHtml },
         );
 
         await setResponse(res, response);

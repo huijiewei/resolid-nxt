@@ -17,7 +17,7 @@ export interface Session<Data = SessionData, FlashData = Data> {
   has(name: (keyof Data | keyof FlashData) & string): boolean;
 
   get<Key extends (keyof Data | keyof FlashData) & string>(
-    name: Key
+    name: Key,
   ):
     | (Key extends keyof Data ? Data[Key] : undefined)
     | (Key extends keyof FlashData ? FlashData[Key] : undefined)
@@ -42,12 +42,12 @@ const flash = <Key extends string>(name: Key): FlashDataKey<Key> => `__flash_${n
 
 export type CreateSessionFunction = <Data = SessionData, FlashData = Data>(
   initialData?: Data,
-  id?: string
+  id?: string,
 ) => Session<Data, FlashData>;
 
 export const createSession: CreateSessionFunction = <Data = SessionData, FlashData = Data>(
   initialData: Partial<Data> = {},
-  id = ''
+  id = '',
 ): Session<Data, FlashData> => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const map = new Map(Object.entries(initialData)) as Map<keyof Data | FlashDataKey<keyof FlashData & string>, any>;
@@ -115,7 +115,7 @@ export type SessionIdStorageStrategy<Data = SessionData, FlashData = Data> = {
 };
 
 export type CreateSessionStorageFunction = <Data = SessionData, FlashData = Data>(
-  strategy: SessionIdStorageStrategy<Data, FlashData>
+  strategy: SessionIdStorageStrategy<Data, FlashData>,
 ) => SessionStorage<Data, FlashData>;
 
 export const createSessionStorageFactory =

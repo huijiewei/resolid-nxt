@@ -19,7 +19,7 @@ export type HandleFn = (
   responseStatusCode: number,
   responseHeaders: Headers,
   entryContext: EntryContext,
-  renderOptions: RenderOptions
+  renderOptions: RenderOptions,
 ) => Promise<Response> | Response;
 
 export type HandleDataFn = (response: Response, request: Request) => Promise<Response> | Response;
@@ -31,7 +31,7 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
     responseStatusCode: number,
     responseHeaders: Headers,
     entryContext: EntryContext,
-    renderOptions: RenderOptions
+    renderOptions: RenderOptions,
   ) => {
     const url = new URL(request.url);
     const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -49,7 +49,7 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
       ],
       {
         basename,
-      }
+      },
     );
 
     if (url.searchParams.has('_data')) {

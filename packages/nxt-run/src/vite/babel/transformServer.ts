@@ -82,7 +82,7 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
                   ? 'argument'
                   : (function () {
                       throw new Error('invariant');
-                    })()
+                    })(),
               ) as Babel.NodePath<Babel.types.Node>;
 
               if (isIdentifierReferenced(local)) {
@@ -116,7 +116,7 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
         ImportDefaultSpecifier: markImport,
         ImportNamespaceSpecifier: markImport,
       },
-      state
+      state,
     );
   };
 
@@ -143,7 +143,7 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
     const sweepImport = (
       sweepPath: Babel.NodePath<
         Babel.types.ImportSpecifier | Babel.types.ImportDefaultSpecifier | Babel.types.ImportNamespaceSpecifier
-      >
+      >,
     ) => {
       const local = sweepPath.get('local');
 
@@ -183,7 +183,7 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
                   ? 'argument'
                   : (function () {
                       throw new Error('invariant');
-                    })()
+                    })(),
               ) as Babel.NodePath;
 
               if (shouldRemove(local)) {
@@ -240,7 +240,7 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
 
     const program = path.findParent((p) => t.isProgram(p.node)) as Babel.NodePath<Babel.types.Program>;
     const statement = path.findParent((p) =>
-      program.get('body').includes(p as Babel.NodePath<Babel.types.Statement>)
+      program.get('body').includes(p as Babel.NodePath<Babel.types.Statement>),
     ) as Babel.NodePath<Babel.types.Statement>;
 
     const serverIndex = state.servers++;
@@ -258,8 +258,8 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
           serverFn.node.params,
           serverFn.node.body as Babel.types.BlockStatement,
           false,
-          isData
-        )
+          isData,
+        ),
       );
     }
 
@@ -269,7 +269,7 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
                       const $$server_module${serverIndex} = %%source%%;
                       `)({
           source: serverFn.node,
-        })
+        }),
       );
       path.replaceWith(t.identifier(`$$server_module${serverIndex}`));
     } else {
@@ -282,8 +282,8 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
               ? {
                   source: serverFn.node,
                 }
-              : {}
-          )
+              : {},
+          ),
         );
 
         path.replaceWith(t.identifier(`$$server_module${serverIndex}`));
@@ -309,7 +309,7 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
                 }
               },
             },
-            state
+            state,
           );
 
           treeShake(path, state);

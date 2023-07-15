@@ -44,7 +44,7 @@ const render = async (req: IncomingMessage, res: ServerResponse) => {
       {
         startHtml,
         endHtml,
-      }
+      },
     );
 
     await setResponse(res, response);
