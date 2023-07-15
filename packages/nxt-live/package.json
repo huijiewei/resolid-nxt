@@ -31,7 +31,7 @@
   "dependencies": {
     "@resolid/nxt-prism": "workspace:*",
     "react-simple-code-editor": "^0.13.1",
-    "sucrase": "^3.32.0"
+    "sucrase": "^3.33.0"
   },
   "devDependencies": {
     "react": "^18.2.0",
