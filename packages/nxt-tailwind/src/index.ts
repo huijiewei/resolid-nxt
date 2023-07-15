@@ -78,7 +78,7 @@ const preset: Preset = (config = {}) => {
       dark: colorsSemantic.dark,
     },
     config.defaultTheme || 'light',
-    config.cssVarPrefix || 're'
+    config.cssVarPrefix || 're',
   );
 
   return {
