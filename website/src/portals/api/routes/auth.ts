@@ -12,7 +12,7 @@ import { authSignupResolver } from '~/common/components/AuthSignupForm';
 import { getLocale } from '~/common/components/LocalizedLink';
 import { problem, success } from '~/common/utils/http';
 import { verifyToken } from '~/common/utils/trunstile';
-import { existByEmail, existByUsername, findUserByEmail, insertUser } from '~/engine/modules/user/userRepository';
+import { checkExistByEmail, checkExistByUsername, getUserByEmail, createUser } from '~/engine/modules/user/userService';
 import { commitSession, destroySession, getSession, omitUser } from '~/foundation/session';
 import { getFixedT } from '~/i18n.server';
 
@@ -27,7 +27,7 @@ const routes: RouteObject[] = [
       }
 
       const t = await getFixedT(getLocale(request), 'common');
-      const user = await findUserByEmail(data?.email);
+      const user = await getUserByEmail(data?.email);
 
       if (user == null) {
         return problem({
@@ -78,19 +78,19 @@ const routes: RouteObject[] = [
 
       const t = await getFixedT(getLocale(request), 'common');
 
-      if (await existByEmail(data?.email)) {
+      if (await checkExistByEmail(data?.email)) {
         return problem({
           email: { message: t('userExist') },
         });
       }
 
-      if (await existByUsername(data?.username)) {
+      if (await checkExistByUsername(data?.username)) {
         return problem({
           username: { message: t('userExist') },
         });
       }
 
-      const user = await insertUser({
+      const user = await createUser({
         email: data.email,
         username: data.username,
         password: hashSync(data?.password),
@@ -126,7 +126,7 @@ const routes: RouteObject[] = [
 
       const t = await getFixedT(getLocale(request), 'common');
 
-      if (!(await existByEmail(data?.email))) {
+      if (!(await checkExistByEmail(data?.email))) {
         return problem({
           email: { message: t('userNotExist') },
         });

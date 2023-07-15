@@ -1,7 +1,7 @@
 import { relations, sql } from 'drizzle-orm';
 import { datetime, index, int, unique, varchar } from 'drizzle-orm/mysql-core';
-import { nxtMysqlTable } from '~/engine/core/schema';
-import { users } from '~/engine/modules/user/schema';
+import { nxtMysqlTable } from '~/engine/core/baseSchema';
+import { users } from '~/engine/modules/user/userSchema';
 
 export const forumBoards = nxtMysqlTable(
   'forum_board',

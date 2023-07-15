@@ -1,6 +1,6 @@
 import { type InferModel } from 'drizzle-orm';
 import { index, int, unique, varchar } from 'drizzle-orm/mysql-core';
-import { nxtMysqlTable } from '~/engine/core/schema';
+import { nxtMysqlTable } from '~/engine/core/baseSchema';
 
 export const districts = nxtMysqlTable(
   'district',

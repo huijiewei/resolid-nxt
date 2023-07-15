@@ -1,10 +1,10 @@
 import { drizzle } from 'drizzle-orm/mysql2';
 import mysql from 'mysql2/promise';
 
-import * as blogSchema from '~/engine/modules/blog/schema';
-import * as districtSchema from '~/engine/modules/district/schema';
-import * as forumSchema from '~/engine/modules/forum/schema';
-import * as userSchema from '~/engine/modules/user/schema';
+import * as blogSchema from '~/engine/modules/blog/blogSchema';
+import * as districtSchema from '~/engine/modules/district/districtSchema';
+import * as forumSchema from '~/engine/modules/forum/formSchema';
+import * as userSchema from '~/engine/modules/user/userSchema';
 
 process.env.TZ = 'UTC';
 

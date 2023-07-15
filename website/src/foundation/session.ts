@@ -1,7 +1,7 @@
 import { createSessionStorage, type SessionIdStorageStrategy, type SessionStorage } from '@resolid/nxt-run/node';
 import { omit } from '@resolid/nxt-utils';
-import type { UserSelect } from '~/engine/modules/user/schema';
-import { deleteUserSession, findUserBySessionToken, updateUserSession } from '~/engine/modules/user/userRepository';
+import type { UserSelect } from '~/engine/modules/user/userSchema';
+import { removeUserSession, getUserBySessionToken, updateUserSession } from '~/engine/modules/user/userService';
 
 export type SessionUser = Omit<UserSelect, 'password' | 'updatedAt' | 'deletedAt'>;
 
@@ -23,7 +23,7 @@ const createDatabaseSessionStorage = ({
       return await updateUserSession(data.id as number, expiredAt);
     },
     async readData(id) {
-      const user = await findUserBySessionToken(id);
+      const user = await getUserBySessionToken(id);
 
       return user ? omitUser(user) : null;
     },
@@ -33,7 +33,7 @@ const createDatabaseSessionStorage = ({
       await updateUserSession(data.id as number, expiredAt, id);
     },
     async deleteData(id) {
-      await deleteUserSession(id);
+      await removeUserSession(id);
     },
   });
 
