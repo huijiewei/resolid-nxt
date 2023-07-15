@@ -82,7 +82,7 @@ export const ProgressBar = primitiveComponent<'div', ProgressBarProps>((props, r
           'flex h-full items-center justify-center rounded-none text-fg-emphasized transition-[width]',
           sizeStyle.text,
           colorStyle,
-          className
+          className,
         )}
         style={{ width: `${value}%` }}
         {...rest}

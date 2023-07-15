@@ -18,18 +18,18 @@ type PropsOf<T extends ElementType> = ComponentPropsWithoutRef<T> & {
 export type PrimitiveProps<
   Type extends ElementType = ElementType,
   Props extends Record<string, unknown> = Record<never, never>,
-  Omits extends string | number | symbol = never
+  Omits extends string | number | symbol = never,
 > = Merge<Omit<ComponentPropsWithoutRef<Type>, Omits>, Props>;
 
 export const primitiveComponent = <
   C extends ElementType = ElementType,
   Props extends Record<string, unknown> = Record<never, never>,
-  Omits extends string | number | symbol = never
+  Omits extends string | number | symbol = never,
 >(
   render: (
     props: Merge<Omit<ComponentPropsWithoutRef<C>, Omits>, Props>,
-    ref?: ComponentPropsWithRef<C>['ref']
-  ) => ReactElement | null
+    ref?: ComponentPropsWithRef<C>['ref'],
+  ) => ReactElement | null,
 ) => {
   return forwardRef(render);
 };
@@ -39,7 +39,7 @@ export type PolymorphicProps<
   Component extends ElementType,
   PermanentProps extends Record<never, never>,
   DefaultProps extends Record<never, never>,
-  ComponentProps extends Record<never, never>
+  ComponentProps extends Record<never, never>,
 > =
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any extends Component
@@ -51,7 +51,7 @@ export type PolymorphicProps<
 export type PolymorphicComponent<
   Component extends ElementType,
   Props extends Record<never, never> = Record<never, never>,
-  Omits extends string | number | symbol = never
+  Omits extends string | number | symbol = never,
 > = {
   <AsComponent extends ElementType = Component>(
     props: PolymorphicProps<
@@ -60,7 +60,7 @@ export type PolymorphicComponent<
       Props,
       Omit<ComponentProps<Component>, Omits>,
       ComponentProps<AsComponent>
-    >
+    >,
   ): JSX.Element;
 
   displayName?: string;
@@ -72,7 +72,7 @@ export type PolymorphicComponent<
 export const polymorphicComponent = <
   Component extends ElementType,
   Props extends Record<never, never> = Record<never, never>,
-  Omits extends string | number | symbol = never
+  Omits extends string | number | symbol = never,
 >(
-  component: ForwardRefRenderFunction<never, Assign<Omit<PropsOf<Component>, Omits>, Props> & { as?: ElementType }>
+  component: ForwardRefRenderFunction<never, Assign<Omit<PropsOf<Component>, Omits>, Props> & { as?: ElementType }>,
 ) => forwardRef(component) as unknown as PolymorphicComponent<Component, Props, Omits>;

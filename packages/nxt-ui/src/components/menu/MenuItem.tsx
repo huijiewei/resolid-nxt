@@ -25,9 +25,9 @@ export const MenuItem = polymorphicComponent<'button', DropdownMenuItemProps, 't
       type={Component == 'button' ? 'button' : undefined}
       disabled={disabled}
       className={cx(
-        'flex w-full cursor-default items-center rounded py-1 px-2 outline-none transition-colors',
+        'flex w-full cursor-default items-center rounded px-2 py-1 outline-none transition-colors',
         'focus:bg-bg-subtle disabled:text-fg-muted',
-        className
+        className,
       )}
       tabIndex={isActive ? 0 : -1}
       {...getItemProps({

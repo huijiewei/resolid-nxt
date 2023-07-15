@@ -86,7 +86,7 @@ export type ToastDispatchContext = {
       pending: ToastCreateOptions;
       success: MaybeFunction<ToastUpdateOptions, [T]>;
       error: MaybeFunction<ToastUpdateOptions, [E]>;
-    }
+    },
   ) => void;
   close: (id: ToastId) => void;
   clean: (options?: { placements?: ToastPlacement[] }) => void;

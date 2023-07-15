@@ -35,10 +35,10 @@ export const MenuContent = primitiveComponent<'div'>((props, ref) => {
           <FloatingFocusManager modal={false} initialFocus={nested ? -1 : 0} returnFocus={!nested} context={context}>
             <div
               className={cx(
-                'rounded outline-none border border-bg-muted bg-bg-default p-1.5 shadow',
+                'rounded border border-bg-muted bg-bg-default p-1.5 shadow outline-none',
                 'transition-opacity duration-[--duration-var]',
                 status == 'open' ? 'opacity-1' : 'opacity-0',
-                className
+                className,
               )}
               ref={refs}
               style={{ ...floatingStyles, '--duration-var': `${duration}ms` } as CSSProperties}

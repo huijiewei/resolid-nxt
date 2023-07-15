@@ -218,14 +218,14 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
       label: fieldNames?.label ?? 'label',
       options: fieldNames?.options ?? 'options',
     }),
-    [fieldNames]
+    [fieldNames],
   );
 
   const filterRef = useCallbackRef(
     filter ||
       ((keyword, option) => {
         return option[mergedFieldNames.value].toString().toLowerCase().indexOf(keyword.toLowerCase()) != -1;
-      })
+      }),
   );
 
   const [state, setState] = useControllableState({
@@ -285,7 +285,7 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
           group[mergedFieldNames.options] = option[mergedFieldNames.options].filter(
             (groupOption: Omit<OptionDefault, 'options'>) => {
               return filterRef(searchValue, groupOption);
-            }
+            },
           );
 
           if (group[mergedFieldNames.options].length > 0) {
@@ -394,7 +394,7 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
         className={cx(
           'flex-1 flex-wrap gap-1',
           selectOptions.length > 0 ? 'flex' : 'grid',
-          (size == 'xs' || size == 'sm') && 'gap-y-0.5'
+          (size == 'xs' || size == 'sm') && 'gap-y-0.5',
         )}
       >
         {selectOptions.length > 0
@@ -473,7 +473,7 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
         refs.domReference.current?.focus();
       });
     },
-    [closeOnSelect, mergedFieldNames.value, onDeselect, onSelect, refs.domReference, searchable, setState, state]
+    [closeOnSelect, mergedFieldNames.value, onDeselect, onSelect, refs.domReference, searchable, setState, state],
   );
 
   const selectContext = useMemo<SelectContext>(() => {
@@ -607,12 +607,12 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
           invalid && 'border-red-500',
           disabled
             ? 'pointer-events-none cursor-not-allowed opacity-50'
-            : 'active:ring-1 active:ring-bg-primary-emphasis active:border-bg-primary-emphasis active:z-[1]',
-          !invalid && !disabled && 'hover:border-border-hovered hover:z-[2]',
+            : 'active:z-[1] active:border-bg-primary-emphasis active:ring-1 active:ring-bg-primary-emphasis',
+          !invalid && !disabled && 'hover:z-[2] hover:border-border-hovered',
           fullWidth && 'w-full',
           sizeStyle.base,
           sizeStyle.select,
-          className
+          className,
         )}
         {...getReferenceProps({
           role: 'combobox',
@@ -694,10 +694,10 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
           <div
             ref={refs.setFloating}
             className={cx(
-              'scrollbar scrollbar-thin z-50 max-h-80 overflow-y-auto overscroll-contain rounded border outline-none shadow border-bg-muted bg-bg-default',
+              'z-50 max-h-80 overflow-y-auto overscroll-contain rounded border border-bg-muted bg-bg-default shadow outline-none scrollbar scrollbar-thin',
               virtual ? 'px-1.5' : 'p-1.5',
               'transition-opacity duration-[--duration-var]',
-              status == 'open' ? 'opacity-1' : 'opacity-0'
+              status == 'open' ? 'opacity-1' : 'opacity-0',
             )}
             style={
               {
@@ -739,7 +739,7 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
                     if (option[mergedFieldNames.options]) {
                       return (
                         <Fragment key={`group-${index}`}>
-                          <Divider position={'left'} className={'text-fg-subtle mb-1 [&:not(:first-child)]:mt-1'}>
+                          <Divider position={'left'} className={'mb-1 text-fg-subtle [&:not(:first-child)]:mt-1'}>
                             {option[mergedFieldNames.label]}
                           </Divider>
                           {option[mergedFieldNames.options].map((groupOption: Omit<OptionDefault, 'options'>) => {

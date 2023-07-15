@@ -71,7 +71,7 @@ export const Overlay = primitiveComponent<'div', OverlayProps>((props, ref) => {
         className={cx(
           'absolute inset-0 z-10',
           isNumber(blur) ? 'backdrop-blur-[--blur-var]' : 'backdrop-blur-[2px]',
-          rounded.style
+          rounded.style,
         )}
       >
         {overlay}

@@ -70,7 +70,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
       labelId,
       descriptionId,
     }),
-    [descriptionId, labelId]
+    [descriptionId, labelId],
   );
 
   const { getFloatingProps } = useInteractions([
@@ -109,7 +109,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
       finalFocus,
       scrollBehavior,
       lockScroll,
-    ]
+    ],
   );
 
   const prevStatus = usePrevious(status);

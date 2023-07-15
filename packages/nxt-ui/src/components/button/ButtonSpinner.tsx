@@ -26,7 +26,7 @@ export const ButtonSpinner = (props: PrimitiveProps<'span', ButtonSpinnerProps>)
         'flex items-center',
         label ? 'relative' : 'absolute',
         placement === 'start' ? label && 'me-2' : label && 'ms-2',
-        className
+        className,
       )}
       {...rest}
     >

@@ -106,7 +106,7 @@ export const Radio = primitiveComponent<'input', RadioProps>((props, ref) => {
 
       group?.onChange(event);
     },
-    [group, setState]
+    [group, setState],
   );
 
   useFormReset({
@@ -133,13 +133,13 @@ export const Radio = primitiveComponent<'input', RadioProps>((props, ref) => {
       className={cx(
         'relative inline-flex items-center gap-[--spacing-var]',
         disabled ? 'cursor-not-allowed' : 'cursor-pointer',
-        className
+        className,
       )}
     >
       <input
         ref={refs}
         name={name}
-        className={'sr-only peer'}
+        className={'peer sr-only'}
         value={value}
         type={'radio'}
         checked={state}
@@ -158,7 +158,7 @@ export const Radio = primitiveComponent<'input', RadioProps>((props, ref) => {
           disabled && 'opacity-50',
           sizeStyle.control,
           state &&
-            `before:inline-block before:content-[''] before:relative before:h-1/2 before:w-1/2 before:rounded-[50%] before:bg-current`
+            `before:relative before:inline-block before:h-1/2 before:w-1/2 before:rounded-[50%] before:bg-current before:content-['']`,
         )}
       />
       {children && <span className={cx(sizeStyle.label, 'leading-none', disabled && 'opacity-50')}>{children}</span>}

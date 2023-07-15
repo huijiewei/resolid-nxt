@@ -14,7 +14,7 @@ type useMoveHandlers = {
 export const useMove = <T extends HTMLElement = HTMLDivElement>(
   onChange: (value: UseMovePosition) => void,
   handlers?: useMoveHandlers,
-  dir: 'ltr' | 'rtl' = 'ltr'
+  dir: 'ltr' | 'rtl' = 'ltr',
 ): [RefObject<T>, boolean] => {
   const ref = useRef<T>(null);
   const frame = useRef(0);

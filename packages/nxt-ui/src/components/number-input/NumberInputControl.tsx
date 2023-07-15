@@ -27,10 +27,10 @@ export const NumberInputControl = (props: PrimitiveProps<'button', { stepper: 'i
       disabled={disabled}
       className={cx(
         'flex w-full flex-1 select-none appearance-none items-center justify-center bg-bg-subtlest transition-colors',
-        disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-bg-subtle active:bg-bg-muted',
+        disabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-bg-subtle active:bg-bg-muted',
         stepper == 'increment' && 'rounded-tr',
         stepper == 'decrement' && 'rounded-br',
-        className
+        className,
       )}
       {...rest}
     >

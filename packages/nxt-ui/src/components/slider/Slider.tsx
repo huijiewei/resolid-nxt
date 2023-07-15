@@ -74,7 +74,7 @@ export const Slider = primitiveComponent<'input', SliderProps>((props, ref) => {
       ticks,
       marks,
     }),
-    [reverse, vertical, disabled, color, size, step, min, max, ticks, marks]
+    [reverse, vertical, disabled, color, size, step, min, max, ticks, marks],
   );
 
   const valueContext = useMemo(
@@ -87,7 +87,7 @@ export const Slider = primitiveComponent<'input', SliderProps>((props, ref) => {
         onChangeEnd && onChangeEnd(value);
       },
     }),
-    [onChangeEnd, setState, state]
+    [onChangeEnd, setState, state],
   );
 
   const [thumbIndex, setThumbIndex] = useState<number | undefined>(undefined);
@@ -111,7 +111,7 @@ export const Slider = primitiveComponent<'input', SliderProps>((props, ref) => {
         valueRef.current = value;
       }
     },
-    [disabled, vertical, max, min, reverse, step, state, thumbIndex, setState]
+    [disabled, vertical, max, min, reverse, step, state, thumbIndex, setState],
   );
 
   const [moveRef, active] = useMove(handleMoveChange, { onScrubEnd: () => onChangeEnd?.(valueRef.current) });
@@ -121,7 +121,7 @@ export const Slider = primitiveComponent<'input', SliderProps>((props, ref) => {
       dragging: active,
       onThumbMouseDown: (index?: number) => setThumbIndex(index),
     }),
-    [active]
+    [active],
   );
 
   const handleTrackMouseDownCapture = useCallback(
@@ -155,7 +155,7 @@ export const Slider = primitiveComponent<'input', SliderProps>((props, ref) => {
         setThumbIndex(nearestHandle);
       }
     },
-    [max, min, moveRef, reverse, state, step, vertical]
+    [max, min, moveRef, reverse, state, step, vertical],
   );
 
   return (
@@ -169,7 +169,7 @@ export const Slider = primitiveComponent<'input', SliderProps>((props, ref) => {
               'relative flex touch-none select-none items-center outline-none',
               vertical ? 'w-fit touch-pan-y px-3' : 'h-fit touch-pan-x py-3',
               marks && (vertical ? 'my-2 mr-3' : 'mx-2 mb-3'),
-              className
+              className,
             )}
             onTouchStartCapture={handleTrackMouseDownCapture}
             onTouchEndCapture={() => {

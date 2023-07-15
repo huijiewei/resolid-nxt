@@ -7,25 +7,25 @@ type UseEventListener = {
     eventName: K,
     handler: (event: HTMLElementEventMap[K]) => void,
     element: RefObject<T> | T | null,
-    options?: boolean | AddEventListenerOptions
+    options?: boolean | AddEventListenerOptions,
   ): void;
   <K extends keyof ElementEventMap, T extends Element>(
     eventName: K,
     handler: (event: ElementEventMap[K]) => void,
     element: RefObject<T> | T | null,
-    options?: boolean | AddEventListenerOptions
+    options?: boolean | AddEventListenerOptions,
   ): void;
   <K extends keyof DocumentEventMap>(
     eventName: K,
     handler: (event: DocumentEventMap[K]) => void,
     element: RefObject<Document> | Document,
-    options?: boolean | AddEventListenerOptions
+    options?: boolean | AddEventListenerOptions,
   ): void;
   <K extends keyof WindowEventMap>(
     eventName: K,
     handler: (event: WindowEventMap[K]) => void,
     element?: undefined,
-    options?: boolean | AddEventListenerOptions
+    options?: boolean | AddEventListenerOptions,
   ): void;
 };
 
@@ -35,7 +35,7 @@ export const useEventListener: UseEventListener = (
   handler: (event: any) => void,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   element?: any,
-  options?: boolean | AddEventListenerOptions
+  options?: boolean | AddEventListenerOptions,
 ) => {
   const listener = useCallbackRef(handler);
 

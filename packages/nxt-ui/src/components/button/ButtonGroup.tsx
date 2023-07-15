@@ -10,7 +10,7 @@ export const ButtonGroup = (props: PrimitiveProps<'div', ButtonGroupProps>) => {
 
   const context = useMemo(
     () => ({ size, color, variant, disabled, vertical }),
-    [size, color, variant, disabled, vertical]
+    [size, color, variant, disabled, vertical],
   );
 
   return (

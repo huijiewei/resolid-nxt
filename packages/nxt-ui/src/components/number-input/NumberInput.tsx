@@ -197,7 +197,7 @@ export const NumberInput = primitiveComponent<'input', NumberInputProps>((props,
 
       setState(next);
     },
-    [state, setState]
+    [state, setState],
   );
 
   const handleChange = useCallback(
@@ -226,7 +226,7 @@ export const NumberInput = primitiveComponent<'input', NumberInputProps>((props,
         }
       }
     },
-    [disabled, parse, readOnly, update]
+    [disabled, parse, readOnly, update],
   );
 
   const increment = useCallback(
@@ -243,7 +243,7 @@ export const NumberInput = primitiveComponent<'input', NumberInputProps>((props,
 
       inputRef.current?.focus();
     },
-    [maxValue, min, minValue, numPrecision, state, step, update]
+    [maxValue, min, minValue, numPrecision, state, step, update],
   );
 
   const decrement = useCallback(
@@ -260,7 +260,7 @@ export const NumberInput = primitiveComponent<'input', NumberInputProps>((props,
 
       inputRef.current?.focus();
     },
-    [maxValue, min, minValue, numPrecision, state, step, update]
+    [maxValue, min, minValue, numPrecision, state, step, update],
   );
 
   assignRef(controlsRef, { increment, decrement });
@@ -300,7 +300,7 @@ export const NumberInput = primitiveComponent<'input', NumberInputProps>((props,
         update(max);
       }
     },
-    [decrement, increment, max, min, step, update]
+    [decrement, increment, max, min, step, update],
   );
 
   const handleInputBlur = useCallback(
@@ -322,7 +322,7 @@ export const NumberInput = primitiveComponent<'input', NumberInputProps>((props,
 
       onBlur && onBlur(event);
     },
-    [maxValue, minValue, numPrecision, onBlur, parse, state, update]
+    [maxValue, minValue, numPrecision, onBlur, parse, state, update],
   );
 
   useEventListener(
@@ -343,7 +343,7 @@ export const NumberInput = primitiveComponent<'input', NumberInputProps>((props,
       }
     },
     inputRef,
-    { passive: false }
+    { passive: false },
   );
 
   const formattedValue = format(inputValue);
@@ -354,13 +354,13 @@ export const NumberInput = primitiveComponent<'input', NumberInputProps>((props,
       className={cx(
         'relative isolate inline-flex items-center rounded border bg-bg-default pr-0 transition-colors',
         invalid && !focused && 'border-border-invalid',
-        disabled && 'cursor-not-allowed opacity-50 bg-bg-subtlest',
-        !disabled && !invalid && !focused && 'hover:border-border-hovered hover:z-[2]',
-        !disabled && focused && 'ring-1 ring-bg-primary-emphasis border-bg-primary-emphasis z-[1]',
+        disabled && 'cursor-not-allowed bg-bg-subtlest opacity-50',
+        !disabled && !invalid && !focused && 'hover:z-[2] hover:border-border-hovered',
+        !disabled && focused && 'z-[1] border-bg-primary-emphasis ring-1 ring-bg-primary-emphasis',
         fullWidth && 'w-full',
         inputSizeStyles(!!prefix, false)[size],
         group && inputGroupStyle,
-        className
+        className,
       )}
       tabIndex={-1}
       onClick={() => {
@@ -376,7 +376,7 @@ export const NumberInput = primitiveComponent<'input', NumberInputProps>((props,
         ref={refs}
         className={cx(
           'resize-none appearance-none border-none bg-transparent p-0 text-left outline-none disabled:cursor-not-allowed',
-          !hideControls && numberInputSize[size].input
+          !hideControls && numberInputSize[size].input,
         )}
         type={'text'}
         inputMode={'decimal'}

@@ -40,10 +40,10 @@ export const PaginationItem = polymorphicComponent<'button', PaginationItemProps
       disabled={disabled}
       aria-current={selected ? 'page' : undefined}
       className={cx(
-        'disabled:cursor-not-allowed disabled:opacity-50 flex h-7 min-w-[1.75rem] select-none appearance-none items-center justify-center rounded px-2 transition-colors',
+        'flex h-7 min-w-[1.75rem] select-none appearance-none items-center justify-center rounded px-2 transition-colors disabled:cursor-not-allowed disabled:opacity-50',
         selected ? `${selectedStyle.default} text-fg-emphasized` : 'bg-bg-subtle',
         !disabled && (selected ? selectedStyle.hovered : 'hover:bg-bg-muted'),
-        className
+        className,
       )}
       {...rest}
     >

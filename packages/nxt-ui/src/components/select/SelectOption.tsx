@@ -29,10 +29,10 @@ export const SelectOption = primitiveComponent<'li', SelectOptionProps, 'childre
       aria-disabled={ariaAttr(option.disabled)}
       tabIndex={isActive ? 0 : -1}
       className={cx(
-        'select-none w-full rounded outline-none transition-colors',
+        'w-full select-none rounded outline-none transition-colors',
         option.disabled ? 'opacity-60' : 'active:bg-bg-subtle',
         isSelect && 'text-fg-primary',
-        className
+        className,
       )}
       {...getItemProps({
         onClick: () => {

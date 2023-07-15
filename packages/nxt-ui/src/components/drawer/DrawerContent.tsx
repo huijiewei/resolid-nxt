@@ -50,15 +50,15 @@ export const DrawerContent = primitiveComponent<'div'>((props, ref) => {
   const transformStyle = placementTransformStyles[placement];
 
   return (
-    <div className={cx('fixed flex left-0 top-0 w-screen h-screen z-40 justify-center')}>
+    <div className={cx('fixed left-0 top-0 z-40 flex h-screen w-screen justify-center')}>
       <FloatingFocusManager initialFocus={initialFocus} returnFocus={finalFocus == undefined} context={context}>
         <div
           className={cx(
-            'flex flex-col fixed bg-bg-default shadow',
-            'transition-[opacity,transform] ease-in-out duration-[--duration-var]',
+            'fixed flex flex-col bg-bg-default shadow',
+            'transition-[opacity,transform] duration-[--duration-var] ease-in-out',
             status == 'open' ? `opacity-1 ${transformStyle.open}` : `opacity-0 ${transformStyle.close}`,
             placementStyles[placement],
-            className
+            className,
           )}
           style={{ '--duration-var': `${duration}ms` } as CSSProperties}
           ref={refs}

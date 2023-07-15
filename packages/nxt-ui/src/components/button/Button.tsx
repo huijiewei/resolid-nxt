@@ -74,10 +74,10 @@ export const Button = polymorphicComponent<'button', ButtonProps>((props, ref) =
         fullWidth ? 'w-full' : 'w-auto',
         group
           ? group.vertical
-            ? 'first:rounded-t last:rounded-b border-y-[0.5px] first:border-t last:border-b'
-            : 'first:rounded-s last:rounded-e border-x-[0.5px] first:border-s last:border-e'
+            ? 'border-y-[0.5px] first:rounded-t first:border-t last:rounded-b last:border-b'
+            : 'border-x-[0.5px] first:rounded-s first:border-s last:rounded-e last:border-e'
           : 'rounded',
-        className
+        className,
       )}
       disabled={disabled || loading}
       type={type ?? (Component == 'button' ? 'button' : undefined)}

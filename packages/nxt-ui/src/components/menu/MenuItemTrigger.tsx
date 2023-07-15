@@ -29,9 +29,9 @@ export const MenuItemTrigger = primitiveComponent<'button'>((props, ref) => {
       data-opened={dataAttr(opened)}
       tabIndex={isActive ? 0 : -1}
       className={cx(
-        'flex w-full cursor-default items-center justify-between rounded py-1 pe-0 px-2 outline-none transition-colors',
-        'opened:[&:not(:focus)]:bg-bg-subtlest focus:bg-bg-subtle disabled:text-fg-muted',
-        className
+        'flex w-full cursor-default items-center justify-between rounded px-2 py-1 pe-0 outline-none transition-colors',
+        'focus:bg-bg-subtle disabled:text-fg-muted opened:[&:not(:focus)]:bg-bg-subtlest',
+        className,
       )}
       {...getReferenceProps({
         ...rest,

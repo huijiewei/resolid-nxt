@@ -137,7 +137,7 @@ export const Tooltip = (props: PrimitiveProps<'div', TooltipProps>) => {
       setArrow: arrowRef,
       className: colorStyle.arrow,
     }),
-    [colorStyle.arrow, context]
+    [colorStyle.arrow, context],
   );
 
   return (
@@ -148,11 +148,11 @@ export const Tooltip = (props: PrimitiveProps<'div', TooltipProps>) => {
         <Portal>
           <div
             className={cx(
-              'z-50 inline-block rounded border py-1 px-2 text-sm shadow text-fg-emphasized',
+              'z-50 inline-block rounded border px-2 py-1 text-sm text-fg-emphasized shadow',
               colorStyle.content,
               'transition-opacity duration-[--duration-var]',
               status == 'open' ? 'opacity-1' : 'opacity-0',
-              className
+              className,
             )}
             ref={refs.setFloating}
             style={

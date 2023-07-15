@@ -16,9 +16,9 @@ export const InputAddon = polymorphicComponent<'div'>((props, ref) => {
     <Component
       ref={ref}
       className={cx(
-        'flex items-center rounded border bg-bg-subtlest !border-border-default last:rounded-tl-none last:rounded-bl-none first:rounded-tr-none first:rounded-br-none [&:not(:first-child,:last-child)]:rounded-none [&:not(:first-child)]:-ml-px',
+        'flex items-center rounded border !border-border-default bg-bg-subtlest first:rounded-br-none first:rounded-tr-none last:rounded-bl-none last:rounded-tl-none [&:not(:first-child)]:-ml-px [&:not(:first-child,:last-child)]:rounded-none',
         inputSizeStyles(false, false)[group.size],
-        className
+        className,
       )}
       {...rest}
     >

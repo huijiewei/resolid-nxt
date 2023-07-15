@@ -24,7 +24,7 @@ export const CloseButton = primitiveComponent<'button', CloseButtonProps, 'type'
         'flex shrink-0 appearance-none items-center justify-center outline-none transition-colors',
         textClassName,
         !disabled && `focus-visible:ring ${statusClassName}`,
-        className
+        className,
       )}
       {...rest}
     >

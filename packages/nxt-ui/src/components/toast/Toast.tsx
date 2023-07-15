@@ -65,7 +65,7 @@ export const Toast = primitiveComponent<'div', ToastProps>((props, ref) => {
           onClick={onClose}
           textClassName={variant == 'solid' ? 'text-fg-emphasized' : undefined}
           statusClassName={toastColorStyles[color](variant == 'solid')}
-          className={cx('absolute top-1 right-1 rounded p-0.5')}
+          className={cx('absolute right-1 top-1 rounded p-0.5')}
         />
       )}
     </Alert>

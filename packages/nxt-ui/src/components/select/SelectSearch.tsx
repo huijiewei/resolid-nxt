@@ -16,7 +16,7 @@ export const SelectSearch = primitiveComponent<'input', SelectSearchProps>((prop
     <div
       data-value={value}
       className={
-        'flex-auto inline-grid grid-cols-[0px_min-content] row-start-1 row-end-2 col-start-1 col-end-3 after:content-[attr(data-value)_"_"] after:whitespace-pre after:invisible after:min-w-[2px] after:row-start-1 after:row-end-auto after:col-start-2 after:col-end-auto'
+        'col-start-1 col-end-3 row-start-1 row-end-2 inline-grid flex-auto grid-cols-[0px_min-content] after:invisible after:col-start-2 after:col-end-auto after:row-start-1 after:row-end-auto after:min-w-[2px] after:whitespace-pre after:content-[attr(data-value)_"_"]'
       }
     >
       <input
@@ -29,7 +29,7 @@ export const SelectSearch = primitiveComponent<'input', SelectSearchProps>((prop
         ref={ref}
         className={cx(
           'col-start-2 col-end-auto row-start-1 row-end-auto w-full min-w-[2px] appearance-none outline-none',
-          hidden && 'opacity-0'
+          hidden && 'opacity-0',
         )}
         style={{
           background: 0,

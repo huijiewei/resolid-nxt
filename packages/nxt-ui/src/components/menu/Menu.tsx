@@ -155,7 +155,7 @@ const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
       setPositionReference: refs.setPositionReference,
       getReferenceProps,
     }),
-    [getReferenceProps, openedState, refs.setPositionReference, refs.setReference]
+    [getReferenceProps, openedState, refs.setPositionReference, refs.setReference],
   );
 
   const floatingContext = useMemo<MenuFloatingContext>(
@@ -171,7 +171,7 @@ const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
       getItemProps,
       activeIndex,
     }),
-    [nested, duration, tree, floatingStyles, context, refs.setFloating, getFloatingProps, getItemProps, activeIndex]
+    [nested, duration, tree, floatingStyles, context, refs.setFloating, getFloatingProps, getItemProps, activeIndex],
   );
 
   const arrowContext = useMemo<FloatingArrowContext>(
@@ -180,7 +180,7 @@ const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
       setArrow: arrowRef,
       className: 'fill-bg-default [&>path:first-of-type]:stroke-bg-muted',
     }),
-    [context]
+    [context],
   );
 
   useEffect(() => {

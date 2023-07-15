@@ -37,7 +37,7 @@ export const PaginationJumper = (props: PaginationJumperProps) => {
     <div className={'flex items-center gap-2'}>
       <span className={'text-gray-500'}>Go to</span>
       <input
-        className={'w-10 rounded border border-bg-muted hover:bg-bg-subtlest px-2 py-0.5'}
+        className={'w-10 rounded border border-bg-muted px-2 py-0.5 hover:bg-bg-subtlest'}
         value={inputValue == undefined ? '' : inputValue}
         onChange={(e) => handleChange(e.target.value)}
         onBlur={handleJump}

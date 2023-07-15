@@ -65,7 +65,7 @@ export const ToastContent = (props: ToastContentProps) => {
         'transition-[opacity,transform] duration-[250ms]',
         status == 'open' && `opacity-1 ${transformStyle.open}`,
         status == 'close' && `opacity-0 ${transformStyle.close}`,
-        status == 'initial' && `opacity-0 ${transformStyle.init}`
+        status == 'initial' && `opacity-0 ${transformStyle.init}`,
       )}
       ref={refs.setFloating}
       role="status"

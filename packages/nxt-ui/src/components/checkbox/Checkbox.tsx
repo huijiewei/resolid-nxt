@@ -121,7 +121,7 @@ export const Checkbox = primitiveComponent<'input', CheckboxProps>((props, ref) 
 
       group?.onChange(event);
     },
-    [group, indeterminate, setState]
+    [group, indeterminate, setState],
   );
 
   useIsomorphicEffect(() => {
@@ -171,12 +171,12 @@ export const Checkbox = primitiveComponent<'input', CheckboxProps>((props, ref) 
       className={cx(
         'relative inline-flex items-center gap-[--spacing-var]',
         disabled ? 'cursor-not-allowed' : 'cursor-pointer',
-        className
+        className,
       )}
     >
       <input
         ref={refs}
-        className={'sr-only peer'}
+        className={'peer sr-only'}
         value={value}
         type="checkbox"
         checked={state}
@@ -194,7 +194,7 @@ export const Checkbox = primitiveComponent<'input', CheckboxProps>((props, ref) 
           invalid ? 'border-border-invalid' : state || indeterminate ? colorStyle.border : 'border-bg-muted',
           state || indeterminate ? `${colorStyle.checked} text-fg-emphasized` : 'bg-bg-default',
           disabled && 'opacity-50',
-          sizeStyle.control
+          sizeStyle.control,
         )}
       >
         {clonedIcon}

@@ -64,7 +64,7 @@ const range = (start: number, end: number) => {
 };
 
 export const usePagination = (
-  options: UsePaginationOptions
+  options: UsePaginationOptions,
 ): { pages: PaginationItemProps[]; totalPage: number; page: number; setPage: (page: number) => void } => {
   const {
     page,
@@ -90,12 +90,12 @@ export const usePagination = (
 
   const siblingsStart = Math.max(
     Math.min(pageState - siblings, totalPage - boundaries - siblings * 2 - 1),
-    boundaries + 2
+    boundaries + 2,
   );
 
   const siblingsEnd = Math.min(
     Math.max(pageState + siblings, boundaries + siblings * 2 + 2),
-    endPages.length > 0 ? endPages[0] - 2 : totalPage - 1
+    endPages.length > 0 ? endPages[0] - 2 : totalPage - 1,
   );
 
   // ['previous', 1, 'ellipsis', 4, 5, 6, 'ellipsis', 10, 'next']

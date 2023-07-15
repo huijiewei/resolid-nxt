@@ -55,7 +55,7 @@ const SliderThumbButton = primitiveComponent<'button', SliderThumbButtonProps>((
         onClick={(event) => event.stopPropagation()}
         className={cx(
           'absolute z-[2] touch-none select-none rounded-full bg-white outline-none transition-transform',
-          `disabled:border-bg-muted focus-visible:ring focus-visible:z-10`,
+          `focus-visible:z-10 focus-visible:ring disabled:border-bg-muted`,
           colorStyle.thumb,
           !disabled && 'hover:scale-110',
           vertical ? 'left-1/2 -translate-x-1/2' : 'top-1/2 -translate-y-1/2',
@@ -66,9 +66,9 @@ const SliderThumbButton = primitiveComponent<'button', SliderThumbButtonProps>((
             : reverse
             ? 'translate-x-1/2'
             : '-translate-x-1/2',
-          !children && 'border-3 aspect-square',
+          !children && 'aspect-square border-3',
           !children && (vertical ? 'w-1/2' : 'h-1/2 w-fit'),
-          className
+          className,
         )}
         {...rest}
       >
@@ -138,7 +138,7 @@ export const SliderThumb = primitiveComponent<'button', SliderThumbChild, 'value
         onChangeEnd(next);
       }
     },
-    [value, reverse, step, min, max, onChange, onChangeEnd]
+    [value, reverse, step, min, max, onChange, onChangeEnd],
   );
 
   const styleAttr = vertical ? (reverse ? 'bottom' : 'top') : reverse ? 'right' : 'left';

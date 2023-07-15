@@ -14,7 +14,7 @@ describe('VisuallyHidden', () => {
       <button>
         <VisuallyHidden>Click Me</VisuallyHidden>
         <span>Submit</span>
-      </button>
+      </button>,
     );
   });
 });

@@ -106,7 +106,7 @@ export const Switch = primitiveComponent<'input', SwitchProps, 'role'>((props, r
 
       setState(event.target.checked);
     },
-    [readOnly, disabled, setState]
+    [readOnly, disabled, setState],
   );
 
   useFormReset({
@@ -131,11 +131,11 @@ export const Switch = primitiveComponent<'input', SwitchProps, 'role'>((props, r
       className={cx(
         'relative inline-flex items-center gap-[--spacing-var]',
         disabled ? 'cursor-not-allowed' : 'cursor-pointer',
-        className
+        className,
       )}
     >
       <input
-        className={'sr-only peer'}
+        className={'peer sr-only'}
         value={value}
         type="checkbox"
         ref={refs}
@@ -153,13 +153,13 @@ export const Switch = primitiveComponent<'input', SwitchProps, 'role'>((props, r
           colorStyle.focus,
           sizeStyle.track,
           state ? colorStyle.checked : 'bg-bg-muted',
-          disabled && 'opacity-50'
+          disabled && 'opacity-50',
         )}
       >
         <span
           className={cx(
             'aspect-square h-full rounded-[inherit] bg-bg-default transition-transform',
-            state && sizeStyle.thumb
+            state && sizeStyle.thumb,
           )}
         />
       </span>

@@ -4,7 +4,7 @@ import { useIsomorphicEffect } from '../use-isomorphic-effect';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useCallbackRef = <T extends (...args: any[]) => any>(
   callback: T | undefined,
-  deps: DependencyList = []
+  deps: DependencyList = [],
 ): T => {
   const ref = useRef(callback);
 

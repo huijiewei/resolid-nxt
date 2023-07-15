@@ -500,7 +500,7 @@ export const buttonStyles = cva(
         class: 'hover:text-fg-neutral-hovered active:text-fg-neutral-pressed',
       },
     ],
-  }
+  },
 );
 
 export type ButtonStyles = VariantProps<typeof buttonStyles>;

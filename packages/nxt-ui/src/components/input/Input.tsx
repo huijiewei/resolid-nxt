@@ -128,7 +128,7 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
 
       setState(event.target.value);
     },
-    [readOnly, disabled, setState]
+    [readOnly, disabled, setState],
   );
 
   const handleClear = () => {
@@ -146,7 +146,7 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
         onPressEnter && onPressEnter();
       }
     },
-    [onPressEnter]
+    [onPressEnter],
   );
 
   const showClearButton = clearable && state;
@@ -166,13 +166,13 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
       className={cx(
         'relative isolate inline-flex h-fit items-center rounded border bg-bg-default transition-colors',
         invalid && !focused && 'border-border-invalid',
-        disabled && 'cursor-not-allowed opacity-50 bg-bg-subtlest',
-        !disabled && !invalid && !focused && 'hover:border-border-hovered hover:z-[2]',
-        !disabled && focused && 'ring-1 ring-bg-primary-emphasis border-bg-primary-emphasis z-[1]',
+        disabled && 'cursor-not-allowed bg-bg-subtlest opacity-50',
+        !disabled && !invalid && !focused && 'hover:z-[2] hover:border-border-hovered',
+        !disabled && focused && 'z-[1] border-bg-primary-emphasis ring-1 ring-bg-primary-emphasis',
         fullWidth && 'w-full',
         inputSizeStyles(!!prefix, !!suffix)[size],
         group && inputGroupStyle,
-        className
+        className,
       )}
       tabIndex={-1}
       onClick={() => {
@@ -189,7 +189,7 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
           ref={refs}
           className={cx(
             'resize-none appearance-none border-none bg-transparent text-left outline-none disabled:cursor-not-allowed',
-            showClearButton ? 'w-[calc(100%-1em)]' : 'w-full'
+            showClearButton ? 'w-[calc(100%-1em)]' : 'w-full',
           )}
           size={htmlSize}
           placeholder={placeholder}
@@ -214,8 +214,8 @@ export const Input = primitiveComponent<'input', InputProps>((props, ref) => {
               inputRef.current?.focus();
             }}
             className={cx(
-              'absolute rounded-full p-px bg-bg-subtlest',
-              size == 'xs' || size == 'sm' ? '-right-1' : '-right-1.5'
+              'absolute rounded-full bg-bg-subtlest p-px',
+              size == 'xs' || size == 'sm' ? '-right-1' : '-right-1.5',
             )}
           />
         )}

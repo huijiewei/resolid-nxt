@@ -49,7 +49,7 @@ export const AvatarGroup = (props: PrimitiveProps<'div', AvatarGroupProps>) => {
           className={cx(
             'relative inline-flex shrink-0 items-center justify-center bg-bg-subtle text-center font-medium uppercase text-fg-default',
             sized.style,
-            rounded.style
+            rounded.style,
           )}
         >{`+${excess}`}</span>
       )}

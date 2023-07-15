@@ -43,7 +43,7 @@ export const CheckboxGroup = (props: PropsWithChildren<CheckboxGroupProps>) => {
 
       setState(nextValue);
     },
-    [state, setState]
+    [state, setState],
   );
 
   const handleReset = useCallback(() => {
@@ -59,7 +59,7 @@ export const CheckboxGroup = (props: PropsWithChildren<CheckboxGroupProps>) => {
       onChange: handleChange,
       onReset: handleReset,
     }),
-    [size, color, disabled, state, handleChange, handleReset]
+    [size, color, disabled, state, handleChange, handleReset],
   );
 
   return <CheckboxGroupProvider value={group}>{children}</CheckboxGroupProvider>;

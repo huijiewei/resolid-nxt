@@ -29,7 +29,7 @@ export const PopoverContent = primitiveComponent<'div'>((props, ref) => {
             <div
               className={cx(
                 'transition-opacity duration-[--duration-var]',
-                status == 'open' ? 'opacity-1' : 'opacity-0'
+                status == 'open' ? 'opacity-1' : 'opacity-0',
               )}
               style={{ ...floatingStyles, '--duration-var': `${duration}ms` } as CSSProperties}
               ref={refs}
@@ -40,7 +40,7 @@ export const PopoverContent = primitiveComponent<'div'>((props, ref) => {
               })}
             >
               <div
-                className={cx('relative rounded outline-none border border-bg-muted bg-bg-default shadow', className)}
+                className={cx('relative rounded border border-bg-muted bg-bg-default shadow outline-none', className)}
               >
                 {children}
               </div>

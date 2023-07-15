@@ -9,7 +9,7 @@ describe('Alert', () => {
         <AlertIcon />
         <AlertTitle>Alert title</AlertTitle>
         <AlertDescription>Alert description</AlertDescription>
-      </Alert>
+      </Alert>,
     );
   });
 
@@ -19,7 +19,7 @@ describe('Alert', () => {
         <AlertIcon />
         <AlertTitle>Alert title</AlertTitle>
         <AlertDescription>Alert description</AlertDescription>
-      </Alert>
+      </Alert>,
     );
 
     expect(getByRole('alert')).toBeInTheDocument();

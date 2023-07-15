@@ -23,8 +23,8 @@ export const createContext = <ContextValueType>(options: CreateContextOptions) =
         errorMessage ||
           `use${name.replace(
             'Context',
-            ''
-          )} returned \`undefined\`. Seems you forgot to wrap component within ${name.replace('Context', 'Provider')}`
+            '',
+          )} returned \`undefined\`. Seems you forgot to wrap component within ${name.replace('Context', 'Provider')}`,
       );
 
       error.name = 'ContextError';

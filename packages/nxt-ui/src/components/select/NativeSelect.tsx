@@ -44,8 +44,8 @@ export const NativeSelect = primitiveComponent<'select', NativeSelectProps>((pro
       <select
         disabled={disabled}
         className={cx(
-          'focus:ring-1 focus:ring-bg-primary-emphasis focus:border-bg-primary-emphasis w-full appearance-none rounded border border-bg-muted bg-bg-default outline-none transition-colors',
-          sizeStyle.select
+          'w-full appearance-none rounded border border-bg-muted bg-bg-default outline-none transition-colors focus:border-bg-primary-emphasis focus:ring-1 focus:ring-bg-primary-emphasis',
+          sizeStyle.select,
         )}
         ref={ref}
         {...rest}
@@ -54,8 +54,8 @@ export const NativeSelect = primitiveComponent<'select', NativeSelectProps>((pro
       </select>
       <div
         className={cx(
-          'pointer-events-none absolute top-0 bottom-0 right-0 flex items-center justify-center',
-          sizeStyle.chevron
+          'pointer-events-none absolute bottom-0 right-0 top-0 flex items-center justify-center',
+          sizeStyle.chevron,
         )}
       >
         <SelectChevron />

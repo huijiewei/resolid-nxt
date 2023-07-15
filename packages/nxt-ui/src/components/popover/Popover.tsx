@@ -124,7 +124,7 @@ export const Popover = (props: PopoverProps) => {
       labelId,
       descriptionId,
     }),
-    [descriptionId, labelId]
+    [descriptionId, labelId],
   );
 
   const referenceContext = useMemo<FloatingReferenceContext>(
@@ -134,7 +134,7 @@ export const Popover = (props: PopoverProps) => {
       setPositionReference: refs.setPositionReference,
       getReferenceProps,
     }),
-    [getReferenceProps, openedState, refs.setPositionReference, refs.setReference]
+    [getReferenceProps, openedState, refs.setPositionReference, refs.setReference],
   );
 
   const floatingContext = useMemo<PopoverFloatingContext>(
@@ -148,7 +148,7 @@ export const Popover = (props: PopoverProps) => {
       modal,
       initialFocus,
     }),
-    [openedState, duration, context, floatingStyles, refs.setFloating, getFloatingProps, modal, initialFocus]
+    [openedState, duration, context, floatingStyles, refs.setFloating, getFloatingProps, modal, initialFocus],
   );
 
   const arrowContext = useMemo<FloatingArrowContext>(
@@ -157,7 +157,7 @@ export const Popover = (props: PopoverProps) => {
       setArrow: arrowRef,
       className: 'fill-bg-default [&>path:first-of-type]:stroke-bg-muted',
     }),
-    [context]
+    [context],
   );
 
   return (

@@ -126,7 +126,7 @@ export const ToastProvider = ({ children, spacing = '0.75rem' }: PropsWithChildr
 
             return acc;
           },
-          { ...prev } as ToastState
+          { ...prev } as ToastState,
         );
       });
     };
@@ -151,8 +151,8 @@ export const ToastProvider = ({ children, spacing = '0.75rem' }: PropsWithChildr
               aria-live="polite"
               style={{ '--spacing-var': spacing } as CSSProperties}
               className={cx(
-                'pointer-events-none fixed z-50 flex flex-col gap-[--spacing-var] m-[--spacing-var]',
-                getToastListStyles(placement as ToastPlacement)
+                'pointer-events-none fixed z-50 m-[--spacing-var] flex flex-col gap-[--spacing-var]',
+                getToastListStyles(placement as ToastPlacement),
               )}
               key={placement}
               id={`toast-${placement}`}

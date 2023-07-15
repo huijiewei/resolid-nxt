@@ -87,7 +87,7 @@ export const Avatar = primitiveComponent<'div', AvatarProps>((props, ref) => {
         rounded.style,
         sized.style,
         group && 'border-2 border-bg-default [&:not(:first-child)]:mr-[--spacing-var]',
-        className
+        className,
       )}
       {...rest}
     >

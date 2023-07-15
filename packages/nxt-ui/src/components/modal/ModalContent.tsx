@@ -36,18 +36,18 @@ export const ModalContent = primitiveComponent<'div'>((props, ref) => {
       className={cx(
         'fixed left-0 top-0 z-40 flex w-screen justify-center',
         centered ? 'items-center' : 'items-start',
-        scrollBehavior == 'inside' ? 'h-screen' : 'h-full overflow-y-auto'
+        scrollBehavior == 'inside' ? 'h-screen' : 'h-full overflow-y-auto',
       )}
     >
       <FloatingFocusManager initialFocus={initialFocus} returnFocus={finalFocus == undefined} context={context}>
         <div
           className={cx(
-            'relative flex flex-col rounded outline-none border border-bg-muted bg-bg-default shadow',
+            'relative flex flex-col rounded border border-bg-muted bg-bg-default shadow outline-none',
             centered ? 'my-6' : 'my-16',
             scrollBehavior == 'inside' && (centered ? 'max-h-[calc(100%-2rem)]' : 'max-h-[calc(100%-7rem)]'),
             'transition-opacity duration-[--duration-var]',
             status == 'open' ? 'opacity-1' : 'opacity-0',
-            className
+            className,
           )}
           style={{ ...style, '--duration-var': `${duration}ms` } as CSSProperties}
           ref={refs}

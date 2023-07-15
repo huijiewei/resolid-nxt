@@ -34,7 +34,7 @@ export const useControllableState = <T>(props: UseControllableStateProps<T>) => 
 
       onChangeRef(nextValue);
     },
-    [controlled, onChangeRef, shouldUpdateRef, state]
+    [controlled, onChangeRef, shouldUpdateRef, state],
   );
 
   return [state, setState] as [T, Dispatch<SetStateAction<T | undefined>>];

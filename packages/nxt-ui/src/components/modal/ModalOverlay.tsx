@@ -19,7 +19,7 @@ export const ModalOverlay = primitiveComponent<'div'>((props, ref) => {
         className={cx(
           'z-30 bg-bg-emphasized/60 transition-opacity duration-[--duration-var]',
           status == 'open' ? 'opacity-1' : 'opacity-0',
-          className
+          className,
         )}
         {...rest}
       />

@@ -12,7 +12,7 @@ export const ModalCloseButton = primitiveComponent<'button'>((props, ref) => {
     <CloseButton
       onClick={() => close()}
       ref={ref}
-      className={cx('absolute top-2 right-2 rounded p-1 text-lg', className)}
+      className={cx('absolute right-2 top-2 rounded p-1 text-lg', className)}
       {...rest}
     >
       {children}

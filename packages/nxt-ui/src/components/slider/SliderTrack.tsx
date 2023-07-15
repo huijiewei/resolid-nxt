@@ -88,7 +88,7 @@ export const SliderTrack = primitiveComponent<'div'>((props, ref) => {
         ? position <= value
         : position < value;
     },
-    [reverse, value, max]
+    [reverse, value, max],
   );
 
   const trackStyle = useMemo(
@@ -99,7 +99,7 @@ export const SliderTrack = primitiveComponent<'div'>((props, ref) => {
             [vertical ? 'height' : 'width']: ((value[1] - value[0]) / max) * 100 + '%',
           }
         : { [vertical ? 'height' : 'width']: reverse ? ((max - value) / max) * 100 + '%' : (value / max) * 100 + '%' },
-    [max, reverse, value, vertical]
+    [max, reverse, value, vertical],
   );
 
   const translateStyle = (value: number) => {
@@ -135,7 +135,7 @@ export const SliderTrack = primitiveComponent<'div'>((props, ref) => {
                     'absolute',
                     inValueRange(tick) ? colorStyle.bg : 'bg-bg-subtle',
                     vertical ? '-left-3/4 h-px w-1.5' : '-top-3/4 h-1.5 w-px',
-                    tickTranslate
+                    tickTranslate,
                   )}
                   style={{
                     [vertical ? 'top' : 'left']: ((reverse ? max - tick : tick) / max) * 100 + '%',
@@ -163,7 +163,7 @@ export const SliderTrack = primitiveComponent<'div'>((props, ref) => {
                       'h-2 w-2 rounded-full border-2 bg-bg-default',
                       vertical ? '-translate-x-1/4' : '-translate-y-1/4',
                       inValueRange(mark.value) ? colorStyle.mark : 'border-bg-subtle',
-                      markTranslate
+                      markTranslate,
                     )}
                   />
                   {mark.label && (
@@ -171,7 +171,7 @@ export const SliderTrack = primitiveComponent<'div'>((props, ref) => {
                       className={cx(
                         'absolute text-sm leading-none text-fg-muted',
                         vertical ? 'left-3' : 'top-3',
-                        markTranslate
+                        markTranslate,
                       )}
                     >
                       {mark.label}

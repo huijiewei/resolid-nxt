@@ -10,14 +10,14 @@ export const useHover = <T extends HTMLElement>(): [RefObject<T>, boolean] => {
     () => {
       setHovered(true);
     },
-    ref
+    ref,
   );
   useEventListener(
     'mouseleave',
     () => {
       setHovered(false);
     },
-    ref
+    ref,
   );
 
   return [ref, hovered];

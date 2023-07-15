@@ -8,7 +8,7 @@ export const MenuItemIndicator = (props: PrimitiveProps<'span'>) => {
   const context = useMenuItemIndicator();
 
   return context.checked ? (
-    <span className={cx('absolute w-6 left-0 inline-flex items-center justify-center', className)} {...rest}>
+    <span className={cx('absolute left-0 inline-flex w-6 items-center justify-center', className)} {...rest}>
       {children}
     </span>
   ) : null;
