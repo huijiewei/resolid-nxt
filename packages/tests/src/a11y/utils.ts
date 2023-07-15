@@ -57,7 +57,7 @@ export const matcherHint = (
   matcherName: string,
   received = 'received',
   expected = 'expected',
-  options: MatcherHintOptions = {}
+  options: MatcherHintOptions = {},
 ): string => {
   const {
     comment = '',

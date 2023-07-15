@@ -35,5 +35,5 @@ export const useGetLineProps = (themeDict?: ThemeDict) =>
 
       return output;
     },
-    [themeDict]
+    [themeDict],
   );

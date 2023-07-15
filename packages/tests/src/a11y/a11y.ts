@@ -6,7 +6,7 @@ import { axe, type AxeConfigureOptions } from './axe';
 
 export const testA11y = async (
   ui: ReactElement | HTMLElement,
-  options: RenderOptions & { axeOptions?: AxeConfigureOptions } = {}
+  options: RenderOptions & { axeOptions?: AxeConfigureOptions } = {},
 ) => {
   const { axeOptions, ...rest } = options;
   const container = isValidElement(ui) ? render(ui, rest).container : ui;

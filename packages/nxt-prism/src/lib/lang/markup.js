@@ -132,9 +132,9 @@ export default function markup(Prism) {
             /__/g,
             function () {
               return tagName;
-            }
+            },
           ),
-          'i'
+          'i',
         ),
         lookbehind: true,
         greedy: true,
@@ -160,7 +160,7 @@ export default function markup(Prism) {
       Prism.languages.markup.tag.inside['special-attr'].push({
         pattern: RegExp(
           /(^|["'\s])/.source + '(?:' + attrName + ')' + /\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))/.source,
-          'i'
+          'i',
         ),
         lookbehind: true,
         inside: {

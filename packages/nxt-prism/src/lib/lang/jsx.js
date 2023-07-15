@@ -32,7 +32,7 @@ export default function jsx(Prism) {
   Prism.languages.jsx = Prism.languages.extend('markup', javascript);
   Prism.languages.jsx.tag.pattern = re(
     /<\/?(?:[\w.:-]+(?:<S>+(?:[\w.:$-]+(?:=(?:"(?:\\[\s\S]|[^\\"])*"|'(?:\\[\s\S]|[^\\'])*'|[^\s{'"/>=]+|<BRACES>))?|<SPREAD>))*<S>*\/?)?>/
-      .source
+      .source,
   );
 
   Prism.languages.jsx.tag.inside['tag'].pattern = /^<\/?[^\s>\/]*/;
@@ -50,7 +50,7 @@ export default function jsx(Prism) {
         inside: Prism.languages.jsx,
       },
     },
-    Prism.languages.jsx.tag
+    Prism.languages.jsx.tag,
   );
 
   Prism.languages.insertBefore(
@@ -70,7 +70,7 @@ export default function jsx(Prism) {
         },
       },
     },
-    Prism.languages.jsx.tag
+    Prism.languages.jsx.tag,
   );
 
   // The following will handle plain text inside tags

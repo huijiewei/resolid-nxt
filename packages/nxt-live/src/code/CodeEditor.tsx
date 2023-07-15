@@ -32,7 +32,7 @@ export const CodeEditor = ({
         {code}
       </CodeBlock>
     ),
-    [language, theme]
+    [language, theme],
   );
 
   const onChangeRef = useRef(onChange);
@@ -44,7 +44,7 @@ export const CodeEditor = ({
       if (!isControlled) setUncontrolledValue(code);
       onChangeRef.current?.(code);
     },
-    [isControlled]
+    [isControlled],
   );
 
   const style = useMemo(() => ({ ...theme.plain, ...rest.style }), [theme.plain, rest.style]);

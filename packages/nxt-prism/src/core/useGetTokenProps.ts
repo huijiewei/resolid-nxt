@@ -36,10 +36,10 @@ export const useGetTokenProps = (themeDict?: ThemeDict) => {
 
       return Object.assign(
         empty != null ? { display: 'inline-block' } : {},
-        ...types.map((type) => themeDict[type])
+        ...types.map((type) => themeDict[type]),
       ) satisfies CSSProperties;
     },
-    [themeDict]
+    [themeDict],
   );
 
   return useCallback(
@@ -60,6 +60,6 @@ export const useGetTokenProps = (themeDict?: ThemeDict) => {
 
       return output;
     },
-    [styleForToken]
+    [styleForToken],
   );
 };

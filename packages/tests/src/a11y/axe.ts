@@ -67,7 +67,7 @@ export const toHaveNoViolations = {
     const violations = filterViolations(
       results.violations,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      results.toolOptions ? (results as any).toolOptions.impactLevels : []
+      results.toolOptions ? (results as any).toolOptions.impactLevels : [],
     );
 
     const reporter = (violations: Result[]) => {
