@@ -1,10 +1,34 @@
 {
   "path": "/toast/Toast.tsx",
   "props": [
-    { "name": "id", "type": "string | number", "required": false, "description": "Id", "defaultValue": "" },
-    { "name": "icon", "type": "ReactElement", "required": false, "description": "Icon", "defaultValue": "" },
-    { "name": "title", "type": "ReactNode", "required": false, "description": "Title", "defaultValue": "" },
-    { "name": "description", "type": "ReactNode", "required": false, "description": "Description", "defaultValue": "" },
+    {
+      "name": "id",
+      "type": "string | number",
+      "required": false,
+      "description": "Id",
+      "defaultValue": ""
+    },
+    {
+      "name": "icon",
+      "type": "ReactElement",
+      "required": false,
+      "description": "Icon",
+      "defaultValue": ""
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Title",
+      "defaultValue": ""
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Description",
+      "defaultValue": ""
+    },
     {
       "name": "variant",
       "type": "\"solid\" | \"light\" | \"outline\"",

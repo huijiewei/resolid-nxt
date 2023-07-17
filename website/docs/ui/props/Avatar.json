@@ -8,7 +8,13 @@
       "description": "Rounded",
       "defaultValue": "'full'"
     },
-    { "name": "size", "type": "number | Size", "required": false, "description": "Size", "defaultValue": "'md'" },
+    {
+      "name": "size",
+      "type": "number | Size",
+      "required": false,
+      "description": "Size",
+      "defaultValue": "'md'"
+    },
     {
       "name": "src",
       "type": "string",
@@ -23,7 +29,13 @@
       "description": "List of sources to use for different screen resolutions",
       "defaultValue": ""
     },
-    { "name": "name", "type": "string", "required": false, "description": "Avatar name", "defaultValue": "" },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Avatar name",
+      "defaultValue": ""
+    },
     {
       "name": "loading",
       "type": "\"eager\" | \"lazy\"",

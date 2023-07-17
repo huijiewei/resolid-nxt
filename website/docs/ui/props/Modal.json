@@ -1,8 +1,20 @@
 {
   "path": "/modal/Modal.tsx",
   "props": [
-    { "name": "opened", "type": "boolean", "required": true, "description": "Opened state", "defaultValue": "" },
-    { "name": "centered", "type": "boolean", "required": false, "description": "Centered", "defaultValue": "" },
+    {
+      "name": "opened",
+      "type": "boolean",
+      "required": true,
+      "description": "Opened state",
+      "defaultValue": ""
+    },
+    {
+      "name": "centered",
+      "type": "boolean",
+      "required": false,
+      "description": "Centered",
+      "defaultValue": ""
+    },
     {
       "name": "lockScroll",
       "type": "boolean",
@@ -31,7 +43,13 @@
       "description": "Where scroll behavior should originate.",
       "defaultValue": "'outside'"
     },
-    { "name": "onClose", "type": "", "required": true, "description": "onClose callback", "defaultValue": "" },
+    {
+      "name": "onClose",
+      "type": "",
+      "required": true,
+      "description": "onClose callback",
+      "defaultValue": ""
+    },
     {
       "name": "onCloseComplete",
       "type": "() => void",

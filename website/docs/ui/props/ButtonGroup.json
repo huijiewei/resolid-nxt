@@ -22,7 +22,19 @@
       "description": "Variant",
       "defaultValue": "'solid'"
     },
-    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
-    { "name": "vertical", "type": "boolean", "required": false, "description": "Vertical", "defaultValue": "false" }
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Disabled",
+      "defaultValue": "false"
+    },
+    {
+      "name": "vertical",
+      "type": "boolean",
+      "required": false,
+      "description": "Vertical",
+      "defaultValue": "false"
+    }
   ]
 }

@@ -1,7 +1,19 @@
 {
   "path": "/close-button/CloseButton.tsx",
   "props": [
-    { "name": "textClassName", "type": "string", "required": false, "description": "", "defaultValue": "" },
-    { "name": "statusClassName", "type": "string", "required": false, "description": "", "defaultValue": "" }
+    {
+      "name": "textClassName",
+      "type": "string",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    },
+    {
+      "name": "statusClassName",
+      "type": "string",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    }
   ]
 }

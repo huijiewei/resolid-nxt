@@ -8,13 +8,55 @@
       "description": "Size",
       "defaultValue": "'md'"
     },
-    { "name": "value", "type": "number", "required": false, "description": "Value", "defaultValue": "" },
-    { "name": "defaultValue", "type": "number", "required": false, "description": "Default value", "defaultValue": "" },
-    { "name": "prefix", "type": "ReactNode", "required": false, "description": "Prefix", "defaultValue": "" },
-    { "name": "step", "type": "number", "required": false, "description": "Step", "defaultValue": "1" },
-    { "name": "min", "type": "number", "required": false, "description": "Min", "defaultValue": "-Infinity" },
-    { "name": "max", "type": "number", "required": false, "description": "Max", "defaultValue": "Infinity" },
-    { "name": "precision", "type": "number", "required": false, "description": "Precision", "defaultValue": "0" },
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "description": "Value",
+      "defaultValue": ""
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "required": false,
+      "description": "Default value",
+      "defaultValue": ""
+    },
+    {
+      "name": "prefix",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Prefix",
+      "defaultValue": ""
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "description": "Step",
+      "defaultValue": "1"
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "description": "Min",
+      "defaultValue": "-Infinity"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "description": "Max",
+      "defaultValue": "Infinity"
+    },
+    {
+      "name": "precision",
+      "type": "number",
+      "required": false,
+      "description": "Precision",
+      "defaultValue": "0"
+    },
     {
       "name": "format",
       "type": "(value: string) => string",
@@ -36,11 +78,41 @@
       "description": "Mouse Wheel",
       "defaultValue": "false"
     },
-    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
-    { "name": "required", "type": "boolean", "required": false, "description": "Required", "defaultValue": "false" },
-    { "name": "invalid", "type": "boolean", "required": false, "description": "Invalid", "defaultValue": "false" },
-    { "name": "readOnly", "type": "boolean", "required": false, "description": "ReadOnly", "defaultValue": "false" },
-    { "name": "fullWidth", "type": "boolean", "required": false, "description": "FullWidth", "defaultValue": "false" },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Disabled",
+      "defaultValue": "false"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "description": "Required",
+      "defaultValue": "false"
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "description": "Invalid",
+      "defaultValue": "false"
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "required": false,
+      "description": "ReadOnly",
+      "defaultValue": "false"
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean",
+      "required": false,
+      "description": "FullWidth",
+      "defaultValue": "false"
+    },
     {
       "name": "onChange",
       "type": "((value: number) => void)",

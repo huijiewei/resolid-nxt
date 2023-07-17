@@ -1,4 +1,12 @@
 {
   "path": "/toast/ToastProvider.tsx",
-  "props": [{ "name": "spacing", "type": "string", "required": false, "description": "", "defaultValue": "0.75rem" }]
+  "props": [
+    {
+      "name": "spacing",
+      "type": "string",
+      "required": false,
+      "description": "",
+      "defaultValue": "0.75rem"
+    }
+  ]
 }

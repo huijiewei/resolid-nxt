@@ -22,7 +22,13 @@
       "description": "Variant",
       "defaultValue": "'solid'"
     },
-    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Disabled",
+      "defaultValue": "false"
+    },
     {
       "name": "type",
       "type": "\"button\" | \"submit\" | \"reset\"",
@@ -30,11 +36,41 @@
       "description": "Html Type",
       "defaultValue": "'button'"
     },
-    { "name": "active", "type": "boolean", "required": false, "description": "Active", "defaultValue": "false" },
-    { "name": "loading", "type": "boolean", "required": false, "description": "Loading", "defaultValue": "false" },
-    { "name": "loadingText", "type": "string", "required": false, "description": "Loading text", "defaultValue": "" },
-    { "name": "fullWidth", "type": "boolean", "required": false, "description": "Full Width", "defaultValue": "false" },
-    { "name": "spinner", "type": "Element", "required": false, "description": "Spinner", "defaultValue": "" },
+    {
+      "name": "active",
+      "type": "boolean",
+      "required": false,
+      "description": "Active",
+      "defaultValue": "false"
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "description": "Loading",
+      "defaultValue": "false"
+    },
+    {
+      "name": "loadingText",
+      "type": "string",
+      "required": false,
+      "description": "Loading text",
+      "defaultValue": ""
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean",
+      "required": false,
+      "description": "Full Width",
+      "defaultValue": "false"
+    },
+    {
+      "name": "spinner",
+      "type": "Element",
+      "required": false,
+      "description": "Spinner",
+      "defaultValue": ""
+    },
     {
       "name": "spinnerPlacement",
       "type": "\"start\" | \"end\"",

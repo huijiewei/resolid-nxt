@@ -1,7 +1,13 @@
 {
   "path": "/popover/Popover.tsx",
   "props": [
-    { "name": "opened", "type": "boolean", "required": false, "description": "Opened", "defaultValue": "" },
+    {
+      "name": "opened",
+      "type": "boolean",
+      "required": false,
+      "description": "Opened",
+      "defaultValue": ""
+    },
     {
       "name": "onClose",
       "type": "() => void",
@@ -16,7 +22,13 @@
       "description": "Initial Focus",
       "defaultValue": ""
     },
-    { "name": "modal", "type": "boolean", "required": false, "description": "Is Modal", "defaultValue": "true" },
+    {
+      "name": "modal",
+      "type": "boolean",
+      "required": false,
+      "description": "Is Modal",
+      "defaultValue": "true"
+    },
     {
       "name": "closeOnEsc",
       "type": "boolean",

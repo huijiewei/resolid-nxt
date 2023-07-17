@@ -1,7 +1,13 @@
 {
   "path": "/avatar/AvatarGroup.tsx",
   "props": [
-    { "name": "size", "type": "number | Size", "required": false, "description": "Size", "defaultValue": "'md'" },
+    {
+      "name": "size",
+      "type": "number | Size",
+      "required": false,
+      "description": "Size",
+      "defaultValue": "'md'"
+    },
     {
       "name": "radius",
       "type": "number | false | true | \"xs\" | \"sm\" | \"lg\" | \"xl\" | \"full\"",

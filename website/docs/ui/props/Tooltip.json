@@ -1,7 +1,13 @@
 {
   "path": "/tooltip/Tooltip.tsx",
   "props": [
-    { "name": "content", "type": "ReactNode", "required": true, "description": "Content", "defaultValue": "" },
+    {
+      "name": "content",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content",
+      "defaultValue": ""
+    },
     {
       "name": "color",
       "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",
@@ -16,7 +22,13 @@
       "description": "Placement",
       "defaultValue": "'auto'"
     },
-    { "name": "opened", "type": "boolean", "required": false, "description": "Opened", "defaultValue": "" },
+    {
+      "name": "opened",
+      "type": "boolean",
+      "required": false,
+      "description": "Opened",
+      "defaultValue": ""
+    },
     {
       "name": "duration",
       "type": "number",

@@ -15,7 +15,13 @@
       "description": "Color",
       "defaultValue": "'primary'"
     },
-    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Disabled",
+      "defaultValue": "false"
+    },
     {
       "name": "name",
       "type": "string",
@@ -23,7 +29,13 @@
       "description": "The name of the input field in a radio",
       "defaultValue": ""
     },
-    { "name": "value", "type": "string | number", "required": false, "description": "Value", "defaultValue": "" },
+    {
+      "name": "value",
+      "type": "string | number",
+      "required": false,
+      "description": "Value",
+      "defaultValue": ""
+    },
     {
       "name": "defaultValue",
       "type": "string | number",

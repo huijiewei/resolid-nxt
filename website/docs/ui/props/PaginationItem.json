@@ -1,9 +1,27 @@
 {
   "path": "/pagination/PaginationItem.tsx",
   "props": [
-    { "name": "onClick", "type": "", "required": true, "description": "", "defaultValue": "" },
-    { "name": "disabled", "type": "boolean", "required": true, "description": "", "defaultValue": "" },
-    { "name": "page", "type": "", "required": true, "description": "", "defaultValue": "" },
+    {
+      "name": "onClick",
+      "type": "",
+      "required": true,
+      "description": "",
+      "defaultValue": ""
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": true,
+      "description": "",
+      "defaultValue": ""
+    },
+    {
+      "name": "page",
+      "type": "",
+      "required": true,
+      "description": "",
+      "defaultValue": ""
+    },
     {
       "name": "type",
       "type": "\"page\" | \"next\" | \"previous\" | \"start-ellipsis\" | \"end-ellipsis\"",
@@ -11,7 +29,13 @@
       "description": "",
       "defaultValue": ""
     },
-    { "name": "selected", "type": "boolean", "required": true, "description": "", "defaultValue": "" },
+    {
+      "name": "selected",
+      "type": "boolean",
+      "required": true,
+      "description": "",
+      "defaultValue": ""
+    },
     {
       "name": "color",
       "type": "\"primary\" | \"neutral\" | \"success\" | \"warning\" | \"danger\"",

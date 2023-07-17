@@ -22,8 +22,20 @@
       "description": "Size",
       "defaultValue": "'md'"
     },
-    { "name": "multiple", "type": "boolean", "required": false, "description": "Multiple", "defaultValue": "false" },
-    { "name": "clearable", "type": "boolean", "required": false, "description": "Clearable", "defaultValue": "false" },
+    {
+      "name": "multiple",
+      "type": "boolean",
+      "required": false,
+      "description": "Multiple",
+      "defaultValue": "false"
+    },
+    {
+      "name": "clearable",
+      "type": "boolean",
+      "required": false,
+      "description": "Clearable",
+      "defaultValue": "false"
+    },
     {
       "name": "searchable",
       "type": "boolean",
@@ -38,12 +50,48 @@
       "description": "Function based on which items in dropdown are filtered",
       "defaultValue": ""
     },
-    { "name": "placeholder", "type": "string", "required": false, "description": "Placeholder", "defaultValue": "" },
-    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
-    { "name": "required", "type": "boolean", "required": false, "description": "Required", "defaultValue": "false" },
-    { "name": "invalid", "type": "boolean", "required": false, "description": "Invalid", "defaultValue": "false" },
-    { "name": "fullWidth", "type": "boolean", "required": false, "description": "FullWidth", "defaultValue": "false" },
-    { "name": "opened", "type": "boolean", "required": false, "description": "Opened", "defaultValue": "" },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "description": "Placeholder",
+      "defaultValue": ""
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Disabled",
+      "defaultValue": "false"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "description": "Required",
+      "defaultValue": "false"
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "description": "Invalid",
+      "defaultValue": "false"
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean",
+      "required": false,
+      "description": "FullWidth",
+      "defaultValue": "false"
+    },
+    {
+      "name": "opened",
+      "type": "boolean",
+      "required": false,
+      "description": "Opened",
+      "defaultValue": ""
+    },
     {
       "name": "value",
       "type": "string | number | (string | number)[] | null",

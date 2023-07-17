@@ -15,7 +15,13 @@
       "description": "Color",
       "defaultValue": "'primary'"
     },
-    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "false" },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Disabled",
+      "defaultValue": "false"
+    },
     {
       "name": "value",
       "type": "(string | number)[]",
