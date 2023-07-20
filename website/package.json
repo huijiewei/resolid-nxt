@@ -13,7 +13,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
     "@marsidev/react-turnstile": "^0.2.2",
-    "@node-rs/bcrypt": "^1.7.1",
+    "@node-rs/bcrypt": "^1.7.3",
     "@resolid/nxt-prism": "workspace:*",
     "@resolid/nxt-run": "workspace:*",
     "@resolid/nxt-run-form": "workspace:*",
@@ -46,7 +46,7 @@
     "chokidar": "^3.5.3",
     "commander": "^10.0.1",
     "dotenv": "^16.3.1",
-    "drizzle-kit": "^0.19.9",
+    "drizzle-kit": "^0.19.10",
     "fast-glob": "^3.3.0",
     "fs-extra": "^11.1.1",
     "mysql2": "^3.5.2",
