@@ -30,7 +30,7 @@ export const viteCopy = (options: ViteCopyOptions): Plugin => {
         });
 
         for (const matchedPath of matchedPaths) {
-          copy(matchedPath, dest);
+          await copy(matchedPath, dest);
         }
       }
 

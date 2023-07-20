@@ -203,22 +203,24 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
             },
           });
 
-          const manifest = JSON.parse(readFileSync(join(clientOutPath, 'manifest.json')).toString());
-          const ssrManifest = JSON.parse(readFileSync(join(clientOutPath, 'ssr-manifest.json')).toString());
+          const manifest = JSON.parse(readFileSync(join(clientOutPath, 'manifest.json'), 'utf-8').toString());
+          const ssrManifest = JSON.parse(readFileSync(join(clientOutPath, 'ssr-manifest.json'), 'utf-8').toString());
 
           writeFileSync(
             join(clientOutPath, 'route-manifest.json'),
             JSON.stringify(prepareManifest(manifest, ssrManifest, routeComponents, viteConfig.base), null, 2),
+            'utf-8',
           );
 
           writeFileSync(
             join(serverOutPath, 'route-manifest.json'),
             readFileSync(join(clientOutPath, 'route-manifest.json'), 'utf-8'),
+            'utf-8',
           );
 
           const indexHtml = join(clientOutPath, 'index.html');
 
-          writeFileSync(join(clientOutPath, 'template.html'), readFileSync(indexHtml, 'utf-8'));
+          writeFileSync(join(clientOutPath, 'template.html'), readFileSync(indexHtml, 'utf-8'), 'utf-8');
 
           unlinkSync(indexHtml);
 
