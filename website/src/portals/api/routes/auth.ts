@@ -12,7 +12,7 @@ import { authSignupResolver } from '~/common/components/AuthSignupForm';
 import { getLocale } from '~/common/components/LocalizedLink';
 import { problem, success } from '~/common/utils/http';
 import { verifyToken } from '~/common/utils/trunstile';
-import { checkExistByEmail, checkExistByUsername, getUserByEmail, createUser } from '~/engine/modules/user/userService';
+import { checkExistByEmail, checkExistByUsername, createUser, getUserByEmail } from '~/engine/modules/user/userService';
 import { commitSession, destroySession, getSession, omitUser } from '~/foundation/session';
 import { getFixedT } from '~/i18n.server';
 

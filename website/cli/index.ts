@@ -6,10 +6,10 @@ import { wait } from '@resolid/nxt-utils';
 import { Command } from 'commander';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { insertDistrict } from '~/engine/modules/district/districtService';
 import { districts, districtsClosure } from '~/engine/modules/district/districtSchema';
+import { insertDistrict } from '~/engine/modules/district/districtService';
 import { userGroups, users } from '~/engine/modules/user/userSchema';
-import { checkExistByEmail, checkExistByUsername, getUserByLast, createUser } from '~/engine/modules/user/userService';
+import { checkExistByEmail, checkExistByUsername, createUser, getUserByLast } from '~/engine/modules/user/userService';
 import { db } from '~/foundation/db';
 
 const program = new Command();

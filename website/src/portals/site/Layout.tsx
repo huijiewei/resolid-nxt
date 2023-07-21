@@ -158,7 +158,7 @@ const Header = () => {
                 as={'a'}
                 color={'neutral'}
                 variant={'subtle'}
-                aria-label={t('link.github') as string}
+                aria-label={t('link.github')}
                 className={'aspect-square !px-0'}
                 rel="noreferrer"
                 target="_blank"
