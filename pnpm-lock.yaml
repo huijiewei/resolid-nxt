@@ -42,8 +42,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(eslint-config-prettier@8.9.0)(eslint@8.46.0)(prettier@3.0.0)
       eslint-plugin-react:
-        specifier: ^7.33.0
-        version: 7.33.0(eslint@8.46.0)
+        specifier: ^7.33.1
+        version: 7.33.1(eslint@8.46.0)
       eslint-plugin-react-hooks:
         specifier: ^4.6.0
         version: 4.6.0(eslint@8.46.0)
@@ -348,8 +348,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
       i18next:
-        specifier: ^23.3.0
-        version: 23.3.0
+        specifier: ^23.4.1
+        version: 23.4.1
       i18next-fs-backend:
         specifier: ^2.1.5
         version: 2.1.5
@@ -376,7 +376,7 @@ importers:
         version: 7.45.2(react@18.2.0)
       react-i18next:
         specifier: ^13.0.2
-        version: 13.0.2(i18next@23.3.0)(react-dom@18.2.0)(react@18.2.0)
+        version: 13.0.2(i18next@23.4.1)(react-dom@18.2.0)(react@18.2.0)
       react-router-dom:
         specifier: ^6.14.2
         version: 6.14.2(react-dom@18.2.0)(react@18.2.0)
@@ -385,7 +385,7 @@ importers:
         version: 3.21.4
       zod-i18n-map:
         specifier: ^2.14.0
-        version: 2.14.0(i18next@23.3.0)(zod@3.21.4)
+        version: 2.14.0(i18next@23.4.1)(zod@3.21.4)
     devDependencies:
       '@faker-js/faker':
         specifier: ^8.0.2
@@ -2560,7 +2560,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001517
-      electron-to-chromium: 1.4.476
+      electron-to-chromium: 1.4.477
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.9)
     dev: true
@@ -3253,8 +3253,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /electron-to-chromium@1.4.476:
-    resolution: {integrity: sha512-gzWl1m8pNy+5Kj17XcziNcbOhripjTqR2wAQmtdlFUngPYuFy7zUpJScVQAvCvQSFHNk3mS5fetNKW6BSpytFg==}
+  /electron-to-chromium@1.4.477:
+    resolution: {integrity: sha512-shUVy6Eawp33dFBFIoYbIwLHrX0IZ857AlH9ug2o4rvbWmpaCUdBpQ5Zw39HRrfzAFm4APJE9V+E2A/WB0YqJw==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -3514,7 +3514,7 @@ packages:
       emoji-regex: 9.2.2
       eslint: 8.46.0
       has: 1.0.3
-      jsx-ast-utils: 3.3.4
+      jsx-ast-utils: 3.3.5
       language-tags: 1.0.5
       minimatch: 3.1.2
       object.entries: 1.1.6
@@ -3552,8 +3552,8 @@ packages:
       eslint: 8.46.0
     dev: true
 
-  /eslint-plugin-react@7.33.0(eslint@8.46.0):
-    resolution: {integrity: sha512-qewL/8P34WkY8jAqdQxsiL82pDUeT7nhs8IsuXgfgnsEloKCT4miAV9N9kGtx7/KM9NH/NCGUE7Edt9iGxLXFw==}
+  /eslint-plugin-react@7.33.1(eslint@8.46.0):
+    resolution: {integrity: sha512-L093k0WAMvr6VhNwReB8VgOq5s2LesZmrpPdKz/kZElQDzqS7G7+DnKoqT+w4JwuiGeAhAvHO0fvy0Eyk4ejDA==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
@@ -3564,7 +3564,7 @@ packages:
       doctrine: 2.1.0
       eslint: 8.46.0
       estraverse: 5.3.0
-      jsx-ast-utils: 3.3.4
+      jsx-ast-utils: 3.3.5
       minimatch: 3.1.2
       object.entries: 1.1.6
       object.fromentries: 2.0.6
@@ -4235,8 +4235,8 @@ packages:
       - encoding
     dev: false
 
-  /i18next@23.3.0:
-    resolution: {integrity: sha512-xd/UzWT71zYudCT7qVn6tB4yUVuXAhgCorsowYgM2EOdc14WqQBp5P2wEsxgfiDgdLN5XwJvTbzxrMfoY/nxnw==}
+  /i18next@23.4.1:
+    resolution: {integrity: sha512-07ekE7hbUrbxTYj97VnBzyhKcGURTJC9p4iWTwCVC8t63T+YrgqQmb/n1LBQMivZYwR61pqS+PC0G2rtENycyQ==}
     dependencies:
       '@babel/runtime': 7.22.6
     dev: false
@@ -4740,8 +4740,8 @@ packages:
     engines: {'0': node >= 0.2.0}
     dev: true
 
-  /jsx-ast-utils@3.3.4:
-    resolution: {integrity: sha512-fX2TVdCViod6HwKEtSWGHs57oFhVfCMwieb9PuRDgjDPh5XeqJiHFFFJCHxU5cnTc3Bu/GRL+kPiFmw8XWOfKw==}
+  /jsx-ast-utils@3.3.5:
+    resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
     engines: {node: '>=4.0'}
     dependencies:
       array-includes: 3.1.6
@@ -5608,7 +5608,7 @@ packages:
       acorn: 8.10.0
       pathe: 1.1.1
       pkg-types: 1.0.3
-      ufo: 1.1.2
+      ufo: 1.2.0
     dev: true
 
   /mri@1.2.0:
@@ -6278,7 +6278,7 @@ packages:
     dependencies:
       react: 18.2.0
 
-  /react-i18next@13.0.2(i18next@23.3.0)(react-dom@18.2.0)(react@18.2.0):
+  /react-i18next@13.0.2(i18next@23.4.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-NEVxC32v0oR4egwYM0QM0WE93AiJG5r0NTXTL8mhQfAhsMfDS2fSO6jpluyfsfypP988KzUQrAXncspcJ7+GHA==}
     peerDependencies:
       i18next: '>= 23.2.3'
@@ -6293,7 +6293,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.6
       html-parse-stringify: 3.0.1
-      i18next: 23.3.0
+      i18next: 23.4.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -7361,8 +7361,8 @@ packages:
     hasBin: true
     dev: true
 
-  /ufo@1.1.2:
-    resolution: {integrity: sha512-TrY6DsjTQQgyS3E3dBaOXf0TpPD8u9FVrVYmKVegJuFw51n/YB9XPt+U6ydzFG5ZIN7+DIjPbNmXoBj9esYhgQ==}
+  /ufo@1.2.0:
+    resolution: {integrity: sha512-RsPyTbqORDNDxqAdQPQBpgqhWle1VcTSou/FraClYlHf6TZnQcGslpLcAphNR+sQW4q5lLWLbOsRlh9j24baQg==}
     dev: true
 
   /unbox-primitive@1.0.2:
@@ -7884,13 +7884,13 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zod-i18n-map@2.14.0(i18next@23.3.0)(zod@3.21.4):
+  /zod-i18n-map@2.14.0(i18next@23.4.1)(zod@3.21.4):
     resolution: {integrity: sha512-Z75WjzuoGieCjJqKu1kcAgemPTN9/bPQNqqC7Z6RDm6MtwE8wkXfgf5HQ+zr7iq4VrnkILCEviV2B1ZYi+JGng==}
     peerDependencies:
       i18next: '>=21.3.0'
       zod: '>=3.17.0'
     dependencies:
-      i18next: 23.3.0
+      i18next: 23.4.1
       zod: 3.21.4
     dev: false
 
