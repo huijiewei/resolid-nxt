@@ -28,7 +28,7 @@ importers:
         version: 6.2.1(eslint@8.46.0)(typescript@5.1.6)
       '@vitejs/plugin-react':
         specifier: ^4.0.4
-        version: 4.0.4(vite@4.4.7)
+        version: 4.0.4(vite@4.4.8)
       eslint:
         specifier: ^8.46.0
         version: 8.46.0
@@ -72,11 +72,11 @@ importers:
         specifier: ^5.1.6
         version: 5.1.6
       vite:
-        specifier: ^4.4.7
-        version: 4.4.7(@types/node@18.17.1)
+        specifier: ^4.4.8
+        version: 4.4.8(@types/node@18.17.1)
       vite-tsconfig-paths:
         specifier: ^4.2.0
-        version: 4.2.0(typescript@5.1.6)(vite@4.4.7)
+        version: 4.2.0(typescript@5.1.6)(vite@4.4.8)
       vitest:
         specifier: ^0.33.0
         version: 0.33.0
@@ -181,7 +181,7 @@ importers:
         version: 2.4.3
       '@vitejs/plugin-react':
         specifier: ^4.0.4
-        version: 4.0.4(vite@4.4.7)
+        version: 4.0.4(vite@4.4.8)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -198,11 +198,11 @@ importers:
         specifier: ^3.27.0
         version: 3.27.0
       vite:
-        specifier: ^4.4.7
-        version: 4.4.7(@types/node@18.17.1)
+        specifier: ^4.4.8
+        version: 4.4.8(@types/node@18.17.1)
       vite-plugin-inspect:
-        specifier: ^0.7.33
-        version: 0.7.33(rollup@3.27.0)(vite@4.4.7)
+        specifier: ^0.7.35
+        version: 0.7.35(rollup@3.27.0)(vite@4.4.8)
 
   packages/nxt-run-form:
     dependencies:
@@ -318,8 +318,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1(react-hook-form@7.45.2)
       '@marsidev/react-turnstile':
-        specifier: ^0.2.2
-        version: 0.2.2(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.2.3
+        version: 0.2.3(react-dom@18.2.0)(react@18.2.0)
       '@node-rs/bcrypt':
         specifier: ^1.7.3
         version: 1.7.3
@@ -1469,8 +1469,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@marsidev/react-turnstile@0.2.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-+cxunPa8a61Uv68k2buLtoIZ2WoZYlpcg7WVLIAetlAAptDbP8DdZduXKr12KluCuKB8ulJMxloxmrqHezyHnA==}
+  /@marsidev/react-turnstile@0.2.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-EHD/Cag8BoDSLY9yTqVhhgldWmf0yTq79qPmdbAjYADLqrVVRR47QoVHAtDTSQXpfIMDQ2N0avlfj4LjQ3W6+w==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -2194,7 +2194,7 @@ packages:
       unist-util-visit: 4.1.2
     dev: true
 
-  /@vitejs/plugin-react@4.0.4(vite@4.4.7):
+  /@vitejs/plugin-react@4.0.4(vite@4.4.8):
     resolution: {integrity: sha512-7wU921ABnNYkETiMaZy7XqpueMnpu5VxvVps13MjmCo+utBdD79sZzrApHawHtVX66cCJQQTXFcjH0y9dSUK8g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2204,7 +2204,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.9)
       react-refresh: 0.14.0
-      vite: 4.4.7(@types/node@18.17.1)
+      vite: 4.4.8(@types/node@18.17.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2560,7 +2560,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001518
-      electron-to-chromium: 1.4.478
+      electron-to-chromium: 1.4.480
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.10)
     dev: true
@@ -3253,8 +3253,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /electron-to-chromium@1.4.478:
-    resolution: {integrity: sha512-qjTA8djMXd+ruoODDFGnRCRBpID+AAfYWCyGtYTNhsuwxI19s8q19gbjKTwRS5z/LyVf5wICaIiPQGLekmbJbA==}
+  /electron-to-chromium@1.4.480:
+    resolution: {integrity: sha512-IXTgg+bITkQv/FLP9FjX6f9KFCs5hQWeh5uNSKxB9mqYj/JXhHDbu+ekS43LVvbkL3eW6/oZy4+r9Om6lan1Uw==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -7527,7 +7527,7 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 4.4.7(@types/node@18.17.1)
+      vite: 4.4.8(@types/node@18.17.1)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -7539,11 +7539,15 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-inspect@0.7.33(rollup@3.27.0)(vite@4.4.7):
-    resolution: {integrity: sha512-cQRLQKa/+Ua++5hN0IZfqNn1JYXBg2eCQOSUatPTwhXMO7nwfSvhhSc45E1nXfBBEhzLLOxgr1OdbDu55PiDDA==}
+  /vite-plugin-inspect@0.7.35(rollup@3.27.0)(vite@4.4.8):
+    resolution: {integrity: sha512-e5w5dJAj3vDcHTxn8hHbiH+mVqYs17gaW00f3aGuMTXiqUog+T1Lsxr9Jb4WRiip84cpuhR0KFFBT1egtXboiA==}
     engines: {node: '>=14'}
     peerDependencies:
+      '@nuxt/kit': '*'
       vite: ^3.1.0 || ^4.0.0
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
     dependencies:
       '@antfu/utils': 0.7.5
       '@rollup/pluginutils': 5.0.2(rollup@3.27.0)
@@ -7552,13 +7556,13 @@ packages:
       open: 9.1.0
       picocolors: 1.0.0
       sirv: 2.0.3
-      vite: 4.4.7(@types/node@18.17.1)
+      vite: 4.4.8(@types/node@18.17.1)
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /vite-tsconfig-paths@4.2.0(typescript@5.1.6)(vite@4.4.7):
+  /vite-tsconfig-paths@4.2.0(typescript@5.1.6)(vite@4.4.8):
     resolution: {integrity: sha512-jGpus0eUy5qbbMVGiTxCL1iB9ZGN6Bd37VGLJU39kTDD6ZfULTTb1bcc5IeTWqWJKiWV5YihCaibeASPiGi8kw==}
     peerDependencies:
       vite: '*'
@@ -7569,14 +7573,14 @@ packages:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 2.1.2(typescript@5.1.6)
-      vite: 4.4.7(@types/node@18.17.1)
+      vite: 4.4.8(@types/node@18.17.1)
     transitivePeerDependencies:
       - supports-color
       - typescript
     dev: true
 
-  /vite@4.4.7(@types/node@18.17.1):
-    resolution: {integrity: sha512-6pYf9QJ1mHylfVh39HpuSfMPojPSKVxZvnclX1K1FyZ1PXDOcLBibdq5t1qxJSnL63ca8Wf4zts6mD8u8oc9Fw==}
+  /vite@4.4.8(@types/node@18.17.1):
+    resolution: {integrity: sha512-LONawOUUjxQridNWGQlNizfKH89qPigK36XhMI7COMGztz8KNY0JHim7/xDd71CZwGT4HtSRgI7Hy+RlhG0Gvg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -7663,7 +7667,7 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.5.0
       tinypool: 0.6.0
-      vite: 4.4.7(@types/node@18.17.1)
+      vite: 4.4.8(@types/node@18.17.1)
       vite-node: 0.33.0(@types/node@18.17.1)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:

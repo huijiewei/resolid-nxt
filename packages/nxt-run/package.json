@@ -106,8 +106,8 @@
     "react-helmet-async": "^1.3.0",
     "react-router-dom": "^6.14.2",
     "rollup": "^3.27.0",
-    "vite": "^4.4.7",
-    "vite-plugin-inspect": "^0.7.33"
+    "vite": "^4.4.8",
+    "vite-plugin-inspect": "^0.7.35"
   },
   "peerDependencies": {
     "@babel/core": ">=7",
