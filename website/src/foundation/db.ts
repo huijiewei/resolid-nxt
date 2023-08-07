@@ -20,5 +20,6 @@ const pool = mysql.createPool({
 
 export const db = drizzle(pool, {
   schema: { ...userSchema, ...blogSchema, ...districtSchema, ...forumSchema },
+  mode: 'planetscale',
   logger: process.env.NODE_ENV == 'development',
 });

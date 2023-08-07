@@ -342,8 +342,8 @@ importers:
         specifier: workspace:*
         version: link:../packages/nxt-utils
       drizzle-orm:
-        specifier: ^0.27.2
-        version: 0.27.2(mysql2@3.6.0)
+        specifier: ^0.28.0
+        version: 0.28.0(mysql2@3.6.0)
       fast-blurhash:
         specifier: ^1.1.2
         version: 1.1.2
@@ -3184,8 +3184,8 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.27.2(mysql2@3.6.0):
-    resolution: {integrity: sha512-ZvBvceff+JlgP7FxHKe0zOU9CkZ4RcOtibumIrqfYzDGuOeF0YUY0F9iMqYpRM7pxnLRfC+oO7rWOUH3T5oFQA==}
+  /drizzle-orm@0.28.0(mysql2@3.6.0):
+    resolution: {integrity: sha512-iNNNtWM6YwXWI5vAkgFx+FPtZvo/ZnLh8uZV1e7+Alhan5ZS0q3tqbGFP8uCMngW+hNbJqsaHsxPw6AN87urmw==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
