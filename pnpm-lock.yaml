@@ -211,8 +211,8 @@ importers:
         version: link:../nxt-utils
     devDependencies:
       '@hookform/resolvers':
-        specifier: ^3.1.1
-        version: 3.1.1(react-hook-form@7.45.4)
+        specifier: ^3.2.0
+        version: 3.2.0(react-hook-form@7.45.4)
       '@resolid/nxt-run':
         specifier: workspace:*
         version: link:../nxt-run
@@ -315,8 +315,8 @@ importers:
   website:
     dependencies:
       '@hookform/resolvers':
-        specifier: ^3.1.1
-        version: 3.1.1(react-hook-form@7.45.4)
+        specifier: ^3.2.0
+        version: 3.2.0(react-hook-form@7.45.4)
       '@marsidev/react-turnstile':
         specifier: ^0.2.3
         version: 0.2.3(react-dom@18.2.0)(react@18.2.0)
@@ -348,8 +348,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
       i18next:
-        specifier: ^23.4.1
-        version: 23.4.1
+        specifier: ^23.4.2
+        version: 23.4.2
       i18next-fs-backend:
         specifier: ^2.1.5
         version: 2.1.5
@@ -376,7 +376,7 @@ importers:
         version: 7.45.4(react@18.2.0)
       react-i18next:
         specifier: ^13.0.3
-        version: 13.0.3(i18next@23.4.1)(react-dom@18.2.0)(react@18.2.0)
+        version: 13.0.3(i18next@23.4.2)(react-dom@18.2.0)(react@18.2.0)
       react-router-dom:
         specifier: ^6.14.2
         version: 6.14.2(react-dom@18.2.0)(react@18.2.0)
@@ -385,7 +385,7 @@ importers:
         version: 3.21.4
       zod-i18n-map:
         specifier: ^2.14.0
-        version: 2.14.0(i18next@23.4.1)(zod@3.21.4)
+        version: 2.14.0(i18next@23.4.2)(zod@3.21.4)
     devDependencies:
       '@faker-js/faker':
         specifier: ^8.0.2
@@ -1377,8 +1377,8 @@ packages:
     resolution: {integrity: sha512-m0G6wlnhm/AX0H12IOWtK8gASEMffnX08RtKkCgTdHb9JpHKGloI7icFfLg9ZmQeavcvR0PKmzxClyuFPSjKWw==}
     dev: false
 
-  /@hookform/resolvers@3.1.1(react-hook-form@7.45.4):
-    resolution: {integrity: sha512-tS16bAUkqjITNSvbJuO1x7MXbn7Oe8ZziDTJdA9mMvsoYthnOOiznOTGBYwbdlYBgU+tgpI/BtTU3paRbCuSlg==}
+  /@hookform/resolvers@3.2.0(react-hook-form@7.45.4):
+    resolution: {integrity: sha512-skXQHhLxq0Sz2xDwCyv5dygBCtXJe1GmWwxDzfdtl0X6agD6qcyTG8HrZWkjJoy8AkiLARqYvSYJ8z7+Nwmi7w==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
@@ -4235,8 +4235,8 @@ packages:
       - encoding
     dev: false
 
-  /i18next@23.4.1:
-    resolution: {integrity: sha512-07ekE7hbUrbxTYj97VnBzyhKcGURTJC9p4iWTwCVC8t63T+YrgqQmb/n1LBQMivZYwR61pqS+PC0G2rtENycyQ==}
+  /i18next@23.4.2:
+    resolution: {integrity: sha512-hkVPHKFLtn9iewdqHDiU+MGVIBk+bVFn5usw7CIeCn/SBcVKGTItGdjNPm2B8Lnz42CeHUlnSOTgsr5vbITjhA==}
     dependencies:
       '@babel/runtime': 7.22.6
     dev: false
@@ -6278,7 +6278,7 @@ packages:
     dependencies:
       react: 18.2.0
 
-  /react-i18next@13.0.3(i18next@23.4.1)(react-dom@18.2.0)(react@18.2.0):
+  /react-i18next@13.0.3(i18next@23.4.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-/t4kt4Y2o+21hbvx+o9zpVnmoiud7KLDncyZFGN0U6TGAWYaXdTsp/ytAHFcKKSAODg4noIMaOO3X7bMgCqLHw==}
     peerDependencies:
       i18next: '>= 23.2.3'
@@ -6293,7 +6293,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.6
       html-parse-stringify: 3.0.1
-      i18next: 23.4.1
+      i18next: 23.4.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -7888,13 +7888,13 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zod-i18n-map@2.14.0(i18next@23.4.1)(zod@3.21.4):
+  /zod-i18n-map@2.14.0(i18next@23.4.2)(zod@3.21.4):
     resolution: {integrity: sha512-Z75WjzuoGieCjJqKu1kcAgemPTN9/bPQNqqC7Z6RDm6MtwE8wkXfgf5HQ+zr7iq4VrnkILCEviV2B1ZYi+JGng==}
     peerDependencies:
       i18next: '>=21.3.0'
       zod: '>=3.17.0'
     dependencies:
-      i18next: 23.4.1
+      i18next: 23.4.2
       zod: 3.21.4
     dev: false
 

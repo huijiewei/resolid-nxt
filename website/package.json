@@ -11,7 +11,7 @@
     "nxt": "tsx ./cli/index.ts"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.1.1",
+    "@hookform/resolvers": "^3.2.0",
     "@marsidev/react-turnstile": "^0.2.3",
     "@node-rs/bcrypt": "^1.7.3",
     "@resolid/nxt-prism": "workspace:*",
@@ -22,7 +22,7 @@
     "@resolid/nxt-utils": "workspace:*",
     "drizzle-orm": "^0.27.2",
     "fast-blurhash": "^1.1.2",
-    "i18next": "^23.4.1",
+    "i18next": "^23.4.2",
     "i18next-fs-backend": "^2.1.5",
     "i18next-http-backend": "^2.2.1",
     "isbot": "^3.6.13",
