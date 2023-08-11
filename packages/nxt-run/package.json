@@ -95,7 +95,7 @@
     "@babel/core": "^7.22.10",
     "@babel/parser": "^7.22.10",
     "@babel/traverse": "^7.22.10",
-    "@remix-run/router": "^1.7.2",
+    "@remix-run/router": "^1.8.0",
     "@types/babel__core": "^7.20.1",
     "@types/babel__traverse": "^7.20.1",
     "@types/cookie": "^0.5.1",
@@ -104,7 +104,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
-    "react-router-dom": "^6.14.2",
+    "react-router-dom": "^6.15.0",
     "rollup": "^3.28.0",
     "vite": "^4.4.9",
     "vite-plugin-inspect": "^0.7.35"
