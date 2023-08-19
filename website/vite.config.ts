@@ -59,6 +59,7 @@ export default defineConfig(({ command }) => {
     ],
     build: {
       minify: true,
+      cssMinify: 'lightningcss',
     },
     ssr: {
       external: ['@node-rs/bcrypt'],
