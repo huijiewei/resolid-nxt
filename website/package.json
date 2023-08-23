@@ -11,7 +11,7 @@
     "nxt": "tsx ./cli/index.ts"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.2.0",
+    "@hookform/resolvers": "^3.3.0",
     "@marsidev/react-turnstile": "^0.2.3",
     "@node-rs/bcrypt": "^1.7.3",
     "@resolid/nxt-prism": "workspace:*",
@@ -20,9 +20,9 @@
     "@resolid/nxt-run-node": "workspace:*",
     "@resolid/nxt-ui": "workspace:*",
     "@resolid/nxt-utils": "workspace:*",
-    "drizzle-orm": "^0.28.2",
+    "drizzle-orm": "^0.28.3",
     "fast-blurhash": "^1.1.2",
-    "i18next": "^23.4.4",
+    "i18next": "^23.4.5",
     "i18next-fs-backend": "^2.1.5",
     "i18next-http-backend": "^2.2.1",
     "isbot": "^3.6.13",
@@ -31,7 +31,7 @@
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
     "react-hook-form": "^7.45.4",
-    "react-i18next": "^13.1.2",
+    "react-i18next": "^13.2.0",
     "react-router-dom": "^6.15.0",
     "zod": "^3.22.2",
     "zod-i18n-map": "^2.15.0"
