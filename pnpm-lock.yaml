@@ -343,7 +343,7 @@ importers:
         version: link:../packages/nxt-utils
       drizzle-orm:
         specifier: ^0.28.4
-        version: 0.28.4(mysql2@3.6.0)
+        version: 0.28.4(@opentelemetry/api@1.4.1)(mysql2@3.6.0)
       fast-blurhash:
         specifier: ^1.1.2
         version: 1.1.2
@@ -390,6 +390,9 @@ importers:
       '@faker-js/faker':
         specifier: ^8.0.2
         version: 8.0.2
+      '@opentelemetry/api':
+        specifier: ^1.4.1
+        version: 1.4.1
       '@resolid/nxt-tailwind':
         specifier: workspace:*
         version: link:../packages/nxt-tailwind
@@ -1617,6 +1620,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
     dev: true
+
+  /@opentelemetry/api@1.4.1:
+    resolution: {integrity: sha512-O2yRJce1GOc6PAy3QxFM4NzFiWzvScDC1/5ihYBL6BUEVdq0XMWN01sppE+H6bBXbaFYipjwFLEWLg5PaSOThA==}
+    engines: {node: '>=8.0.0'}
 
   /@pkgr/utils@2.4.2:
     resolution: {integrity: sha512-POgTXhjrTfbTV63DiFXav4lBHiICLKKwDeaKn9Nphwj7WH6m0hMMCaJkMyRWjgtPFyRKRVoMXXjczsTQRDEhYw==}
@@ -3057,7 +3064,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.28.4(mysql2@3.6.0):
+  /drizzle-orm@0.28.4(@opentelemetry/api@1.4.1)(mysql2@3.6.0):
     resolution: {integrity: sha512-BEATAB0g0Y8PKbJHkHLLENlX2DXktO5XyeNyrXB6ktcNkg3dlMfePwB3LodBJkPY6d7GixFF+jvtdZsWjakJBQ==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -3119,6 +3126,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
+      '@opentelemetry/api': 1.4.1
       mysql2: 3.6.0
     dev: false
 

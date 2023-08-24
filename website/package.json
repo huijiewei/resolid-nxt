@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
+    "@opentelemetry/api": "^1.4.1",
     "@resolid/nxt-tailwind": "workspace:*",
     "@resolid/nxt-tests": "workspace:*",
     "@types/fs-extra": "^11.0.1",
