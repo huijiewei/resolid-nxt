@@ -1,4 +1,4 @@
-import { relations, sql, type InferModel } from 'drizzle-orm';
+import { relations, sql } from 'drizzle-orm';
 import { datetime, index, int, unique, varchar } from 'drizzle-orm/mysql-core';
 import { nxtMysqlTable } from '~/engine/core/baseSchema';
 
@@ -27,8 +27,8 @@ export const users = nxtMysqlTable(
   }),
 );
 
-export type UserSelect = InferModel<typeof users, 'select'>;
-export type UserInsert = InferModel<typeof users, 'insert'>;
+export type UserSelect = typeof users.$inferSelect;
+export type UserInsert = typeof users.$inferInsert;
 
 export const userGroups = nxtMysqlTable('user_group', {
   id: int('id').autoincrement().primaryKey(),
@@ -37,8 +37,8 @@ export const userGroups = nxtMysqlTable('user_group', {
   icon: varchar('icon', { length: 191 }).notNull().default(''),
 });
 
-export type UserGroupSelect = InferModel<typeof userGroups, 'select'>;
-export type UserGroupInsert = InferModel<typeof userGroups, 'insert'>;
+export type UserGroupSelect = typeof userGroups.$inferSelect;
+export type UserGroupInsert = typeof userGroups.$inferInsert;
 
 export const userAccounts = nxtMysqlTable(
   'user_accounts',

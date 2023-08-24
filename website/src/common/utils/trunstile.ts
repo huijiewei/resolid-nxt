@@ -1,5 +1,3 @@
-import * as process from 'process';
-
 type TokenValidateResponse = {
   'error-codes': string[];
   success: boolean;

@@ -10,6 +10,7 @@ process.env.TZ = 'UTC';
 
 const pool = mysql.createPool({
   host: process.env.NXT_DB_HOST,
+  port: process.env.NXT_DB_PORT as unknown as number,
   user: process.env.NXT_DB_USER,
   password: process.env.NXT_DB_PASSWORD,
   database: process.env.NXT_DB_DATABASE,

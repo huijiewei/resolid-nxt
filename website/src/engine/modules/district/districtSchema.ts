@@ -1,4 +1,3 @@
-import { type InferModel } from 'drizzle-orm';
 import { index, int, unique, varchar } from 'drizzle-orm/mysql-core';
 import { nxtMysqlTable } from '~/engine/core/baseSchema';
 
@@ -19,8 +18,8 @@ export const districts = nxtMysqlTable(
   }),
 );
 
-export type DistrictSelect = InferModel<typeof districts, 'select'>;
-export type DistrictInsert = InferModel<typeof districts, 'insert'>;
+export type DistrictSelect = typeof districts.$inferSelect;
+export type DistrictInsert = typeof districts.$inferInsert;
 
 export const districtsClosure = nxtMysqlTable(
   'district_closure',
