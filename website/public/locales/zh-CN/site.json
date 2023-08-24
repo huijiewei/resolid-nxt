@@ -7,11 +7,6 @@
     "editPage": "建议更改此页面",
     "viewSource": "查看源代码"
   },
-  "colorMode": {
-    "light": "亮色模式",
-    "dark": "暗色模式",
-    "system": "跟随系统"
-  },
   "home": {
     "hero": "结合 React-Router 和 TailwindCSS 优势的 React SSR 框架，为您提供无缝的 Web 开发体验。"
   },

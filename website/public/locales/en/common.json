@@ -33,5 +33,10 @@
   "logout": "Logout",
   "profile": "Profile",
   "settings": "Settings",
-  "administration": "Administration"
+  "administration": "Administration",
+  "colorMode": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
 }

@@ -1,5 +1,46 @@
 const Component = () => {
-  return <div className={'pt-4'}>Admin Home</div>;
+  return (
+    <div className={'w-full flex-1'}>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+      <p>Admin Home</p>
+    </div>
+  );
 };
 
 export default Component;

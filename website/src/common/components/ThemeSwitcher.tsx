@@ -70,7 +70,7 @@ export const ThemeSwitcher = () => {
               }}
             >
               <mode.icon className={'me-1.5'} />
-              {t(mode.label, { ns: 'site' })}
+              {t(mode.label)}
             </DropdownMenuItem>
           );
         })}

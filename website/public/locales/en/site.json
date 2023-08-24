@@ -7,11 +7,6 @@
     "editPage": "Edit this page on GitHub",
     "viewSource": "View source"
   },
-  "colorMode": {
-    "light": "Light",
-    "dark": "Dark",
-    "system": "System"
-  },
   "home": {
     "hero": "React SSR framework that combines the power of React-Router and TailwindCSS to give you a seamless web development experience."
   },
