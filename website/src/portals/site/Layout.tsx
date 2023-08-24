@@ -28,6 +28,7 @@ import { Logout } from '~/common/icons/Logout';
 import { Menu } from '~/common/icons/Menu';
 import { Settings } from '~/common/icons/Settings';
 import { UserCircle } from '~/common/icons/UserCircle';
+import { userIsAdmin } from '~/engine/modules/user/userUtils';
 import { LOCALES, type LocaleKey } from '~/i18n';
 
 const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> }) => {
@@ -86,7 +87,7 @@ const NavUser = () => {
             <Settings className={'me-1.5'} />
             {t('settings')}
           </DropdownMenuItem>
-          {user.userGroupId == 1 && (
+          {userIsAdmin(user) && (
             <DropdownMenuItem as={LocalizedLink} to={'/admin'} target={'_blank'}>
               <Dashboard className={'me-1.5'} />
               {t('administration')}

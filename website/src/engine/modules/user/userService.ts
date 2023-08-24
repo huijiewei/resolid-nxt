@@ -1,7 +1,7 @@
 import { desc, eq, inArray } from 'drizzle-orm';
 import { randomBytes } from 'node:crypto';
 import { db } from '~/foundation/db';
-import type { UserInsert, UserSelect } from './userSchema';
+import type { UserInsert, UserSelect, UserSelectWithGroup } from './userSchema';
 import { userSessions, users } from './userSchema';
 
 export const getUserByLast = async (): Promise<UserSelect | null> => {
@@ -10,7 +10,7 @@ export const getUserByLast = async (): Promise<UserSelect | null> => {
   return result[0] ?? null;
 };
 
-export const getUserByEmail = async (email: string): Promise<UserSelect | null> => {
+export const getUserByEmail = async (email: string): Promise<UserSelectWithGroup | null> => {
   const user = await db.query.users.findFirst({
     where: eq(users.email, email),
     with: {
@@ -45,7 +45,7 @@ export const removeUserSession = async (token: string) => {
   await db.delete(userSessions).where(eq(userSessions.token, token));
 };
 
-export const getUserBySessionToken = async (token: string): Promise<UserSelect | null> => {
+export const getUserBySessionToken = async (token: string): Promise<UserSelectWithGroup | null> => {
   const user = await db.query.users.findFirst({
     where: inArray(
       users.id,

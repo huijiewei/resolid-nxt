@@ -28,6 +28,7 @@ export const users = nxtMysqlTable(
 );
 
 export type UserSelect = typeof users.$inferSelect;
+export type UserSelectWithGroup = UserSelect & { userGroup: UserGroupSelect };
 export type UserInsert = typeof users.$inferInsert;
 
 export const userGroups = nxtMysqlTable('user_group', {
