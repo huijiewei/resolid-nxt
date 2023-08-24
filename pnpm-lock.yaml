@@ -281,8 +281,8 @@ importers:
         specifier: ^9.3.1
         version: 9.3.1
       '@testing-library/jest-dom':
-        specifier: ^6.1.1
-        version: 6.1.1(vitest@0.34.2)
+        specifier: ^6.1.2
+        version: 6.1.2(vitest@0.34.2)
       '@testing-library/react':
         specifier: ^14.0.0
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -342,8 +342,8 @@ importers:
         specifier: workspace:*
         version: link:../packages/nxt-utils
       drizzle-orm:
-        specifier: ^0.28.4
-        version: 0.28.4(@opentelemetry/api@1.4.1)(mysql2@3.6.0)
+        specifier: ^0.28.5
+        version: 0.28.5(mysql2@3.6.0)
       fast-blurhash:
         specifier: ^1.1.2
         version: 1.1.2
@@ -390,9 +390,6 @@ importers:
       '@faker-js/faker':
         specifier: ^8.0.2
         version: 8.0.2
-      '@opentelemetry/api':
-        specifier: ^1.4.1
-        version: 1.4.1
       '@resolid/nxt-tailwind':
         specifier: workspace:*
         version: link:../packages/nxt-tailwind
@@ -412,8 +409,8 @@ importers:
         specifier: ^3.5.3
         version: 3.5.3
       commander:
-        specifier: ^10.0.1
-        version: 10.0.1
+        specifier: ^11.0.0
+        version: 11.0.0
       dotenv:
         specifier: ^16.3.1
         version: 16.3.1
@@ -1621,10 +1618,6 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@opentelemetry/api@1.4.1:
-    resolution: {integrity: sha512-O2yRJce1GOc6PAy3QxFM4NzFiWzvScDC1/5ihYBL6BUEVdq0XMWN01sppE+H6bBXbaFYipjwFLEWLg5PaSOThA==}
-    engines: {node: '>=8.0.0'}
-
   /@pkgr/utils@2.4.2:
     resolution: {integrity: sha512-POgTXhjrTfbTV63DiFXav4lBHiICLKKwDeaKn9Nphwj7WH6m0hMMCaJkMyRWjgtPFyRKRVoMXXjczsTQRDEhYw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
@@ -1738,8 +1731,8 @@ packages:
       pretty-format: 27.5.1
     dev: false
 
-  /@testing-library/jest-dom@6.1.1(vitest@0.34.2):
-    resolution: {integrity: sha512-PEDx4fwesRjrUqhnqMz2+DxJtA0Qfy8IChXfx2P+f1mOI4ssc2b+fnzcmaevWPtfqFDE1q3veB9iJRFDw+xUVg==}
+  /@testing-library/jest-dom@6.1.2(vitest@0.34.2):
+    resolution: {integrity: sha512-NP9jl1Q2qDDtx+cqogowtQtmgD2OVs37iMSIsTv5eN5ETRkf26Kj6ugVwA93/gZzzFWQAsgkKkcftDe91BJCkQ==}
     engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
     peerDependencies:
       '@jest/globals': '>= 28'
@@ -2694,11 +2687,6 @@ packages:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
     dev: false
 
-  /commander@10.0.1:
-    resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
-    engines: {node: '>=14'}
-    dev: true
-
   /commander@11.0.0:
     resolution: {integrity: sha512-9HMlXtt/BNoYr8ooyjjNRdIilOTkVJXB+GhxMTtOKwk0R4j4lS4NpjuqmRxroBfnfTSHQIHQB7wryHhXarNjmQ==}
     engines: {node: '>=16'}
@@ -3064,8 +3052,8 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.28.4(@opentelemetry/api@1.4.1)(mysql2@3.6.0):
-    resolution: {integrity: sha512-BEATAB0g0Y8PKbJHkHLLENlX2DXktO5XyeNyrXB6ktcNkg3dlMfePwB3LodBJkPY6d7GixFF+jvtdZsWjakJBQ==}
+  /drizzle-orm@0.28.5(mysql2@3.6.0):
+    resolution: {integrity: sha512-6r6Iw4c38NAmW6TiKH3TUpGUQ1YdlEoLJOQptn8XPx3Z63+vFNKfAiANqrIiYZiMjKR9+NYAL219nFrmo1duXA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -3126,7 +3114,6 @@ packages:
       sqlite3:
         optional: true
     dependencies:
-      '@opentelemetry/api': 1.4.1
       mysql2: 3.6.0
     dev: false
 
