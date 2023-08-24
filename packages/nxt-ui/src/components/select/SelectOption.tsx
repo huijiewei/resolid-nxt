@@ -1,6 +1,7 @@
-import { __DEV__, ariaAttr, cx, dataAttr } from '@resolid/nxt-utils';
+import { __DEV__, ariaAttr, dataAttr } from '@resolid/nxt-utils';
 import { useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { useSelect, type OptionBase, type OptionDefault } from './SelectContext';
 
 export type SelectOptionProps<Option extends OptionBase = OptionDefault> = {

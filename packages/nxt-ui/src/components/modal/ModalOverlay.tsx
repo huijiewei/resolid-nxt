@@ -1,8 +1,9 @@
 import { FloatingOverlay } from '@floating-ui/react';
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import type { CSSProperties } from 'react';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { useModal } from './ModalContext';
 
 export const ModalOverlay = primitiveComponent<'div'>((props, ref) => {

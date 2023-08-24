@@ -1,4 +1,12 @@
 {
   "path": "/breadcrumb/BreadcrumbLink.tsx",
-  "props": [{ "name": "currentPage", "type": "boolean", "required": false, "description": "", "defaultValue": "" }]
+  "props": [
+    {
+      "name": "currentPage",
+      "type": "boolean",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    }
+  ]
 }

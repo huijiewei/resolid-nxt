@@ -1,6 +1,7 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import { useMemo } from 'react';
 import type { PrimitiveProps } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { ButtonGroupProvider, type ButtonGroupContext } from './ButtonGroupContext';
 
 export type ButtonGroupProps = ButtonGroupContext;

@@ -1,8 +1,9 @@
-import { __DEV__, ariaAttr, cx } from '@resolid/nxt-utils';
+import { __DEV__, ariaAttr } from '@resolid/nxt-utils';
 import type { ChangeEvent, KeyboardEvent, ReactNode } from 'react';
 import { useCallback, useRef } from 'react';
 import { useControllableState, useFocus, useFormReset, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { CloseButton } from '../close-button/CloseButton';
 import { inputGroupStyle, inputSizeStyles } from './Input.style';
 import { useInputGroup, type InputGroupContext } from './InputGroupContext';

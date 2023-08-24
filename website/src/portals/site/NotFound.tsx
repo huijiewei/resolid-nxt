@@ -1,4 +1,4 @@
-import { cx } from '@resolid/nxt-utils';
+import { cx } from '@resolid/nxt-ui';
 import type { PropsWithChildren } from 'react';
 import { Fragment } from 'react';
 import { Helmet } from 'react-helmet-async';

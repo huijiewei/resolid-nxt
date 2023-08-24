@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useRef, useState, type SyntheticEvent } from 'react';
+import { useCallback, useEffect, useRef, useState, type ImgHTMLAttributes, type SyntheticEvent } from 'react';
 import { useIsomorphicEffect } from '../../hooks';
 
-type NativeImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
+type NativeImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
 export type UseImageProps = {
   /**

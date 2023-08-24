@@ -1,5 +1,4 @@
-import { CloseButton } from '@resolid/nxt-ui';
-import { cx } from '@resolid/nxt-utils';
+import { CloseButton, cx } from '@resolid/nxt-ui';
 import { useAsideLayoutDispatch, useAsideLayoutState } from '~/common/components/AsideLayout';
 import { AsideLayoutMenu, type AsideLayoutMenuProps } from './AsideLayoutMenu';
 

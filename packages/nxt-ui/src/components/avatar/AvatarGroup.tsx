@@ -1,6 +1,7 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import { Children, isValidElement, type CSSProperties, type ReactElement } from 'react';
 import type { PrimitiveProps } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { toRounded } from '../../utils/radius';
 import { toSized } from './Avatar.style';
 import { AvatarGroupProvider, type AvatarBaseProps } from './AvatarGroupContext';

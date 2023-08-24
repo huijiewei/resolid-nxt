@@ -1,5 +1,5 @@
-import { cx } from '@resolid/nxt-utils';
 import type { ComponentPropsWithoutRef } from 'react';
+import { cx } from '../../utils/cva';
 
 export type CheckboxIconProps = {
   indeterminate?: boolean;

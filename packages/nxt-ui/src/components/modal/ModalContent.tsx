@@ -1,8 +1,9 @@
 import { FloatingFocusManager } from '@floating-ui/react';
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import { useEffect, type CSSProperties } from 'react';
 import { useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { useFloatingAria } from '../floating/FloatingAriaContext';
 import { useModal } from './ModalContext';
 

@@ -1,5 +1,5 @@
-import { Spinner } from '@resolid/nxt-ui';
-import { cx, isNumber } from '@resolid/nxt-utils';
+import { Spinner, cx } from '@resolid/nxt-ui';
+import { isNumber } from '@resolid/nxt-utils';
 import type { CSSProperties, HTMLProps } from 'react';
 import { useTranslation } from 'react-i18next';
 

@@ -1,6 +1,7 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import type { CSSProperties } from 'react';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import type { Radius } from '../../utils/radius';
 import { toRounded } from '../../utils/radius';
 import type { Color, Size } from '../../utils/types';

@@ -14,10 +14,11 @@ import {
   useTransitionStatus,
   type Placement,
 } from '@floating-ui/react';
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import { cloneElement, useMemo, useRef, type CSSProperties, type ReactNode } from 'react';
 import { useDisclosure, useMergedRefs } from '../../hooks';
 import type { PrimitiveProps } from '../../primitives';
+import { cx } from '../../utils/cva';
 import type { Color } from '../../utils/types';
 import { FloatingArrow } from '../floating/FloatingArrow';
 import { FloatingArrowProvider, type FloatingArrowContext } from '../floating/FloatingArrowContext';

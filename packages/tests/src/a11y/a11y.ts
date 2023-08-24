@@ -12,5 +12,7 @@ export const testA11y = async (
   const container = isValidElement(ui) ? render(ui, rest).container : ui;
   const results = await axe(container as HTMLElement, axeOptions);
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   expect(results).toHaveNoViolations();
 };

@@ -15,8 +15,20 @@
       "description": "Variant",
       "defaultValue": "\"solid\""
     },
-    { "name": "size", "type": "number", "required": false, "description": "Size", "defaultValue": "1" },
-    { "name": "vertical", "type": "boolean", "required": false, "description": "Vertical", "defaultValue": "false" },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "description": "Size",
+      "defaultValue": "1"
+    },
+    {
+      "name": "vertical",
+      "type": "boolean",
+      "required": false,
+      "description": "Vertical",
+      "defaultValue": "false"
+    },
     {
       "name": "position",
       "type": "\"center\" | \"left\" | \"right\"",

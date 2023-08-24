@@ -33,7 +33,7 @@
     "@floating-ui/react": "^0.25.1",
     "@resolid/nxt-utils": "workspace:*",
     "@tanstack/react-virtual": "3.0.0-beta.54",
-    "class-variance-authority": "^0.7.0",
+    "cva": "1.0.0-beta.0",
     "react-remove-scroll-bar": "^2.3.4"
   },
   "devDependencies": {

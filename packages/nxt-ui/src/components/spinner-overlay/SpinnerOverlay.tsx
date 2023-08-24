@@ -1,6 +1,7 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import { cloneElement, type ReactElement } from 'react';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { Overlay, type OverlayProps } from '../overlay/Overlay';
 import { Spinner } from '../spinner/Spinner';
 

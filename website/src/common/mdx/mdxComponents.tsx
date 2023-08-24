@@ -1,6 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { cx, isAbsoluteUrl, isString } from '@resolid/nxt-utils';
+import { cx } from '@resolid/nxt-ui';
+import { isAbsoluteUrl, isString } from '@resolid/nxt-utils';
 import type { ComponentProps } from 'react';
 import { ExternalLink } from '~/common/icons/ExternalLink';
 import { MdxCode } from '~/common/mdx/MdxPreCode';

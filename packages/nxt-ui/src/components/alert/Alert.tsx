@@ -1,6 +1,7 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import type { PrimitiveProps } from '../../primitives';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { alertStyle, type AlertStyles } from './Alert.style';
 import { AlertProvider, useAlert, type AlertContext } from './AlertContext';
 
@@ -9,7 +10,7 @@ export type AlertProps = AlertContext & {
    * Color
    * @default 'primary'
    */
-  color?: NonNullable<AlertStyles['color']>;
+  color?: AlertStyles['color'];
 };
 
 export const Alert = primitiveComponent<'div', AlertProps>((props, ref) => {

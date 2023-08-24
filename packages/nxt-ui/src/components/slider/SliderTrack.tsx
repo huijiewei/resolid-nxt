@@ -1,6 +1,7 @@
-import { __DEV__, clamp, cx } from '@resolid/nxt-utils';
+import { __DEV__, clamp } from '@resolid/nxt-utils';
 import { useCallback, useMemo } from 'react';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { SliderColorStyles } from './Slider.style';
 import { useSlider, useSliderValue } from './SliderContext';
 

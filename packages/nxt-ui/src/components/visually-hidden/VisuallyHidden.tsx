@@ -1,5 +1,6 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import type { ComponentPropsWithoutRef } from 'react';
+import { cx } from '../../utils/cva';
 
 export const VisuallyHidden = (props: ComponentPropsWithoutRef<'span'>) => {
   const { children, className, ...rest } = props;

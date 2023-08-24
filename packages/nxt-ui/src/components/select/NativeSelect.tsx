@@ -1,5 +1,6 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import type { Size } from '../../utils/types';
 import { SelectChevron } from './SelectChevron';
 

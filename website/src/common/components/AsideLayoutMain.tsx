@@ -1,4 +1,4 @@
-import { cx } from '@resolid/nxt-utils';
+import { cx } from '@resolid/nxt-ui';
 import type { HTMLProps } from 'react';
 
 export const AsideLayoutMain = (props: HTMLProps<HTMLDivElement>) => {

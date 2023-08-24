@@ -11,7 +11,7 @@ import {
   useRole,
   useTransitionStatus,
 } from '@floating-ui/react';
-import { __DEV__, ariaAttr, cx, dataAttr } from '@resolid/nxt-utils';
+import { __DEV__, ariaAttr, dataAttr } from '@resolid/nxt-utils';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { Fragment, useCallback, useMemo, useRef, useState, type CSSProperties } from 'react';
 import {
@@ -24,6 +24,7 @@ import {
   usePrevious,
 } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import type { Size } from '../../utils/types';
 import { CloseButton } from '../close-button/CloseButton';
 import { Divider } from '../divider/Divider';

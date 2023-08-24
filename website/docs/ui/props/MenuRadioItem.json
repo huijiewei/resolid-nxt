@@ -1,7 +1,19 @@
 {
   "path": "/menu/MenuRadioItem.tsx",
   "props": [
-    { "name": "value", "type": "string | number", "required": true, "description": "", "defaultValue": "" },
-    { "name": "onClick", "type": "() => void", "required": false, "description": "", "defaultValue": "" }
+    {
+      "name": "value",
+      "type": "string | number",
+      "required": true,
+      "description": "",
+      "defaultValue": ""
+    },
+    {
+      "name": "onClick",
+      "type": "",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    }
   ]
 }

@@ -1,5 +1,6 @@
-import { __DEV__, cx, runIfFn } from '@resolid/nxt-utils';
+import { __DEV__, runIfFn } from '@resolid/nxt-utils';
 import { useMemo, useState, type CSSProperties, type PropsWithChildren } from 'react';
+import { cx } from '../../utils/cva';
 import { Portal } from '../portal/Portal';
 import { ToastContent } from './ToastContent';
 import type { ToastDispatchContext, ToastId, ToastOptions, ToastPlacement } from './ToastContext';

@@ -1,7 +1,8 @@
-import { __DEV__, ariaAttr, cx } from '@resolid/nxt-utils';
+import { __DEV__, ariaAttr } from '@resolid/nxt-utils';
 import { useCallback, useRef, type CSSProperties, type ChangeEvent } from 'react';
 import { useControllableState, useFormReset, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { useRadioGroup, type RadioBaseProps } from './RadioGroupContext';
 
 export type RadioProps = RadioBaseProps & {

@@ -6,7 +6,7 @@ export type AlertContext = {
    * Variant
    * @default 'light'
    */
-  variant?: NonNullable<AlertStyles['variant']>;
+  variant?: AlertStyles['variant'];
 };
 
 const [AlertProvider, useAlert] = createContext<AlertContext>({

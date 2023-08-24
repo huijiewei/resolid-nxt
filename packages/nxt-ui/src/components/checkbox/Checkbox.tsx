@@ -1,8 +1,9 @@
-import { __DEV__, ariaAttr, cx } from '@resolid/nxt-utils';
+import { __DEV__, ariaAttr } from '@resolid/nxt-utils';
 import type { ReactElement } from 'react';
 import { cloneElement, useCallback, useRef, type CSSProperties, type ChangeEvent } from 'react';
 import { useControllableState, useFormReset, useIsomorphicEffect, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { useCheckboxGroup, type CheckboxBaseProps } from './CheckboxGroupContext';
 import { CheckboxIcon } from './CheckboxIcon';
 

@@ -5,8 +5,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  cx,
 } from '@resolid/nxt-ui';
-import { cx } from '@resolid/nxt-utils';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import { Locale } from '~/common/icons/Locale';

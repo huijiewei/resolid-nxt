@@ -1,5 +1,6 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import type { PrimitiveProps } from '../../primitives';
+import { cx } from '../../utils/cva';
 
 export const PopoverFooter = (props: PrimitiveProps<'footer'>) => {
   const { children, className, ...rest } = props;

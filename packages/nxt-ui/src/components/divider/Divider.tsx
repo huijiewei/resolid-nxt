@@ -1,6 +1,7 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import type { CSSProperties } from 'react';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import type { DividerStyles } from './Divider.style';
 import { dividerStyles } from './Divider.style';
 
@@ -9,13 +10,13 @@ export type DividerProps = {
    * Color
    * @default "neutral"
    */
-  color?: NonNullable<DividerStyles['color']>;
+  color?: DividerStyles['color'];
 
   /**
    * Variant
    * @default "solid"
    */
-  variant?: NonNullable<DividerStyles['variant']>;
+  variant?: DividerStyles['variant'];
 
   /**
    * Size

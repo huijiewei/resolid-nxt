@@ -1,5 +1,5 @@
-import { cx } from '@resolid/nxt-utils';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 
 type SelectSearchProps = {
   open: boolean;

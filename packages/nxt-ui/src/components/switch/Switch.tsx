@@ -1,8 +1,9 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import type { ChangeEvent } from 'react';
 import { useCallback, useRef, type CSSProperties } from 'react';
 import { useControllableState, useFormReset, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import type { Color, Size } from '../../utils/types';
 
 export type SwitchProps = {

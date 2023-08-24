@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src", "tsup.config.ts", "vitest.config.ts"],
+  "include": ["src", "tsup.config.ts", "vitest.config.ts", "../tests/src/setup.ts"],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react-jsx",

@@ -13,18 +13,3 @@ export const ariaAttr = (condition: boolean | null | undefined) => (condition ? 
 export const isInputEvent = (value: any): value is { target: HTMLInputElement } => {
   return value && isObject(value) && isObject(value.target);
 };
-
-export const cx = (...args: (string | boolean | null | undefined)[]): string => {
-  let str = '',
-    i = 0,
-    arg: unknown;
-
-  for (; i < args.length; ) {
-    // eslint-disable-next-line prefer-rest-params
-    if ((arg = args[i++]) && typeof arg === 'string') {
-      str && (str += ' ');
-      str += arg;
-    }
-  }
-  return str;
-};

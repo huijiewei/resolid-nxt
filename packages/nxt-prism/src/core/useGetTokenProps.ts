@@ -1,4 +1,3 @@
-import { cx } from '@resolid/nxt-utils';
 import { useCallback, type CSSProperties } from 'react';
 import type { ThemeDict } from '../utils/themeToDict';
 import { type StyleObj } from '../utils/themeToDict';
@@ -46,7 +45,7 @@ export const useGetTokenProps = (themeDict?: ThemeDict) => {
     ({ token, className, style, ...rest }: TokenInputProps) => {
       const output: TokenOutputProps = {
         ...rest,
-        className: cx('token', ...token.types, className),
+        className: ['token', ...token.types, className].join(' '),
         children: token.content,
         style: styleForToken(token),
       };

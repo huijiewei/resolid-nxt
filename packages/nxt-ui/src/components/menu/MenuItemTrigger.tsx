@@ -1,7 +1,8 @@
 import { useListItem } from '@floating-ui/react';
-import { __DEV__, ariaAttr, cx, dataAttr } from '@resolid/nxt-utils';
+import { __DEV__, ariaAttr, dataAttr } from '@resolid/nxt-utils';
 import { useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { useFloatingDispatch } from '../floating/FloatingDispatchContext';
 import { useFloatingReference } from '../floating/FloatingReferenceContext';
 import { useMenuSelect } from './MenuContext';

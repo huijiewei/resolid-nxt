@@ -1,6 +1,8 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import type { VariantProps } from 'cva';
+import { cva } from '../../utils/cva';
 
-export const dividerStyles = cva(['m-0 border-0'], {
+export const dividerStyles = cva({
+  base: ['m-0 border-0'],
   variants: {
     color: {
       primary: '',

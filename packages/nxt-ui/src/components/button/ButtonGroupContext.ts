@@ -6,19 +6,19 @@ export type ButtonBaseProps = {
    * Size
    * @default 'md'
    */
-  size?: NonNullable<ButtonStyles['size']>;
+  size?: ButtonStyles['size'];
 
   /**
    * Color
    * @default 'primary'
    */
-  color?: NonNullable<ButtonStyles['color']>;
+  color?: ButtonStyles['color'];
 
   /**
    * Variant
    * @default 'solid'
    */
-  variant?: NonNullable<ButtonStyles['variant']>;
+  variant?: ButtonStyles['variant'];
 
   /**
    * Disabled

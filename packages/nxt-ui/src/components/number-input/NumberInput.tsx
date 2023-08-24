@@ -1,8 +1,9 @@
-import { __DEV__, ariaAttr, clamp, cx, isNumber } from '@resolid/nxt-utils';
+import { __DEV__, ariaAttr, clamp, isNumber } from '@resolid/nxt-utils';
 import type { ChangeEvent, FocusEvent, ForwardedRef, KeyboardEvent, ReactNode } from 'react';
 import { useCallback, useRef, useState } from 'react';
 import { assignRef, useControllableState, useEventListener, useFocus, useFormReset, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { inputGroupStyle, inputSizeStyles } from '../input/Input.style';
 import type { InputGroupContext } from '../input/InputGroupContext';
 import { useInputGroup } from '../input/InputGroupContext';

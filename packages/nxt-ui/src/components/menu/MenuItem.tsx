@@ -1,7 +1,8 @@
 import { useListItem } from '@floating-ui/react';
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import { useMergedRefs } from '../../hooks';
 import { polymorphicComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { useMenuSelect } from './MenuContext';
 
 type DropdownMenuItemProps = {

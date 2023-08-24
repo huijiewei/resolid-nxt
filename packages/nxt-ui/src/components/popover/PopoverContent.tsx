@@ -1,8 +1,9 @@
 import { FloatingFocusManager, useTransitionStatus } from '@floating-ui/react';
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import type { CSSProperties } from 'react';
 import { useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { useFloatingAria } from '../floating/FloatingAriaContext';
 import { Portal } from '../portal/Portal';
 import { usePopoverFloating } from './PopoverContext';

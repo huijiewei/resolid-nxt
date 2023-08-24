@@ -15,6 +15,12 @@
       "description": "Color",
       "defaultValue": "'primary'"
     },
-    { "name": "label", "type": "string", "required": false, "description": "Label", "defaultValue": "'Loading…'" }
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "description": "Label",
+      "defaultValue": "'Loading…'"
+    }
   ]
 }

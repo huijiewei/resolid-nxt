@@ -1,5 +1,7 @@
-import { __DEV__, cx, dataAttr } from '@resolid/nxt-utils';
+import { __DEV__, dataAttr } from '@resolid/nxt-utils';
+import type { JSX } from 'react';
 import { polymorphicComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { buttonStyles } from './Button.style';
 import { useButtonGroup, type ButtonBaseProps } from './ButtonGroupContext';
 import { ButtonSpinner } from './ButtonSpinner';

@@ -1,4 +1,4 @@
-import { cx } from '@resolid/nxt-utils';
+import { cx } from '@resolid/nxt-ui';
 import { Suspense } from 'react';
 import { Outlet, useNavigation } from 'react-router-dom';
 import { AsideLayout } from '~/common/components/AsideLayout';

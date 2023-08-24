@@ -1,4 +1,4 @@
-import { cx } from '@resolid/nxt-utils';
+import { cx } from '@resolid/nxt-ui';
 import { useEffect, useState } from 'react';
 
 export type TocItem = {

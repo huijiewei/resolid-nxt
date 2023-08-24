@@ -1,7 +1,8 @@
-import { __DEV__, ariaAttr, clamp, cx, runIfFn } from '@resolid/nxt-utils';
+import { __DEV__, ariaAttr, clamp, runIfFn } from '@resolid/nxt-utils';
 import { useCallback, type KeyboardEvent, type ReactNode } from 'react';
 import { useFocus, useHover, useMergedRefs } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import type { Color } from '../../utils/types';
 import { Tooltip } from '../tooltip/Tooltip';
 import { SliderColorStyles } from './Slider.style';

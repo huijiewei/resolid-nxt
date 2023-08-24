@@ -15,7 +15,19 @@
       "description": "The left and right margin applied to the separator",
       "defaultValue": "'0.5rem'"
     },
-    { "name": "lastChild", "type": "boolean", "required": false, "description": "", "defaultValue": "" },
-    { "name": "currentPage", "type": "boolean", "required": false, "description": "", "defaultValue": "" }
+    {
+      "name": "lastChild",
+      "type": "boolean",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    },
+    {
+      "name": "currentPage",
+      "type": "boolean",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    }
   ]
 }

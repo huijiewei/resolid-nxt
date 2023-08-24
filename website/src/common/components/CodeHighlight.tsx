@@ -1,6 +1,5 @@
 import { Highlight, Prism, nightOwl, nightOwlLight, type Language } from '@resolid/nxt-prism';
-import { useColorModeState } from '@resolid/nxt-ui';
-import { cx } from '@resolid/nxt-utils';
+import { cx, useColorModeState } from '@resolid/nxt-ui';
 import type { ComponentProps } from 'react';
 
 export type CodeHighlightProps = Omit<ComponentProps<'pre'>, 'children' | 'style'> & {

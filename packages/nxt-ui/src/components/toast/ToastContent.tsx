@@ -1,7 +1,8 @@
 import { useFloating, useTransitionStatus } from '@floating-ui/react';
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import { useCallback, useEffect, useState } from 'react';
 import { usePrevious, useTimeout } from '../../hooks';
+import { cx } from '../../utils/cva';
 import { Toast } from './Toast';
 import type { ToastOptions } from './ToastContext';
 

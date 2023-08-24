@@ -5,10 +5,10 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  cx,
   useColorModeDispatch,
   useColorModeState,
 } from '@resolid/nxt-ui';
-import { cx } from '@resolid/nxt-utils';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Moon } from '~/common/icons/Moon';

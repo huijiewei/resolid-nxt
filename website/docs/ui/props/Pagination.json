@@ -1,13 +1,55 @@
 {
   "path": "/pagination/Pagination.tsx",
   "props": [
-    { "name": "page", "type": "number", "required": false, "description": "Current page", "defaultValue": "" },
-    { "name": "defaultPage", "type": "number", "required": false, "description": "Default page", "defaultValue": "1" },
-    { "name": "total", "type": "", "required": true, "description": "Total number", "defaultValue": "10" },
-    { "name": "pageSize", "type": "number", "required": false, "description": "Page size", "defaultValue": "20" },
-    { "name": "siblings", "type": "number", "required": false, "description": "Siblings", "defaultValue": "2" },
-    { "name": "boundaries", "type": "number", "required": false, "description": "Boundaries", "defaultValue": "2" },
-    { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled", "defaultValue": "" },
+    {
+      "name": "page",
+      "type": "number",
+      "required": false,
+      "description": "Current page",
+      "defaultValue": ""
+    },
+    {
+      "name": "defaultPage",
+      "type": "number",
+      "required": false,
+      "description": "Default page",
+      "defaultValue": "1"
+    },
+    {
+      "name": "total",
+      "type": "",
+      "required": true,
+      "description": "Total number",
+      "defaultValue": "10"
+    },
+    {
+      "name": "pageSize",
+      "type": "number",
+      "required": false,
+      "description": "Page size",
+      "defaultValue": "20"
+    },
+    {
+      "name": "siblings",
+      "type": "number",
+      "required": false,
+      "description": "Siblings",
+      "defaultValue": "2"
+    },
+    {
+      "name": "boundaries",
+      "type": "number",
+      "required": false,
+      "description": "Boundaries",
+      "defaultValue": "2"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Disabled",
+      "defaultValue": ""
+    },
     {
       "name": "onChange",
       "type": "(page: number) => void",

@@ -1,4 +1,3 @@
-import { cx } from '@resolid/nxt-utils';
 import { useCallback } from 'react';
 import { type Token } from '../utils/normalizeTokens';
 import type { StyleObj, ThemeDict } from '../utils/themeToDict';
@@ -22,7 +21,7 @@ export const useGetLineProps = (themeDict?: ThemeDict) =>
     ({ className, style, line, ...rest }: LineInputProps) => {
       const output: LineOutputProps = {
         ...rest,
-        className: cx('token-line', className),
+        className: ['token-line', className].join(' '),
       };
 
       if (typeof themeDict === 'object' && 'plain' in themeDict) {

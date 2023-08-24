@@ -1,4 +1,4 @@
-import { cx } from '@resolid/nxt-utils';
+import { cx } from '@resolid/nxt-ui';
 import { useTranslation } from 'react-i18next';
 import { useAsideLayoutDispatch } from '~/common/components/AsideLayout';
 import { LocalizedNavLink } from '~/common/components/LocalizedLink';

@@ -1,5 +1,6 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import { polymorphicComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import { VisuallyHidden } from '../visually-hidden/VisuallyHidden';
 import type { SpinnerStyles } from './Spinner.style';
 import { spinnerStyles } from './Spinner.style';
@@ -9,13 +10,13 @@ export type SpinnerProps = {
    * Size
    * @default 'md'
    */
-  size?: NonNullable<SpinnerStyles['size']>;
+  size?: SpinnerStyles['size'];
 
   /**
    * Color
    * @default 'primary'
    */
-  color?: NonNullable<SpinnerStyles['color']>;
+  color?: SpinnerStyles['color'];
   /**
    * Label
    * @default 'Loading…'

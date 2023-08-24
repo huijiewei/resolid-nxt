@@ -1,4 +1,12 @@
 {
   "path": "/checkbox/CheckboxIcon.tsx",
-  "props": [{ "name": "indeterminate", "type": "boolean", "required": false, "description": "", "defaultValue": "" }]
+  "props": [
+    {
+      "name": "indeterminate",
+      "type": "boolean",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
+    }
+  ]
 }

@@ -1,7 +1,8 @@
-import { __DEV__, cx } from '@resolid/nxt-utils';
+import { __DEV__ } from '@resolid/nxt-utils';
 import type { ReactElement } from 'react';
 import { Children, cloneElement, isValidElement } from 'react';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import type { BreadcrumbProps } from './Breadcrumb';
 import { BreadcrumbLink } from './BreadcrumbLink';
 import { BreadcrumbSeparator } from './BreadcrumbSeparator';

@@ -1,7 +1,8 @@
-import { __DEV__, clamp, cx } from '@resolid/nxt-utils';
+import { __DEV__, clamp } from '@resolid/nxt-utils';
 import { useCallback, useMemo, useRef, useState, type MouseEvent, type TouchEvent } from 'react';
 import { useControllableState, useMove } from '../../hooks';
 import { primitiveComponent } from '../../primitives';
+import { cx } from '../../utils/cva';
 import {
   SliderProvider,
   SliderThumbProvider,
