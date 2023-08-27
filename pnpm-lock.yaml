@@ -66,8 +66,8 @@ importers:
         specifier: ^7.2.0
         version: 7.2.0(ts-node@10.9.1)(typescript@5.2.2)
       type-fest:
-        specifier: ^4.2.0
-        version: 4.2.0
+        specifier: ^4.3.0
+        version: 4.3.0
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
@@ -1646,7 +1646,7 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.0.3(rollup@3.28.1)
+      '@rollup/pluginutils': 5.0.4(rollup@3.28.1)
       commondir: 1.0.1
       estree-walker: 2.0.2
       glob: 8.1.0
@@ -1664,7 +1664,7 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.0.3(rollup@3.28.1)
+      '@rollup/pluginutils': 5.0.4(rollup@3.28.1)
       rollup: 3.28.1
     dev: true
 
@@ -1677,7 +1677,7 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.0.3(rollup@3.28.1)
+      '@rollup/pluginutils': 5.0.4(rollup@3.28.1)
       '@types/resolve': 1.20.2
       deepmerge: 4.3.1
       is-builtin-module: 3.2.1
@@ -1686,8 +1686,8 @@ packages:
       rollup: 3.28.1
     dev: true
 
-  /@rollup/pluginutils@5.0.3(rollup@3.28.1):
-    resolution: {integrity: sha512-hfllNN4a80rwNQ9QCxhxuHCGHMAvabXqxNdaChUSSadMre7t4iEUI6fFAhBOn/eIYTgYVhBv7vCLsAJ4u3lf3g==}
+  /@rollup/pluginutils@5.0.4(rollup@3.28.1):
+    resolution: {integrity: sha512-0KJnIoRI8A+a1dqOYLxH8vBf8bphDmty5QvIm2hqm7oFCFYKCAZWWd2hXgMibaPsNDhI0AtpYfQZJG47pt/k4g==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^1.20.0||^2.0.0||^3.0.0
@@ -7109,8 +7109,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /type-fest@4.2.0:
-    resolution: {integrity: sha512-5zknd7Dss75pMSED270A1RQS3KloqRJA9XbXLe0eCxyw7xXFb3rd+9B0UQ/0E+LQT6lnrLviEolYORlRWamn4w==}
+  /type-fest@4.3.0:
+    resolution: {integrity: sha512-XbMcLhoaaX/vw1S8jTKysTlznqSPxDXj1Jf56neDMksT1xoKr02pFAhHhDbW9bFejktlwKto18/UsdXlnUCBMg==}
     engines: {node: '>=16'}
     dev: true
 
@@ -7352,7 +7352,7 @@ packages:
         optional: true
     dependencies:
       '@antfu/utils': 0.7.6
-      '@rollup/pluginutils': 5.0.3(rollup@3.28.1)
+      '@rollup/pluginutils': 5.0.4(rollup@3.28.1)
       debug: 4.3.4
       error-stack-parser-es: 0.1.1
       fs-extra: 11.1.1
