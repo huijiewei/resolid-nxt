@@ -251,11 +251,11 @@ importers:
         specifier: workspace:*
         version: link:../nxt-utils
       '@tanstack/react-virtual':
-        specifier: 3.0.0-beta.54
-        version: 3.0.0-beta.54(react@18.2.0)
+        specifier: 3.0.0-beta.56
+        version: 3.0.0-beta.56(react@18.2.0)
       cva:
-        specifier: 1.0.0-beta.0
-        version: 1.0.0-beta.0(typescript@5.2.2)
+        specifier: 1.0.0-beta.1
+        version: 1.0.0-beta.1(typescript@5.2.2)
       react-remove-scroll-bar:
         specifier: ^2.3.4
         version: 2.3.4(@types/react@18.2.21)(react@18.2.0)
@@ -1506,17 +1506,17 @@ packages:
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
-  /@tanstack/react-virtual@3.0.0-beta.54(react@18.2.0):
-    resolution: {integrity: sha512-D1mDMf4UPbrtHRZZriCly5bXTBMhylslm4dhcHqTtDJ6brQcgGmk8YD9JdWBGWfGSWPKoh2x1H3e7eh+hgPXtQ==}
+  /@tanstack/react-virtual@3.0.0-beta.56(react@18.2.0):
+    resolution: {integrity: sha512-KKG/79i2zEwyNXmrNGen/FrI/XOHDj0PgIbauVpg6rmMk89MkoFGOsvNJm6FNieZrn2cQ4OHiozbwwV6XtO2yQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@tanstack/virtual-core': 3.0.0-beta.54
+      '@tanstack/virtual-core': 3.0.0-beta.56
       react: 18.2.0
     dev: false
 
-  /@tanstack/virtual-core@3.0.0-beta.54:
-    resolution: {integrity: sha512-jtkwqdP2rY2iCCDVAFuaNBH3fiEi29aTn2RhtIoky8DTTiCdc48plpHHreLwmv1PICJ4AJUUESaq3xa8fZH8+g==}
+  /@tanstack/virtual-core@3.0.0-beta.56:
+    resolution: {integrity: sha512-LlSDjGCexbqpIYIjop6fiTxvuK6BAEVLBi4e8hHNo54M5YMbyKxjSgf/bcOuUEgf6sv8mabH8naX3L7FxCcK1g==}
     dev: false
 
   /@testing-library/dom@9.3.1:
@@ -2611,8 +2611,8 @@ packages:
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
 
-  /cva@1.0.0-beta.0(typescript@5.2.2):
-    resolution: {integrity: sha512-xbUtceKZCG/VrluutHu2WIIrGeJMp7nje30ZwiRHqdzAbWKkbUOiUjIwmFm87LErqN71AJ+4JeXPNsefTkrgTw==}
+  /cva@1.0.0-beta.1(typescript@5.2.2):
+    resolution: {integrity: sha512-gznFqTgERU9q4wg7jfgqtt34+RUt9S5t0xDAAEuDwQEAXEgjdDkKXpLLNjwSxsB4Ln/sqWJEH7yhE8Ny0mxd0w==}
     peerDependencies:
       typescript: '>= 4.5.5 < 6'
     peerDependenciesMeta:
