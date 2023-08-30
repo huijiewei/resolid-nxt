@@ -1,18 +1,24 @@
-import { __DEV__, ariaAttr, dataAttr } from '@resolid/nxt-utils';
+import { ariaAttr, dataAttr, type Merge } from '@resolid/nxt-utils';
+import type { ComponentPropsWithoutRef, ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 import { useMergedRefs } from '../../hooks';
-import { primitiveComponent } from '../../primitives';
 import { cx } from '../../utils/cva';
-import { useSelect, type OptionBase, type OptionDefault } from './SelectContext';
+import { useSelect, type FieldNames, type OptionBase, type OptionDefault, type OptionRender } from './SelectContext';
 
-export type SelectOptionProps<Option extends OptionBase = OptionDefault> = {
-  option: Omit<Option, 'options'>;
+export type SelectOptionProps<Option extends OptionBase> = {
+  option: Omit<Option, keyof FieldNames['options']>;
+  onSelect: (option: Omit<Option, keyof FieldNames['options']>) => void;
+  render: OptionRender<Omit<Option, keyof FieldNames['options']>>;
   index: number;
 };
 
-export const SelectOption = primitiveComponent<'li', SelectOptionProps, 'children'>((props, ref) => {
-  const { option, index, className, ...rest } = props;
+const SelectOptionInner = <Option extends OptionBase = OptionDefault>(
+  props: Merge<Omit<ComponentPropsWithoutRef<'li'>, 'children'>, SelectOptionProps<Option>>,
+  ref: ForwardedRef<HTMLLIElement>,
+) => {
+  const { option, onSelect, render, index, className, ...rest } = props;
 
-  const { activeIndex, selectedIndex, getItemProps, elementsRef, handleSelect, optionRender } = useSelect();
+  const { activeIndex, selectedIndex, getItemProps, elementsRef } = useSelect();
 
   const refs = useMergedRefs(ref, (node) => {
     elementsRef.current[index] = node;
@@ -41,16 +47,18 @@ export const SelectOption = primitiveComponent<'li', SelectOptionProps, 'childre
             return;
           }
 
-          handleSelect(option);
+          onSelect(option);
         },
       })}
       {...rest}
     >
-      {optionRender(option)}
+      {render(option)}
     </li>
   );
-});
+};
 
-if (__DEV__) {
-  SelectOption.displayName = 'SelectOption';
-}
+export const SelectOption = forwardRef(SelectOptionInner) as <Option extends OptionBase>(
+  props: Merge<Omit<ComponentPropsWithoutRef<'li'>, 'children'>, SelectOptionProps<Option>> & {
+    ref?: ForwardedRef<HTMLLIElement>;
+  },
+) => ReturnType<typeof SelectOptionInner>;

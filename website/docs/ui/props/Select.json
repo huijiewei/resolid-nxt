@@ -45,7 +45,7 @@
     },
     {
       "name": "filter",
-      "type": "(keyword: string, option: Omit<OptionDefault, never>) => boolean",
+      "type": "(keyword: string, option: Omit<Option, never>) => boolean",
       "required": false,
       "description": "Function based on which items in dropdown are filtered",
       "defaultValue": ""
@@ -136,28 +136,28 @@
     },
     {
       "name": "onSelect",
-      "type": "((value: string | number | null, option: Omit<OptionDefault, never>) => void)",
+      "type": "((value: string | number | null, option: Omit<Option, never>) => void)",
       "required": false,
       "description": "onSelect callback",
       "defaultValue": ""
     },
     {
       "name": "onDeselect",
-      "type": "((value: string | number | null, option: Omit<OptionDefault, never>) => void)",
+      "type": "((value: string | number | null, option: Omit<Option, never>) => void)",
       "required": false,
       "description": "onDeselect callback",
       "defaultValue": ""
     },
     {
       "name": "labelRender",
-      "type": "OptionRender<Omit<OptionDefault, never>>",
+      "type": "OptionRender<Omit<Option, never>>",
       "required": false,
       "description": "Label render",
       "defaultValue": ""
     },
     {
       "name": "optionRender",
-      "type": "OptionRender<Omit<OptionDefault, never>>",
+      "type": "OptionRender<Omit<Option, never>>",
       "required": false,
       "description": "Option render",
       "defaultValue": ""

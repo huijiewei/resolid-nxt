@@ -9,6 +9,20 @@
       "defaultValue": ""
     },
     {
+      "name": "onSelect",
+      "type": "",
+      "required": true,
+      "description": "",
+      "defaultValue": ""
+    },
+    {
+      "name": "render",
+      "type": "",
+      "required": true,
+      "description": "",
+      "defaultValue": ""
+    },
+    {
       "name": "index",
       "type": "",
       "required": true,

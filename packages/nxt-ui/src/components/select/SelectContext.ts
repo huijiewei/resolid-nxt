@@ -22,13 +22,11 @@ export type FieldNames = {
   options?: string;
 };
 
-export type SelectContext<Option extends OptionBase = OptionDefault> = {
+export type SelectContext = {
   activeIndex: number | null;
   selectedIndex: number[];
   elementsRef: MutableRefObject<(HTMLLIElement | null)[]>;
   getItemProps: (userProps?: HTMLProps<HTMLElement> | undefined) => Dict<unknown>;
-  handleSelect: (option: Omit<Option, 'options'>) => void;
-  optionRender: OptionRender<Omit<Option, 'options'>>;
 };
 
 const [SelectProvider, useSelect] = createContext<SelectContext>({

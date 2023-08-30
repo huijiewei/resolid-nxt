@@ -11,9 +11,19 @@ import {
   useRole,
   useTransitionStatus,
 } from '@floating-ui/react';
-import { __DEV__, ariaAttr, dataAttr } from '@resolid/nxt-utils';
+import { ariaAttr, dataAttr, type Merge } from '@resolid/nxt-utils';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import { Fragment, useCallback, useMemo, useRef, useState, type CSSProperties } from 'react';
+import {
+  Fragment,
+  forwardRef,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ComponentPropsWithoutRef,
+  type ForwardedRef,
+} from 'react';
 import {
   useCallbackRef,
   useControllableState,
@@ -23,7 +33,6 @@ import {
   useMergedRefs,
   usePrevious,
 } from '../../hooks';
-import { primitiveComponent } from '../../primitives';
 import { cx } from '../../utils/cva';
 import type { Size } from '../../utils/types';
 import { CloseButton } from '../close-button/CloseButton';
@@ -37,12 +46,11 @@ import {
   type OptionBase,
   type OptionDefault,
   type OptionRender,
-  type SelectContext,
 } from './SelectContext';
 import { SelectOption } from './SelectOption';
 import { SelectSearch } from './SelectSearch';
 
-export type SelectProps<Option extends OptionBase = OptionDefault> = {
+export type SelectProps<Option extends OptionBase> = {
   /**
    * Select options used to render items in dropdown
    */
@@ -173,7 +181,10 @@ export type SelectProps<Option extends OptionBase = OptionDefault> = {
   duration?: number;
 };
 
-export const Select = primitiveComponent<'input', SelectProps, 'children'>((props, ref) => {
+const SelectInner = <Option extends OptionBase = OptionDefault>(
+  props: Merge<Omit<ComponentPropsWithoutRef<'input'>, 'children'>, SelectProps<Option>>,
+  ref: ForwardedRef<HTMLInputElement>,
+) => {
   const {
     id,
     options,
@@ -236,19 +247,19 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
   });
 
   const { filterOptions, selectOptions, optionArray } = useMemo(() => {
-    const filterOptions: OptionDefault[] = [];
-    const selectOptions: (Omit<OptionDefault, 'options'> & { index: number })[] = [];
-    const optionArray: Omit<OptionDefault, 'options'>[] = [];
+    const filterOptions: Option[] = [];
+    const selectOptions: (Omit<Option, keyof FieldNames['options']> & { index: number })[] = [];
+    const optionArray: Omit<Option, keyof FieldNames['options']>[] = [];
 
     let optionIndex = 0;
     let hasGroupOptions = false;
 
-    const pushOption = (option: OptionDefault) => {
+    const pushOption = (option: Option) => {
       filterOptions.push(option);
 
       if (option[mergedFieldNames.options]) {
         hasGroupOptions = true;
-        option[mergedFieldNames.options].forEach((groupOption: Omit<OptionDefault, 'options'>) => {
+        option[mergedFieldNames.options].forEach((groupOption: Omit<Option, keyof FieldNames['options']>) => {
           optionArray.push(groupOption);
 
           if (Array.isArray(state)) {
@@ -283,8 +294,8 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
         if (option[mergedFieldNames.options]) {
           const group = option;
 
-          group[mergedFieldNames.options] = option[mergedFieldNames.options].filter(
-            (groupOption: Omit<OptionDefault, 'options'>) => {
+          (group as unknown as OptionBase)[mergedFieldNames.options] = option[mergedFieldNames.options].filter(
+            (groupOption: Omit<Option, keyof FieldNames['options']>) => {
               return filterRef(searchValue, groupOption);
             },
           );
@@ -375,7 +386,7 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
 
   const labelRenderRef = useCallbackRef(labelRender ?? ((option) => option[mergedFieldNames.label]));
 
-  const renderSingleValue = (selectOption: Omit<OptionDefault, 'options'> | undefined) => {
+  const renderSingleValue = (selectOption: Omit<Option, keyof FieldNames['options']> | undefined) => {
     return (
       <div className={'grid flex-1 flex-wrap'}>
         {searchValue == '' &&
@@ -389,7 +400,7 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
     );
   };
 
-  const renderMultipleValue = (selectOptions: Omit<OptionDefault, 'options'>[]) => {
+  const renderMultipleValue = (selectOptions: Omit<Option, keyof FieldNames['options']>[]) => {
     return (
       <div
         className={cx(
@@ -437,9 +448,9 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
   }, [multiple, onClear, setState]);
 
   const handleSelect = useCallback(
-    (option: Omit<OptionDefault, 'options'>, close = true) => {
+    (option: Omit<Option, keyof FieldNames['options']>, close = true) => {
       const multiple = Array.isArray(state);
-      const value = option[mergedFieldNames.value];
+      const value = option[mergedFieldNames.value] as string | number;
 
       let nextValue;
 
@@ -477,17 +488,17 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
     [closeOnSelect, mergedFieldNames.value, onDeselect, onSelect, refs.domReference, searchable, setState, state],
   );
 
-  const selectContext = useMemo<SelectContext>(() => {
+  const render = optionRender ?? ((option) => option[mergedFieldNames.label]);
+
+  const selectContext = useMemo(() => {
     return {
       activeIndex,
       selectedIndex: selectOptions.map((option) => option.index),
       getItemProps,
-      handleSelect,
       elementsRef,
-      optionRender: optionRender ?? ((option) => option[mergedFieldNames.label]),
       fieldNames: mergedFieldNames,
     };
-  }, [activeIndex, getItemProps, handleSelect, mergedFieldNames, optionRender, selectOptions]);
+  }, [activeIndex, getItemProps, mergedFieldNames, selectOptions]);
 
   const rowVirtual = useVirtualizer({
     count: optionArray.length,
@@ -720,7 +731,7 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
                     const option = filterOptions[row.index];
 
                     return (
-                      <SelectOption
+                      <SelectOption<Option>
                         index={row.index}
                         style={{
                           position: 'absolute',
@@ -732,6 +743,8 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
                         className={sizeOptionStyle}
                         key={`item-${option[mergedFieldNames.value]}`}
                         option={option}
+                        render={render}
+                        onSelect={handleSelect}
                       />
                     );
                   })
@@ -743,29 +756,35 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
                           <Divider position={'left'} className={'mb-1 text-fg-subtle [&:not(:first-child)]:mt-1'}>
                             {option[mergedFieldNames.label]}
                           </Divider>
-                          {option[mergedFieldNames.options].map((groupOption: Omit<OptionDefault, 'options'>) => {
-                            const selectOption = (
-                              <SelectOption
-                                index={optionIndex}
-                                className={sizeOptionStyle}
-                                key={`item-${groupOption[mergedFieldNames.value]}`}
-                                option={groupOption}
-                              />
-                            );
+                          {option[mergedFieldNames.options].map(
+                            (groupOption: Omit<Option, keyof FieldNames['options']>) => {
+                              const selectOption = (
+                                <SelectOption<Option>
+                                  index={optionIndex}
+                                  className={sizeOptionStyle}
+                                  key={`item-${groupOption[mergedFieldNames.value]}`}
+                                  option={groupOption}
+                                  render={render}
+                                  onSelect={handleSelect}
+                                />
+                              );
 
-                            optionIndex++;
+                              optionIndex++;
 
-                            return selectOption;
-                          })}
+                              return selectOption;
+                            },
+                          )}
                         </Fragment>
                       );
                     } else {
                       const selectOption = (
-                        <SelectOption
+                        <SelectOption<Option>
                           index={optionIndex}
                           className={sizeOptionStyle}
                           key={`item-${option[mergedFieldNames.value]}`}
                           option={option}
+                          render={render}
+                          onSelect={handleSelect}
                         />
                       );
 
@@ -784,8 +803,10 @@ export const Select = primitiveComponent<'input', SelectProps, 'children'>((prop
       )}
     </>
   );
-});
+};
 
-if (__DEV__) {
-  Select.displayName = 'Select';
-}
+export const Select = forwardRef(SelectInner) as <Option extends OptionBase>(
+  props: Merge<Omit<ComponentPropsWithoutRef<'input'>, 'children'>, SelectProps<Option>> & {
+    ref?: ForwardedRef<HTMLInputElement>;
+  },
+) => ReturnType<typeof SelectInner>;
