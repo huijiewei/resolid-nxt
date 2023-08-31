@@ -93,7 +93,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",
-    "@babel/parser": "^7.22.13",
+    "@babel/parser": "^7.22.14",
     "@babel/traverse": "^7.22.11",
     "@remix-run/router": "^1.8.0",
     "@types/babel__core": "^7.20.1",
