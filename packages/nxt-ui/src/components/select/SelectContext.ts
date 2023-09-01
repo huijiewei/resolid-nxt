@@ -16,7 +16,7 @@ export type OptionDefault = {
 
 export type OptionRender<Option> = (option: Option) => ReactNode;
 
-export type FieldNames = {
+export type OptionFieldNames = {
   value?: string;
   label?: string;
   options?: string;

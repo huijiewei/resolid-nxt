@@ -10,7 +10,7 @@
     },
     {
       "name": "fieldNames",
-      "type": "FieldNames",
+      "type": "OptionFieldNames",
       "required": false,
       "description": "Option field names",
       "defaultValue": ""

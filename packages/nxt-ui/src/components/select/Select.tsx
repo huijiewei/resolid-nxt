@@ -42,9 +42,9 @@ import { selectSizeStyles } from './Select.style';
 import { SelectChevron } from './SelectChevron';
 import {
   SelectProvider,
-  type FieldNames,
   type OptionBase,
   type OptionDefault,
+  type OptionFieldNames,
   type OptionRender,
 } from './SelectContext';
 import { SelectOption } from './SelectOption';
@@ -59,7 +59,7 @@ export type SelectProps<Option extends OptionBase> = {
   /**
    * Option field names
    */
-  fieldNames?: FieldNames;
+  fieldNames?: OptionFieldNames;
   /**
    * Size
    * @default 'md'
@@ -87,7 +87,7 @@ export type SelectProps<Option extends OptionBase> = {
   /**
    * Function based on which items in dropdown are filtered
    */
-  filter?: (keyword: string, option: Omit<Option, keyof FieldNames['options']>) => boolean;
+  filter?: (keyword: string, option: Omit<Option, keyof OptionFieldNames['options']>) => boolean;
 
   /**
    * Placeholder
@@ -157,22 +157,22 @@ export type SelectProps<Option extends OptionBase> = {
   /**
    * onSelect callback
    */
-  onSelect?: (value: string | number | null, option: Omit<Option, keyof FieldNames['options']>) => void;
+  onSelect?: (value: string | number | null, option: Omit<Option, keyof OptionFieldNames['options']>) => void;
 
   /**
    * onDeselect callback
    */
-  onDeselect?: (value: string | number | null, option: Omit<Option, keyof FieldNames['options']>) => void;
+  onDeselect?: (value: string | number | null, option: Omit<Option, keyof OptionFieldNames['options']>) => void;
 
   /**
    * Label render
    */
-  labelRender?: OptionRender<Omit<Option, keyof FieldNames['options']>>;
+  labelRender?: OptionRender<Omit<Option, keyof OptionFieldNames['options']>>;
 
   /**
    * Option render
    */
-  optionRender?: OptionRender<Omit<Option, keyof FieldNames['options']>>;
+  optionRender?: OptionRender<Omit<Option, keyof OptionFieldNames['options']>>;
 
   /**
    * Animation Duration
@@ -248,8 +248,8 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
 
   const { filterOptions, selectOptions, optionArray } = useMemo(() => {
     const filterOptions: Option[] = [];
-    const selectOptions: (Omit<Option, keyof FieldNames['options']> & { index: number })[] = [];
-    const optionArray: Omit<Option, keyof FieldNames['options']>[] = [];
+    const selectOptions: (Omit<Option, keyof OptionFieldNames['options']> & { index: number })[] = [];
+    const optionArray: Omit<Option, keyof OptionFieldNames['options']>[] = [];
 
     let optionIndex = 0;
     let hasGroupOptions = false;
@@ -259,7 +259,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
 
       if (option[mergedFieldNames.options]) {
         hasGroupOptions = true;
-        option[mergedFieldNames.options].forEach((groupOption: Omit<Option, keyof FieldNames['options']>) => {
+        option[mergedFieldNames.options].forEach((groupOption: Omit<Option, keyof OptionFieldNames['options']>) => {
           optionArray.push(groupOption);
 
           if (Array.isArray(state)) {
@@ -295,7 +295,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
           const group = option;
 
           (group as unknown as OptionBase)[mergedFieldNames.options] = option[mergedFieldNames.options].filter(
-            (groupOption: Omit<Option, keyof FieldNames['options']>) => {
+            (groupOption: Omit<Option, keyof OptionFieldNames['options']>) => {
               return filterRef(searchValue, groupOption);
             },
           );
@@ -386,7 +386,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
 
   const labelRenderRef = useCallbackRef(labelRender ?? ((option) => option[mergedFieldNames.label]));
 
-  const renderSingleValue = (selectOption: Omit<Option, keyof FieldNames['options']> | undefined) => {
+  const renderSingleValue = (selectOption: Omit<Option, keyof OptionFieldNames['options']> | undefined) => {
     return (
       <div className={'grid flex-1 flex-wrap'}>
         {searchValue == '' &&
@@ -400,7 +400,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
     );
   };
 
-  const renderMultipleValue = (selectOptions: Omit<Option, keyof FieldNames['options']>[]) => {
+  const renderMultipleValue = (selectOptions: Omit<Option, keyof OptionFieldNames['options']>[]) => {
     return (
       <div
         className={cx(
@@ -448,7 +448,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
   }, [multiple, onClear, setState]);
 
   const handleSelect = useCallback(
-    (option: Omit<Option, keyof FieldNames['options']>, close = true) => {
+    (option: Omit<Option, keyof OptionFieldNames['options']>, close = true) => {
       const multiple = Array.isArray(state);
       const value = option[mergedFieldNames.value] as string | number;
 
@@ -757,7 +757,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                             {option[mergedFieldNames.label]}
                           </Divider>
                           {option[mergedFieldNames.options].map(
-                            (groupOption: Omit<Option, keyof FieldNames['options']>) => {
+                            (groupOption: Omit<Option, keyof OptionFieldNames['options']>) => {
                               const selectOption = (
                                 <SelectOption<Option>
                                   index={optionIndex}

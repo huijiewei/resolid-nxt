@@ -3,12 +3,18 @@ import type { ComponentPropsWithoutRef, ForwardedRef } from 'react';
 import { forwardRef } from 'react';
 import { useMergedRefs } from '../../hooks';
 import { cx } from '../../utils/cva';
-import { useSelect, type FieldNames, type OptionBase, type OptionDefault, type OptionRender } from './SelectContext';
+import {
+  useSelect,
+  type OptionBase,
+  type OptionDefault,
+  type OptionFieldNames,
+  type OptionRender,
+} from './SelectContext';
 
 export type SelectOptionProps<Option extends OptionBase> = {
-  option: Omit<Option, keyof FieldNames['options']>;
-  onSelect: (option: Omit<Option, keyof FieldNames['options']>) => void;
-  render: OptionRender<Omit<Option, keyof FieldNames['options']>>;
+  option: Omit<Option, keyof OptionFieldNames['options']>;
+  onSelect: (option: Omit<Option, keyof OptionFieldNames['options']>) => void;
+  render: OptionRender<Omit<Option, keyof OptionFieldNames['options']>>;
   index: number;
 };
 
