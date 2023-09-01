@@ -60,8 +60,8 @@ importers:
         specifier: ^3.2.3
         version: 3.2.3(prettier@3.0.3)(typescript@5.2.2)
       prettier-plugin-tailwindcss:
-        specifier: ^0.5.3
-        version: 0.5.3(prettier-plugin-organize-imports@3.2.3)(prettier@3.0.3)
+        specifier: ^0.5.4
+        version: 0.5.4(prettier-plugin-organize-imports@3.2.3)(prettier@3.0.3)
       tsup:
         specifier: ^7.2.0
         version: 7.2.0(ts-node@10.9.1)(typescript@5.2.2)
@@ -2193,7 +2193,7 @@ packages:
     dependencies:
       browserslist: 4.21.10
       caniuse-lite: 1.0.30001525
-      fraction.js: 4.3.2
+      fraction.js: 4.3.4
       normalize-range: 0.1.2
       picocolors: 1.0.0
       postcss: 8.4.29
@@ -2262,7 +2262,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001525
-      electron-to-chromium: 1.4.506
+      electron-to-chromium: 1.4.507
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.10)
     dev: true
@@ -2929,8 +2929,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /electron-to-chromium@1.4.506:
-    resolution: {integrity: sha512-xxGct4GPAKSRlrLBtJxJFYy74W11zX6PO9GyHgl/U+2s3Dp0ZEwAklDfNHXOWcvH7zWMpsmgbR0ggEuaYAVvHA==}
+  /electron-to-chromium@1.4.507:
+    resolution: {integrity: sha512-brvPFnO1lu3UYBpBht2qWw9qqhdG4htTjT90/9oOJmxQ77VvTxL9+ghErFqQzgj7n8268ONAmlebqjBR/S+qgA==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -3519,8 +3519,8 @@ packages:
       mime-types: 2.1.35
     dev: false
 
-  /fraction.js@4.3.2:
-    resolution: {integrity: sha512-9VLF466MqX1OUP7/d9r7/Vsvu6Hpp+taXBLmiR5x6mEYfT0BDkGVBt5TyA1aDu1WzIE1sF8F66evOFaz7iAEGQ==}
+  /fraction.js@4.3.4:
+    resolution: {integrity: sha512-pwiTgt0Q7t+GHZA4yaLjObx4vXmmdcS0iSJ19o8d/goUGgItX9UZWKWNnLHehxviD8wU2IWRsnR8cD5+yOJP2Q==}
     dev: true
 
   /fs-extra@11.1.1:
@@ -5736,8 +5736,8 @@ packages:
       typescript: 5.2.2
     dev: true
 
-  /prettier-plugin-tailwindcss@0.5.3(prettier-plugin-organize-imports@3.2.3)(prettier@3.0.3):
-    resolution: {integrity: sha512-M5K80V21yM+CTm/FEFYRv9/9LyInYbCSXpIoPAKMm8zy89IOwdiA2e4JVbcO7tvRtAQWz32zdj7/WKcsmFyAVg==}
+  /prettier-plugin-tailwindcss@0.5.4(prettier-plugin-organize-imports@3.2.3)(prettier@3.0.3):
+    resolution: {integrity: sha512-QZzzB1bID6qPsKHTeA9qPo1APmmxfFrA5DD3LQ+vbTmAnY40eJI7t9Q1ocqel2EKMWNPLJqdTDWZj1hKYgqSgg==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
