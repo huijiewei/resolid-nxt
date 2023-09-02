@@ -55,7 +55,7 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "tailwindcss": "^3.3.3",
-    "tsx": "^3.12.7",
+    "tsx": "^3.12.8",
     "vfile": "^5.3.7"
   }
 }
