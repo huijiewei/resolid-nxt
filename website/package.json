@@ -22,7 +22,7 @@
     "@resolid/nxt-utils": "workspace:*",
     "drizzle-orm": "^0.28.5",
     "fast-blurhash": "^1.1.2",
-    "i18next": "^23.4.6",
+    "i18next": "^23.4.9",
     "i18next-fs-backend": "^2.1.5",
     "i18next-http-backend": "^2.2.2",
     "isbot": "^3.6.13",
