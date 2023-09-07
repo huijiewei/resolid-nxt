@@ -116,7 +116,14 @@ const NavUser = () => {
 
   return (
     <Tooltip placement={'bottom'} content={t('loginOrSignup')}>
-      <Button className={'aspect-square !px-0'} color={'neutral'} variant={'subtle'} as={LocalizedLink} to={to}>
+      <Button
+        aria-label={t('loginOrSignup')}
+        className={'aspect-square !px-0'}
+        color={'neutral'}
+        variant={'subtle'}
+        as={LocalizedLink}
+        to={to}
+      >
         <UserCircle size={'sm'} />
       </Button>
     </Tooltip>
