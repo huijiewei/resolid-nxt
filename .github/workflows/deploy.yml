@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install PNPM
         uses: pnpm/action-setup@v2
@@ -47,7 +47,7 @@ jobs:
           remote_path: /home/websites/resolid-nxt/web
 
       - name: Remote install dependencies
-        uses: appleboy/ssh-action@v0.1.10
+        uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.REMOTE_HOST }}
           port: ${{ secrets.REMOTE_PORT }}
