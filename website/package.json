@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",
-    "@marsidev/react-turnstile": "^0.3.0",
+    "@marsidev/react-turnstile": "^0.3.1",
     "@node-rs/bcrypt": "^1.7.3",
     "@resolid/nxt-prism": "workspace:*",
     "@resolid/nxt-run": "workspace:*",
@@ -20,7 +20,7 @@
     "@resolid/nxt-run-node": "workspace:*",
     "@resolid/nxt-ui": "workspace:*",
     "@resolid/nxt-utils": "workspace:*",
-    "drizzle-orm": "^0.28.5",
+    "drizzle-orm": "^0.28.6",
     "fast-blurhash": "^1.1.2",
     "i18next": "^23.4.9",
     "i18next-fs-backend": "^2.1.5",
