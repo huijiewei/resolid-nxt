@@ -22,7 +22,7 @@
     "@resolid/nxt-utils": "workspace:*",
     "drizzle-orm": "^0.28.6",
     "fast-blurhash": "^1.1.2",
-    "i18next": "^23.4.9",
+    "i18next": "^23.5.0",
     "i18next-fs-backend": "^2.1.5",
     "i18next-http-backend": "^2.2.2",
     "isbot": "^3.6.13",
@@ -34,7 +34,7 @@
     "react-i18next": "^13.2.2",
     "react-router-dom": "^6.15.0",
     "zod": "^3.22.2",
-    "zod-i18n-map": "^2.15.0"
+    "zod-i18n-map": "^2.16.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
