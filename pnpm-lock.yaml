@@ -75,8 +75,8 @@ importers:
         specifier: ^4.4.9
         version: 4.4.9(@types/node@18.17.15)
       vite-tsconfig-paths:
-        specifier: ^4.2.0
-        version: 4.2.0(typescript@5.2.2)(vite@4.4.9)
+        specifier: ^4.2.1
+        version: 4.2.1(typescript@5.2.2)(vite@4.4.9)
       vitest:
         specifier: ^0.34.4
         version: 0.34.4
@@ -343,7 +343,7 @@ importers:
         version: link:../packages/nxt-utils
       drizzle-orm:
         specifier: ^0.28.6
-        version: 0.28.6(mysql2@3.6.0)
+        version: 0.28.6(mysql2@3.6.1)
       fast-blurhash:
         specifier: ^1.1.2
         version: 1.1.2
@@ -424,8 +424,8 @@ importers:
         specifier: ^11.1.1
         version: 11.1.1
       mysql2:
-        specifier: ^3.6.0
-        version: 3.6.0
+        specifier: ^3.6.1
+        version: 3.6.1
       postcss:
         specifier: ^8.4.29
         version: 8.4.29
@@ -2878,7 +2878,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.28.6(mysql2@3.6.0):
+  /drizzle-orm@0.28.6(mysql2@3.6.1):
     resolution: {integrity: sha512-yBe+F9htrlYER7uXgDJUQsTHFoIrI5yMm5A0bg0GiZ/kY5jNXTWoEy4KQtg35cE27sw1VbgzoMWHAgCckUUUww==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -2940,7 +2940,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
-      mysql2: 3.6.0
+      mysql2: 3.6.1
     dev: false
 
   /eastasianwidth@0.2.0:
@@ -5269,8 +5269,8 @@ packages:
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
 
-  /mysql2@3.6.0:
-    resolution: {integrity: sha512-EWUGAhv6SphezurlfI2Fpt0uJEWLmirrtQR7SkbTHFC+4/mJBrPiSzHESHKAWKG7ALVD6xaG/NBjjd1DGJGQQQ==}
+  /mysql2@3.6.1:
+    resolution: {integrity: sha512-O7FXjLtNkjcMBpLURwkXIhyVbX9i4lq4nNRCykPNOXfceq94kJ0miagmTEGCZieuO8JtwtXaZ41U6KT4eF9y3g==}
     engines: {node: '>= 8.0'}
     dependencies:
       denque: 2.1.0
@@ -7169,8 +7169,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-tsconfig-paths@4.2.0(typescript@5.2.2)(vite@4.4.9):
-    resolution: {integrity: sha512-jGpus0eUy5qbbMVGiTxCL1iB9ZGN6Bd37VGLJU39kTDD6ZfULTTb1bcc5IeTWqWJKiWV5YihCaibeASPiGi8kw==}
+  /vite-tsconfig-paths@4.2.1(typescript@5.2.2)(vite@4.4.9):
+    resolution: {integrity: sha512-GNUI6ZgPqT3oervkvzU+qtys83+75N/OuDaQl7HmOqFTb0pjZsuARrRipsyJhJ3enqV8beI1xhGbToR4o78nSQ==}
     peerDependencies:
       vite: '*'
     peerDependenciesMeta:
