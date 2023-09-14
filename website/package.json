@@ -32,7 +32,7 @@
     "react-helmet-async": "^1.3.0",
     "react-hook-form": "^7.46.1",
     "react-i18next": "^13.2.2",
-    "react-router-dom": "^6.15.0",
+    "react-router-dom": "^6.16.0",
     "zod": "^3.22.2",
     "zod-i18n-map": "^2.16.0"
   },
@@ -55,7 +55,7 @@
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.1",
     "tailwindcss": "^3.3.3",
-    "tsx": "^3.12.9",
+    "tsx": "^3.12.10",
     "vfile": "^5.3.7"
   }
 }
