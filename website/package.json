@@ -40,7 +40,7 @@
     "@faker-js/faker": "^8.0.2",
     "@resolid/nxt-tailwind": "workspace:*",
     "@resolid/nxt-tests": "workspace:*",
-    "@types/fs-extra": "^11.0.1",
+    "@types/fs-extra": "^11.0.2",
     "@vcarl/remark-headings": "^0.1.0",
     "autoprefixer": "^10.4.15",
     "chokidar": "^3.5.3",
