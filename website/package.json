@@ -23,7 +23,7 @@
     "drizzle-orm": "^0.28.6",
     "fast-blurhash": "^1.1.2",
     "i18next": "^23.5.1",
-    "i18next-fs-backend": "^2.1.5",
+    "i18next-fs-backend": "^2.2.0",
     "i18next-http-backend": "^2.2.2",
     "isbot": "^3.6.13",
     "next-mdx-remote": "^4.4.1",
