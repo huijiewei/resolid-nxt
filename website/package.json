@@ -33,7 +33,7 @@
     "react-hook-form": "^7.47.0",
     "react-i18next": "^13.2.2",
     "react-router-dom": "^6.16.0",
-    "zod": "^3.22.3",
+    "zod": "^3.22.4",
     "zod-i18n-map": "^2.19.0"
   },
   "devDependencies": {
