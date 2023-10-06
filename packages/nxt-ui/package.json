@@ -30,9 +30,9 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.25.4",
+    "@floating-ui/react": "^0.26.0",
     "@resolid/nxt-utils": "workspace:*",
-    "@tanstack/react-virtual": "3.0.0-beta.61",
+    "@tanstack/react-virtual": "3.0.0-beta.63",
     "cva": "1.0.0-beta.1",
     "react-remove-scroll-bar": "^2.3.4"
   },
