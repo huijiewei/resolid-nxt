@@ -34,7 +34,7 @@
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "prettier-plugin-organize-imports": "^3.2.3",
-    "prettier-plugin-tailwindcss": "^0.5.5",
+    "prettier-plugin-tailwindcss": "^0.5.6",
     "tsup": "^7.2.0",
     "type-fest": "^4.4.0",
     "typescript": "^5.2.2",
