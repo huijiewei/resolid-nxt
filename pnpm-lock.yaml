@@ -251,8 +251,8 @@ importers:
         specifier: workspace:*
         version: link:../nxt-utils
       '@tanstack/react-virtual':
-        specifier: 3.0.0-beta.66
-        version: 3.0.0-beta.66(react@18.2.0)
+        specifier: 3.0.0-beta.68
+        version: 3.0.0-beta.68(react-dom@18.2.0)(react@18.2.0)
       cva:
         specifier: 1.0.0-beta.1
         version: 1.0.0-beta.1(typescript@5.2.2)
@@ -1499,17 +1499,19 @@ packages:
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
-  /@tanstack/react-virtual@3.0.0-beta.66(react@18.2.0):
-    resolution: {integrity: sha512-zZF6HskgTvNQppUr7KZgdLFOEXkcn2fhUlNvcBCSc7cnD36GpZBrObDYnyZjMdy7r+GGUfGviMtdz+q/kFn7Qg==}
+  /@tanstack/react-virtual@3.0.0-beta.68(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-YEFNCf+N3ZlNou2r4qnh+GscMe24foYEjTL05RS0ZHvah2RoUDPGuhnuedTv0z66dO2vIq6+Bl4TXatht5T7GQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@tanstack/virtual-core': 3.0.0-beta.66
+      '@tanstack/virtual-core': 3.0.0-beta.68
       react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@tanstack/virtual-core@3.0.0-beta.66:
-    resolution: {integrity: sha512-rsNvvfmLU6vI1BenZp8p2082ep8Eg4xr56VylZMNUQH5V7Bm+zWHaOgDgvziThWrK6jC7aXyHrIIUrXhaNzH6w==}
+  /@tanstack/virtual-core@3.0.0-beta.68:
+    resolution: {integrity: sha512-CnvsEJWK7cugigckt13AeY80FMzH+OMdEP0j0bS3/zjs44NiRe49x8FZC6R9suRXGMVMXtUHet0zbTp/Ec9Wfg==}
     dev: false
 
   /@testing-library/dom@9.3.3:
@@ -2204,7 +2206,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.22.1
-      caniuse-lite: 1.0.30001551
+      caniuse-lite: 1.0.30001553
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -2273,7 +2275,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001551
+      caniuse-lite: 1.0.30001553
       electron-to-chromium: 1.4.563
       node-releases: 2.0.13
       update-browserslist-db: 1.0.13(browserslist@4.22.1)
@@ -2345,8 +2347,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /caniuse-lite@1.0.30001551:
-    resolution: {integrity: sha512-vtBAez47BoGMMzlbYhfXrMV1kvRF2WP/lqiMuDu1Sb4EE4LKEgjopFDSRtZfdVnslNRpOqV/woE+Xgrwj6VQlg==}
+  /caniuse-lite@1.0.30001553:
+    resolution: {integrity: sha512-N0ttd6TrFfuqKNi+pMgWJTb9qrdJu4JSpgPFLe/lrD19ugC6fZgF0pUewRowDwzdDnb9V41mFcdlYgl/PyKf4A==}
     dev: true
 
   /ccount@2.0.1:
