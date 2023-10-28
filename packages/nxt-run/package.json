@@ -107,7 +107,7 @@
     "react-router-dom": "^6.17.0",
     "rollup": "^3.29.4",
     "vite": "^4.5.0",
-    "vite-plugin-inspect": "^0.7.40"
+    "vite-plugin-inspect": "^0.7.41"
   },
   "peerDependencies": {
     "@babel/core": ">=7",
