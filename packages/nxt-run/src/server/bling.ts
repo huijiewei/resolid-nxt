@@ -59,7 +59,7 @@ export const handleData$ = async (staticHandler: StaticHandler, request: Request
     }
 
     if (isRouteErrorResponse(error)) {
-      return json(error.error, {
+      return json(error.data, {
         status: error.status,
         statusText: error.statusText,
         headers: {
