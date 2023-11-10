@@ -92,9 +92,9 @@
     "set-cookie-parser": "^2.6.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.2",
-    "@babel/parser": "^7.23.0",
-    "@babel/traverse": "^7.23.2",
+    "@babel/core": "^7.23.3",
+    "@babel/parser": "^7.23.3",
+    "@babel/traverse": "^7.23.3",
     "@remix-run/router": "^1.11.0",
     "@types/babel__core": "^7.20.4",
     "@types/babel__traverse": "^7.20.4",
@@ -107,7 +107,7 @@
     "react-router-dom": "^6.18.0",
     "rollup": "^3.29.4",
     "vite": "^4.5.0",
-    "vite-plugin-inspect": "^0.7.41"
+    "vite-plugin-inspect": "^0.7.42"
   },
   "peerDependencies": {
     "@babel/core": ">=7",
