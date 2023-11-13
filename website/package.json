@@ -20,7 +20,7 @@
     "@resolid/nxt-run-node": "workspace:*",
     "@resolid/nxt-ui": "workspace:*",
     "@resolid/nxt-utils": "workspace:*",
-    "drizzle-orm": "^0.28.6",
+    "drizzle-orm": "^0.29.0",
     "fast-blurhash": "^1.1.2",
     "i18next": "^23.7.3",
     "i18next-fs-backend": "^2.3.0",
@@ -46,7 +46,7 @@
     "chokidar": "^3.5.3",
     "commander": "^11.1.0",
     "dotenv": "^16.3.1",
-    "drizzle-kit": "^0.19.13",
+    "drizzle-kit": "^0.20.2",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.1.1",
     "mysql2": "^3.6.3",
@@ -55,7 +55,7 @@
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.1",
     "tailwindcss": "^3.3.5",
-    "tsx": "^3.14.0",
+    "tsx": "^4.1.1",
     "vfile": "^5.3.7"
   }
 }
