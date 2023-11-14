@@ -51,7 +51,7 @@ export const AuthForgotPasswordForm = () => {
   return (
     <div className={'flex flex-col gap-2'}>
       <h3 className={'py-3 text-center text-xl font-bold'}>{t('forgotPassword')}</h3>
-      <Form className={'flex flex-col gap-6'} onSubmit={handleSubmit} noValidate>
+      <Form method={'post'} className={'flex flex-col gap-6'} onSubmit={handleSubmit} noValidate>
         <div className={'relative flex flex-col gap-1'}>
           <label htmlFor={'email'}>{t('email')}</label>
           <Controller

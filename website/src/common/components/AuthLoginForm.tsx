@@ -14,8 +14,8 @@ import { FormError } from '~/common/components/FormError';
 import { LocalizedLink, useLocalizedNavigate } from '~/common/components/LocalizedLink';
 
 const schema = z.object({
-  email: z.string().nonempty().email(),
-  password: z.string().nonempty(),
+  email: z.string().min(1).email(),
+  password: z.string().min(6),
   rememberMe: z.boolean().default(false),
 });
 
@@ -60,7 +60,7 @@ export const AuthLoginForm = () => {
   return (
     <div className={'flex flex-col gap-2'}>
       <h3 className={'py-3 text-center text-xl font-bold'}>{t('loginTitle')}</h3>
-      <Form className={'flex flex-col gap-6'} onSubmit={handleSubmit} noValidate>
+      <Form method={'post'} className={'flex flex-col gap-6'} onSubmit={handleSubmit} noValidate>
         <div className={'relative flex flex-col gap-1'}>
           <label htmlFor={'email'}>{t('email')}</label>
           <Controller
@@ -70,7 +70,7 @@ export const AuthLoginForm = () => {
               <Input
                 id={name}
                 name={name}
-                invalid={Boolean(errors.email)}
+                invalid={Boolean(errors.email?.message)}
                 type={'email'}
                 fullWidth
                 placeholder={t('email') as string}
@@ -92,7 +92,7 @@ export const AuthLoginForm = () => {
               <Input
                 id={name}
                 name={name}
-                invalid={Boolean(errors.password)}
+                invalid={Boolean(errors.password?.message)}
                 type={'password'}
                 fullWidth
                 placeholder={t('password') as string}

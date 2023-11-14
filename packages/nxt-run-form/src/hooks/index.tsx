@@ -42,6 +42,9 @@ export const useNxtFetcherForm = <T extends FieldValues>({
     });
   };
 
+  const values = methods.getValues();
+  const validKeys = Object.keys(values);
+
   const formState = methods.formState;
 
   const {
@@ -58,7 +61,7 @@ export const useNxtFetcherForm = <T extends FieldValues>({
     isLoading,
   } = formState;
 
-  const formErrors = mergeErrors<T>(errors, fetcher.data?.errors);
+  const formErrors = mergeErrors<T>(errors, fetcher.data?.errors, validKeys);
 
   return {
     ...methods,
@@ -105,6 +108,8 @@ export const useNxtSubmitForm = <T extends FieldValues>({
       ...submitOptions,
     });
   };
+  const values = methods.getValues();
+  const validKeys = Object.keys(values);
 
   const formState = methods.formState;
 
@@ -122,7 +127,7 @@ export const useNxtSubmitForm = <T extends FieldValues>({
     isLoading,
   } = formState;
 
-  const formErrors = mergeErrors<T>(errors, data?.errors);
+  const formErrors = mergeErrors<T>(errors, data?.errors, validKeys);
 
   return {
     ...methods,

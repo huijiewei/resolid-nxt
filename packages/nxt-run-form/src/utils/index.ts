@@ -79,18 +79,24 @@ export const createFormData = <T extends FieldValues>(data: T, key = 'formData')
 export const mergeErrors = <T extends FieldValues>(
   frontendErrors: Partial<FieldErrorsImpl<DeepRequired<T>>>,
   backendErrors?: Partial<FieldErrorsImpl<DeepRequired<T>>>,
+  validKeys: string[] = [],
+  depth = 0,
 ) => {
   if (!backendErrors) {
     return frontendErrors;
   }
 
   for (const [key, rightValue] of Object.entries(backendErrors) as [keyof T, DeepRequired<T>[keyof T]][]) {
+    if (!validKeys.includes(key.toString()) && validKeys.length && depth === 0) {
+      continue;
+    }
+
     if (typeof rightValue === 'object' && !Array.isArray(rightValue)) {
       if (!frontendErrors[key]) {
         frontendErrors[key] = {} as DeepRequired<T>[keyof T];
       }
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      mergeErrors(frontendErrors[key]!, rightValue);
+      mergeErrors(frontendErrors[key]!, rightValue, validKeys, depth + 1);
     } else if (rightValue) {
       frontendErrors[key] = rightValue;
     }
