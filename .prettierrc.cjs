@@ -4,5 +4,4 @@ module.exports = {
   tabWidth: 2,
   tailwindConfig: './website/tailwind.config.cjs',
   plugins: ['prettier-plugin-organize-imports', 'prettier-plugin-tailwindcss'],
-  pluginSearchDirs: false,
 };

@@ -142,8 +142,8 @@ export const Slider = primitiveComponent<'input', SliderProps>((props, ref) => {
               ? (event as MouseEvent).nativeEvent.clientY
               : (event as MouseEvent).nativeEvent.clientX
             : vertical
-            ? (event as TouchEvent).nativeEvent.touches[0].clientY
-            : (event as TouchEvent).nativeEvent.touches[0].clientX;
+              ? (event as TouchEvent).nativeEvent.touches[0].clientY
+              : (event as TouchEvent).nativeEvent.touches[0].clientX;
 
         const rw = vertical ? rect.height : rect.width;
 

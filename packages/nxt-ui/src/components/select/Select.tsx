@@ -538,8 +538,8 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
           activeIndex != null
             ? elementsRef.current[activeIndex]
             : minSelectedIndex != null
-            ? elementsRef.current[minSelectedIndex]
-            : null;
+              ? elementsRef.current[minSelectedIndex]
+              : null;
 
         if (item && prevActiveIndex != null) {
           const itemHeight = elementsRef.current[prevActiveIndex]?.offsetHeight || 0;

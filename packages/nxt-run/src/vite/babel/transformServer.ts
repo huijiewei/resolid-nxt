@@ -79,10 +79,10 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
                 p.node.type === 'ObjectProperty'
                   ? 'value'
                   : p.node.type === 'RestElement'
-                  ? 'argument'
-                  : (function () {
-                      throw new Error('invariant');
-                    })(),
+                    ? 'argument'
+                    : (function () {
+                        throw new Error('invariant');
+                      })(),
               ) as Babel.NodePath<Babel.types.Node>;
 
               if (isIdentifierReferenced(local)) {
@@ -180,10 +180,10 @@ const transformServer = ({ types: t, template }: typeof Babel): Babel.PluginObj<
                 p.node.type === 'ObjectProperty'
                   ? 'value'
                   : p.node.type === 'RestElement'
-                  ? 'argument'
-                  : (function () {
-                      throw new Error('invariant');
-                    })(),
+                    ? 'argument'
+                    : (function () {
+                        throw new Error('invariant');
+                      })(),
               ) as Babel.NodePath;
 
               if (shouldRemove(local)) {

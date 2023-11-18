@@ -82,12 +82,12 @@ export const SliderTrack = primitiveComponent<'div'>((props, ref) => {
       return Array.isArray(value)
         ? position >= value[0] && position <= value[1]
         : reverse
-        ? value == max
-          ? position > value
-          : position >= value
-        : value == max
-        ? position <= value
-        : position < value;
+          ? value == max
+            ? position > value
+            : position >= value
+          : value == max
+            ? position <= value
+            : position < value;
     },
     [reverse, value, max],
   );
@@ -109,8 +109,8 @@ export const SliderTrack = primitiveComponent<'div'>((props, ref) => {
         ? '-translate-y-1/2'
         : '-translate-x-1/2'
       : reverse
-      ? value == min && (vertical ? '-translate-y-full' : '-translate-x-full')
-      : value == max && (vertical ? '-translate-y-full' : '-translate-x-full');
+        ? value == min && (vertical ? '-translate-y-full' : '-translate-x-full')
+        : value == max && (vertical ? '-translate-y-full' : '-translate-x-full');
   };
 
   return (

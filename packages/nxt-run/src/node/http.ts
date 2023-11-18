@@ -15,14 +15,14 @@ export const createRequest = (url: URL, req: IncomingMessage) => {
     req.method === 'GET' || req.method === 'HEAD'
       ? undefined
       : req.socket
-      ? (req as unknown as ReadableStream)
-      : new ReadableStream({
-          start(controller) {
-            req.on('data', (chunk) => controller.enqueue(chunk));
-            req.on('end', () => controller.close());
-            req.on('error', (err) => controller.error(err));
-          },
-        });
+        ? (req as unknown as ReadableStream)
+        : new ReadableStream({
+            start(controller) {
+              req.on('data', (chunk) => controller.enqueue(chunk));
+              req.on('end', () => controller.close());
+              req.on('error', (err) => controller.error(err));
+            },
+          });
 
   return new Request(url.href, {
     method: req.method,

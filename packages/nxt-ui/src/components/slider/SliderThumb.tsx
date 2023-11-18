@@ -65,8 +65,8 @@ const SliderThumbButton = primitiveComponent<'button', SliderThumbButtonProps>((
               ? 'translate-y-1/2'
               : '-translate-y-1/2'
             : reverse
-            ? 'translate-x-1/2'
-            : '-translate-x-1/2',
+              ? 'translate-x-1/2'
+              : '-translate-x-1/2',
           !children && 'aspect-square border-3',
           !children && (vertical ? 'w-1/2' : 'h-1/2 w-fit'),
           className,

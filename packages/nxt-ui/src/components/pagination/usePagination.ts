@@ -105,14 +105,14 @@ export const usePagination = (
     ...(siblingsStart > boundaries + 2
       ? ['start-ellipsis']
       : boundaries + 1 < totalPage - boundaries
-      ? [boundaries + 1]
-      : []),
+        ? [boundaries + 1]
+        : []),
     ...range(siblingsStart, siblingsEnd),
     ...(siblingsEnd < totalPage - boundaries - 1
       ? ['end-ellipsis']
       : totalPage - boundaries > boundaries
-      ? [totalPage - boundaries]
-      : []),
+        ? [totalPage - boundaries]
+        : []),
     ...endPages,
     ...['next'],
   ];
