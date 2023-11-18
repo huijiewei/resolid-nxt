@@ -21,6 +21,7 @@ const [ColorModeDispatchProvider, useColorModeDispatch] = createContext<ColorMod
   strict: true,
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { useColorModeDispatch, useColorModeState };
 
 const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)';

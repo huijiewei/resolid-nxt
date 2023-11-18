@@ -33,6 +33,7 @@ const createRoutes = (routes: RouteObject[]): RouteObject[] => {
   });
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const createClientRouter = () => {
   return createBrowserRouter(
     [
@@ -66,6 +67,7 @@ export const RunClient = ({ router }: { router: Router }) => {
 };
 
 // noinspection JSUnusedGlobalSymbols
+// eslint-disable-next-line react-refresh/only-export-components
 export const lazyMatches = async (matchRoutes: AgnosticRouteMatch<string>[] | null) => {
   const lazyMatches = matchRoutes?.filter((m) => m.route.lazy);
 

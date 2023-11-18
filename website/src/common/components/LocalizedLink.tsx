@@ -81,6 +81,7 @@ export const LocalizedNavigate = (props: NavigateProps) => {
   return <Navigate to={localizedTo(to, searchParams.get(LOCALE_PARAMS))} {...rest} />;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLocalizedNavigate = (): NavigateFunction => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -94,14 +95,17 @@ export const useLocalizedNavigate = (): NavigateFunction => {
   };
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getLocale = (request: Request): string | null => {
   return new URL(request.url).searchParams.get(LOCALE_PARAMS);
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getLocaleWithDefault = (request: Request): string => {
   return getLocale(request) ?? DEFAULT_LOCALE;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const localizedRedirect = (url: string, request: Request, init?: number | ResponseInit) => {
   const locale = getLocale(request);
 
@@ -115,6 +119,7 @@ export const localizedRedirect = (url: string, request: Request, init?: number |
   return redirect(url, init);
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getLocaleUrl = (url: string, locale?: string) => {
   const newUrl = new URL(url);
   newUrl.searchParams.delete(LOCALE_PARAMS);

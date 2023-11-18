@@ -19,6 +19,7 @@ const [AuthUserDispatchProvider, useAuthUserDispatch] = createContext<AuthUserDi
   strict: true,
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { useAuthUserDispatch, useAuthUserState };
 
 export const AuthUserProvider = ({ children, user }: PropsWithChildren<{ user: SessionUser | null }>) => {
@@ -33,6 +34,7 @@ export const AuthUserProvider = ({ children, user }: PropsWithChildren<{ user: S
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getLoginTo = (pathname: string, location: Location) => {
   const to: To = {
     pathname: pathname,

@@ -19,6 +19,7 @@ const schema = z.object({
 
 export type AuthForgotPasswordFormData = z.infer<typeof schema>;
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const authForgotPasswordResolver = zodResolver(schema);
 
 export const AuthForgotPasswordForm = () => {

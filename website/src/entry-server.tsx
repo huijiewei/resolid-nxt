@@ -9,6 +9,7 @@ import { getInstance } from '~/i18n.server';
 
 const ABORT_DELAY = 5000;
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default createHandler(async (request, responseStatusCode, responseHeaders, entryContext, renderOptions) => {
   const ready = isbot(request.headers.get('user-agent')) ? 'onAllReady' : 'onShellReady';
 

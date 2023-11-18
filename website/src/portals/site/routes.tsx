@@ -5,6 +5,7 @@ import { DefaultLayout } from '~/common/components/DefaultLayout';
 import runSiteRoutes from '~/modules/run/siteRoutes';
 import uiSiteRoutes from '~/modules/ui/siteRoutes';
 
+// eslint-disable-next-line react-refresh/only-export-components
 const NotFound = lazy(() => import('~/portals/site/NotFound'));
 
 const routes: RouteObject[] = [

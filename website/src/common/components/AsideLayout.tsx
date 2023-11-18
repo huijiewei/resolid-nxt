@@ -12,6 +12,7 @@ const [AsideLayoutDispatchProvider, useAsideLayoutDispatch] = createContext<Disp
   strict: true,
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { useAsideLayoutDispatch, useAsideLayoutState };
 
 const AsideBar = () => {

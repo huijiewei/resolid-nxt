@@ -11,8 +11,6 @@ import { MenuItemTrigger } from '../menu/MenuItemTrigger';
 import { MenuRadioGroup } from '../menu/MenuRadioGroup';
 import { MenuRadioItem } from '../menu/MenuRadioItem';
 
-export * from './ContextMenuTrigger';
-
 export const ContextMenu = Menu;
 
 export const ContextMenuContent = MenuContent;

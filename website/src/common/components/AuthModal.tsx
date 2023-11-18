@@ -5,6 +5,7 @@ import { AuthLoginForm } from '~/common/components/AuthLoginForm';
 import { useAuthDispatch } from '~/common/components/AuthProvider';
 import { AuthSignupForm } from '~/common/components/AuthSignupForm';
 
+// eslint-disable-next-line react-refresh/only-export-components
 export enum AuthModalAction {
   LOGIN,
   SIGNUP,
@@ -18,6 +19,7 @@ const [AuthModalDispatchProvider, useAuthModalDispatch] = createContext<AuthModa
   strict: false,
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { useAuthModalDispatch };
 
 export const AuthModal = ({ opened }: { opened: boolean }) => {

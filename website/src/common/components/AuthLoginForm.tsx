@@ -21,6 +21,7 @@ const schema = z.object({
 
 export type AuthLoginFormData = z.infer<typeof schema>;
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const authLoginResolver = zodResolver(schema);
 
 export const AuthLoginForm = () => {

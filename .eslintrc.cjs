@@ -14,7 +14,7 @@ module.exports = {
     {
       files: ['**/*.ts', '**/*.tsx'],
       parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
+      plugins: ['@typescript-eslint', 'react-refresh'],
       extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
@@ -30,6 +30,13 @@ module.exports = {
           'warn',
           {
             additionalHooks: '(useIsomorphicEffect)',
+          },
+        ],
+        'react-refresh/only-export-components': [
+          'warn',
+          {
+            allowConstantExport: true,
+            allowExportNames: ['loader', 'headers', 'NotFound'],
           },
         ],
       },
