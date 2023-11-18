@@ -1,7 +1,13 @@
 {
   "path": "/context-menu/ContextMenu.tsx",
   "props": [
-    { "name": "opened", "type": "boolean", "required": false, "description": "Opened", "defaultValue": "" },
+    {
+      "name": "opened",
+      "type": "boolean",
+      "required": false,
+      "description": "Opened",
+      "defaultValue": ""
+    },
     {
       "name": "onClose",
       "type": "() => void",
