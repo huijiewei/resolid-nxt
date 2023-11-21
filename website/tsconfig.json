@@ -11,6 +11,6 @@
       "@resolid/nxt-prism": ["../packages/nxt-prism/src"],
       "@resolid/nxt-utils": ["../packages/nxt-utils/src"]
     },
-    "types": ["node", "vite/client"]
+    "types": ["node"]
   }
 }

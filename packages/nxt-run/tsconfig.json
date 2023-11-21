@@ -7,6 +7,6 @@
     "paths": {
       "@resolid/nxt-utils": ["../nxt-utils/src"]
     },
-    "types": ["node", "vite/client"]
+    "types": ["node"]
   }
 }

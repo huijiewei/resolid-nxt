@@ -1,5 +1,5 @@
 import { createLocation, createPath } from '@remix-run/router/history';
-import { type FilledContext } from 'react-helmet-async';
+import { type HelmetServerState } from 'react-helmet-async';
 import { matchRoutes, redirect } from 'react-router-dom';
 import { createStaticHandler } from 'react-router-dom/server';
 import { isDeferredData, isRedirectStatusCode, isResponse, json } from '../base/data';
@@ -137,7 +137,9 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
       return redirect(responseContext.to, 301);
     }
 
-    entryContext.helmetContext = {} as FilledContext;
+    entryContext.helmetContext = {} as {
+      helmet: HelmetServerState;
+    };
     entryContext.routes = staticHandler.dataRoutes;
     entryContext.staticHandlerContext = context;
 
