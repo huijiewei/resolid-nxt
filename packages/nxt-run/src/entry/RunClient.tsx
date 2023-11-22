@@ -60,7 +60,6 @@ export const createClientRouter = () => {
 // noinspection JSUnusedGlobalSymbols
 export const RunClient = ({ router }: { router: Router }) => {
   return (
-    // @ts-expect-error type
     <HelmetProvider>
       <RouterProvider future={{ v7_startTransition: true }} router={router} fallbackElement={null} />
     </HelmetProvider>
