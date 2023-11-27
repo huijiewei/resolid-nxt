@@ -89,6 +89,9 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
           ssr: {
             noExternal: ['@resolid/nxt-run'],
           },
+          legacy: {
+            proxySsrExternalModules: true,
+          },
         };
 
         if (isBuild) {
