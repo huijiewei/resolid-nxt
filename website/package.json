@@ -20,7 +20,7 @@
     "@resolid/nxt-run-node": "workspace:*",
     "@resolid/nxt-ui": "workspace:*",
     "@resolid/nxt-utils": "workspace:*",
-    "drizzle-orm": "^0.29.0",
+    "drizzle-orm": "^0.29.1",
     "fast-blurhash": "^1.1.2",
     "i18next": "^23.7.7",
     "i18next-fs-backend": "^2.3.0",
