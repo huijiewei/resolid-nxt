@@ -55,7 +55,6 @@ export const isCookie = (object: any): object is Cookie => {
   return (
     object != null &&
     typeof object.name === 'string' &&
-    typeof object.signed === 'boolean' &&
     typeof object.parse === 'function' &&
     typeof object.serialize === 'function'
   );

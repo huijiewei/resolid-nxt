@@ -32,7 +32,7 @@
     "@resolid/nxt-utils": "workspace:*"
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^3.3.6"
   },
   "peerDependencies": {
     "tailwindcss": ">=3"
