@@ -52,6 +52,8 @@ export const createClientRouter = () => {
       basename: import.meta.env.BASE_URL.replace(/\/$/, ''),
       future: {
         v7_normalizeFormMethod: true,
+        v7_relativeSplatPath: true,
+        v7_fetcherPersist: true,
       },
     },
   );

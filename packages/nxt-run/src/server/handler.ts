@@ -49,6 +49,9 @@ export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null 
       ],
       {
         basename,
+        future: {
+          v7_relativeSplatPath: true,
+        },
       },
     );
 
