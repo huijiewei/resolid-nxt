@@ -105,7 +105,7 @@
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.3",
     "react-router-dom": "^6.21.0",
-    "rollup": "^4.9.0",
+    "rollup": "^4.9.1",
     "vite": "^5.0.10",
     "vite-plugin-inspect": "^0.8.1"
   },
