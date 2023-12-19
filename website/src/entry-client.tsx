@@ -19,7 +19,8 @@ async function hydrate() {
   const matches = matchRoutes(routes, window.location, basename);
 
   const lng = new URLSearchParams(window.location.search).get(LOCALE_PARAMS) ?? DEFAULT_LOCALE;
-  const ns = matches?.filter((m) => m.route.handle?.i18n !== undefined).flatMap((m) => m.route.handle.i18n) ?? [];
+  const ns: string[] =
+    matches?.filter((m) => m.route.handle?.i18n !== undefined).flatMap((m) => m.route.handle.i18n) ?? [];
 
   await i18next
     .use(HttpBackend)
