@@ -31,8 +31,8 @@
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.4",
     "react-hook-form": "^7.49.2",
-    "react-i18next": "^13.5.0",
-    "react-router-dom": "^6.21.0",
+    "react-i18next": "^14.0.0",
+    "react-router-dom": "^6.21.1",
     "zod": "^3.22.4",
     "zod-i18n-map": "^2.23.0"
   },

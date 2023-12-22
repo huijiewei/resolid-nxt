@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { StrictMode } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { createStaticRouter, StaticRouterProvider } from 'react-router-dom/server';
@@ -9,9 +11,13 @@ export type RunServerProps = {
   context: EntryContext;
 };
 
-// noinspection JSUnusedGlobalSymbols
 export const RunServer = ({ context }: RunServerProps) => {
-  const router = createStaticRouter(context.routes, context.staticHandlerContext);
+  const router = createStaticRouter(context.routes, context.staticHandlerContext, {
+    future: {
+      v7_relativeSplatPath: true,
+      v7_partialHydration: true,
+    },
+  });
 
   return (
     <StrictMode>

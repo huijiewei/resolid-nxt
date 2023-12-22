@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { nxtRunVitePlugin } from './plugin';
 
 export type { NxtRunAdapter, NxtRunViteOptions } from './types';

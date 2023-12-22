@@ -18,6 +18,7 @@ export type EntryContext = {
 
 const componentsContext = new Set<string>();
 
+// noinspection JSUnusedGlobalSymbols
 export const components$ = {
   getComponents() {
     return componentsContext;

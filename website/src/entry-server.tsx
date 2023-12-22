@@ -1,6 +1,7 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { RunServer } from '@resolid/nxt-run';
 import { createHandler, processHelmet } from '@resolid/nxt-run/server';
-import type { i18n } from 'i18next';
 import isbot from 'isbot';
 import { PassThrough, Readable } from 'node:stream';
 import { renderToPipeableStream } from 'react-dom/server';
@@ -25,7 +26,7 @@ export default createHandler(async (request, responseStatusCode, responseHeaders
     let shellRendered = false;
 
     const { pipe, abort } = renderToPipeableStream(
-      <I18nextProvider i18n={instance as i18n}>
+      <I18nextProvider i18n={instance}>
         <RunServer context={entryContext} />
       </I18nextProvider>,
       {

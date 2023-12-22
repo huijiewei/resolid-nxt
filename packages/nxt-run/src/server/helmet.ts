@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import type { EntryContext } from './context';
 import { components$ } from './context';
 

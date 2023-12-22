@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { createCookieFactory } from './cookie';
 import { createSessionStorageFactory, type SessionIdStorageStrategy, type SessionStorage } from './session';
 

@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { type UNSAFE_DeferredData as DeferredData } from '@remix-run/router';
 import {
   defer as routerDefer,

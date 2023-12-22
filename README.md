@@ -21,6 +21,7 @@
 - Typesafe
 
 ## Dev
+
 ```shell
 npm run website:dev
 ```
@@ -28,7 +29,7 @@ npm run website:dev
 ## PageSpeed Insights
 
 | [![PageSpeed Desktop](.github/assets/page-speed-desktop.png 'PageSpeed Desktop')](.github/assets/page-speed-desktop.png) | [![PageSpeed Mobile](.github/assets/page-speed-mobile.png 'PageSpeed Mobile')](.github/assets/page-speed-mobile.png) |
-| ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+|--------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 
 ## Website
 

@@ -1,4 +1,6 @@
-import { type AgnosticRouteMatch, type Router, type ShouldRevalidateFunction } from '@remix-run/router';
+// noinspection JSUnusedGlobalSymbols
+
+import { type AgnosticRouteMatch, type Router, type ShouldRevalidateFunctionArgs } from '@remix-run/router';
 import { HelmetProvider } from 'react-helmet-async';
 import { RouterProvider, createBrowserRouter, type RouteObject } from 'react-router-dom';
 
@@ -12,11 +14,12 @@ const createRoutes = (routes: RouteObject[]): RouteObject[] => {
   return routes.map((route) => {
     const dataRoute = {
       ...route,
-      shouldRevalidate: (arg: ShouldRevalidateFunction['arguments']) => {
+      shouldRevalidate: (arg: ShouldRevalidateFunctionArgs) => {
         if (route.shouldRevalidate) {
           return route.shouldRevalidate(arg);
         }
 
+        // noinspection JSUnresolvedReference
         if (arg.actionResult?.revalidate === false) {
           return false;
         }
@@ -54,12 +57,12 @@ export const createClientRouter = () => {
         v7_normalizeFormMethod: true,
         v7_relativeSplatPath: true,
         v7_fetcherPersist: true,
+        v7_partialHydration: true,
       },
     },
   );
 };
 
-// noinspection JSUnusedGlobalSymbols
 export const RunClient = ({ router }: { router: Router }) => {
   return (
     <HelmetProvider>
@@ -68,7 +71,6 @@ export const RunClient = ({ router }: { router: Router }) => {
   );
 };
 
-// noinspection JSUnusedGlobalSymbols
 // eslint-disable-next-line react-refresh/only-export-components
 export const lazyMatches = async (matchRoutes: AgnosticRouteMatch<string>[] | null) => {
   const lazyMatches = matchRoutes?.filter((m) => m.route.lazy);

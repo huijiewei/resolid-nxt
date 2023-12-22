@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedReference
+
 import { type UNSAFE_DeferredData as DeferredData, type TrackedPromise } from '@remix-run/router';
 
 const DEFERRED_VALUE_PLACEHOLDER_PREFIX = '__deferred_promise:';
@@ -30,7 +32,7 @@ export const createDeferredReadableStream = (deferredData: DeferredData, signal:
         enqueueTrackedPromise(controller, encoder, preResolvedKey, deferredData.data[preResolvedKey] as TrackedPromise);
       }
 
-      const unsubscribe = deferredData.subscribe((aborted, settledKey) => {
+      const unsubscribe = deferredData.subscribe((_aborted, settledKey) => {
         if (settledKey) {
           enqueueTrackedPromise(controller, encoder, settledKey, deferredData.data[settledKey] as TrackedPromise);
         }

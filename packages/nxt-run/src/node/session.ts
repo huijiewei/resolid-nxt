@@ -1,4 +1,5 @@
 // from https://github.com/remix-run/remix/blob/main/packages/remix-server-runtime/sessions.ts
+// noinspection JSUnusedGlobalSymbols
 
 import type { CookieParseOptions, CookieSerializeOptions } from 'cookie';
 

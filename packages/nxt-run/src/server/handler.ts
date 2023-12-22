@@ -12,7 +12,7 @@ import * as Root from '~nxt-run/root';
 // @ts-expect-error Cannot find module
 import routes from '~nxt-run/routes';
 
-type RenderOptions = { startHtml: string; endHtml: string };
+export type RenderOptions = { startHtml: string; endHtml: string };
 
 export type HandleFn = (
   request: Request,
