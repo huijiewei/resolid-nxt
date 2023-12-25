@@ -20,7 +20,7 @@
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@microsoft/api-extractor": "^7.39.0",
-    "@types/node": "^18.19.3",
+    "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
@@ -52,7 +52,7 @@
     "*.{json,html,css}": "prettier --write"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "packageManager": "pnpm@8.12.1"
 }
