@@ -10,7 +10,7 @@ import { menus } from './menus';
 
 export default function Layout() {
   const navigation = useNavigation();
-  const navigating = navigation.location && !navigation.formAction;
+  const navigating = navigation.location && !navigation.formData;
 
   return (
     <BaseLayout>
