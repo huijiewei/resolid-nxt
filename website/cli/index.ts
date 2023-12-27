@@ -40,7 +40,7 @@ program
 
     console.log('Database seed success!');
 
-    process.exit(0);
+    process.exit();
   });
 
 type District = {
@@ -81,6 +81,8 @@ program
     for (const item of json) {
       await createDistrict(item, 0);
     }
+
+    process.exit();
   });
 
 program
@@ -130,10 +132,10 @@ program
 
       console.log(`Insert user ${email} success!`);
 
-      await wait(1000);
+      await wait(300);
     }
 
-    process.exit(0);
+    process.exit();
   });
 
 await program.parseAsync(process.argv);
