@@ -11,7 +11,7 @@
     "nxt": "tsx ./cli/index.ts"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.3.2",
+    "@hookform/resolvers": "^3.3.3",
     "@marsidev/react-turnstile": "^0.4.0",
     "@node-rs/bcrypt": "^1.7.3",
     "@resolid/nxt-prism": "workspace:*",
@@ -20,7 +20,7 @@
     "@resolid/nxt-run-node": "workspace:*",
     "@resolid/nxt-ui": "workspace:*",
     "@resolid/nxt-utils": "workspace:*",
-    "drizzle-orm": "^0.29.1",
+    "drizzle-orm": "0.29.1",
     "fast-blurhash": "^1.1.2",
     "i18next": "^23.7.11",
     "i18next-fs-backend": "^2.3.1",
@@ -46,7 +46,7 @@
     "chokidar": "^3.5.3",
     "commander": "^11.1.0",
     "dotenv": "^16.3.1",
-    "drizzle-kit": "^0.20.7",
+    "drizzle-kit": "^0.20.9",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "mysql2": "^3.6.5",
