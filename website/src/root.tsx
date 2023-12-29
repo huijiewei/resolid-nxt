@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { server$ } from '@resolid/nxt-run/server';
 import { ColorModeScript, NxtProvider } from '@resolid/nxt-ui';
 import { Suspense } from 'react';

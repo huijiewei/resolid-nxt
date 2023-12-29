@@ -87,10 +87,7 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
             },
           },
           ssr: {
-            noExternal: ['@resolid/nxt-run'],
-          },
-          legacy: {
-            proxySsrExternalModules: true,
+            noExternal: ['@resolid/nxt-run', 'react-helmet-async'],
           },
         };
 
