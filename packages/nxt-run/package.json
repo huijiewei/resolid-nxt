@@ -99,6 +99,7 @@
     "@types/babel__core": "^7.20.5",
     "@types/babel__traverse": "^7.20.4",
     "@types/cookie": "^0.6.0",
+    "type-fest": "^4.9.0",
     "@types/set-cookie-parser": "^2.4.7",
     "@vitejs/plugin-react": "^4.2.1",
     "react": "^18.2.0",

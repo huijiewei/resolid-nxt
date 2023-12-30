@@ -6,7 +6,6 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { rollup } from 'rollup';
-import type { PackageJson } from 'type-fest';
 
 export default function (): NxtRunAdapter {
   return {
@@ -36,34 +35,6 @@ export default function (): NxtRunAdapter {
         file: join(outPath, 'server.mjs'),
         inlineDynamicImports: true,
       });
-
-      const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')) as PackageJson;
-
-      const distPkg = {
-        name: pkg.name,
-        type: pkg.type,
-        scripts: {
-          postinstall: pkg.scripts?.postinstall ?? '',
-        },
-        dependencies: {
-          ...Object.keys(pkg.dependencies ?? {})
-            .filter((key) => ssrExternal?.includes(key))
-            .reduce((obj: Record<string, string>, key) => {
-              obj[key] = pkg.dependencies?.[key] ?? '';
-
-              return obj;
-            }, {}),
-          ...Object.keys(pkg.devDependencies ?? {})
-            .filter((key) => ssrExternal?.includes(key))
-            .reduce((obj: Record<string, string>, key) => {
-              obj[key] = pkg.devDependencies?.[key] ?? '';
-
-              return obj;
-            }, {}),
-        },
-      };
-
-      writeFileSync(join(outPath, 'package.json'), JSON.stringify(distPkg, null, 2), 'utf8');
 
       await bundle.close();
     },

@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import type { PackageJson } from 'type-fest';
 import { build, loadEnv, mergeConfig, type Plugin, type ResolvedConfig, type UserConfig } from 'vite';
 import viteInspect from 'vite-plugin-inspect';
 import transformServer from './babel/transformServer';
@@ -228,6 +229,34 @@ export const nxtRunVitePlugin = (options: NxtRunViteOptions): Plugin[] => {
 
           finalise = async () => {
             await adapter.buildEnd(viteConfig.root, outPath, viteConfig.ssr.external, viteConfig.build.commonjsOptions);
+
+            const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')) as PackageJson;
+
+            const distPkg = {
+              name: pkg.name,
+              type: pkg.type,
+              scripts: {
+                postinstall: pkg.scripts?.postinstall ?? '',
+              },
+              dependencies: {
+                ...Object.keys(pkg.dependencies ?? {})
+                  .filter((key) => viteConfig.ssr.external?.includes(key))
+                  .reduce((obj: Record<string, string>, key) => {
+                    obj[key] = pkg.dependencies?.[key] ?? '';
+
+                    return obj;
+                  }, {}),
+                ...Object.keys(pkg.devDependencies ?? {})
+                  .filter((key) => viteConfig.ssr.external?.includes(key))
+                  .reduce((obj: Record<string, string>, key) => {
+                    obj[key] = pkg.devDependencies?.[key] ?? '';
+
+                    return obj;
+                  }, {}),
+              },
+            };
+
+            writeFileSync(join(outPath, 'package.json'), JSON.stringify(distPkg, null, 2), 'utf8');
           };
         },
       },
