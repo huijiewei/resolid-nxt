@@ -13,7 +13,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.3",
     "@marsidev/react-turnstile": "^0.4.0",
-    "@node-rs/bcrypt": "^1.8.0",
+    "@node-rs/bcrypt": "^1.8.1",
     "@resolid/nxt-prism": "workspace:*",
     "@resolid/nxt-run": "workspace:*",
     "@resolid/nxt-run-form": "workspace:*",
@@ -22,7 +22,7 @@
     "@resolid/nxt-utils": "workspace:*",
     "drizzle-orm": "^0.29.3",
     "fast-blurhash": "^1.1.2",
-    "i18next": "^23.7.14",
+    "i18next": "^23.7.15",
     "i18next-fs-backend": "^2.3.1",
     "i18next-http-backend": "^2.4.2",
     "isbot": "^3.8.0",
