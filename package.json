@@ -17,8 +17,8 @@
     "nxt": "pnpm run --filter website nxt"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
     "@microsoft/api-extractor": "^7.39.1",
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.46",
@@ -41,7 +41,7 @@
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
     "vite-tsconfig-paths": "^4.2.3",
-    "vitest": "^1.1.1"
+    "vitest": "^1.1.2"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": [
