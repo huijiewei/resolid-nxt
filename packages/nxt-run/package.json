@@ -105,9 +105,9 @@
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.4",
     "react-router-dom": "^6.21.1",
-    "rollup": "^4.9.2",
+    "rollup": "^4.9.3",
     "type-fest": "^4.9.0",
-    "vite": "^5.0.10",
+    "vite": "^5.0.11",
     "vite-plugin-inspect": "^0.8.1"
   },
   "peerDependencies": {
