@@ -1,5 +1,5 @@
+import { MDXRemote, type MDXRemoteProps, type MDXRemoteSerializeResult } from '@resolid/nxt-mdx-remote';
 import { slugify } from '@resolid/nxt-utils';
-import { MDXRemote, type MDXRemoteProps, type MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { useTranslation } from 'react-i18next';
 import { Edit } from '~/common/icons/Edit';
 import { Github } from '~/common/icons/Github';

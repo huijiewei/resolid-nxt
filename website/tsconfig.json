@@ -9,6 +9,7 @@
       "@resolid/nxt-run-form": ["../packages/nxt-run-form/src"],
       "@resolid/nxt-ui": ["../packages/nxt-ui/src"],
       "@resolid/nxt-prism": ["../packages/nxt-prism/src"],
+      "@resolid/nxt-mdx-remote": ["../packages/nxt-mdx-remote/src"],
       "@resolid/nxt-utils": ["../packages/nxt-utils/src"]
     },
     "types": ["node"]

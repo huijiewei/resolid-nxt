@@ -1,0 +1,56 @@
+{
+  "name": "@resolid/nxt-mdx-remote",
+  "version": "1.0.0",
+  "description": "Load mdx content from anywhere through server loader.",
+  "sideEffects": false,
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && rollup -c rollup.config.js"
+  },
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./serialize": {
+      "import": {
+        "types": "./dist/serialize.d.ts",
+        "default": "./dist/serialize.js"
+      }
+    }
+  },
+  "dependencies": {
+    "unist-util-remove": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/code-frame": "^7.23.5",
+    "@mdx-js/mdx": "^3.0.0",
+    "@mdx-js/react": "^3.0.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/babel__code-frame": "^7.0.6",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.3",
+    "vfile": "^6.0.1",
+    "vfile-matter": "^5.0.0"
+  },
+  "peerDependencies": {
+    "@mdx-js/mdx": ">=3",
+    "@mdx-js/react": ">=3",
+    "react": ">=18",
+    "react-dom": ">=18",
+    "vfile": ">=6",
+    "vfile-matter": ">=5"
+  }
+}

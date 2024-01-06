@@ -1,6 +1,6 @@
+import type { MDXRemoteSerializeResult } from '@resolid/nxt-mdx-remote';
+import { serialize } from '@resolid/nxt-mdx-remote/serialize';
 import remarkHeadings, { type Heading } from '@vcarl/remark-headings';
-import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
 import { json } from 'react-router-dom';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
