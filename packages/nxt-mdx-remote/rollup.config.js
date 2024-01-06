@@ -18,7 +18,6 @@ export default [
         tsconfig: './tsconfig.json',
         declaration: true,
         declarationDir: './dist',
-        exclude: ['./__tests__/**/*'],
       }),
       resolve(),
       {
@@ -43,7 +42,6 @@ export default [
         tsconfig: './tsconfig.json',
         declaration: true,
         declarationDir: './dist',
-        exclude: ['./__tests__/**/*'],
       }),
       json(),
       resolve(),
