@@ -1,5 +1,5 @@
-import { useToastDispatch, type ToastOptions } from './ToastContext';
+import { useToastDispatch, type ToastId, type ToastOptions } from './ToastContext';
 
-export type { ToastOptions };
+export type { ToastId, ToastOptions };
 
 export const useToast = useToastDispatch;

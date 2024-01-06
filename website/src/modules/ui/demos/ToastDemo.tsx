@@ -1,5 +1,5 @@
-import { Button, Spinner, useToast, type ButtonProps, type ToastOptions } from '@resolid/nxt-ui';
-import type { ToastId } from '@resolid/nxt-ui/src/components/toast/ToastContext';
+import { Button, Spinner, useToast, type ButtonProps, type ToastId, type ToastOptions } from '@resolid/nxt-ui';
+
 import { useRef } from 'react';
 import { Check } from '~/common/icons/Check';
 import { Error } from '~/common/icons/Error';
