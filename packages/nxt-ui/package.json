@@ -30,7 +30,7 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.4",
+    "@floating-ui/react": "^0.26.5",
     "@resolid/nxt-utils": "workspace:*",
     "@tanstack/react-virtual": "^3.0.1",
     "cva": "1.0.0-beta.1",
