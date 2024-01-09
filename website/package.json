@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
-    "@marsidev/react-turnstile": "^0.4.0",
+    "@marsidev/react-turnstile": "^0.4.1",
     "@node-rs/bcrypt": "^1.8.1",
     "@resolid/nxt-mdx-remote": "workspace:*",
     "@resolid/nxt-prism": "workspace:*",
@@ -30,11 +30,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.4",
-    "react-hook-form": "^7.49.2",
+    "react-hook-form": "^7.49.3",
     "react-i18next": "^14.0.0",
     "react-router-dom": "^6.21.1",
     "zod": "^3.22.4",
-    "zod-i18n-map": "^2.23.0"
+    "zod-i18n-map": "^2.25.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
