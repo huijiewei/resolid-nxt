@@ -1,4 +1,5 @@
 import { __DEV__ } from '@resolid/nxt-utils';
+import type { JSX } from 'react';
 import { primitiveComponent } from '../../primitives';
 import { cx } from '../../utils/cva';
 import type { Color } from '../../utils/types';

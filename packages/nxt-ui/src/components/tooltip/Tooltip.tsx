@@ -15,7 +15,7 @@ import {
   type Placement,
 } from '@floating-ui/react';
 import { __DEV__ } from '@resolid/nxt-utils';
-import { cloneElement, useMemo, useRef, type CSSProperties, type ReactNode } from 'react';
+import { cloneElement, useMemo, useRef, type CSSProperties, type JSX, type ReactNode } from 'react';
 import { useDisclosure, useMergedRefs } from '../../hooks';
 import type { PrimitiveProps } from '../../primitives';
 import { cx } from '../../utils/cva';

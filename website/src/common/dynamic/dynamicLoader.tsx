@@ -1,5 +1,5 @@
 import { __DEV__ } from '@resolid/nxt-utils';
-import { Suspense, lazy, type ComponentType } from 'react';
+import { Suspense, lazy, type ComponentType, type JSX } from 'react';
 
 type DynamicLoaderProps = {
   loader: () => Promise<{ default: ComponentType }>;

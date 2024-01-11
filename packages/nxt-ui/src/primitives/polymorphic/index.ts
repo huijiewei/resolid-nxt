@@ -5,6 +5,7 @@ import type {
   ComponentPropsWithoutRef,
   ElementType,
   ForwardRefRenderFunction,
+  JSX,
   ReactElement,
   ValidationMap,
   WeakValidationMap,
