@@ -5462,7 +5462,7 @@ packages:
       tslib: '2'
     dependencies:
       json-joy: 9.9.1(quill-delta@5.1.0)(rxjs@7.8.1)(tslib@2.6.2)
-      thingies: 1.15.0(tslib@2.6.2)
+      thingies: 1.16.0(tslib@2.6.2)
       tslib: 2.6.2
     transitivePeerDependencies:
       - quill-delta
@@ -7395,8 +7395,8 @@ packages:
     dependencies:
       any-promise: 1.3.0
 
-  /thingies@1.15.0(tslib@2.6.2):
-    resolution: {integrity: sha512-ZSJlvEpD8QllYim0VSGlbAoob/iPrTWNlV/m8ltizMvMmzzU2gVJvHfH9ijLstyciWF70ZiQXqz+BCXWJq+ZQw==}
+  /thingies@1.16.0(tslib@2.6.2):
+    resolution: {integrity: sha512-J23AVs11hSQxuJxvfQyMIaS9z1QpDxOCvMkL3ZxZl8/jmkgmnNGWrlyNxVz6Jbh0U6DuGmHqq6f7zUROfg/ncg==}
     engines: {node: '>=10.18'}
     requiresBuild: true
     peerDependencies:
