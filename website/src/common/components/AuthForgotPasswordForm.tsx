@@ -13,8 +13,8 @@ import { FormTurnstile } from '~/common/components/FormTurnstile';
 import { LocalizedLink } from '~/common/components/LocalizedLink';
 
 const schema = z.object({
-  email: z.string().nonempty().email(),
-  token: z.string().nonempty(),
+  email: z.string().min(1).email(),
+  token: z.string().min(1),
 });
 
 export type AuthForgotPasswordFormData = z.infer<typeof schema>;
