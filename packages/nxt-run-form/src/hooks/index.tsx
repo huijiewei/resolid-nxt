@@ -10,7 +10,7 @@ import type {
 } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useActionData, useFetcher, useSubmit, type SubmitOptions } from 'react-router-dom';
-import { createFormData, mergeErrors } from '../utils';
+import { createFormData } from '../utils';
 
 type UseNxtFormOptions<T extends FieldValues> = UseFormProps<T> & {
   submitHandlers?: {
@@ -35,7 +35,6 @@ export const useNxtFetcherForm = <T extends FieldValues>({
   ...formProps
 }: UseNxtFetcherFormOptions<T>) => {
   const fetcher = useFetcher();
-  const methods = useForm<T>(formProps);
 
   const onSubmit = (data: T) => {
     fetcher.submit(createFormData({ ...data, ...submitData }), {
@@ -44,10 +43,7 @@ export const useNxtFetcherForm = <T extends FieldValues>({
     });
   };
 
-  const values = methods.getValues();
-  const validKeys = Object.keys(values);
-
-  const formState = methods.formState;
+  const methods = useForm<T>({ ...formProps, errors: fetcher.data?.errors });
 
   const {
     dirtyFields,
@@ -61,9 +57,7 @@ export const useNxtFetcherForm = <T extends FieldValues>({
     submitCount,
     errors,
     isLoading,
-  } = formState;
-
-  const formErrors = mergeErrors<T>(errors, fetcher.data?.errors, validKeys);
+  } = methods.formState;
 
   return {
     ...methods,
@@ -79,7 +73,7 @@ export const useNxtFetcherForm = <T extends FieldValues>({
       touchedFields,
       submitCount,
       isLoading,
-      errors: formErrors,
+      errors,
     },
     fetcher: {
       Form: fetcher.Form,
@@ -102,7 +96,6 @@ export const useNxtSubmitForm = <T extends FieldValues>({
   const submit = useSubmit();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data = useActionData() as any;
-  const methods = useForm<T>(formProps);
 
   const onSubmit = (data: T) => {
     submit(createFormData({ ...data, ...submitData }), {
@@ -110,10 +103,8 @@ export const useNxtSubmitForm = <T extends FieldValues>({
       ...submitOptions,
     });
   };
-  const values = methods.getValues();
-  const validKeys = Object.keys(values);
 
-  const formState = methods.formState;
+  const methods = useForm<T>({ ...formProps, errors: data?.errors });
 
   const {
     dirtyFields,
@@ -127,9 +118,7 @@ export const useNxtSubmitForm = <T extends FieldValues>({
     submitCount,
     errors,
     isLoading,
-  } = formState;
-
-  const formErrors = mergeErrors<T>(errors, data?.errors, validKeys);
+  } = methods.formState;
 
   return {
     ...methods,
@@ -149,7 +138,7 @@ export const useNxtSubmitForm = <T extends FieldValues>({
       touchedFields,
       submitCount,
       isLoading,
-      errors: formErrors,
+      errors,
     },
   };
 };
