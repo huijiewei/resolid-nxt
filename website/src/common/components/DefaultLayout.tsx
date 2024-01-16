@@ -17,7 +17,7 @@ export const DefaultLayout = ({ children, className }: PropsWithChildren<{ class
           <span className={'mx-1'} aria-label="China" role="img">
             🇨🇳
           </span>
-          by Resolid Tech, 2023
+          by Resolid Tech, 2024
         </p>
       </footer>
     </>

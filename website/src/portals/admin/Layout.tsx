@@ -165,7 +165,7 @@ export const Component = () => {
               'flex items-center justify-between border-t border-t-bg-subtle bg-bg-default p-4 text-[13px] font-medium'
             }
           >
-            <div>Copyright © 2023</div>
+            <div>Copyright © 2024</div>
             <div>
               Proudly made in
               <span className={'mx-1'} aria-label="China" role="img">

@@ -10,7 +10,7 @@ export const AsideLayoutMain = (props: HTMLProps<HTMLDivElement>) => {
       </main>
       <footer className={'mt-6 border-t px-5 py-3 text-fg-muted'}>
         <div className={'flex justify-between text-[13px] font-medium'}>
-          <div>Copyright © 2023</div>
+          <div>Copyright © 2024</div>
           <div>
             Proudly made in
             <span className={'mx-1'} aria-label="China" role="img">
