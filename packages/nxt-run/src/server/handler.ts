@@ -28,7 +28,6 @@ export type HandleDataFn = (response: Response, request: Request) => Promise<Res
 export const createHandler = (handle: HandleFn, handleData: HandleDataFn | null = null) => {
   return async (
     request: Request,
-    responseStatusCode: number,
     responseHeaders: Headers,
     entryContext: EntryContext,
     renderOptions: RenderOptions,

@@ -46,11 +46,13 @@ export const handleData$ = async (staticHandler: StaticHandler, request: Request
       const headers = new Headers(init.headers);
 
       headers.set('Content-Type', 'text/nxt-deferred');
+      headers.set('X-Nxt-Response', 'yes');
       init.headers = headers;
 
       return new Response(body, init);
     }
 
+    response.headers.set('X-Nxt-Response', 'yes');
     return response;
   } catch (error) {
     if (isResponse(error)) {

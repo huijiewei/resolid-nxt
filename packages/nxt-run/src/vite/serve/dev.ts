@@ -20,7 +20,6 @@ export const dev = (viteServer: ViteDevServer) => {
 
         const response = await handleRequest(
           createRequest(url, req),
-          res.statusCode,
           createHeaders(res.getHeaders()),
           {
             manifest: {},
