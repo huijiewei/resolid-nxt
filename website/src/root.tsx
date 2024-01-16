@@ -11,6 +11,7 @@ import { makeZodI18nMap } from 'zod-i18n-map';
 import { AuthProvider } from '~/common/components/AuthProvider';
 import { AuthUserProvider } from '~/common/components/AuthUserProvider';
 import { LazyLoader } from '~/common/components/LazyLoader';
+import { RouteProgressBar } from '~/common/components/RouteProgressBar';
 import { getSessionUser, type SessionUser } from '~/foundation/session';
 
 export const loader = server$(async ({ request }) => {
@@ -32,6 +33,7 @@ export default function Root() {
       <NxtProvider>
         <AuthUserProvider user={user}>
           <AuthProvider>
+            <RouteProgressBar />
             <Suspense fallback={<LazyLoader />}>
               <Outlet />
             </Suspense>
