@@ -1,6 +1,6 @@
 import { RunClient, createClientRouter, lazyMatches } from '@resolid/nxt-run';
 import i18next from 'i18next';
-import HttpBackend from 'i18next-http-backend/cjs';
+import HttpBackend from 'i18next-http-backend';
 import { StrictMode, startTransition } from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { I18nextProvider, initReactI18next } from 'react-i18next';

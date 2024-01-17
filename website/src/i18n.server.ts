@@ -1,5 +1,5 @@
 import { createInstance } from 'i18next';
-import FsBackend from 'i18next-fs-backend/cjs';
+import FsBackend, { type FsBackendOptions } from 'i18next-fs-backend';
 import { resolve } from 'node:path';
 import { initReactI18next } from 'react-i18next';
 import { DEFAULT_LOCALE, i18n } from '~/i18n';
@@ -10,7 +10,7 @@ export const getInstance = async (lng: string, ns: string[]) => {
   await instance
     .use(FsBackend)
     .use(initReactI18next)
-    .init({
+    .init<FsBackendOptions>({
       ...i18n,
       lng,
       ns,
