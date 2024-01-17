@@ -14,9 +14,6 @@
     "build": "tsup",
     "watch": "tsup --watch"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": {
@@ -69,22 +66,6 @@
         "types": "./dist/vite.d.cts",
         "default": "./dist/vite.cjs"
       }
-    }
-  },
-  "typesVersions": {
-    "*": {
-      ".": [
-        "./dist/index.d.ts"
-      ],
-      "node": [
-        "./dist/node.d.ts"
-      ],
-      "server": [
-        "./dist/server.d.ts"
-      ],
-      "vite": [
-        "./dist/vite.d.ts"
-      ]
     }
   },
   "dependencies": {
