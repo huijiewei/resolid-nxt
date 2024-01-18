@@ -23,7 +23,7 @@ const RouteNProgressBar = ({ isLoading }: { isLoading: boolean }) => {
     >
       <div
         className={cx(
-          'fixed left-0 top-0 z-[5000] h-[3px] w-full bg-blue-300',
+          'fixed left-0 top-0 z-[5000] h-[3px] w-full bg-blue-400',
           'transition-[margin-left] ease-linear',
           `duration-[var(--animation-duration)]`,
           `ml-[var(--progress)]`,
