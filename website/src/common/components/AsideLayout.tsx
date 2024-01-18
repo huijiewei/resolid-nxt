@@ -1,19 +1,10 @@
-import { createContext } from '@resolid/nxt-ui';
-import { useState, type Dispatch, type PropsWithChildren, type SetStateAction } from 'react';
+import { useState, type PropsWithChildren } from 'react';
+import {
+  AsideLayoutDispatchProvider,
+  AsideLayoutStateProvider,
+  useAsideLayoutDispatch,
+} from '~/common/components/AsideLayoutContext';
 import { Menu } from '~/common/icons/Menu';
-
-const [AsideLayoutStateProvider, useAsideLayoutState] = createContext<boolean>({
-  name: 'AsideLayoutStateContext',
-  strict: true,
-});
-
-const [AsideLayoutDispatchProvider, useAsideLayoutDispatch] = createContext<Dispatch<SetStateAction<boolean>>>({
-  name: 'AsideLayoutDispatchContext',
-  strict: true,
-});
-
-// eslint-disable-next-line react-refresh/only-export-components
-export { useAsideLayoutDispatch, useAsideLayoutState };
 
 const AsideBar = () => {
   const setOpen = useAsideLayoutDispatch();

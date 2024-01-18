@@ -1,6 +1,6 @@
 import { cx } from '@resolid/nxt-ui';
 import { useTranslation } from 'react-i18next';
-import { useAsideLayoutDispatch } from '~/common/components/AsideLayout';
+import { useAsideLayoutDispatch } from '~/common/components/AsideLayoutContext';
 import { LocalizedNavLink } from '~/common/components/LocalizedLink';
 
 export type Menu = {
