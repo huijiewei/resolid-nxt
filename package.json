@@ -7,7 +7,8 @@
     "prepare": "husky install",
     "lint": "eslint --cache --ext .js,.jsx,.cjs,.mjs,.ts,.tsx .",
     "format": "prettier --write .",
-    "website:dev": "pnpm run --filter @resolid/nxt-run build && pnpm run --filter website dev",
+    "run:build": "pnpm run --filter @resolid/nxt-run build",
+    "website:dev": "pnpm run --filter website dev",
     "website:build": "pnpm run --filter website build",
     "website:serve": "pnpm run --filter website serve",
     "website:deploy": "pnpm run --filter website... build",
@@ -19,7 +20,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
-    "@types/node": "^20.11.4",
+    "@types/node": "^20.11.5",
     "@types/react": "^18.2.48",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
@@ -33,14 +34,14 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
-    "prettier": "^3.2.3",
+    "prettier": "^3.2.4",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
     "vite": "^5.0.11",
     "vite-tsconfig-paths": "^4.3.1",
-    "vitest": "^1.2.0"
+    "vitest": "^1.2.1"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": [
