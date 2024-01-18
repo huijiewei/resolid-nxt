@@ -22,6 +22,17 @@
 
 ## Dev
 
+Install dependencies:
+```shell
+pnpm install
+```
+
+To run for the first time, you need to run:
+```shell
+npm run run:build
+```
+
+Run website dev server:
 ```shell
 npm run website:dev
 ```
