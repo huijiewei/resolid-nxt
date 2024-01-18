@@ -15,11 +15,9 @@ import { Suspense, useState, type MouseEventHandler } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Outlet, useFetcher, useLocation, useRouteLoaderData } from 'react-router-dom';
-import { getLoginTo, useAuthUserDispatch, useAuthUserState } from '~/common/components/AuthUserProvider';
 import { Banner } from '~/common/components/Banner';
 import { LazyLoader } from '~/common/components/LazyLoader';
 import { LocaleSwitcher } from '~/common/components/LocaleSwitcher';
-import { LocalizedLink, LocalizedNavLink, getLocaleUrl } from '~/common/components/LocalizedLink';
 import { ThemeSwitcher } from '~/common/components/ThemeSwitcher';
 import { Close } from '~/common/icons/Close';
 import { Dashboard } from '~/common/icons/Dashboard';
@@ -29,6 +27,9 @@ import { Menu } from '~/common/icons/Menu';
 import { Settings } from '~/common/icons/Settings';
 import { UserCircle } from '~/common/icons/UserCircle';
 import { userIsAdmin } from '~/engine/modules/user/userUtils';
+import { getLoginTo, useAuthUserDispatch, useAuthUserState } from '~/extensions/auth/AuthUserContext';
+import { LocalizedLink, LocalizedNavLink } from '~/extensions/localized-link/LocalizedLink';
+import { getLocaleUrl } from '~/extensions/localized-link/localizedLinkUtils';
 import { LOCALES, type LocaleKey } from '~/i18n';
 
 const NavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> }) => {

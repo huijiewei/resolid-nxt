@@ -1,26 +1,6 @@
-import { createContext } from '@resolid/nxt-ui';
 import { useState, type PropsWithChildren } from 'react';
-import { AuthModal } from '~/common/components/AuthModal';
-
-// eslint-disable-next-line react-refresh/only-export-components
-export enum AuthAction {
-  NONE,
-  MODAL,
-  DIRECT,
-}
-
-type AuthDispatchContext = {
-  setAction: (action: AuthAction) => void;
-  resetAction: () => void;
-};
-
-const [AuthDispatchProvider, useAuthDispatch] = createContext<AuthDispatchContext>({
-  name: 'AuthDispatchContext',
-  strict: true,
-});
-
-// eslint-disable-next-line react-refresh/only-export-components
-export { useAuthDispatch };
+import { AuthAction, AuthDispatchProvider } from '~/extensions/auth/AuthContext';
+import { AuthModal } from '~/extensions/auth/AuthModal';
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   const [authActionState, setAuthActionState] = useState<AuthAction>(AuthAction.NONE);

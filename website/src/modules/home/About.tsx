@@ -1,9 +1,9 @@
 import { Button } from '@resolid/nxt-ui';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { AuthAction, useAuthDispatch } from '~/common/components/AuthProvider';
 import { DefaultLayout } from '~/common/components/DefaultLayout';
-import { LocalizedLink } from '~/common/components/LocalizedLink';
+import { AuthAction, useAuthDispatch } from '~/extensions/auth/AuthContext';
+import { LocalizedLink } from '~/extensions/localized-link/LocalizedLink';
 
 export default function HomeAbout() {
   const { t } = useTranslation('site');

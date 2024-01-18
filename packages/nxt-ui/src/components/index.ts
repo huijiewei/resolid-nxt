@@ -45,6 +45,7 @@ export * from './portal/Portal';
 export * from './progress/ProgressBar';
 export * from './provider/ColorModeScript';
 export * from './provider/NxtProvider';
+export * from './provider/useColorMode';
 export * from './radio/Radio';
 export * from './radio/RadioGroup';
 export * from './select/NativeSelect';

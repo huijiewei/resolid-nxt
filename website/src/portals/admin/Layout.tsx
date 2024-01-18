@@ -12,15 +12,15 @@ import { Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Outlet, useFetcher, useLocation } from 'react-router-dom';
-import { getLoginTo, useAuthUserDispatch, useAuthUserState } from '~/common/components/AuthUserProvider';
 import { Banner } from '~/common/components/Banner';
 import { LazyLoader } from '~/common/components/LazyLoader';
 import { LocaleSwitcher } from '~/common/components/LocaleSwitcher';
-import { LocalizedLink, LocalizedNavigate } from '~/common/components/LocalizedLink';
 import { ThemeSwitcher } from '~/common/components/ThemeSwitcher';
 import { Logout } from '~/common/icons/Logout';
 import { Settings } from '~/common/icons/Settings';
 import { UserCircle } from '~/common/icons/UserCircle';
+import { getLoginTo, useAuthUserDispatch, useAuthUserState } from '~/extensions/auth/AuthUserContext';
+import { LocalizedLink, LocalizedNavigate } from '~/extensions/localized-link/LocalizedLink';
 
 const AdminNavUser = () => {
   const { t } = useTranslation('common');

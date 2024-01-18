@@ -1,7 +1,7 @@
 import { cx } from '@resolid/nxt-ui';
 import { useTranslation } from 'react-i18next';
 import { useAsideLayoutDispatch } from '~/common/components/AsideLayoutContext';
-import { LocalizedNavLink } from '~/common/components/LocalizedLink';
+import { LocalizedNavLink } from '~/extensions/localized-link/LocalizedLink';
 
 export type Menu = {
   label: string;

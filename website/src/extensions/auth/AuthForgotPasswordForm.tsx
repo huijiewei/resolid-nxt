@@ -1,4 +1,3 @@
-import { zodResolver } from '@hookform/resolvers/zod';
 import type { TurnstileInstance } from '@marsidev/react-turnstile';
 import { useNxtFetcherForm } from '@resolid/nxt-run-form';
 import { Button, Input } from '@resolid/nxt-ui';
@@ -6,21 +5,14 @@ import { useEffect, useRef, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
-import { z } from 'zod';
-import { AuthModalAction, useAuthModalDispatch } from '~/common/components/AuthModal';
 import { FormError } from '~/common/components/FormError';
 import { FormTurnstile } from '~/common/components/FormTurnstile';
-import { LocalizedLink } from '~/common/components/LocalizedLink';
-
-const schema = z.object({
-  email: z.string().min(1).email(),
-  token: z.string().min(1),
-});
-
-export type AuthForgotPasswordFormData = z.infer<typeof schema>;
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const authForgotPasswordResolver = zodResolver(schema);
+import {
+  authForgotPasswordResolver,
+  type AuthForgotPasswordFormData,
+} from '~/extensions/auth/AuthForgotPasswordResolver';
+import { AuthModalAction, useAuthModalDispatch } from '~/extensions/auth/AuthModalContext';
+import { LocalizedLink } from '~/extensions/localized-link/LocalizedLink';
 
 export const AuthForgotPasswordForm = () => {
   const { t, i18n } = useTranslation('common');

@@ -1,6 +1,5 @@
 import { createContext } from '@resolid/nxt-ui';
 import { omit } from '@resolid/nxt-utils';
-import { useState, type PropsWithChildren } from 'react';
 import { createPath, createSearchParams, type Location, type To } from 'react-router-dom';
 import type { SessionUser } from '~/foundation/session';
 
@@ -19,22 +18,8 @@ const [AuthUserDispatchProvider, useAuthUserDispatch] = createContext<AuthUserDi
   strict: true,
 });
 
-// eslint-disable-next-line react-refresh/only-export-components
-export { useAuthUserDispatch, useAuthUserState };
+export { AuthUserDispatchProvider, AuthUserStateProvider, useAuthUserDispatch, useAuthUserState };
 
-export const AuthUserProvider = ({ children, user }: PropsWithChildren<{ user: SessionUser | null }>) => {
-  const [authUserState, setAuthUserState] = useState<SessionUser | null>(user);
-
-  return (
-    <AuthUserDispatchProvider
-      value={{ setUser: (user) => setAuthUserState(user), resetUser: () => setAuthUserState(null) }}
-    >
-      <AuthUserStateProvider value={authUserState}>{children}</AuthUserStateProvider>
-    </AuthUserDispatchProvider>
-  );
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
 export const getLoginTo = (pathname: string, location: Location) => {
   const to: To = {
     pathname: pathname,

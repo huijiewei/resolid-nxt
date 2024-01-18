@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import ResolidLogo from '~/assets/images/resolid-logo.svg';
-import { AuthLoginForm } from '~/common/components/AuthLoginForm';
 import { DefaultLayout } from '~/common/components/DefaultLayout';
+import { AuthLoginForm } from '~/extensions/auth/AuthLoginForm';
 
 export default function HomeLogin() {
   const { t } = useTranslation('common');

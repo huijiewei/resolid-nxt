@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import ResolidLogo from '~/assets/images/resolid-logo.svg';
-import { AuthForgotPasswordForm } from '~/common/components/AuthForgotPasswordForm';
 import { DefaultLayout } from '~/common/components/DefaultLayout';
+import { AuthForgotPasswordForm } from '~/extensions/auth/AuthForgotPasswordForm';
 
 export default function HomeForgotPassword() {
   const { t } = useTranslation();

@@ -4,10 +4,10 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { getLocale } from '~/common/components/LocalizedLink';
 import { MdxView } from '~/common/mdx/MdxView';
 import { mdxComponents as shared } from '~/common/mdx/mdxComponents';
 import { getMdxFileName, mdxHeaders, responseMdx, serializeMdx } from '~/common/utils/mdx';
+import { getLocale } from '~/extensions/localized-link/localizedLinkUtils';
 import { DEFAULT_LOCALE } from '~/i18n';
 
 const mdxComponents = {

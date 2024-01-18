@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { resolvePath, useSearchParams } from 'react-router-dom';
-import { useAuthModalDispatch } from '~/common/components/AuthModal';
-import { useAuthDispatch } from '~/common/components/AuthProvider';
-import { useAuthUserDispatch } from '~/common/components/AuthUserProvider';
-import { useLocalizedNavigate } from '~/common/components/LocalizedLink';
+import { useAuthDispatch } from '~/extensions/auth/AuthContext';
+import { useAuthModalDispatch } from '~/extensions/auth/AuthModalContext';
+import { useAuthUserDispatch } from '~/extensions/auth/AuthUserContext';
+import { useLocalizedNavigate } from '~/extensions/localized-link/useLocalizedNavigate';
 import type { SessionUser } from '~/foundation/session';
 
 type authData = {

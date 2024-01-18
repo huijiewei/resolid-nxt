@@ -502,6 +502,9 @@ importers:
       vfile:
         specifier: ^6.0.1
         version: 6.0.1
+      vite:
+        specifier: ^5.0.11
+        version: 5.0.11(@types/node@20.11.5)
 
 packages:
 

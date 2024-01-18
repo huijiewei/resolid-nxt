@@ -1,35 +1,14 @@
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useNxtFetcherForm } from '@resolid/nxt-run-form';
 import { Button, Checkbox, Input } from '@resolid/nxt-ui';
 import { Controller } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
-import { z } from 'zod';
-import { AuthContinue } from '~/common/components/AuthContinue';
-import { AuthModalAction, useAuthModalDispatch } from '~/common/components/AuthModal';
 import { FormError } from '~/common/components/FormError';
-import { LocalizedLink } from '~/common/components/LocalizedLink';
-import { useAuth } from '~/common/hooks/useAuth';
-
-const schema = z
-  .object({
-    email: z.string().min(1).email(),
-    username: z.string().min(3).max(15),
-    password: z.string().min(6),
-    confirmPassword: z.string().min(6),
-    agreeTerms: z.literal<boolean>(true),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    path: ['confirmPassword'],
-    params: {
-      i18n: 'not_match',
-    },
-  });
-
-export type AuthSignupFormData = z.infer<typeof schema>;
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const authSignupResolver = zodResolver(schema);
+import { AuthContinue } from '~/extensions/auth/AuthContinue';
+import { AuthModalAction, useAuthModalDispatch } from '~/extensions/auth/AuthModalContext';
+import { authSignupResolver, type AuthSignupFormData } from '~/extensions/auth/AuthSignupResolver';
+import { useAuth } from '~/extensions/auth/useAuth';
+import { LocalizedLink } from '~/extensions/localized-link/LocalizedLink';
 
 export const AuthSignupForm = () => {
   const { t, i18n } = useTranslation('common');

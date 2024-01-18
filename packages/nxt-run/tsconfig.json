@@ -5,8 +5,8 @@
     "baseUrl": ".",
     "jsx": "react-jsx",
     "paths": {
-      "@resolid/nxt-utils": ["../nxt-utils/src"]
+      "@resolid/nxt-utils": ["../nxt-utils/src"],
     },
-    "types": ["node"]
-  }
+    "types": ["node"],
+  },
 }

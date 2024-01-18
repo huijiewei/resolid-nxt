@@ -2,17 +2,17 @@ import { hashSync, verifySync } from '@node-rs/bcrypt';
 import { validateFormData } from '@resolid/nxt-run-form';
 import { server$ } from '@resolid/nxt-run/server';
 import type { RouteObject } from 'react-router-dom';
-import {
-  authForgotPasswordResolver,
-  type AuthForgotPasswordFormData,
-} from '~/common/components/AuthForgotPasswordForm';
-import { authLoginResolver, type AuthLoginFormData } from '~/common/components/AuthLoginForm';
-import type { AuthSignupFormData } from '~/common/components/AuthSignupForm';
-import { authSignupResolver } from '~/common/components/AuthSignupForm';
-import { getLocale } from '~/common/components/LocalizedLink';
+
 import { problem, success } from '~/common/utils/http';
 import { verifyToken } from '~/common/utils/trunstile';
 import { checkExistByEmail, checkExistByUsername, createUser, getUserByEmail } from '~/engine/modules/user/userService';
+import {
+  authForgotPasswordResolver,
+  type AuthForgotPasswordFormData,
+} from '~/extensions/auth/AuthForgotPasswordResolver';
+import { authLoginResolver, type AuthLoginFormData } from '~/extensions/auth/AuthLoginResolver';
+import { authSignupResolver, type AuthSignupFormData } from '~/extensions/auth/AuthSignupResolver';
+import { getLocale } from '~/extensions/localized-link/localizedLinkUtils';
 import { commitSession, destroySession, getSession, omitUser } from '~/foundation/session';
 import { getFixedT } from '~/i18n.server';
 

@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
-import { localizedRedirect } from '~/common/components/LocalizedLink';
+import { localizedRedirect } from '~/extensions/localized-link/localizedLinkUtils';
 
 // eslint-disable-next-line react-refresh/only-export-components
 const NotFound = lazy(() => import('~/portals/site/NotFound'));

@@ -1,7 +1,7 @@
 import { Button, type ButtonProps, type PrimitiveProps } from '@resolid/nxt-ui';
 import { useTranslation } from 'react-i18next';
 import { useLocation, type To } from 'react-router-dom';
-import { useLocalizedNavigate } from '~/common/components/LocalizedLink';
+import { useLocalizedNavigate } from '~/extensions/localized-link/useLocalizedNavigate';
 
 export type BackButtonProps = ButtonProps & { backTo?: To };
 

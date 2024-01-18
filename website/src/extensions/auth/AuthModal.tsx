@@ -1,26 +1,10 @@
-import { createContext, Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay } from '@resolid/nxt-ui';
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay } from '@resolid/nxt-ui';
 import { useState } from 'react';
-import { AuthForgotPasswordForm } from '~/common/components/AuthForgotPasswordForm';
-import { AuthLoginForm } from '~/common/components/AuthLoginForm';
-import { useAuthDispatch } from '~/common/components/AuthProvider';
-import { AuthSignupForm } from '~/common/components/AuthSignupForm';
-
-// eslint-disable-next-line react-refresh/only-export-components
-export enum AuthModalAction {
-  LOGIN,
-  SIGNUP,
-  FORGOT_PASSWORD,
-}
-
-type AuthModalDispatchContext = (action: AuthModalAction) => void;
-
-const [AuthModalDispatchProvider, useAuthModalDispatch] = createContext<AuthModalDispatchContext | undefined>({
-  name: 'AuthModalDispatchContext',
-  strict: false,
-});
-
-// eslint-disable-next-line react-refresh/only-export-components
-export { useAuthModalDispatch };
+import { useAuthDispatch } from '~/extensions/auth/AuthContext';
+import { AuthForgotPasswordForm } from '~/extensions/auth/AuthForgotPasswordForm';
+import { AuthLoginForm } from '~/extensions/auth/AuthLoginForm';
+import { AuthModalAction, AuthModalDispatchProvider } from '~/extensions/auth/AuthModalContext';
+import { AuthSignupForm } from '~/extensions/auth/AuthSignupForm';
 
 export const AuthModal = ({ opened }: { opened: boolean }) => {
   const { resetAction } = useAuthDispatch();

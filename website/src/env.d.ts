@@ -10,6 +10,7 @@ interface ImportMeta {
 
 declare global {
   namespace NodeJS {
+    // noinspection JSUnusedGlobalSymbols
     interface ProcessEnv {
       NODE_ENV: 'development' | 'production';
       NXT_DB_HOST: string;

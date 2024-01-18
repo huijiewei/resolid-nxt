@@ -6,7 +6,7 @@ import { isbot } from 'isbot';
 import { PassThrough, Readable } from 'node:stream';
 import { renderToPipeableStream } from 'react-dom/server';
 import { I18nextProvider } from 'react-i18next';
-import { getLocaleWithDefault } from '~/common/components/LocalizedLink';
+import { getLocaleWithDefault } from '~/extensions/localized-link/localizedLinkUtils';
 import { getInstance } from '~/i18n.server';
 
 const ABORT_DELAY = 5000;

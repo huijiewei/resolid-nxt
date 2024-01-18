@@ -8,10 +8,10 @@ import { useTranslation } from 'react-i18next';
 import { Outlet, ScrollRestoration, useLoaderData } from 'react-router-dom';
 import { z } from 'zod';
 import { makeZodI18nMap } from 'zod-i18n-map';
-import { AuthProvider } from '~/common/components/AuthProvider';
-import { AuthUserProvider } from '~/common/components/AuthUserProvider';
 import { LazyLoader } from '~/common/components/LazyLoader';
 import { RouteProgressBar } from '~/common/components/RouteProgressBar';
+import { AuthProvider } from '~/extensions/auth/AuthProvider';
+import { AuthUserProvider } from '~/extensions/auth/AuthUserProvider';
 import { getSessionUser, type SessionUser } from '~/foundation/session';
 
 export const loader = server$(async ({ request }) => {

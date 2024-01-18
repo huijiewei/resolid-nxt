@@ -1,28 +1,7 @@
-import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
+import type { PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
 import { useLocalStorage, useMediaQuery } from '../../hooks';
-import { createContext } from '../../primitives';
-
-export type ColorMode = 'system' | 'light' | 'dark';
-
-type ColorModeStateContext = { darkMode: boolean; colorMode: ColorMode };
-
-const [ColorModeStateProvider, useColorModeState] = createContext<ColorModeStateContext>({
-  name: 'ColorModeStateContext',
-  strict: true,
-});
-
-type ColorModeDispatchContext = {
-  setColorMode: Dispatch<SetStateAction<ColorMode>>;
-};
-
-const [ColorModeDispatchProvider, useColorModeDispatch] = createContext<ColorModeDispatchContext>({
-  name: 'ColorModeDispatchContext',
-  strict: true,
-});
-
-// eslint-disable-next-line react-refresh/only-export-components
-export { useColorModeDispatch, useColorModeState };
+import { ColorModeDispatchProvider, ColorModeStateProvider, type ColorMode } from './ColorModeContext';
 
 const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)';
 
