@@ -40,7 +40,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "dotenv": "^16.3.2",
-    "rollup": "^4.9.5"
+    "rollup": "^4.9.6"
   },
   "peerDependencies": {
     "@resolid/nxt-run": "*",
