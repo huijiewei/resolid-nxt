@@ -39,7 +39,7 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "dotenv": "^16.4.0",
+    "dotenv": "^16.4.1",
     "rollup": "^4.9.6"
   },
   "peerDependencies": {
