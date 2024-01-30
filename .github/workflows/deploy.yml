@@ -29,7 +29,7 @@ jobs:
       - name: Create env file
         shell: 'bash'
         run: |
-          echo "VITE_TURNSTILE_KEY=${{ secrets.TURNSTILE_KEY }}" >> .env
+          echo "VITE_TURNSTILE_KEY=${{ secrets.TURNSTILE_KEY }}" >> website/.env
 
       - name: Build
         shell: 'bash'
