@@ -87,7 +87,7 @@
     "react-helmet-async": "^2.0.4",
     "react-router-dom": "^6.21.3",
     "rollup": "^4.9.6",
-    "type-fest": "^4.10.1",
+    "type-fest": "^4.10.2",
     "vite": "^5.0.12",
     "vite-plugin-inspect": "^0.8.3"
   },

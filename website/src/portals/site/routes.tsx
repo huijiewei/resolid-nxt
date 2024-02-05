@@ -19,8 +19,14 @@ const routes: RouteObject[] = [
         Component: lazy(() => import('~/modules/home/Index')),
       },
       { path: 'about', Component: lazy(() => import('~/modules/home/About')) },
-      { path: 'login', Component: lazy(() => import('~/modules/home/Login')) },
-      { path: 'signup', Component: lazy(() => import('~/modules/home/Signup')) },
+      {
+        path: 'login',
+        lazy: () => import('~/modules/home/Login'),
+      },
+      {
+        path: 'signup',
+        lazy: () => import('~/modules/home/Signup'),
+      },
       { path: 'forgot-password', Component: lazy(() => import('~/modules/home/ForgotPassword')) },
       { path: 'terms', Component: lazy(() => import('~/modules/home/Terms')) },
       { path: 'privacy', Component: lazy(() => import('~/modules/home/Privacy')) },

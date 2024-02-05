@@ -23,7 +23,7 @@ export const AuthSignupForm = () => {
   } = useNxtFetcherForm<AuthSignupFormData>({
     mode: 'onSubmit',
     submitOptions: {
-      action: `/api/auth/signup?hl=${i18n.language}`,
+      action: `/signup?hl=${i18n.language}`,
     },
     resolver: authSignupResolver,
   });

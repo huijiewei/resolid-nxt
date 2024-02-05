@@ -35,7 +35,7 @@
     "react-i18next": "^14.0.1",
     "react-router-dom": "^6.21.3",
     "zod": "^3.22.4",
-    "zod-i18n-map": "^2.26.0"
+    "zod-i18n-map": "^2.27.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.0",
